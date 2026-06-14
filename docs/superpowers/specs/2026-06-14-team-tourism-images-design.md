@@ -33,6 +33,12 @@ Improve trust and visual consistency in two areas:
   licensed Wikimedia Commons, Unsplash, or Pexels images and record source and
   license/attribution in `assets/images/tourism/CREDITS.md`.
 - Store new optimized images as WebP under `assets/images/tourism/`.
+- Use the owner-provided desktop image
+  `465382576_27402833706026883_6960522537795147385_n.jpg` for walks and
+  quiet rest.
+- Use the owner-provided desktop image
+  `652216466_34272583262385192_4894032945407263329_n.jpg` for spiritual and
+  cultural places.
 - Keep consistent image proportions, subtle hover zoom, and working lightbox.
 - Keep all visible text and alt text localized through RO/RU/EN translations.
 
@@ -60,4 +66,3 @@ Improve trust and visual consistency in two areas:
 
 - `Fix team section and add Tudor Rotaru photo`
 - `Replace tourism people photos and update activity images`
-

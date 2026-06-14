@@ -12,6 +12,38 @@ support its residential rehabilitation positioning:
 The additions must feel calm, trustworthy, and rehabilitation-focused rather
 than like an entertainment resort or commercial medical clinic.
 
+## Main Hero Image
+
+Use the user-provided `D:\рабочая\1.webp` as the site's primary visual symbol
+and save it as `assets/images/hero-center.webp`.
+
+Use the image in three places:
+
+1. the main hero;
+2. the first center gallery tile;
+3. the Open Graph `og:image` metadata.
+
+On desktop, the hero fills the first viewport with the building kept almost
+fully visible. A soft dark-green and milky overlay warms the visual appearance,
+softens the sky, and gives the left-aligned text sufficient contrast while
+leaving the building visible toward the right. The original image file is not
+destructively edited.
+
+On mobile, show the image as a substantial separate panel above the hero copy
+on a light background. Do not reduce the building to a narrow strip or crop it
+aggressively.
+
+The hero uses the localized title and supporting copy for a residential
+recovery center in Moldova. Beneath it, show five localized trust badges:
+state accreditation, 6-12 month program, accommodation and meals, 20
+residential places, and Goianul Nou/Stăuceni.
+
+Add a localized image caption:
+
+- RO: `Centrul rezidențial Optima Fide, Goianul Nou, Stăuceni`
+- RU: `Резиденциальный центр Optima Fide, Гоянул Ноу, Стэучень`
+- EN: `Optima Fide residential center, Goianul Nou, Stăuceni`
+
 ## Page Structure
 
 ### Center Activities
@@ -33,8 +65,8 @@ trust/team/donation area.
 
 The section contains:
 
-- a large photographic feature using the user-provided `1.webp` image of the
-  Optima Fide center as the main image;
+- a large photographic feature using a suitable existing repository tourism
+  image;
 - an explicit localized label stating that outings are arranged by prior
   agreement and for an additional fee;
 - six destination cards: monasteries, landscapes and nature, the Dniester
@@ -43,9 +75,8 @@ The section contains:
 - a localized note explaining that outings depend on the participant's
   condition, program rules, weather, and prior agreement.
 
-Existing repository WebP/JPG tourism images will be reused for the destination
-cards. The main image is supplied by the project owner. No image with uncertain
-licensing will be introduced.
+Existing repository WebP/JPG tourism images will be reused for the feature and
+destination cards. No image with uncertain licensing will be introduced.
 
 ### Optional Services
 
@@ -99,6 +130,10 @@ Verify locally at desktop (1440px), tablet (768px), and mobile (375px):
 - prohibited legacy strings remain absent.
 
 After implementation, commit with:
+
+`Set center building as main hero image`
+
+and then:
 
 `Add recovery tourism and optional activity services`
 

@@ -2,15 +2,22 @@
 
 ## Goal
 
-Extend the Optima Fide landing page with three clearly separated sections that
-support its residential rehabilitation positioning:
+Strengthen the Optima Fide landing page as a clear and trustworthy residential
+rehabilitation offer. The page should help a person or family understand the
+place, daily life, included support, optional services, and first step without
+feeling pressured.
 
-1. healthy activities available at the center;
-2. optional recovery outings across Moldova;
-3. optional personal-care, consultation, and practical services.
+The work includes:
 
-The additions must feel calm, trustworthy, and rehabilitation-focused rather
-than like an entertainment resort or commercial medical clinic.
+1. a welcoming image-led hero;
+2. practical trust and offer sections;
+3. healthy activities available at the center;
+4. optional recovery outings across Moldova;
+5. optional personal-care, consultation, and practical services;
+6. a concise FAQ.
+
+The additions must feel warm, calm, trustworthy, and rehabilitation-focused
+rather than like an entertainment resort or commercial medical clinic.
 
 ## Main Hero Image
 
@@ -33,8 +40,10 @@ On mobile, show the image as a substantial separate panel above the hero copy
 on a light background. Do not reduce the building to a narrow strip or crop it
 aggressively.
 
-The hero uses the localized title and supporting copy for a residential
-recovery center in Moldova. Beneath it, show five localized trust badges:
+The hero uses the warm localized message "A place to pause, recover and begin
+again" and supporting copy explaining the residential recovery program.
+Provide three actions: request a consultation, view stay conditions, and call
+now. Beneath them, show five localized trust badges:
 state accreditation, 6-12 month program, accommodation and meals, 20
 residential places, and Goianul Nou/Stăuceni.
 
@@ -45,6 +54,58 @@ Add a localized image caption:
 - EN: `Optima Fide residential center, Goianul Nou, Stăuceni`
 
 ## Page Structure
+
+### Included in the Program
+
+Refine the current included-program section instead of adding a duplicate.
+Present eight concise offer cards immediately after the hero/intake area:
+accommodation, meals, daily rhythm, groups, family support, spirituality
+without pressure, center activities, and reintegration.
+
+### A Day at the Center
+
+Replace the current generic six-step recovery timeline with a localized
+"example daily rhythm" timeline. It explains that exact schedules can vary and
+shows a calm sequence from morning order and breakfast through meetings,
+responsibilities, personal work, physical activity, dinner, reflection, and
+quiet evening time.
+
+### Who the Program Is For
+
+Add a concise six-card section for people who want to leave addiction but
+cannot do it alone, families seeking help, people restarting after relapse,
+people whose home environment contains triggers or conflict, people needing a
+safe stable rhythm, and people rebuilding responsibility, work, and
+relationships.
+
+### First Step and Admission
+
+Strengthen the existing consultation panel immediately after the hero with the
+message that a first conversation does not oblige a person to enter the
+center. Provide clear actions to call, write on Telegram, or request a
+consultation.
+
+Add a practical admission section with these localized steps:
+
+1. call or message;
+2. initial confidential consultation;
+3. discuss the person's condition, needs, and motivation;
+4. agree on conditions and timing;
+5. prepare documents and personal belongings;
+6. arrive at the center;
+7. adapt during the first days.
+
+Include a concise "what to bring" list: documents, change of clothes, personal
+hygiene items, necessary personal belongings, and medicines only after prior
+agreement.
+
+### Why Optima Fide
+
+Use the current verified facts and statistics in a compact trust section:
+state accreditation, residential format, 20 places, `500+` people helped,
+`19 000+` consultations, calm Goianul Nou setting, family support, spiritual
+dimension without pressure, and experience supporting recovery from
+addiction. Do not introduce unverified claims.
 
 ### Accreditation Certificate
 
@@ -101,6 +162,41 @@ A visible localized disclaimer states that medical consultations, tests, and
 examinations are arranged through specialized professionals and institutions,
 are not provided independently by the center, and are coordinated separately.
 
+### Included Versus Paid Separately
+
+Immediately before the optional-services cards, include a clear two-column
+comparison:
+
+- the base program includes accommodation, meals, daily rhythm,
+  accompaniment, groups, family support, and activities at the center;
+- recovery outings, massage, hairdresser, consultations with specialized
+  professionals, tests and examinations, individual transport, and other
+  personal services are coordinated and paid separately.
+
+This comparison is part of the optional-services section and must not look like
+commercial pricing.
+
+### FAQ
+
+Add an accessible accordion near the end of the page before contacts. Include
+localized answers about an initial conversation, program duration, family
+contact without the participant, accommodation and meals, visits, separately
+paid services, medical consultations, how to begin, location, and
+confidentiality.
+
+### PDF Proposal
+
+The downloadable PDF proposal is explicitly deferred to a separate follow-up
+task after the updated website is complete and published. Do not add a
+non-working PDF download button in this implementation.
+
+### Family Support
+
+Rewrite the existing family section as a warm direct message to relatives
+seeking help for a loved one. Explain that the family can contact the center
+first, understand how to speak without pressure, and prepare a possible entry
+into the program. Keep a single clear "Talk to us" action.
+
 ## Localization
 
 All visible new content and image alternative text will use the existing
@@ -127,6 +223,8 @@ section.
 - No treatment, healing, or guaranteed-result claims are added.
 - Medical consultations, tests, and examinations are described only as being
   arranged through specialized professionals and institutions.
+- Spiritual support is presented as optional and without pressure.
+- Existing verified figures may be reused; no new numerical claims are added.
 
 ## Verification
 
@@ -136,6 +234,7 @@ Verify locally at desktop (1440px), tablet (768px), and mobile (375px):
 - no horizontal scrolling or overlapping text;
 - all images load and preserve aspect ratio;
 - lightbox, sticky CTA, map, form, and IBAN copy behavior still work;
+- FAQ accordions are keyboard-accessible;
 - browser console has no errors;
 - prohibited legacy strings remain absent.
 

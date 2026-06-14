@@ -12,6 +12,7 @@
   <meta property="og:url" content="https://nikonplevschi-ai.github.io/optimafide/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -612,6 +613,49 @@
     }
     .donation-photo { min-height: 520px; background-image: linear-gradient(180deg, rgba(255,253,248,.06), rgba(23,60,50,.14)), url("assets/images/donation-recovery-space.webp"); background-position: center; }
     .donation-note { margin-top: 12px; color: var(--green); font-weight: 800; }
+    .voices-section { background: linear-gradient(180deg, rgba(238,244,240,.74), rgba(255,253,248,.86)); }
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .voice-card {
+      position: relative;
+      min-height: 330px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.92);
+      padding: 26px;
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform .24s ease, box-shadow .24s ease;
+      overflow: hidden;
+    }
+    .voice-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .voice-card::before {
+      content: "“";
+      position: absolute;
+      top: -18px;
+      right: 18px;
+      color: rgba(186,145,72,.2);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 6.4rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .voice-quote { position: relative; z-index: 1; color: var(--text); font-size: .98rem; line-height: 1.62; }
+    .voice-person { margin-top: auto; padding-top: 20px; color: var(--green); font-weight: 900; }
+    .voice-note { margin-top: 5px; color: var(--muted); font-size: .78rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+    .voices-note {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.72);
+      padding: 18px 20px;
+      color: var(--muted);
+      box-shadow: var(--soft-shadow);
+    }
     .bank-list { display: grid; gap: 12px; margin-top: 20px; }
     details.bank-details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow: hidden; }
     details.bank-details summary {
@@ -735,6 +779,7 @@
       .hero-copy { padding-bottom: 0; }
       .stay-card { max-width: 560px; }
       .packages, .conditions-grid, .included-grid, .situation-grid, .activity-grid, .service-grid, .trust-grid, .admission-grid { grid-template-columns: 1fr 1fr; }
+      .voices-grid { grid-template-columns: 1fr 1fr; }
       .timeline { grid-template-columns: repeat(3, 1fr); }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-tile:first-child { grid-column: span 2; grid-row: auto; }
@@ -775,6 +820,8 @@
       .hero-badge { font-size: .68rem; min-height: 30px; }
       .intake { margin-top: -28px; }
       .stats-row, .packages, .conditions-grid, .included-grid, .timeline, .family-cards, .gallery-grid, .team-grid, .tourism-grid, .situation-grid, .activity-grid, .service-grid, .trust-grid, .admission-grid, .comparison-grid, .offer-grid { grid-template-columns: 1fr; }
+      .voices-grid { grid-template-columns: 1fr; }
+      .voice-card { min-height: auto; padding: 22px; }
       .tourism-feature { min-height: 520px; }
       .tourism-feature-copy { left: 22px; right: 22px; bottom: 24px; }
       .gallery-grid { grid-auto-rows: 220px; }
@@ -1275,6 +1322,49 @@
             </div></details>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section voices-section" id="voices">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="voicesEyebrow">Voci</div>
+          <h2 data-i18n="voicesTitle">Voci ale recuperării</h2>
+          <p data-i18n="voicesLead">Recuperarea începe adesea nu cu siguranță, ci cu o primă discuție sinceră, un mediu sigur și sprijin aproape. Numele au fost schimbate.</p>
+        </div>
+        <div class="voices-grid">
+          <article class="voice-card" data-reveal>
+            <p class="voice-quote" data-i18n="voice1Text"></p>
+            <div class="voice-person" data-i18n="voice1Person">Vitalie, 38 de ani</div>
+            <div class="voice-note" data-i18n="voiceChanged">nume schimbat</div>
+          </article>
+          <article class="voice-card" data-reveal>
+            <p class="voice-quote" data-i18n="voice2Text"></p>
+            <div class="voice-person" data-i18n="voice2Person">Sergiu, 31 de ani</div>
+            <div class="voice-note" data-i18n="voiceChanged">nume schimbat</div>
+          </article>
+          <article class="voice-card" data-reveal>
+            <p class="voice-quote" data-i18n="voice3Text"></p>
+            <div class="voice-person" data-i18n="voice3Person">Andrei, 44 de ani</div>
+            <div class="voice-note" data-i18n="voiceChanged">nume schimbat</div>
+          </article>
+          <article class="voice-card" data-reveal>
+            <p class="voice-quote" data-i18n="voice4Text"></p>
+            <div class="voice-person" data-i18n="voice4Person">Rita, 35 de ani</div>
+            <div class="voice-note" data-i18n="voiceChanged">nume schimbat</div>
+          </article>
+          <article class="voice-card" data-reveal>
+            <p class="voice-quote" data-i18n="voice5Text"></p>
+            <div class="voice-person" data-i18n="voice5Person">Mihail, 29 de ani</div>
+            <div class="voice-note" data-i18n="voiceChanged">nume schimbat</div>
+          </article>
+          <article class="voice-card" data-reveal>
+            <p class="voice-quote" data-i18n="voice6Text"></p>
+            <div class="voice-person" data-i18n="voice6Person">Ivan, 47 de ani</div>
+            <div class="voice-note" data-i18n="voiceChanged">nume schimbat</div>
+          </article>
+        </div>
+        <p class="voices-note" data-i18n="voicesNote">Numele au fost schimbate. Istoriile redau experiențe de recuperare și arată cât de importante sunt mediul sigur, ritmul zilnic și sprijinul apropiat.</p>
       </div>
     </section>
 
@@ -1915,6 +2005,23 @@
       familyPdfCta: "Descarcă oferta PDF pentru familie",
       offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Două materiale scurte: unul pentru familie, altul pentru parteneri și donatori.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", consultCta: "Contactați-ne",
       teamFunctionTudor: "Oferă sprijin de la egal la egal bazat pe experiență și înțelegere.",
+      voicesEyebrow: "Voci anonime",
+      voicesTitle: "Voci ale recuperării",
+      voicesLead: "Recuperarea începe adesea nu cu siguranță, ci cu o primă discuție sinceră, un mediu sigur și sprijin aproape. Numele au fost schimbate.",
+      voicesNote: "Numele au fost schimbate. Istoriile redau experiențe de recuperare și arată cât de importante sunt mediul sigur, ritmul zilnic și sprijinul apropiat.",
+      voiceChanged: "nume schimbat",
+      voice1Person: "Vitalie, 38 de ani",
+      voice1Text: "Mult timp am crezut că mă voi descurca singur. În centru m-a ajutat nu doar o discuție, ci ordinea de fiecare zi: trezirea, masa, responsabilitățile, grupurile, liniștea. A fost greu, dar aici s-a dovedit mai ușor decât acasă și în cercurile obișnuite.",
+      voice2Person: "Sergiu, 31 de ani",
+      voice2Text: "La început mi-a fost greu să accept regulile și ritmul. Dar tocmai stabilitatea m-a ajutat să mă opresc și să mă privesc sincer. Primele zile nu au fost simple, însă în centru a fost mai ușor să rezist: nu erau lângă mine vechile obiceiuri și oamenii care mă trăgeau înapoi.",
+      voice3Person: "Andrei, 44 de ani",
+      voice3Text: "Cel mai mult m-a surprins că nu am fost judecat. Mi s-a vorbit calm și direct. Acasă unele schimbări păreau aproape imposibile, dar aici, într-un alt mediu și cu un alt ritm, a devenit mai ușor să-mi recapăt somnul, ordinea și respectul față de mine.",
+      voice4Person: "Rita, 35 de ani",
+      voice4Text: "Mult timp am trăit în tensiune și nu credeam că pot începe din nou. În centru m-au ajutat lucrurile simple: ritmul liniștit, comunicarea, responsabilitățile, tăcerea și sprijinul fără judecată. A fost dificil, dar mai ușor decât în vechiul mediu.",
+      voice5Person: "Mihail, 29 de ani",
+      voice5Text: "Am venit fără prea multă încredere că ceva se poate schimba. Dar în centru a apărut o viață simplă: comunicare, lucru cu mine, sport, rugăciune dacă dorești, responsabilități. Nu pot spune că a fost ușor, dar ordinea, ocupația și lipsa cercului obișnuit m-au ajutat.",
+      voice6Person: "Ivan, 47 de ani",
+      voice6Text: "M-a ajutat faptul că aici nu sunt doar discuții, ci și viață în comunitate. Când lângă tine sunt oameni care încearcă și ei să se schimbe, este mai ușor să nu fugi de tine și să înveți treptat să trăiești altfel.",
       heroTitle: "Un loc unde te poți opri, te poți recupera și poți începe din nou",
       heroLead: "Program rezidențial de recuperare într-un centru acreditat Optima Fide: cazare, masă, ritm zilnic, comunitate terapeutică și sprijin pentru familie.",
       badgeDuration: "Program 6-12 luni", badgeFamily: "20 locuri rezidențiale", heroCaption: "Centrul rezidențial Optima Fide, Goianul Nou, Stăuceni", heroImageAlt: "Centrul rezidențial Optima Fide",
@@ -1956,6 +2063,23 @@
       familyPdfCta: "Скачать предложение PDF для семьи",
       offersEyebrow: "PDF-материалы", offersTitle: "Скачать предложение", offersLead: "Два коротких материала: для семьи и для партнёров или доноров.", offerFamilyTitle: "PDF для семьи", offerFamilyText: "Программа, условия, первые дни, что входит и как начать.", offerPartnerTitle: "PDF для партнёров", offerPartnerText: "Миссия, аккредитация, инфраструктура, результаты, партнёрство и реквизиты.", offerConsultTitle: "Консультация", offerConsultText: "Если ситуация срочная или непонятная, начните со спокойного разговора.", partnerPdfCta: "Скачать PDF", consultCta: "Связаться",
       teamFunctionTudor: "Оказывает поддержку «равный равному», основанную на опыте и понимании.",
+      voicesEyebrow: "Анонимные истории",
+      voicesTitle: "Голоса восстановления",
+      voicesLead: "Восстановление часто начинается не с уверенности, а с первого честного разговора, безопасной среды и поддержки рядом. Имена изменены.",
+      voicesNote: "Имена изменены. Истории передают личный опыт восстановления и показывают, как важны безопасная среда, ежедневный ритм и поддержка рядом.",
+      voiceChanged: "имя изменено",
+      voice1Person: "Виталий, 38 лет",
+      voice1Text: "Я долго думал, что справлюсь сам. В центре мне помог не один разговор, а ежедневный порядок: подъём, питание, обязанности, группы, тишина. Было сложно, но здесь оказалось легче, чем дома и в привычных кругах. Постепенно я начал снова чувствовать ответственность за свою жизнь.",
+      voice2Person: "Сергей, 31 год",
+      voice2Text: "Сначала мне было трудно принять правила и ритм. Но именно стабильность помогла мне остановиться и посмотреть на себя честно. Первые дни были непростыми, но в центре было легче держаться: рядом не было прежних привычек и людей, которые тянули назад.",
+      voice3Person: "Андрей, 44 года",
+      voice3Text: "Больше всего меня удивило, что меня не осуждали. Со мной говорили спокойно и прямо. Дома некоторые изменения казались почти невозможными, а здесь, в другой среде и с другим ритмом, стало легче возвращать сон, порядок, уважение к себе и желание быть полезным семье.",
+      voice4Person: "Рита, 35 лет",
+      voice4Text: "Я долго жила в напряжении и не верила, что смогу начать заново. В центре мне помогли простые вещи: спокойный ритм, общение, обязанности, тишина и поддержка без осуждения. Было трудно, но здесь оказалось легче, чем в прежней обстановке.",
+      voice5Person: "Михаил, 29 лет",
+      voice5Text: "Я приехал без особой веры, что что-то изменится. Но в центре появилась простая жизнь: общение, работа над собой, спорт, молитва по желанию, обязанности. Не скажу, что было легко, но порядок, занятость и отсутствие привычного круга помогали мне двигаться дальше.",
+      voice6Person: "Иван, 47 лет",
+      voice6Text: "Мне помогло то, что здесь есть не только разговоры, но и жизнь в общине. Когда рядом люди, которые тоже стараются меняться, легче не убегать от себя и постепенно учиться жить по-другому.",
       heroTitle: "Место, где можно остановиться, восстановиться и начать заново", heroLead: "Резиденциальная программа восстановления в аккредитованном центре Optima Fide: проживание, питание, ежедневный ритм, терапевтическое сообщество и поддержка семьи.", badgeDuration: "Программа 6-12 месяцев", badgeFamily: "20 резиденциальных мест", heroCaption: "Резиденциальный центр Optima Fide, Гоянул Ноу, Стэучень", heroImageAlt: "Резиденциальный центр Optima Fide", intakeLead: "Первый разговор не обязывает к поступлению. Мы спокойно выслушаем, объясним возможные шаги и сохраним конфиденциальность.", firstCall: "Позвонить", firstTelegram: "Написать в Telegram",
       situationEyebrow: "Первый шаг", situationTitle: "Что сейчас у вас происходит?", situationLead: "Выберите близкую ситуацию. Мы начнём со спокойного конфиденциального разговора.", sitCta: "Получить консультацию", sit1Title: "Мне нужна помощь", sit1Text: "Я хочу остановиться, но одному не получается.", sit2Title: "Помощь нужна близкому", sit2Text: "Я не знаю, как поговорить и что делать дальше.", sit3Title: "Нужна программа с проживанием", sit3Text: "Дома много соблазнов, конфликтов или нестабильности.", sit4Title: "Был срыв", sit4Text: "Нужен новый старт без осуждения.", sit5Title: "Нужна консультация семьи", sit5Text: "Хотим понять, как правильно поддерживать.",
       forWhomEyebrow: "Кому подходит", forWhomTitle: "Когда смена среды может стать новым началом", who1: "Когда одному не получается остановиться", who2: "Когда семья ищет помощь для близкого", who3: "Когда после срыва нужен новый старт", who4: "Когда дома много соблазнов и конфликтов", who5: "Когда нужна безопасная среда и стабильный ритм", who6: "Когда нужно восстановить ответственность и отношения",
@@ -1992,6 +2116,23 @@
       familyPdfCta: "Download the family PDF offer",
       offersEyebrow: "PDF materials", offersTitle: "Download the right offer", offersLead: "Two short materials: one for families and one for partners or donors.", offerFamilyTitle: "Family PDF", offerFamilyText: "Program, conditions, first days, what is included and how to begin.", offerPartnerTitle: "Partner PDF", offerPartnerText: "Mission, accreditation, infrastructure, results, partnership and bank details.", offerConsultTitle: "Consultation", offerConsultText: "If the situation is urgent or unclear, begin with a calm conversation.", partnerPdfCta: "Download PDF", consultCta: "Contact us",
       teamFunctionTudor: "Provides peer-to-peer support grounded in experience and understanding.",
+      voicesEyebrow: "Anonymous stories",
+      voicesTitle: "Voices of recovery",
+      voicesLead: "Recovery often begins not with certainty, but with a first honest conversation, a safe environment and support nearby. Names have been changed.",
+      voicesNote: "Names have been changed. These stories reflect recovery experiences and show the importance of a safe environment, daily rhythm and support nearby.",
+      voiceChanged: "name changed",
+      voice1Person: "Vitalie, 38",
+      voice1Text: "I used to think I could handle everything on my own. In the center, it was not just one conversation that helped me, but the daily order: waking up, meals, responsibilities, groups and silence. It was difficult, but here it felt easier than at home and in my usual circles.",
+      voice2Person: "Sergiu, 31",
+      voice2Text: "At first it was hard for me to accept the rules and rhythm. But that stability helped me stop and look at myself honestly. The first days were not easy, yet it was easier to hold on in the center because the old habits and people pulling me back were not around.",
+      voice3Person: "Andrei, 44",
+      voice3Text: "What surprised me most was that I was not judged. People spoke to me calmly and directly. At home some changes felt almost impossible, but here, in a different environment and with a different rhythm, it became easier to recover sleep, order and self-respect.",
+      voice4Person: "Rita, 35",
+      voice4Text: "For a long time I lived in tension and did not believe I could start again. In the center, simple things helped me: a calm rhythm, communication, responsibilities, silence and support without judgment. It was difficult, but easier than in my old environment.",
+      voice5Person: "Mihail, 29",
+      voice5Text: "I arrived without much belief that anything could change. But in the center, a simple life appeared: communication, work on myself, sport, prayer if desired and responsibilities. I cannot say it was easy, but order, activity and distance from the old circle helped me move forward.",
+      voice6Person: "Ivan, 47",
+      voice6Text: "What helped me was that here there are not only conversations, but also life in community. When people around you are also trying to change, it is easier not to run away from yourself and to gradually learn to live differently.",
       heroTitle: "A place to pause, recover and begin again", heroLead: "A residential recovery program at the accredited Optima Fide center: accommodation, meals, daily rhythm, therapeutic community and family support.", badgeDuration: "6-12 month program", badgeFamily: "20 residential places", heroCaption: "Optima Fide residential center, Goianul Nou, Stăuceni", heroImageAlt: "Optima Fide residential center", intakeLead: "The first conversation does not oblige you to enter the center. We listen respectfully, explain possible steps and keep it confidential.", firstCall: "Call", firstTelegram: "Write on Telegram",
       situationEyebrow: "First step", situationTitle: "What is happening in your life right now?", situationLead: "Choose the closest situation. We will begin with a calm, confidential conversation.", sitCta: "Request consultation", sit1Title: "I need help", sit1Text: "I want to stop, but cannot do it alone.", sit2Title: "A loved one needs help", sit2Text: "I do not know how to talk or what to do next.", sit3Title: "I need a residential program", sit3Text: "Home has too many triggers, conflicts or instability.", sit4Title: "There was a relapse", sit4Text: "A new start is needed without judgment.", sit5Title: "Our family needs guidance", sit5Text: "We want to understand how to offer healthy support.",
       forWhomEyebrow: "Who it is for", forWhomTitle: "When a change of environment can become a new beginning", who1: "When stopping alone is not working", who2: "When a family seeks help for a loved one", who3: "When a new start is needed after relapse", who4: "When home has triggers and conflict", who5: "When a safe environment and stable rhythm are needed", who6: "When responsibility and relationships need rebuilding",

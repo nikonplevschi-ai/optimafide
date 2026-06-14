@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,7 +61,7 @@
     body.menu-open { overflow: hidden; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
-    h1, h2, h3 { margin: 0; font-family: "Playfair Display", Georgia, serif; line-height: 1.08; color: var(--green); text-wrap: balance; }
+    h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 700; line-height: 1.04; color: var(--green); text-wrap: balance; }
     p { margin: 0; }
     button, input, select, textarea { font: inherit; }
     .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
@@ -71,7 +71,8 @@
       margin-bottom: 14px;
       color: var(--gold);
       font-size: .78rem;
-      font-weight: 800;
+      font-family: Inter, sans-serif;
+      font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
     }
@@ -113,9 +114,10 @@
       position: fixed;
       inset: 0 0 auto;
       z-index: 50;
-      background: rgba(255,253,248,.92);
-      border-bottom: 1px solid rgba(226,215,198,.86);
-      backdrop-filter: blur(14px);
+      background: rgba(255,253,248,.94);
+      border-bottom: 1px solid rgba(226,215,198,.78);
+      box-shadow: 0 8px 28px rgba(38,49,45,.045);
+      backdrop-filter: blur(16px);
     }
     .nav {
       height: 78px;
@@ -128,24 +130,29 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      min-width: 218px;
+      min-width: 210px;
       color: var(--green);
       text-decoration: none;
     }
     .brand img {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--white);
       object-fit: contain;
       padding: 4px;
     }
-    .brand strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 1.15rem; }
+    .brand strong { display: block; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.45rem; font-weight: 700; letter-spacing: .01em; line-height: 1; }
     .brand span span { display: block; color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .nav-links { display: flex; align-items: center; gap: 15px; }
-    .nav-links a { color: var(--text); font-size: .9rem; font-weight: 800; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 18px; }
+    .nav-links a { position: relative; color: var(--text); font-family: Inter, sans-serif; font-size: .92rem; font-weight: 600; letter-spacing: .01em; text-decoration: none; transition: color .2s ease; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: center; transition: transform .2s ease; }
+    .nav-links a:hover { color: var(--green-2); }
+    .nav-links a:hover::after { transform: scaleX(1); }
     .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .nav-actions > .btn.gold { min-height: 44px; padding-inline: 20px; background: #d1ad66; box-shadow: 0 8px 22px rgba(186,145,72,.18); }
+    .nav-actions > .btn.gold:hover { background: #d8b873; }
     .lang-switch {
       display: flex;
       align-items: center;
@@ -314,7 +321,7 @@
       margin-top: 34px;
     }
     .stat { background: var(--card); padding: 26px; }
-    .stat strong { display: block; color: var(--green); font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
+    .stat strong { display: block; color: var(--green); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
     .stat span { display: block; margin-top: 8px; color: var(--muted); font-size: .78rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
     .packages {
       display: grid;
@@ -558,7 +565,7 @@
       place-items: center;
       color: var(--gold);
       background: linear-gradient(135deg, rgba(23,60,50,.95), rgba(47,93,80,.86));
-      font-family: "Playfair Display", Georgia, serif;
+      font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 4rem;
       font-weight: 800;
     }
@@ -630,7 +637,7 @@
     .telegram-cta-copy h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
     .telegram-cta-copy p { margin-top: 10px; color: var(--muted); }
     .telegram-cta-actions { display: flex; flex-wrap: wrap; gap: 10px; flex: 0 0 auto; }
-    .telegram-contact-number { display: inline-flex; margin-top: 18px; color: var(--green); font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; text-decoration: none; }
+    .telegram-contact-number { display: inline-flex; margin-top: 18px; color: var(--green); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; text-decoration: none; }
     .telegram-request-form { width: min(100%, 460px); display: grid; gap: 13px; flex: 0 0 460px; }
     .telegram-request-form textarea { min-height: 118px; }
     .telegram-request-form button:disabled { opacity: .62; cursor: wait; }
@@ -662,7 +669,7 @@
       top: -18px;
       right: 18px;
       color: rgba(186,145,72,.2);
-      font-family: "Playfair Display", Georgia, serif;
+      font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 6.4rem;
       line-height: 1;
       pointer-events: none;
@@ -726,7 +733,7 @@
     .form-note { min-height: 24px; color: var(--green); font-weight: 800; }
     .site-footer { background: var(--green); color: rgba(255,255,255,.78); padding: 42px 0; }
     .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: end; }
-    .site-footer strong { display: block; color: var(--white); font-family: "Playfair Display", Georgia, serif; font-size: 1.35rem; margin-bottom: 8px; }
+    .site-footer strong { display: block; color: var(--white); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 16px; }
     .footer-links a { color: var(--white); font-weight: 800; text-decoration: none; }
     .lightbox {
@@ -777,7 +784,7 @@
     }
     .contact-modal-card h2 { padding-right: 42px; font-size: clamp(1.75rem, 4vw, 2.4rem); }
     .contact-modal-card p { margin-top: 12px; color: var(--muted); }
-    .contact-modal-number { display: block; margin-top: 22px; color: var(--green); font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 900; text-decoration: none; }
+    .contact-modal-number { display: block; margin-top: 22px; color: var(--green); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 700; text-decoration: none; }
     .contact-modal-actions { display: grid; gap: 10px; margin-top: 24px; }
     .contact-modal-close {
       position: absolute;
@@ -836,7 +843,9 @@
         box-shadow: var(--shadow);
       }
       .nav-links.open { display: flex; }
+      .nav-links.open { animation: navMenuIn .22s ease both; }
       .nav-links a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+      .nav-links a::after { display: none; }
       .menu-toggle { display: inline-flex; }
       .nav-actions .btn { display: none; }
       .hero-layout, .intake-form, .family-layout, .donation-layout, .contact-layout, .accreditation-card { grid-template-columns: 1fr; }
@@ -855,6 +864,7 @@
       .nav-links { top: 68px; }
       .brand { min-width: auto; }
       .brand img { width: 42px; height: 42px; }
+      .brand strong { font-size: 1.28rem; }
       .brand span span { display: none; }
       .lang-switch a { width: 31px; }
       .hero { min-height: 92vh; padding-top: 112px; }
@@ -904,6 +914,10 @@
       .footer-grid { grid-template-columns: 1fr; }
       .mobile-cta { display: grid; }
       .site-footer { padding-bottom: 96px; }
+    }
+    @keyframes navMenuIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>

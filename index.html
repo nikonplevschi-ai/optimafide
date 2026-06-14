@@ -437,9 +437,9 @@
       <a href="#donatii" class="btn-donate-nav">Dona&#x21b;i</a>
       <div class="lang-switch" aria-label="Schimba limba">
         <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21M12 3C9.6 5.5 8.4 8.5 8.4 12S9.6 18.5 12 21"/></svg>
-        <a href="#" class="active" aria-current="page">RO</a>
-        <a href="https://optimafide.md/ru/" target="_blank" rel="noopener">RU</a>
-        <a href="https://optimafide.md/en/" target="_blank" rel="noopener">EN</a>
+        <a href="#" class="active" aria-current="page" data-lang="ro">RO</a>
+        <a href="#" data-lang="ru">RU</a>
+        <a href="#" data-lang="en">EN</a>
       </div>
     </nav>
     <div class="burger" id="burger" aria-label="Meniu" role="button">
@@ -459,9 +459,9 @@
   <a href="#donatii" class="mobile-link">Dona&#x21b;i &#x2665;</a>
   <div class="lang-switch" aria-label="Schimba limba">
     <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21M12 3C9.6 5.5 8.4 8.5 8.4 12S9.6 18.5 12 21"/></svg>
-    <a href="#" class="active" aria-current="page">RO</a>
-    <a href="https://optimafide.md/ru/" target="_blank" rel="noopener">RU</a>
-    <a href="https://optimafide.md/en/" target="_blank" rel="noopener">EN</a>
+    <a href="#" class="active" aria-current="page" data-lang="ro">RO</a>
+    <a href="#" data-lang="ru">RU</a>
+    <a href="#" data-lang="en">EN</a>
   </div>
 </div>
 
@@ -973,6 +973,464 @@
   legacyCopyButton.hidden = true;
   document.body.appendChild(legacyCopyButton);
 
+  var mapIcon = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--blue-mid);flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
+  var globeIcon = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>';
+  var translations = {
+    ro: {
+      title: 'Fundația „Optima Fide” — Centru de Reabilitare Moldova',
+      brandSub: 'Fundație de Caritate',
+      metaDescription: 'Fundația „Optima Fide” oferă reabilitare terapeutică pentru persoanele dependente de substanțe psihoactive. Acreditată de stat. Chișinău, Moldova.',
+      ogDescription: '10 ani de reabilitare, peste 19 000 consultații și peste 500 clienți care au trecut cursul de reabilitare. Suntem alături de cei care vor să se schimbe.',
+      nav: ['Despre noi', 'Programe', 'Impact', 'Centru', 'Contacte', 'Donați'],
+      mobileNav: ['Despre noi', 'Programe', 'Impact', 'Centrul nostru', 'Contacte', 'Donați ♥'],
+      footerNav: ['Despre noi', 'Programe', 'Impact', 'Centrul nostru', 'Donații', 'Contacte'],
+      hero: {
+        badge: 'Acreditat de Stat · 10 ani de activitate',
+        title: 'Reabilitare.<br>Speranță. <em>Schimbare.</em>',
+        sub: 'Fundația „Optima Fide” oferă programe terapeutice profesioniste pentru persoanele care doresc să depășească dependența și să-și reconstruiască viața.',
+        primary: 'Susțineți misiunea noastră',
+        secondary: 'Programele noastre',
+        stats: ['Consultații acordate', 'Clienți reabilitați', 'Ani de experiență', 'Locuri rezidențiale']
+      },
+      about: {
+        label: 'Despre noi',
+        title: 'Fundația „Optima Fide”',
+        sub: 'O organizație non-comercială fondată pe 18 septembrie 2014 la Chișinău.',
+        paragraphs: [
+          'Timp de peste 10 ani, am construit un centru specializat de reabilitare terapeutică pentru persoanele dependente de substanțe psihoactive. Programul nostru rezidențial durează 6–12 luni și combină abordările psihologice, spirituale și sociale.',
+          'Credem că fiecare persoană merită o a doua șansă. Abordarea noastră holistică sprijină nu doar recuperarea fizică, ci și reintegrarea socială deplină: familie, muncă, comunitate.',
+          'Evaluările externe confirmă eficacitatea metodelor noastre. Participanții raportează o calitate îmbunătățită a vieții, relații familiale mai sănătoase și o nouă perspectivă asupra viitorului.'
+        ],
+        accredTitle: 'Certificat de Acreditare AS nr. 0000117',
+        accredText: 'Inspectoratul Social de Stat al Republicii Moldova · 10 octombrie 2025<br>IDNO: 1014620007164'
+      },
+      programs: {
+        label: 'Ce oferim',
+        title: 'Programele noastre',
+        sub: 'Fiecare program este adaptat nevoilor individuale și susținut de specialiști calificați.',
+        cards: [
+          ['Reabilitare Rezidențială', 'Program terapeutic de 6–12 luni pentru persoanele dependente de alcool și substanțe psihoactive. Capacitate: 20 rezidenți. Centrul este situat în or. Stăuceni, s. Golanul Nou.'],
+          ['Ecologie', 'Program de recuperare prin muncă și interacțiune cu natura. Activitățile în aer liber, grădinăritul și îngrijirea mediului contribuie la restabilirea echilibrului interior.'],
+          ['„Подъём” — Grup Motivațional', 'Întâlniri regulate de suport și motivare pentru persoanele aflate în diferite etape ale recuperării. Spațiu sigur pentru împărtășirea experiențelor și construirea comunității.'],
+          ['Asistență pentru Refugiați', 'Sprijin umanitar și psihologic pentru persoanele strămutate și familiile care au nevoie de ajutor urgent. Consultații, asistență socială și suport emoțional.'],
+          ['Centrul Terapeutic Multifuncțional', 'CTM integrează diverse servicii de sănătate mentală și suport social, oferind îngrijire complexă adaptată fiecărei persoane în parte.']
+        ]
+      },
+      impact: {
+        label: 'Impactul nostru',
+        title: 'Cifre care vorbesc',
+        sub: 'Date confirmate de evaluarea externă independentă.',
+        stats: ['Consultații acordate', 'Clienți care au trecut cursul', 'Locuri rezidențiale', 'Luni de program', 'Ani de activitate'],
+        quote: '„Evaluarea externă a confirmat că beneficiarii programului raportează o calitate îmbunătățită a vieții, relații familiale mai sănătoase și o reintegrare socială de succes.”',
+        cite: '— Raportul evaluării externe independente a Fundației „Optima Fide”'
+      },
+      gallery: {
+        label: 'Centrul nostru',
+        title: 'Locul unde se naște schimbarea',
+        sub: 'Centrul de reabilitare din or. Stăuceni — un spațiu sigur și cald, departe de tentații.',
+        alts: ['Sala de mese a Centrului Optima Fide', 'Camera rezidențială a centrului', 'Holul renovat al centrului', 'Certificat de acreditare', 'Scara interioară a centrului de reabilitare', 'Activitate terapeutică de grup', 'Întâlnire comunitară în centru', 'Moment de sărbătoare în comunitate']
+      },
+      process: {
+        label: 'Procesul',
+        title: 'Cum funcționează programul',
+        sub: 'Un traseu clar, sprijinit de profesioniști la fiecare etapă.',
+        steps: [
+          ['Contactare & Evaluare', 'Sunați-ne sau scrieți-ne. Facem o evaluare inițială gratuită a situației și nevoilor.'],
+          ['Admitere în Program', 'Stabilim împreună un plan personalizat și primim rezidentul în centrul nostru.'],
+          ['Reabilitare Activă', '6–12 luni de terapie, activități structurate, suport psihologic și spiritual zilnic.'],
+          ['Reintegrare Socială', 'Pregătire pentru ieșire, sprijin în găsirea muncii, suport continuu post-program.']
+        ]
+      },
+      partners: {
+        label: 'Parteneri',
+        title: 'Susținuți de organizații internaționale',
+        sub: 'Misiunea noastră este posibilă datorită partenerilor care cred în schimbare.',
+        cards: ['Parteneriat din 2018<br>Organizație catolică germană de solidaritate', 'Sprijin de lungă durată<br>Cooperare în domeniu social', 'Sprijin umanitar internațional']
+      },
+      donate: {
+        label: 'Ajutați-ne',
+        title: 'Fiecare leu contează',
+        sub: 'Donația dvs. sprijină direct programul de reabilitare și permite mai multor persoane să-și reconstruiască viața. Fundația „Optima Fide” este acreditată de stat și activează cu transparență deplină.',
+        toggle: 'Toate detaliile',
+        labels: {
+          beneficiary: 'Beneficiar',
+          bank: 'Banca',
+          account: 'Cont',
+          correspondent: 'Banca corespondentă',
+          correspondentSwift: 'SWIFT corespondent'
+        },
+        copy: 'Copiază IBAN',
+        copied: 'Copiat',
+        note: 'Donațiile persoanelor juridice sunt deductibile fiscal conform legislației Republicii Moldova.',
+        official: 'Site web oficial'
+      },
+      contacts: {
+        label: 'Contacte',
+        title: 'Suntem aici pentru dvs.',
+        sub: 'Nu ezitați să ne contactați — fiecare pas contează.',
+        dataTitle: 'Date de contact',
+        phone: 'Telefon',
+        email: 'Email',
+        legal: 'Sediu juridic',
+        rehab: 'Centrul de Reabilitare',
+        website: 'Website',
+        mapTitle: 'Cum ajungeți la noi',
+        mapLink: 'str. Gloriei 4, s. Golanul Nou, or. Stăuceni — Deschide în Google Maps →',
+        directorTitle: 'Director: Ruslan Magari',
+        directorText: 'Suntem disponibili pentru consultații telefonice în zilele lucrătoare, 9:00–17:00. Pentru urgențe, contactați-ne oricând prin Telegram <a href="https://t.me/PRICAL_OPTIMAFIDE" target="_blank" rel="noopener">@PRICAL_OPTIMAFIDE</a>.',
+        mapFrameTitle: 'Locația Centrului de Reabilitare Optima Fide'
+      },
+      footer: '© 2014–2026 Fundația „Optima Fide” · IDNO 1014620007164 · Chișinău, Moldova · <a href="mailto:optimafide.info@gmail.com" style="color:rgba(255,255,255,0.45)">optimafide.info@gmail.com</a>'
+    },
+    ru: {
+      title: 'Фонд «Optima Fide» — центр реабилитации в Молдове',
+      brandSub: 'Благотворительный фонд',
+      metaDescription: 'Фонд «Optima Fide» предлагает терапевтическую реабилитацию для людей с зависимостью от психоактивных веществ. Государственная аккредитация. Кишинёв, Молдова.',
+      ogDescription: '10 лет реабилитационной работы, более 19 000 консультаций и более 500 клиентов, прошедших курс реабилитации.',
+      nav: ['О нас', 'Программы', 'Влияние', 'Центр', 'Контакты', 'Помочь'],
+      mobileNav: ['О нас', 'Программы', 'Влияние', 'Наш центр', 'Контакты', 'Помочь ♥'],
+      footerNav: ['О нас', 'Программы', 'Влияние', 'Наш центр', 'Пожертвования', 'Контакты'],
+      hero: {
+        badge: 'Государственная аккредитация · 10 лет деятельности',
+        title: 'Реабилитация.<br>Надежда. <em>Изменение.</em>',
+        sub: 'Фонд «Optima Fide» предлагает профессиональные терапевтические программы для людей, которые хотят преодолеть зависимость и восстановить свою жизнь.',
+        primary: 'Поддержать нашу миссию',
+        secondary: 'Наши программы',
+        stats: ['Консультаций проведено', 'Клиентов прошли курс', 'Лет опыта', 'Резидентных мест']
+      },
+      about: {
+        label: 'О нас',
+        title: 'Фонд «Optima Fide»',
+        sub: 'Некоммерческая организация, основанная 18 сентября 2014 года в Кишинёве.',
+        paragraphs: [
+          'Более 10 лет мы развиваем специализированный центр терапевтической реабилитации для людей с зависимостью от психоактивных веществ. Резидентная программа длится 6–12 месяцев и объединяет психологический, духовный и социальный подходы.',
+          'Мы верим, что каждый человек заслуживает второго шанса. Наш целостный подход поддерживает не только физическое восстановление, но и полноценную социальную реинтеграцию: семью, работу и сообщество.',
+          'Внешние оценки подтверждают эффективность наших методов. Участники отмечают улучшение качества жизни, более здоровые семейные отношения и новый взгляд на будущее.'
+        ],
+        accredTitle: 'Сертификат аккредитации AS № 0000117',
+        accredText: 'Государственная социальная инспекция Республики Молдова · 10 октября 2025<br>IDNO: 1014620007164'
+      },
+      programs: {
+        label: 'Что мы предлагаем',
+        title: 'Наши программы',
+        sub: 'Каждая программа адаптируется к индивидуальным потребностям и сопровождается квалифицированными специалистами.',
+        cards: [
+          ['Резидентная реабилитация', 'Терапевтическая программа 6–12 месяцев для людей с зависимостью от алкоголя и психоактивных веществ. Вместимость: 20 резидентов. Центр расположен в г. Стэучень, с. Голанул Ноу.'],
+          ['Экология', 'Программа восстановления через труд и взаимодействие с природой. Работа на свежем воздухе, садоводство и забота о среде помогают вернуть внутреннее равновесие.'],
+          ['«Подъём» — мотивационная группа', 'Регулярные встречи поддержки и мотивации для людей на разных этапах восстановления. Безопасное пространство для обмена опытом и укрепления сообщества.'],
+          ['Помощь беженцам', 'Гуманитарная и психологическая поддержка перемещённых лиц и семей, которым нужна срочная помощь. Консультации, социальная помощь и эмоциональная поддержка.'],
+          ['Многофункциональный терапевтический центр', 'ЦТМ объединяет услуги психического здоровья и социальной поддержки, предлагая комплексную помощь, адаптированную к каждому человеку.']
+        ]
+      },
+      impact: {
+        label: 'Наше влияние',
+        title: 'Цифры, которые говорят сами за себя',
+        sub: 'Данные подтверждены независимой внешней оценкой.',
+        stats: ['Консультаций проведено', 'Клиентов прошли курс', 'Резидентных мест', 'Месяцев программы', 'Лет деятельности'],
+        quote: '«Внешняя оценка подтвердила, что участники программы отмечают улучшение качества жизни, более здоровые семейные отношения и успешную социальную реинтеграцию.»',
+        cite: '— Отчёт независимой внешней оценки фонда «Optima Fide»'
+      },
+      gallery: {
+        label: 'Наш центр',
+        title: 'Место, где рождаются перемены',
+        sub: 'Реабилитационный центр в г. Стэучень — безопасное и тёплое пространство вдали от соблазнов.',
+        alts: ['Столовая центра Optima Fide', 'Жилая комната центра', 'Обновлённый коридор центра', 'Сертификат аккредитации', 'Внутренняя лестница центра реабилитации', 'Групповая терапевтическая активность', 'Встреча сообщества в центре', 'Праздничный момент в сообществе']
+      },
+      process: {
+        label: 'Процесс',
+        title: 'Как работает программа',
+        sub: 'Понятный путь с поддержкой специалистов на каждом этапе.',
+        steps: [
+          ['Обращение и оценка', 'Позвоните или напишите нам. Мы проведём бесплатную первичную оценку ситуации и потребностей.'],
+          ['Приём в программу', 'Вместе составляем индивидуальный план и принимаем резидента в наш центр.'],
+          ['Активная реабилитация', '6–12 месяцев терапии, структурированных занятий, ежедневной психологической и духовной поддержки.'],
+          ['Социальная реинтеграция', 'Подготовка к выходу, помощь в поиске работы и дальнейшая поддержка после программы.']
+        ]
+      },
+      partners: {
+        label: 'Партнёры',
+        title: 'Нас поддерживают международные организации',
+        sub: 'Наша миссия возможна благодаря партнёрам, которые верят в изменения.',
+        cards: ['Партнёрство с 2018 года<br>Немецкая католическая организация солидарности', 'Долгосрочная поддержка<br>Сотрудничество в социальной сфере', 'Международная гуманитарная поддержка']
+      },
+      donate: {
+        label: 'Помогите нам',
+        title: 'Каждая помощь имеет значение',
+        sub: 'Ваше пожертвование напрямую поддерживает программу реабилитации и помогает большему числу людей восстановить свою жизнь. Фонд «Optima Fide» имеет государственную аккредитацию и работает прозрачно.',
+        toggle: 'Все реквизиты',
+        labels: {
+          beneficiary: 'Получатель',
+          bank: 'Банк',
+          account: 'Счёт',
+          correspondent: 'Банк-корреспондент',
+          correspondentSwift: 'SWIFT корреспондента'
+        },
+        copy: 'Копировать IBAN',
+        copied: 'Скопировано',
+        note: 'Пожертвования юридических лиц подлежат налоговому вычету согласно законодательству Республики Молдова.',
+        official: 'Официальный сайт'
+      },
+      contacts: {
+        label: 'Контакты',
+        title: 'Мы рядом',
+        sub: 'Свяжитесь с нами — каждый шаг имеет значение.',
+        dataTitle: 'Контактные данные',
+        phone: 'Телефон',
+        email: 'Email',
+        legal: 'Юридический адрес',
+        rehab: 'Центр реабилитации',
+        website: 'Сайт',
+        mapTitle: 'Как нас найти',
+        mapLink: 'ул. Глорией 4, с. Голанул Ноу, г. Стэучень — открыть в Google Maps →',
+        directorTitle: 'Директор: Руслан Магари',
+        directorText: 'Мы доступны для телефонных консультаций в рабочие дни, 9:00–17:00. В срочных случаях пишите в Telegram <a href="https://t.me/PRICAL_OPTIMAFIDE" target="_blank" rel="noopener">@PRICAL_OPTIMAFIDE</a>.',
+        mapFrameTitle: 'Локация центра реабилитации Optima Fide'
+      },
+      footer: '© 2014–2026 Фонд «Optima Fide» · IDNO 1014620007164 · Кишинёв, Молдова · <a href="mailto:optimafide.info@gmail.com" style="color:rgba(255,255,255,0.45)">optimafide.info@gmail.com</a>'
+    },
+    en: {
+      title: 'Optima Fide Foundation — Rehabilitation Center in Moldova',
+      brandSub: 'Charitable Foundation',
+      metaDescription: 'Optima Fide Foundation provides therapeutic rehabilitation for people affected by psychoactive substance dependence. State accredited. Chisinau, Moldova.',
+      ogDescription: '10 years of rehabilitation work, more than 19,000 consultations, and more than 500 clients who completed the rehabilitation course.',
+      nav: ['About', 'Programs', 'Impact', 'Center', 'Contacts', 'Donate'],
+      mobileNav: ['About', 'Programs', 'Impact', 'Our Center', 'Contacts', 'Donate ♥'],
+      footerNav: ['About', 'Programs', 'Impact', 'Our Center', 'Donations', 'Contacts'],
+      hero: {
+        badge: 'State Accredited · 10 Years of Work',
+        title: 'Rehabilitation.<br>Hope. <em>Change.</em>',
+        sub: 'Optima Fide Foundation offers professional therapeutic programs for people who want to overcome addiction and rebuild their lives.',
+        primary: 'Support our mission',
+        secondary: 'Our programs',
+        stats: ['Consultations provided', 'Clients completed the course', 'Years of experience', 'Residential places']
+      },
+      about: {
+        label: 'About us',
+        title: 'Optima Fide Foundation',
+        sub: 'A non-profit organization founded on September 18, 2014 in Chisinau.',
+        paragraphs: [
+          'For more than 10 years, we have built a specialized therapeutic rehabilitation center for people affected by psychoactive substance dependence. Our residential program lasts 6–12 months and combines psychological, spiritual, and social approaches.',
+          'We believe every person deserves a second chance. Our holistic approach supports not only physical recovery, but also full social reintegration: family, work, and community.',
+          'External evaluations confirm the effectiveness of our methods. Participants report improved quality of life, healthier family relationships, and a new perspective on the future.'
+        ],
+        accredTitle: 'Accreditation Certificate AS No. 0000117',
+        accredText: 'State Social Inspectorate of the Republic of Moldova · October 10, 2025<br>IDNO: 1014620007164'
+      },
+      programs: {
+        label: 'What we offer',
+        title: 'Our programs',
+        sub: 'Each program is adapted to individual needs and supported by qualified specialists.',
+        cards: [
+          ['Residential Rehabilitation', 'A 6–12 month therapeutic program for people dependent on alcohol and psychoactive substances. Capacity: 20 residents. The center is located in Stauceni, Golanul Nou village.'],
+          ['Ecology', 'A recovery program through work and interaction with nature. Outdoor activities, gardening, and care for the environment help restore inner balance.'],
+          ['“Podjom” — Motivational Group', 'Regular support and motivation meetings for people at different stages of recovery. A safe space for sharing experience and building community.'],
+          ['Assistance for Refugees', 'Humanitarian and psychological support for displaced people and families who need urgent help. Consultations, social assistance, and emotional support.'],
+          ['Multifunctional Therapeutic Center', 'The MTC integrates mental health and social support services, offering comprehensive care adapted to each person.']
+        ]
+      },
+      impact: {
+        label: 'Our impact',
+        title: 'Numbers that speak',
+        sub: 'Data confirmed by an independent external evaluation.',
+        stats: ['Consultations provided', 'Clients completed the course', 'Residential places', 'Program months', 'Years of activity'],
+        quote: '“The external evaluation confirmed that program beneficiaries report improved quality of life, healthier family relationships, and successful social reintegration.”',
+        cite: '— Independent external evaluation report of Optima Fide Foundation'
+      },
+      gallery: {
+        label: 'Our center',
+        title: 'A place where change begins',
+        sub: 'The rehabilitation center in Stauceni is a safe and warm space away from temptation.',
+        alts: ['Dining room of Optima Fide Center', 'Residential room of the center', 'Renovated hallway of the center', 'Accreditation certificate', 'Interior staircase of the rehabilitation center', 'Group therapeutic activity', 'Community meeting at the center', 'Community celebration moment']
+      },
+      process: {
+        label: 'Process',
+        title: 'How the program works',
+        sub: 'A clear path supported by professionals at every stage.',
+        steps: [
+          ['Contact & Evaluation', 'Call or write to us. We provide a free initial evaluation of the situation and needs.'],
+          ['Admission to the Program', 'Together we create a personalized plan and welcome the resident into our center.'],
+          ['Active Rehabilitation', '6–12 months of therapy, structured activities, and daily psychological and spiritual support.'],
+          ['Social Reintegration', 'Preparation for leaving the program, help with finding work, and continued post-program support.']
+        ]
+      },
+      partners: {
+        label: 'Partners',
+        title: 'Supported by international organizations',
+        sub: 'Our mission is possible thanks to partners who believe in change.',
+        cards: ['Partnership since 2018<br>German Catholic solidarity organization', 'Long-term support<br>Cooperation in the social field', 'International humanitarian support']
+      },
+      donate: {
+        label: 'Help us',
+        title: 'Every contribution matters',
+        sub: 'Your donation directly supports the rehabilitation program and helps more people rebuild their lives. Optima Fide Foundation is state accredited and works with full transparency.',
+        toggle: 'All details',
+        labels: {
+          beneficiary: 'Beneficiary',
+          bank: 'Bank',
+          account: 'Account',
+          correspondent: 'Correspondent bank',
+          correspondentSwift: 'Correspondent SWIFT'
+        },
+        copy: 'Copy IBAN',
+        copied: 'Copied',
+        note: 'Donations from legal entities are tax deductible under the legislation of the Republic of Moldova.',
+        official: 'Official website'
+      },
+      contacts: {
+        label: 'Contacts',
+        title: 'We are here for you',
+        sub: 'Do not hesitate to contact us — every step matters.',
+        dataTitle: 'Contact details',
+        phone: 'Phone',
+        email: 'Email',
+        legal: 'Legal address',
+        rehab: 'Rehabilitation Center',
+        website: 'Website',
+        mapTitle: 'How to reach us',
+        mapLink: '4 Gloriei Street, Golanul Nou, Stauceni — open in Google Maps →',
+        directorTitle: 'Director: Ruslan Magari',
+        directorText: 'We are available for phone consultations on working days, 9:00–17:00. For urgent matters, contact us anytime on Telegram <a href="https://t.me/PRICAL_OPTIMAFIDE" target="_blank" rel="noopener">@PRICAL_OPTIMAFIDE</a>.',
+        mapFrameTitle: 'Location of Optima Fide Rehabilitation Center'
+      },
+      footer: '© 2014–2026 Optima Fide Foundation · IDNO 1014620007164 · Chisinau, Moldova · <a href="mailto:optimafide.info@gmail.com" style="color:rgba(255,255,255,0.45)">optimafide.info@gmail.com</a>'
+    }
+  };
+
+  function setText(selector, value) {
+    document.querySelectorAll(selector).forEach(function(el) { el.textContent = value; });
+  }
+  function setHtml(selector, value) {
+    document.querySelectorAll(selector).forEach(function(el) { el.innerHTML = value; });
+  }
+  function setAttr(selector, attr, value) {
+    document.querySelectorAll(selector).forEach(function(el) { el.setAttribute(attr, value); });
+  }
+  function setList(selector, values, mode) {
+    document.querySelectorAll(selector).forEach(function(el, i) {
+      if (values[i] === undefined) return;
+      if (mode === 'html') el.innerHTML = values[i]; else el.textContent = values[i];
+    });
+  }
+
+  function applyLanguage(lang) {
+    var t = translations[lang] || translations.ro;
+    document.documentElement.lang = lang;
+    document.title = t.title;
+    setText('.nav-logo-text span', t.brandSub);
+    setAttr('meta[name="description"]', 'content', t.metaDescription);
+    setAttr('meta[property="og:title"]', 'content', t.title);
+    setAttr('meta[property="og:description"]', 'content', t.ogDescription);
+
+    setList('header nav > a', t.nav);
+    setList('.mobile-nav > a.mobile-link', t.mobileNav);
+    setList('.footer-links a', t.footerNav);
+
+    setText('.hero-badge', t.hero.badge);
+    setHtml('.hero h1', t.hero.title);
+    setText('.hero-sub', t.hero.sub);
+    setText('.hero-actions .btn-primary', t.hero.primary);
+    setText('.hero-actions .btn-outline', t.hero.secondary);
+    setList('.hero-stat-lbl', t.hero.stats);
+
+    setText('#despre .section-label', t.about.label);
+    setHtml('#despre .section-title', t.about.title);
+    setText('#despre .section-subtitle', t.about.sub);
+    setList('#despre .about-text > p', t.about.paragraphs);
+    setText('#despre .accred-text strong', t.about.accredTitle);
+    setHtml('#despre .accred-text span', t.about.accredText);
+
+    setText('#programe .section-label', t.programs.label);
+    setText('#programe .section-title', t.programs.title);
+    setText('#programe .section-subtitle', t.programs.sub);
+    document.querySelectorAll('#programe .program-card').forEach(function(card, i) {
+      if (!t.programs.cards[i]) return;
+      card.querySelector('h3').textContent = t.programs.cards[i][0];
+      card.querySelector('p').textContent = t.programs.cards[i][1];
+    });
+
+    setText('#impact .section-label', t.impact.label);
+    setText('#impact .section-title', t.impact.title);
+    setText('#impact .section-subtitle', t.impact.sub);
+    setList('#impact .stat-label', t.impact.stats);
+    setText('#impact blockquote', t.impact.quote);
+    setText('#impact cite', t.impact.cite);
+
+    setText('#galerie .section-label', t.gallery.label);
+    setText('#galerie .section-title', t.gallery.title);
+    setText('#galerie .section-subtitle', t.gallery.sub);
+    document.querySelectorAll('#galerie .gallery-item img').forEach(function(img, i) {
+      if (t.gallery.alts[i]) img.alt = t.gallery.alts[i];
+    });
+
+    setText('#cum .section-label', t.process.label);
+    setText('#cum .section-title', t.process.title);
+    setText('#cum .section-subtitle', t.process.sub);
+    document.querySelectorAll('#cum .step').forEach(function(step, i) {
+      if (!t.process.steps[i]) return;
+      step.querySelector('h4').textContent = t.process.steps[i][0];
+      step.querySelector('p').textContent = t.process.steps[i][1];
+    });
+
+    setText('#parteneri .section-label', t.partners.label);
+    setText('#parteneri .section-title', t.partners.title);
+    setText('#parteneri .section-subtitle', t.partners.sub);
+    setList('#parteneri .partner-card span', t.partners.cards, 'html');
+
+    setText('#donatii .section-label', t.donate.label);
+    setText('#donatii .section-title', t.donate.title);
+    setText('#donatii .donate-sub', t.donate.sub);
+    setText('#donatii .donate-toggle', t.donate.toggle);
+    setText('#donatii .copy-btn', t.donate.copy);
+    setText('#donatii .donate-note', t.donate.note);
+    setHtml('#donatii .social-link:last-child', globeIcon + t.donate.official);
+    document.querySelectorAll('.donate-card').forEach(function(card) {
+      var labels = card.querySelectorAll('.donate-label');
+      labels.forEach(function(label) {
+        var current = label.textContent.trim().toLowerCase();
+        if (['beneficiar', 'получатель', 'beneficiary'].includes(current)) label.textContent = t.donate.labels.beneficiary;
+        if (['banca', 'банк', 'bank'].includes(current)) label.textContent = t.donate.labels.bank;
+        if (['cont', 'счёт', 'account'].includes(current)) label.textContent = t.donate.labels.account;
+        if (current.includes('corespondent') || current.includes('корреспондент') || current.includes('correspondent bank')) label.textContent = t.donate.labels.correspondent;
+        if (current.includes('swift corespondent') || current.includes('swift корреспондента') || current.includes('correspondent swift')) label.textContent = t.donate.labels.correspondentSwift;
+      });
+    });
+
+    setText('#contacte .section-label', t.contacts.label);
+    setText('#contacte .section-title', t.contacts.title);
+    setText('#contacte .section-subtitle', t.contacts.sub);
+    setText('#contacte .contact-block:first-child h3', t.contacts.dataTitle);
+    setText('#contacte .contact-block:nth-child(2) h3', t.contacts.mapTitle);
+    setText('#contacte .contact-item:nth-child(1) strong', t.contacts.phone);
+    setText('#contacte .contact-item:nth-child(2) strong', t.contacts.email);
+    setText('#contacte .contact-item:nth-child(3) strong', t.contacts.legal);
+    setText('#contacte .contact-item:nth-child(4) strong', t.contacts.rehab);
+    setText('#contacte .contact-item:nth-child(5) strong', t.contacts.website);
+    setList('#contacte .contact-block:first-child .contact-item strong', [t.contacts.phone, t.contacts.email, t.contacts.legal, t.contacts.rehab, t.contacts.website]);
+    setHtml('#contacte .contact-block:nth-child(2) a[href^="https://maps.google"]', mapIcon + t.contacts.mapLink);
+    setAttr('#contacte iframe', 'title', t.contacts.mapFrameTitle);
+    setText('#contacte .director-box strong', t.contacts.directorTitle);
+    setHtml('#contacte .director-box p', t.contacts.directorText);
+
+    setHtml('footer .footer-logo span', t.about.title);
+    setHtml('footer .footer-inner > p', t.footer);
+    setAttr('.lang-switch', 'aria-label', lang === 'ru' ? 'Сменить язык' : lang === 'en' ? 'Change language' : 'Schimba limba');
+
+    document.querySelectorAll('[data-lang]').forEach(function(link) {
+      var active = link.dataset.lang === lang;
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+    });
+    localStorage.setItem('optimafide-lang', lang);
+  }
+
+  document.querySelectorAll('[data-lang]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      applyLanguage(link.dataset.lang);
+      mobileNav.classList.remove('open');
+    });
+  });
+
   // Mobile nav
   var burger = document.getElementById('burger');
   var mobileNav = document.getElementById('mobileNav');
@@ -982,6 +1440,7 @@
   document.querySelectorAll('.mobile-link').forEach(function(a) {
     a.addEventListener('click', function() { mobileNav.classList.remove('open'); });
   });
+  applyLanguage(localStorage.getItem('optimafide-lang') || 'ro');
 
   // Lightbox
   var items = Array.from(document.querySelectorAll('.gallery-item[data-img]'));

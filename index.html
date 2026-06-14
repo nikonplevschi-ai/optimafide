@@ -3,1542 +3,1429 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fundația „Optima Fide” — Centru de Reabilitare Moldova</title>
-  <meta name="description" content="Fundația „Optima Fide” oferă reabilitare terapeutică pentru persoanele dependente de substanțe psihoactive. Acreditată de stat. Chișinău, Moldova.">
-  <meta property="og:title" content="Fundația „Optima Fide”">
-  <meta property="og:description" content="10 ani de reabilitare, peste 19 000 consulta&#x21b;ii &#x219;i peste 500 clien&#x21b;i care au trecut cursul de reabilitare. Suntem al&#x103;turi de cei care vor s&#x103; se schimbe.">
-  <meta property="og:image" content="logo.jpg">
+  <title>Fundația Optima Fide - Centru de reabilitare acreditat în Moldova</title>
+  <meta name="description" content="Centru de reabilitare acreditat în Moldova. Program rezidențial de 6-12 luni pentru persoane care doresc să depășească dependența.">
+  <meta property="og:title" content="Fundația Optima Fide">
+  <meta property="og:description" content="Reabilitare cu demnitate, discreție și sprijin profesionist. Din 2014, Goianul Nou, Stăuceni.">
+  <meta property="og:image" content="center-therapy-room.jpg">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "NGO",
-    "name": "Fundația „Optima Fide”",
+    "@type": ["NGO", "LocalBusiness"],
+    "name": "Fundația Optima Fide",
     "foundingDate": "2014-09-18",
-    "description": "Centru de reabilitare terapeutică pentru persoanele dependente de substanțe psihoactive",
+    "description": "Centru de reabilitare acreditat în Moldova pentru persoane care doresc să depășească dependența.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "str. Mitropolit Dosoftei 100, ap. 75",
-      "addressLocality": "Chișinău",
-      "postalCode": "MD-2012",
+      "streetAddress": "str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni",
       "addressCountry": "MD"
     },
     "telephone": "+37378377337",
     "email": "optimafide.info@gmail.com",
-    "url": "https://optimafide.md"
+    "url": "https://nikonplevschi-ai.github.io/optimafide/"
   }
   </script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --blue-dark:    #0d2b5e;
-      --blue-mid:     #1a4a9e;
-      --blue-accent:  #2563eb;
-      --blue-light:   #dbeafe;
-      --blue-pale:    #eff6ff;
-      --gold:         #c9a84c;
-      --text:         #1e293b;
-      --text-muted:   #64748b;
-      --white:        #ffffff;
-      --radius:       16px;
-      --shadow:       0 4px 24px rgba(13,43,94,0.10);
-      --shadow-lg:    0 12px 48px rgba(13,43,94,0.16);
-      --transition:   0.25s ease;
+      --cream: #f4efe5;
+      --cream-soft: #fbf8f0;
+      --paper: #fffdf8;
+      --green: #183f35;
+      --green-2: #2d5c4f;
+      --graphite: #25302d;
+      --muted: #68756f;
+      --gold: #c7a65a;
+      --line: #e5dccb;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(40, 50, 45, 0.12);
+      --radius: 8px;
     }
-
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
-
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
-
-    /* HEADER */
-    header {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: rgba(13,43,94,0.97); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--graphite);
+      background: var(--cream);
+      line-height: 1.6;
     }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    body.menu-open { overflow: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      line-height: 1.08;
+      margin: 0;
+      color: var(--green);
+      overflow-wrap: anywhere;
     }
-    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-    .nav-logo img { height: 42px; width: 42px; object-fit: contain; border-radius: 6px; background: white; padding: 3px; }
-    .nav-logo-text { color: white; }
-    .nav-logo-text strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.05rem; letter-spacing: 0.02em; }
-    .nav-logo-text span { font-size: 0.72rem; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; }
-    nav { display: flex; gap: 22px; align-items: center; }
-    nav a {
-      color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.88rem;
-      font-weight: 500; letter-spacing: 0.02em; transition: color var(--transition);
+    p { margin: 0; }
+    button, input, textarea { font: inherit; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 92px 0; }
+    .section.alt { background: var(--cream-soft); }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    nav a:hover { color: white; }
-    .btn-donate-nav {
-      background: var(--gold); color: var(--blue-dark) !important;
-      padding: 9px 22px; border-radius: 50px; font-weight: 600 !important;
-      font-size: 0.85rem !important; transition: all var(--transition) !important;
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 38px;
     }
-    .btn-donate-nav:hover { background: #e0bc6a !important; transform: translateY(-1px); }
-    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .burger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all var(--transition); }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-top: 16px;
+    }
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      min-height: 46px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      white-space: nowrap;
+      text-align: center;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { background: var(--green); color: var(--white); }
+    .btn.gold { background: var(--gold); color: #1f261f; }
+    .btn.light { background: rgba(255,255,255,.88); color: var(--green); }
+    .btn.outline { background: transparent; color: var(--green); border: 1px solid rgba(24,63,53,.28); }
+    .icon { width: 18px; height: 18px; flex: 0 0 18px; }
+    .site-header {
+      position: fixed;
+      z-index: 50;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 253, 248, .92);
+      border-bottom: 1px solid rgba(229, 220, 203, .8);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 210px;
+      text-decoration: none;
+    }
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 4px;
+    }
+    .brand strong {
+      display: block;
+      color: var(--green);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.1rem;
+    }
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .nav-links a {
+      color: var(--graphite);
+      font-size: .92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
     .lang-switch {
-      display: inline-flex; align-items: center; gap: 4px;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 999px; padding: 4px; color: rgba(255,255,255,0.78);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
     }
-    .lang-icon { width: 16px; height: 16px; margin: 0 5px 0 7px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .lang-icon {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      margin-left: 2px;
+    }
     .lang-switch a {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-width: 34px; height: 28px; padding: 0 8px; border-radius: 999px;
-      color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.72rem;
-      font-weight: 700; letter-spacing: 0.04em; transition: all var(--transition);
+      width: 34px;
+      height: 28px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 800;
+      text-decoration: none;
     }
-    .lang-switch a:hover, .lang-switch a.active { background: var(--gold); color: var(--blue-dark); }
-
-    /* HERO */
+    .lang-switch a.active {
+      color: var(--white);
+      background: var(--green);
+    }
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--green);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
     .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--blue-dark) 0%, #0f3d87 50%, var(--blue-mid) 100%);
-      position: relative; overflow: hidden; text-align: center; padding: 100px 24px 60px;
+      min-height: 92vh;
+      padding: 132px 0 54px;
+      display: flex;
+      align-items: end;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(18,48,40,.88), rgba(18,48,40,.62) 47%, rgba(18,48,40,.34)),
+        url("center-therapy-room.jpg") center/cover no-repeat;
+      position: relative;
     }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: url('center-dining.jpg') center/cover no-repeat;
-      opacity: 0.12; z-index: 0;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 130px;
+      background: linear-gradient(180deg, rgba(244,239,229,0), var(--cream));
+      pointer-events: none;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      padding-bottom: 74px;
+    }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 50px; padding: 6px 18px; margin-bottom: 28px;
-      color: rgba(255,255,255,0.9); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border: 1px solid rgba(255,255,255,.34);
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.92);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
-    .hero-badge::before { content: '\2605'; color: var(--gold); }
-    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); color: white; margin-bottom: 12px; font-weight: 700; }
-    .hero h1 em { color: var(--gold); font-style: normal; }
-    .hero-sub { font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255,255,255,0.78); margin-bottom: 44px; max-width: 600px; margin-left: auto; margin-right: auto; }
-    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
-    .btn-primary {
-      background: var(--gold); color: var(--blue-dark); padding: 16px 36px;
-      border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none;
-      transition: all var(--transition); box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(2.8rem, 7vw, 6.6rem);
+      max-width: 840px;
+      text-wrap: balance;
     }
-    .btn-primary:hover { background: #e0bc6a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.5); }
-    .btn-outline {
-      background: transparent; color: white; padding: 16px 36px;
-      border: 2px solid rgba(255,255,255,0.4); border-radius: 50px; font-weight: 600;
-      font-size: 1rem; text-decoration: none; transition: all var(--transition);
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      max-width: 660px;
+      color: rgba(255,255,255,.88);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      margin: 24px 0 30px;
     }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
     .hero-stats {
-      display: flex; gap: 0; background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius);
-      overflow: hidden; flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+      margin-top: -56px;
     }
-    .hero-stat { flex: 1; min-width: 140px; padding: 20px 28px; text-align: center; }
-    .hero-stat + .hero-stat { border-left: 1px solid rgba(255,255,255,0.12); }
-    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); display: block; }
-    .hero-stat-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em; }
-
-    /* SECTION COMMON */
-    section { padding: 90px 24px; }
-    .container { max-width: 1160px; margin: 0 auto; }
-    .section-label {
-      display: inline-block; background: var(--blue-light); color: var(--blue-mid);
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 5px 14px; border-radius: 50px; margin-bottom: 14px;
+    .stats-panel {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid rgba(229,220,203,.92);
+      border-radius: 8px;
+      background: rgba(255,253,248,.94);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
-    .section-title { font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--blue-dark); margin-bottom: 16px; }
-    .section-subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 620px; line-height: 1.7; }
-    .section-head { margin-bottom: 52px; }
-    .section-head.center { text-align: center; }
-    .section-head.center .section-subtitle { margin: 0 auto; }
-
-    /* ABOUT */
-    .about { background: var(--white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .about-img { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
-    .about-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
-    .about-text p { color: var(--text-muted); margin-bottom: 20px; line-height: 1.8; }
-    .about-accred {
-      display: flex; align-items: flex-start; gap: 16px;
-      background: var(--blue-pale); border: 1px solid var(--blue-light);
-      border-radius: 12px; padding: 20px; margin-top: 28px;
+    .stat {
+      padding: 25px 24px;
+      border-right: 1px solid var(--line);
     }
-    .accred-icon {
-      width: 48px; height: 48px; background: var(--blue-mid); border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .stat:last-child { border-right: 0; }
+    .stat strong {
+      display: block;
+      color: var(--green);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
     }
-    .accred-icon svg { width: 24px; height: 24px; fill: white; }
-    .accred-text strong { color: var(--blue-dark); font-size: 0.95rem; display: block; margin-bottom: 4px; }
-    .accred-text span { color: var(--text-muted); font-size: 0.85rem; }
-
-    /* PROGRAMS */
-    .programs { background: var(--blue-pale); }
-    .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .program-card {
-      background: white; border-radius: var(--radius); padding: 32px;
-      box-shadow: var(--shadow); transition: all var(--transition);
-      border-top: 4px solid var(--blue-accent); position: relative; overflow: hidden;
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: .77rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: 9px;
     }
-    .program-card::after {
-      content: ''; position: absolute; bottom: 0; right: 0;
-      width: 80px; height: 80px; background: var(--blue-light);
-      border-radius: 50%; transform: translate(30px, 30px);
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 54px;
+      align-items: center;
     }
-    .program-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-    .program-icon {
-      width: 52px; height: 52px; background: var(--blue-light);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    .text-block p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-top: 16px;
     }
-    .program-icon svg { width: 26px; height: 26px; }
-    .program-card h3 { font-size: 1.15rem; color: var(--blue-dark); margin-bottom: 12px; }
-    .program-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
-
-    /* IMPACT */
-    .impact { background: linear-gradient(135deg, var(--blue-dark) 0%, #0f3d87 100%); }
-    .impact .section-label { background: rgba(255,255,255,0.15); color: white; }
-    .impact .section-title { color: white; }
-    .impact .section-subtitle { color: rgba(255,255,255,0.75); }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2px; background: rgba(255,255,255,0.1); border-radius: var(--radius); overflow: hidden; }
-    .stat-box { background: rgba(255,255,255,0.05); padding: 44px 32px; text-align: center; transition: background var(--transition); }
-    .stat-box:hover { background: rgba(255,255,255,0.1); }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--gold); display: block; line-height: 1; margin-bottom: 10px; }
-    .stat-label { color: rgba(255,255,255,0.7); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
-    .impact-quote {
-      margin-top: 52px; background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius);
-      padding: 36px 44px; text-align: center;
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
     }
-    .impact-quote blockquote { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: white; font-style: italic; line-height: 1.7; }
-    .impact-quote cite { display: block; margin-top: 14px; color: var(--gold); font-size: 0.85rem; font-style: normal; }
-
-    /* GALLERY */
-    .gallery { background: white; }
-    .gallery-grid {
+    .feature-list li {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+      color: var(--graphite);
+      font-weight: 600;
+    }
+    .feature-list li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 9px;
+      flex: 0 0 9px;
+    }
+    .photo-frame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+    .cards-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .service-card,
+    .soft-card,
+    .donation-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 10px 30px rgba(40,50,45,.06);
+    }
+    .service-card {
+      min-height: 310px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .service-card .num {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: .1em;
+      margin-bottom: 38px;
+    }
+    .service-card h3 { font-size: 1.65rem; }
+    .service-card p,
+    .soft-card p,
+    .donation-card p,
+    .contact-card p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .step {
+      background: var(--paper);
+      padding: 28px 22px;
+      min-height: 210px;
+    }
+    .step span {
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .step h3 {
+      font-size: 1.28rem;
+      margin-top: 24px;
+    }
+    .step p {
+      color: var(--muted);
+      font-size: .94rem;
+      margin-top: 10px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-auto-rows: 245px;
+      gap: 14px;
+    }
+    .gallery button {
+      border: 0;
+      padding: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--line);
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(40,50,45,.08);
+    }
+    .gallery button:first-child { grid-row: span 2; }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .gallery button:hover img { transform: scale(1.04); }
+    .accreditation {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 36px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .accreditation img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .soft-card { padding: 26px; }
+    .soft-card strong {
+      display: block;
+      color: var(--green);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .partners {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .partner-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 11px 16px;
+      background: var(--white);
+      color: var(--green);
+      font-weight: 700;
+    }
+    .donation-wrap {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .donation-card { padding: 28px; }
+    .donation-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .bank-list {
+      display: grid;
+      gap: 12px;
+    }
+    details.bank-details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      overflow: hidden;
+    }
+    details.bank-details summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px;
+      cursor: pointer;
+      list-style: none;
+      color: var(--green);
+      font-weight: 800;
+    }
+    details.bank-details summary::-webkit-details-marker { display: none; }
+    .iban {
+      color: var(--graphite);
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+      font-size: .92rem;
+      overflow-wrap: anywhere;
+    }
+    .bank-body {
+      border-top: 1px solid var(--line);
+      padding: 20px;
+      display: grid;
+      gap: 10px;
+    }
+    .bank-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 12px;
+      color: var(--graphite);
+      font-size: .94rem;
+    }
+    .bank-row span:first-child { color: var(--muted); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 22px;
+    }
+    .contact-card { padding: 28px; }
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .contact-item:last-child { border-bottom: 0; }
+    .contact-item strong {
+      display: block;
+      color: var(--green);
+      margin-bottom: 3px;
+    }
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+    .field label,
+    .consent {
+      color: var(--graphite);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+    input, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      padding: 13px 14px;
+      color: var(--graphite);
+      outline: none;
+    }
+    textarea { min-height: 128px; resize: vertical; }
+    input:focus, textarea:focus { border-color: var(--green-2); box-shadow: 0 0 0 3px rgba(45,92,79,.12); }
+    .consent { display: flex; align-items: flex-start; gap: 10px; color: var(--muted); }
+    .consent input { width: auto; margin-top: 4px; }
+    .form-note {
+      color: var(--green);
+      font-weight: 700;
+      min-height: 24px;
+    }
+    .site-footer {
+      background: var(--green);
+      color: rgba(255,255,255,.78);
+      padding: 42px 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: end;
+    }
+    .site-footer strong {
+      display: block;
+      color: white;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
       gap: 16px;
     }
-    .gallery-item {
-      border-radius: 12px; overflow: hidden; cursor: pointer; position: relative;
-      box-shadow: var(--shadow); height: 240px;
-    }
-    .gallery-item:first-child { grid-column: 1 / 3; height: 340px; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-    .gallery-item:hover img { transform: scale(1.04); }
-    .gallery-item .overlay {
-      position: absolute; inset: 0; background: rgba(13,43,94,0.45);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity var(--transition);
-    }
-    .gallery-item:hover .overlay { opacity: 1; }
-    .overlay svg { width: 36px; height: 36px; fill: white; }
-    .gallery-item:nth-child(2) { grid-row: 1 / 3; height: auto; }
-
-    /* HOW IT WORKS */
-    .how { background: var(--blue-pale); }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; position: relative; }
-    .steps::before {
-      content: ''; position: absolute; top: 36px; left: 10%; right: 10%;
-      height: 2px; background: linear-gradient(90deg, var(--blue-light), var(--blue-accent), var(--blue-light));
-    }
-    .step { text-align: center; padding: 0 20px 0; position: relative; z-index: 1; }
-    .step-num {
-      width: 72px; height: 72px; background: var(--blue-mid); color: white;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
-      margin: 0 auto 20px; border: 4px solid var(--blue-pale); box-shadow: 0 0 0 4px var(--blue-light);
-    }
-    .step h4 { font-size: 1rem; color: var(--blue-dark); margin-bottom: 10px; }
-    .step p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
-
-    /* PARTNERS */
-    .partners { background: white; }
-    .partners-grid { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
-    .partner-card {
-      background: var(--blue-pale); border: 1px solid var(--blue-light);
-      border-radius: 12px; padding: 24px 36px; text-align: center; min-width: 180px; flex: 1; max-width: 260px;
-    }
-    .partner-card strong { display: block; color: var(--blue-dark); font-size: 1.05rem; margin-bottom: 8px; }
-    .partner-card span { color: var(--text-muted); font-size: 0.82rem; }
-
-    /* DONATE */
-    .donate { background: linear-gradient(135deg, var(--blue-dark) 0%, #163a8a 100%); text-align: center; }
-    .donate .section-label { background: rgba(201,168,76,0.2); color: var(--gold); }
-    .donate .section-title { color: white; margin-bottom: 20px; }
-    .donate-sub { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 44px; line-height: 1.8; }
-    .donate-options { display: grid; gap: 16px; max-width: 760px; margin: 0 auto 40px; }
-    .donate-card {
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--radius); padding: 0; text-align: left; overflow: hidden;
-    }
-    .donate-card[open] { background: rgba(255,255,255,0.10); }
-    .donate-summary {
-      list-style: none; display: flex; align-items: center; justify-content: space-between;
-      gap: 18px; padding: 24px 28px; cursor: pointer;
-    }
-    .donate-summary::-webkit-details-marker { display: none; }
-    .donate-currency {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-width: 52px; height: 36px; border-radius: 999px;
-      background: var(--gold); color: var(--blue-dark); font-weight: 800; font-size: 0.82rem;
-      letter-spacing: 0.06em; flex-shrink: 0;
-    }
-    .donate-iban { color: white; font-family: 'Courier New', monospace; font-size: 1rem; letter-spacing: 0.03em; overflow-wrap: anywhere; }
-    .donate-toggle { color: rgba(255,255,255,0.65); font-size: 0.82rem; white-space: nowrap; }
-    .donate-details { padding: 0 28px 26px; }
-    .donate-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
-    .donate-label { color: rgba(255,255,255,0.6); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; flex-shrink: 0; }
-    .donate-value { color: white; font-family: 'Playfair Display', serif; font-size: 1.05rem; text-align: right; }
-    .donate-value.mono { font-family: 'Courier New', monospace; font-size: 0.95rem; letter-spacing: 0.05em; }
-    .donate-divider { border: none; border-top: 1px solid rgba(255,255,255,0.12); margin: 20px 0; }
-    .copy-btn {
-      background: var(--gold); color: var(--blue-dark); border: none; border-radius: 8px;
-      padding: 8px 18px; font-weight: 600; font-size: 0.82rem; cursor: pointer;
-      transition: all var(--transition); white-space: nowrap;
-    }
-    .copy-btn:hover { background: #e0bc6a; }
-    .copy-btn.copied { background: #22c55e; color: white; }
-    .donate-note { color: rgba(255,255,255,0.55); font-size: 0.8rem; text-align: center; margin-top: 20px; }
-    .social-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 44px; }
-    .social-link {
-      display: flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-      color: white; text-decoration: none; padding: 12px 24px; border-radius: 50px;
-      font-size: 0.9rem; transition: all var(--transition);
-    }
-    .social-link:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
-    .social-link svg { width: 18px; height: 18px; fill: currentColor; }
-
-    /* CONTACTS */
-    .contacts { background: var(--blue-pale); }
-    .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-    .contact-block h3 { font-size: 1.3rem; color: var(--blue-dark); margin-bottom: 24px; font-family: 'Playfair Display', serif; }
-    .contact-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
-    .contact-icon {
-      width: 40px; height: 40px; background: var(--blue-mid); border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
-    }
-    .contact-icon svg { width: 18px; height: 18px; fill: white; }
-    .contact-item strong { display: block; color: var(--text); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; }
-    .contact-item a { color: var(--blue-mid); text-decoration: none; font-size: 0.95rem; }
-    .contact-item a:hover { text-decoration: underline; }
-    .contact-item span { color: var(--text); font-size: 0.95rem; }
-    .map-box {
-      border-radius: 12px; overflow: hidden; height: 280px;
-      background: linear-gradient(135deg, #bfdbfe, var(--blue-light));
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      border: 1px solid #bfdbfe; gap: 12px; padding: 24px;
-    }
-    .map-box svg { width: 40px; height: 40px; fill: var(--blue-mid); opacity: 0.5; }
-    .map-box p { font-size: 0.9rem; text-align: center; max-width: 220px; color: var(--blue-dark); line-height: 1.6; }
-    .map-box a { color: var(--blue-mid); font-weight: 600; font-size: 0.85rem; }
-    .director-box {
-      margin-top: 24px; padding: 20px; background: white;
-      border-radius: 12px; border: 1px solid var(--blue-light);
-    }
-    .director-box strong { color: var(--blue-dark); display: block; margin-bottom: 8px; font-size: 0.95rem; }
-    .director-box p { color: var(--text-muted); font-size: 0.87rem; line-height: 1.7; }
-
-    /* FOOTER */
-    footer {
-      background: var(--blue-dark); color: rgba(255,255,255,0.65);
-      padding: 40px 24px; text-align: center;
-    }
-    .footer-inner { max-width: 1160px; margin: 0 auto; }
-    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
-    .footer-logo img { height: 36px; width: 36px; object-fit: contain; background: white; border-radius: 6px; padding: 2px; }
-    .footer-logo span { color: white; font-family: 'Playfair Display', serif; font-size: 1rem; }
-    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-    .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.85rem; transition: color var(--transition); }
-    .footer-links a:hover { color: white; }
-    footer p { font-size: 0.8rem; }
-
-    /* LIGHTBOX */
+    .footer-links a { color: white; text-decoration: none; font-weight: 700; }
     .lightbox {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999;
-      display: none; align-items: center; justify-content: center;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(11, 20, 17, .82);
     }
-    .lightbox.active { display: flex; }
-    .lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 8px; object-fit: contain; }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: min(1100px, 94vw);
+      max-height: 86vh;
+      border-radius: var(--radius);
+      box-shadow: 0 22px 70px rgba(0,0,0,.35);
+      object-fit: contain;
+    }
     .lightbox-close {
-      position: absolute; top: 20px; right: 24px; color: white; font-size: 2rem;
-      cursor: pointer; background: none; border: none; line-height: 1;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
     }
-    .lightbox-prev, .lightbox-next {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,0.15); border: none; color: white; font-size: 1.5rem;
-      width: 48px; height: 48px; border-radius: 50%; cursor: pointer; transition: background var(--transition);
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      z-index: 45;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,253,248,.94);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
-    .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.3); }
-    .lightbox-prev { left: 16px; }
-    .lightbox-next { right: 16px; }
-
-    /* MOBILE NAV */
-    .mobile-nav {
-      display: none; position: fixed; inset: 0; background: var(--blue-dark); z-index: 2000;
-      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-      padding: 80px 24px;
+    @media (prefers-reduced-motion: no-preference) {
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity .55s ease, transform .55s ease;
+      }
+      [data-reveal].visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { color: white; text-decoration: none; font-size: 1.3rem; font-weight: 500; font-family: 'Playfair Display', serif; }
-    .mobile-nav .lang-switch a { font-family: 'Inter', sans-serif; font-size: 0.8rem; }
-    .mobile-nav-close { position: absolute; top: 20px; right: 24px; color: white; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .about-img img { height: 300px; }
-      .contacts-grid { grid-template-columns: 1fr; }
-      .steps::before { display: none; }
-      nav { display: none; }
-      .burger { display: flex; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-item:first-child { grid-column: 1 / 3; height: 260px; }
-      .gallery-item:nth-child(2) { grid-row: auto; height: 220px; }
+    @media (max-width: 980px) {
+      .nav-links {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        padding: 10px 20px 20px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+      .menu-toggle { display: inline-flex; }
+      .nav-actions .btn { display: none; }
+      .two-col,
+      .accreditation,
+      .donation-wrap,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-panel,
+      .impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .cards-3 { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery button:first-child { grid-column: span 2; grid-row: auto; }
     }
-    @media (max-width: 600px) {
-      section { padding: 60px 20px; }
-      .hero { padding: 90px 20px 50px; }
-      .hero-stat + .hero-stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); }
-      .hero-stats { flex-direction: column; }
-      .donate-summary { align-items: flex-start; flex-direction: column; padding: 22px; }
-      .donate-details { padding: 0 22px 24px; }
-      .donate-toggle { white-space: normal; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-item:first-child { grid-column: 1; height: 220px; }
-      .gallery-item { height: 200px; }
-      .gallery-item:nth-child(2) { height: 200px; }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .section { padding: 68px 0; }
+      .brand { min-width: auto; }
+      .brand img { width: 42px; height: 42px; }
+      .brand span { display: none; }
+      .nav { height: 68px; }
+      .nav-links { top: 68px; }
+      .lang-icon { display: none; }
+      .lang-switch a { width: 31px; }
+      .hero {
+        min-height: 86vh;
+        padding-top: 112px;
+        background-position: center;
+      }
+      .hero h1 { font-size: clamp(2.42rem, 13vw, 4rem); }
+      .hero-content { padding-bottom: 56px; }
+      .hero-actions .btn { width: 100%; }
+      .hero-stats { margin-top: -34px; }
+      .stats-panel,
+      .impact-grid { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid var(--line); }
+      .stat:last-child { border-bottom: 0; }
+      .photo-frame img { height: 360px; }
+      .gallery { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+      .gallery button:first-child { grid-column: auto; }
+      .bank-row { grid-template-columns: 1fr; gap: 2px; }
+      .mobile-cta { display: grid; }
+      .site-footer { padding-bottom: 94px; }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Optima Fide">
+        <img src="logo.jpg" alt="Logo Optima Fide">
+        <span>
+          <strong>Optima Fide</strong>
+          <span data-i18n="brandSub">Fundație de caritate</span>
+        </span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navigare principală">
+        <a href="#despre" data-i18n="navAbout">Despre</a>
+        <a href="#program" data-i18n="navProgram">Program</a>
+        <a href="#centru" data-i18n="navCenter">Centrul</a>
+        <a href="#donatii" data-i18n="navDonate">Donații</a>
+        <a href="#contacte" data-i18n="navContact">Contacte</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" aria-label="Schimbare limbă">
+          <span class="lang-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.2 2.4 3.3 5.4 3.3 9S14.2 18.6 12 21M12 3C9.8 5.4 8.7 8.4 8.7 12S9.8 18.6 12 21"/></svg>
+          </span>
+          <a href="#" data-lang="ro" class="active">RO</a>
+          <a href="#" data-lang="ru">RU</a>
+          <a href="#" data-lang="en">EN</a>
+        </div>
+        <a class="btn gold" href="#contacte" data-i18n="navCta">Consultație</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Meniu" aria-expanded="false">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<!-- HEADER -->
-<header>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <img src="logo.jpg" alt="Logo Optima Fide">
-      <div class="nav-logo-text">
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content" data-reveal>
+          <div class="hero-badge" data-i18n="heroBadge">Acreditat de Stat · Din 2014 · Goianul Nou, Stăuceni</div>
+          <h1 id="hero-title" data-i18n="heroTitle">Centru de reabilitare acreditat <span>în Moldova</span></h1>
+          <p data-i18n="heroLead">Program rezidențial de 6-12 luni pentru persoane care doresc să depășească dependența și să-și reconstruiască viața.</p>
+          <div class="hero-actions">
+            <a class="btn gold" href="#contacte" data-i18n="heroConsult">Solicită consultație</a>
+            <a class="btn light" href="#program" data-i18n="heroProgram">Vezi programul</a>
+            <a class="btn light" href="tel:+37378377337" data-i18n="heroCall">Sună acum</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container hero-stats" aria-label="Rezultate Optima Fide">
+      <div class="stats-panel" data-reveal>
+        <div class="stat"><strong>19 000+</strong><span data-i18n="statConsult">consultații acordate</span></div>
+        <div class="stat"><strong>500+</strong><span data-i18n="statPeople">persoane sprijinite</span></div>
+        <div class="stat"><strong>10+</strong><span data-i18n="statYears">ani de experiență</span></div>
+        <div class="stat"><strong>20</strong><span data-i18n="statPlaces">locuri rezidențiale</span></div>
+      </div>
+    </div>
+
+    <section class="section" id="despre">
+      <div class="container two-col">
+        <div class="text-block" data-reveal>
+          <div class="eyebrow" data-i18n="aboutEyebrow">Despre fundație</div>
+          <h2 data-i18n="aboutTitle">Reabilitare cu demnitate, discreție și sprijin real.</h2>
+          <p data-i18n="aboutText1">Fundația Optima Fide oferă un mediu sigur pentru persoanele care vor să iasă din dependență și să revină treptat la o viață stabilă.</p>
+          <p data-i18n="aboutText2">Lucrăm cu respect pentru fiecare om: consultație inițială, program rezidențial, sprijin spiritual și psihosocial, reintegrare și susținere pentru familie.</p>
+          <ul class="feature-list">
+            <li data-i18n="aboutPoint1">Centru acreditat de stat în Republica Moldova</li>
+            <li data-i18n="aboutPoint2">Program rezidențial cu ritm clar și supraveghere zilnică</li>
+            <li data-i18n="aboutPoint3">Atmosferă calmă, ordine, hrană și spații de odihnă</li>
+          </ul>
+        </div>
+        <div class="photo-frame" data-reveal>
+          <img src="center-dining.jpg" alt="Sală de mese în centrul Optima Fide">
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="program">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="programEyebrow">Program</div>
+          <h2 data-i18n="programTitle">Trei direcții esențiale pentru schimbare.</h2>
+          <p data-i18n="programLead">Păstrăm programul clar și concentrat pe ceea ce ajută persoana să se stabilizeze, să capete motivație și să facă pași reali spre o viață nouă.</p>
+        </div>
+        <div class="cards-3">
+          <article class="service-card" data-reveal>
+            <div>
+              <div class="num">01</div>
+              <h3 data-i18n="service1Title">Reabilitare rezidențială 6-12 luni</h3>
+              <p data-i18n="service1Text">Un spațiu protejat, cu rutină zilnică, grupuri, consiliere și sprijin pentru a depăși dependența.</p>
+            </div>
+            <a href="#contacte" class="btn outline" data-i18n="learnMore">Află mai mult</a>
+          </article>
+          <article class="service-card" data-reveal>
+            <div>
+              <div class="num">02</div>
+              <h3 data-i18n="service2Title">Consultație inițială și motivare</h3>
+              <p data-i18n="service2Text">Discuție confidențială, evaluarea situației și pași concreți pentru intrarea în program.</p>
+            </div>
+            <a href="#contacte" class="btn outline" data-i18n="learnMore">Află mai mult</a>
+          </article>
+          <article class="service-card" data-reveal>
+            <div>
+              <div class="num">03</div>
+              <h3 data-i18n="service3Title">Sprijin pentru familie și reintegrare</h3>
+              <p data-i18n="service3Text">Ajutăm familia să înțeleagă procesul și pregătim revenirea treptată la responsabilități.</p>
+            </div>
+            <a href="#contacte" class="btn outline" data-i18n="learnMore">Află mai mult</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="journeyEyebrow">Cum funcționează</div>
+          <h2 data-i18n="journeyTitle">Drumul este construit pas cu pas.</h2>
+        </div>
+        <div class="steps">
+          <article class="step" data-reveal><span>01</span><h3 data-i18n="step1Title">Primul contact</h3><p data-i18n="step1Text">Răspundem discret, ascultăm situația și stabilim următorul pas.</p></article>
+          <article class="step" data-reveal><span>02</span><h3 data-i18n="step2Title">Consultație</h3><p data-i18n="step2Text">Discutăm motivația, starea persoanei și potrivirea programului.</p></article>
+          <article class="step" data-reveal><span>03</span><h3 data-i18n="step3Title">Intrare în centru</h3><p data-i18n="step3Text">Persoana primește loc, rutină zilnică și sprijinul echipei.</p></article>
+          <article class="step" data-reveal><span>04</span><h3 data-i18n="step4Title">Reabilitare</h3><p data-i18n="step4Text">Lucru constant cu dependența, obiceiurile, relațiile și responsabilitatea.</p></article>
+          <article class="step" data-reveal><span>05</span><h3 data-i18n="step5Title">Reintegrare</h3><p data-i18n="step5Text">Pregătim revenirea la familie, muncă și viață socială.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="centru">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="centerEyebrow">Centrul</div>
+          <h2 data-i18n="centerTitle">Un loc sigur și cald, departe de tentații.</h2>
+          <p data-i18n="centerLead">Centrul din Goianul Nou, Stăuceni oferă camere de odihnă, spații de masă, sală pentru întâlniri și zone pentru lucru individual.</p>
+        </div>
+        <div class="gallery" data-reveal>
+          <button type="button" data-lightbox="center-therapy-room.jpg" aria-label="Deschide fotografia"><img src="center-therapy-room.jpg" alt="Sală de terapie Optima Fide"></button>
+          <button type="button" data-lightbox="center-bedroom.jpg" aria-label="Deschide fotografia"><img src="center-bedroom.jpg" alt="Cameră rezidențială"></button>
+          <button type="button" data-lightbox="center-hallway.jpg" aria-label="Deschide fotografia"><img src="center-hallway.jpg" alt="Coridor luminos"></button>
+          <button type="button" data-lightbox="center-stairs.jpg" aria-label="Deschide fotografia"><img src="center-stairs.jpg" alt="Scări interioare"></button>
+          <button type="button" data-lightbox="center-dining.jpg" aria-label="Deschide fotografia"><img src="center-dining.jpg" alt="Sala de mese"></button>
+          <button type="button" data-lightbox="therapy-session-blurred.jpg" aria-label="Deschide fotografia"><img src="therapy-session-blurred.jpg" alt="Activitate de grup cu fețe anonimizate"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="acreditare">
+      <div class="container accreditation" data-reveal>
+        <img src="accreditation.jpg" alt="Certificat de acreditare Optima Fide">
+        <div class="text-block">
+          <div class="eyebrow" data-i18n="accreditEyebrow">Acreditare</div>
+          <h2 data-i18n="accreditTitle">Acreditat de stat pentru servicii de reabilitare.</h2>
+          <p data-i18n="accreditText">Fundația activează legal și transparent. Certificatul confirmă acreditarea serviciilor sociale și terapeutice oferite în Republica Moldova.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="impact">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="impactEyebrow">Impact</div>
+          <h2 data-i18n="impactTitle">Rezultatele se văd în oameni, familii și comunitate.</h2>
+        </div>
+        <div class="impact-grid">
+          <div class="soft-card" data-reveal><strong>19 000+</strong><p data-i18n="impact1">consultații acordate persoanelor și familiilor.</p></div>
+          <div class="soft-card" data-reveal><strong>500+</strong><p data-i18n="impact2">persoane care au primit sprijin în procesul de reabilitare.</p></div>
+          <div class="soft-card" data-reveal><strong>10+</strong><p data-i18n="impact3">ani de experiență în lucru constant cu dependența.</p></div>
+          <div class="soft-card" data-reveal><strong>20</strong><p data-i18n="impact4">locuri rezidențiale disponibile în centru.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="partnersEyebrow">Parteneri</div>
+          <h2 data-i18n="partnersTitle">Lucrăm împreună cu instituții, biserici și oameni care cred în recuperare.</h2>
+        </div>
+        <div class="partners" data-reveal>
+          <span class="partner-pill" data-i18n="partner1">Instituții publice</span>
+          <span class="partner-pill" data-i18n="partner2">Comunități creștine</span>
+          <span class="partner-pill" data-i18n="partner3">Donatori privați</span>
+          <span class="partner-pill" data-i18n="partner4">Voluntari</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="donatii">
+      <div class="container donation-wrap">
+        <div class="donation-card" data-reveal>
+          <div class="eyebrow" data-i18n="donateEyebrow">Donații</div>
+          <h2 data-i18n="donateTitle">Susțineți recuperarea cu o donație.</h2>
+          <p data-i18n="donateText">Donația ajută la consultații, cazare, hrană, specialiști și dezvoltarea centrului. Fiecare contribuție susține o schimbare reală.</p>
+          <div class="donation-actions">
+            <a class="btn primary" href="#bank-details" data-i18n="donateBtn">Donează</a>
+            <button class="btn outline" type="button" data-copy-iban="MD63VI000000002224729306" data-i18n="copyIban">Copiază IBAN</button>
+            <a class="btn outline" href="#bank-details" data-i18n="allDetails">Toate rechizitele</a>
+          </div>
+        </div>
+        <div class="bank-list" id="bank-details" data-reveal>
+          <details class="bank-details">
+            <summary><span>MDL</span><span class="iban">MD63VI000000002224729306</span></summary>
+            <div class="bank-body">
+              <div class="bank-row"><span data-i18n="bankAccountName">Denumire cont</span><strong>Fundația Optima Fide</strong></div>
+              <div class="bank-row"><span>IBAN</span><strong>MD63VI000000002224729306</strong></div>
+              <div class="bank-row"><span data-i18n="bankNumber">Număr cont</span><strong>2224729306</strong></div>
+              <div class="bank-row"><span data-i18n="bankName">Banca</span><strong>BC Victoriabank SA</strong></div>
+              <div class="bank-row"><span>SWIFT</span><strong>VICBMD2X</strong></div>
+            </div>
+          </details>
+          <details class="bank-details">
+            <summary><span>EUR</span><span class="iban">MD63VI000000002224729306</span></summary>
+            <div class="bank-body">
+              <div class="bank-row"><span data-i18n="bankAccountName">Denumire cont</span><strong>Fundația Optima Fide</strong></div>
+              <div class="bank-row"><span>IBAN</span><strong>MD63VI000000002224729306</strong></div>
+              <div class="bank-row"><span data-i18n="bankName">Banca</span><strong>BC Victoriabank SA</strong></div>
+              <div class="bank-row"><span>SWIFT</span><strong>VICBMD2X</strong></div>
+              <div class="bank-row"><span data-i18n="correspondent">Bancă corespondentă</span><strong>DZ Bank AG, Frankfurt am Main, Germany</strong></div>
+              <div class="bank-row"><span>SWIFT</span><strong>GENODEFF</strong></div>
+            </div>
+          </details>
+          <details class="bank-details">
+            <summary><span>USD</span><span class="iban">MD63VI000000002224729306</span></summary>
+            <div class="bank-body">
+              <div class="bank-row"><span data-i18n="bankAccountName">Denumire cont</span><strong>Fundația Optima Fide</strong></div>
+              <div class="bank-row"><span>IBAN</span><strong>MD63VI000000002224729306</strong></div>
+              <div class="bank-row"><span data-i18n="bankName">Banca</span><strong>BC Victoriabank SA</strong></div>
+              <div class="bank-row"><span>SWIFT</span><strong>VICBMD2X</strong></div>
+              <div class="bank-row"><span data-i18n="correspondent">Bancă corespondentă</span><strong>Bank of New York Mellon, New York, N.Y.</strong></div>
+              <div class="bank-row"><span>SWIFT</span><strong>IRVTUS3N</strong></div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacte">
+      <div class="container contact-grid">
+        <div class="contact-card" data-reveal>
+          <div class="eyebrow" data-i18n="contactEyebrow">Contacte</div>
+          <h2 data-i18n="contactTitle">Răspundem cu discreție și respect.</h2>
+          <div class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2z"/></svg>
+            <div><strong data-i18n="phoneLabel">Telefon</strong><a href="tel:+37378377337">+373 78 377 337</a></div>
+          </div>
+          <div class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21.5 4.5 2.5 12l7 2.5m12-10-6.5 16-5.5-6m12-10-12 10"/></svg>
+            <div><strong>Telegram</strong><a href="https://t.me/optimafide" target="_blank" rel="noopener">@optimafide</a></div>
+          </div>
+          <div class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            <div><strong>Email</strong><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div>
+          </div>
+          <div class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-4.7 7-11a7 7 0 0 0-14 0c0 6.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><strong data-i18n="addressLabel">Adresa centrului</strong><span data-i18n="addressText">str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni</span></div>
+          </div>
+        </div>
+        <form class="contact-card contact-form" id="consultationForm" data-reveal>
+          <div class="field">
+            <label for="name" data-i18n="formName">Nume</label>
+            <input id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone" data-i18n="formPhone">Telefon</label>
+            <input id="phone" name="phone" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="message" data-i18n="formMessage">Mesaj</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span data-i18n="formConsent">Sunt de acord să fiu contactat pentru consultație.</span>
+          </label>
+          <button class="btn primary" type="submit" data-i18n="formSubmit">Trimite cererea</button>
+          <div class="form-note" id="formNote" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
         <strong>Optima Fide</strong>
-        <span>Fundație de Caritate</span>
+        <p data-i18n="footerText">Centru de reabilitare acreditat în Moldova. Adresa juridică: str. M. Dosoftei 100, ap. 75, Chișinău, MD-2012.</p>
       </div>
-    </a>
-    <nav>
-      <a href="#despre">Despre noi</a>
-      <a href="#programe">Programe</a>
-      <a href="#impact">Impact</a>
-      <a href="#galerie">Centru</a>
-      <a href="#contacte">Contacte</a>
-      <a href="#donatii" class="btn-donate-nav">Dona&#x21b;i</a>
-      <div class="lang-switch" aria-label="Schimba limba">
-        <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21M12 3C9.6 5.5 8.4 8.5 8.4 12S9.6 18.5 12 21"/></svg>
-        <a href="#" class="active" aria-current="page" data-lang="ro">RO</a>
-        <a href="#" data-lang="ru">RU</a>
-        <a href="#" data-lang="en">EN</a>
+      <div class="footer-links">
+        <a href="#program" data-i18n="navProgram">Program</a>
+        <a href="#donatii" data-i18n="navDonate">Donații</a>
+        <a href="#contacte" data-i18n="navContact">Contacte</a>
       </div>
-    </nav>
-    <div class="burger" id="burger" aria-label="Meniu" role="button">
-      <span></span><span></span><span></span>
     </div>
+  </footer>
+
+  <div class="mobile-cta" aria-label="Acțiuni rapide">
+    <a class="btn primary" href="tel:+37378377337" data-i18n="mobileCall">Sună</a>
+    <a class="btn gold" href="https://t.me/optimafide" target="_blank" rel="noopener" data-i18n="mobileTelegram">Telegram</a>
   </div>
-</header>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" id="mobileClose" aria-label="Inchide meniul">&#x2715;</button>
-  <a href="#despre" class="mobile-link">Despre noi</a>
-  <a href="#programe" class="mobile-link">Programe</a>
-  <a href="#impact" class="mobile-link">Impact</a>
-  <a href="#galerie" class="mobile-link">Centrul nostru</a>
-  <a href="#contacte" class="mobile-link">Contacte</a>
-  <a href="#donatii" class="mobile-link">Dona&#x21b;i &#x2665;</a>
-  <div class="lang-switch" aria-label="Schimba limba">
-    <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21M12 3C9.6 5.5 8.4 8.5 8.4 12S9.6 18.5 12 21"/></svg>
-    <a href="#" class="active" aria-current="page" data-lang="ro">RO</a>
-    <a href="#" data-lang="ru">RU</a>
-    <a href="#" data-lang="en">EN</a>
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Fotografie">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Închide">×</button>
+    <img id="lightboxImage" src="center-therapy-room.jpg" alt="">
   </div>
-</div>
 
-<!-- HERO -->
-<section class="hero" id="acasa">
-  <div class="hero-content">
-    <div class="hero-badge">Acreditat de Stat &middot; 10 ani de activitate</div>
-    <h1>Reabilitare.<br>Speran&#x21b;&#x103;. <em>Schimbare.</em></h1>
-    <p class="hero-sub">Fundatia &#x201E;Optima Fide&#x201D; ofer&#x103; programe terapeutice profesioniste pentru persoanele care doresc s&#x103; dep&#x103;&#x219;easc&#x103; dependen&#x21b;a &#x219;i s&#x103;-&#x219;i reconstruiasc&#x103; via&#x21b;a.</p>
-    <div class="hero-actions">
-      <a href="#donatii" class="btn-primary">Sus&#x21b;ine&#x21b;i misiunea noastr&#x103;</a>
-      <a href="#programe" class="btn-outline">Programele noastre</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="hero-stat-num">19 000+</span>
-        <span class="hero-stat-lbl">Consulta&#x21b;ii acordate</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">500+</span>
-        <span class="hero-stat-lbl">Clien&#x21b;i reabilita&#x21b;i</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">10+</span>
-        <span class="hero-stat-lbl">Ani de experien&#x21b;&#x103;</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">20</span>
-        <span class="hero-stat-lbl">Locuri reziden&#x21b;iale</span>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    const translations = {
+      ro: {
+        brandSub: "Fundație de caritate",
+        navAbout: "Despre",
+        navProgram: "Program",
+        navCenter: "Centrul",
+        navDonate: "Donații",
+        navContact: "Contacte",
+        navCta: "Consultație",
+        heroBadge: "Acreditat de Stat · Din 2014 · Goianul Nou, Stăuceni",
+        heroTitle: "Centru de reabilitare acreditat <span>în Moldova</span>",
+        heroLead: "Program rezidențial de 6-12 luni pentru persoane care doresc să depășească dependența și să-și reconstruiască viața.",
+        heroConsult: "Solicită consultație",
+        heroProgram: "Vezi programul",
+        heroCall: "Sună acum",
+        statConsult: "consultații acordate",
+        statPeople: "persoane sprijinite",
+        statYears: "ani de experiență",
+        statPlaces: "locuri rezidențiale",
+        aboutEyebrow: "Despre fundație",
+        aboutTitle: "Reabilitare cu demnitate, discreție și sprijin real.",
+        aboutText1: "Fundația Optima Fide oferă un mediu sigur pentru persoanele care vor să iasă din dependență și să revină treptat la o viață stabilă.",
+        aboutText2: "Lucrăm cu respect pentru fiecare om: consultație inițială, program rezidențial, sprijin spiritual și psihosocial, reintegrare și susținere pentru familie.",
+        aboutPoint1: "Centru acreditat de stat în Republica Moldova",
+        aboutPoint2: "Program rezidențial cu ritm clar și supraveghere zilnică",
+        aboutPoint3: "Atmosferă calmă, ordine, hrană și spații de odihnă",
+        programEyebrow: "Program",
+        programTitle: "Trei direcții esențiale pentru schimbare.",
+        programLead: "Păstrăm programul clar și concentrat pe ceea ce ajută persoana să se stabilizeze, să capete motivație și să facă pași reali spre o viață nouă.",
+        service1Title: "Reabilitare rezidențială 6-12 luni",
+        service1Text: "Un spațiu protejat, cu rutină zilnică, grupuri, consiliere și sprijin pentru a depăși dependența.",
+        service2Title: "Consultație inițială și motivare",
+        service2Text: "Discuție confidențială, evaluarea situației și pași concreți pentru intrarea în program.",
+        service3Title: "Sprijin pentru familie și reintegrare",
+        service3Text: "Ajutăm familia să înțeleagă procesul și pregătim revenirea treptată la responsabilități.",
+        learnMore: "Află mai mult",
+        journeyEyebrow: "Cum funcționează",
+        journeyTitle: "Drumul este construit pas cu pas.",
+        step1Title: "Primul contact",
+        step1Text: "Răspundem discret, ascultăm situația și stabilim următorul pas.",
+        step2Title: "Consultație",
+        step2Text: "Discutăm motivația, starea persoanei și potrivirea programului.",
+        step3Title: "Intrare în centru",
+        step3Text: "Persoana primește loc, rutină zilnică și sprijinul echipei.",
+        step4Title: "Reabilitare",
+        step4Text: "Lucru constant cu dependența, obiceiurile, relațiile și responsabilitatea.",
+        step5Title: "Reintegrare",
+        step5Text: "Pregătim revenirea la familie, muncă și viață socială.",
+        centerEyebrow: "Centrul",
+        centerTitle: "Un loc sigur și cald, departe de tentații.",
+        centerLead: "Centrul din Goianul Nou, Stăuceni oferă camere de odihnă, spații de masă, sală pentru întâlniri și zone pentru lucru individual.",
+        accreditEyebrow: "Acreditare",
+        accreditTitle: "Acreditat de stat pentru servicii de reabilitare.",
+        accreditText: "Fundația activează legal și transparent. Certificatul confirmă acreditarea serviciilor sociale și terapeutice oferite în Republica Moldova.",
+        impactEyebrow: "Impact",
+        impactTitle: "Rezultatele se văd în oameni, familii și comunitate.",
+        impact1: "consultații acordate persoanelor și familiilor.",
+        impact2: "persoane care au primit sprijin în procesul de reabilitare.",
+        impact3: "ani de experiență în lucru constant cu dependența.",
+        impact4: "locuri rezidențiale disponibile în centru.",
+        partnersEyebrow: "Parteneri",
+        partnersTitle: "Lucrăm împreună cu instituții, biserici și oameni care cred în recuperare.",
+        partner1: "Instituții publice",
+        partner2: "Comunități creștine",
+        partner3: "Donatori privați",
+        partner4: "Voluntari",
+        donateEyebrow: "Donații",
+        donateTitle: "Susțineți recuperarea cu o donație.",
+        donateText: "Donația ajută la consultații, cazare, hrană, specialiști și dezvoltarea centrului. Fiecare contribuție susține o schimbare reală.",
+        donateBtn: "Donează",
+        copyIban: "Copiază IBAN",
+        allDetails: "Toate rechizitele",
+        bankAccountName: "Denumire cont",
+        bankNumber: "Număr cont",
+        bankName: "Banca",
+        correspondent: "Bancă corespondentă",
+        contactEyebrow: "Contacte",
+        contactTitle: "Răspundem cu discreție și respect.",
+        phoneLabel: "Telefon",
+        addressLabel: "Adresa centrului",
+        addressText: "str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni",
+        formName: "Nume",
+        formPhone: "Telefon",
+        formMessage: "Mesaj",
+        formConsent: "Sunt de acord să fiu contactat pentru consultație.",
+        formSubmit: "Trimite cererea",
+        formSuccess: "Mulțumim. Vă rugăm să ne sunați sau să scrieți pe Telegram pentru confirmarea rapidă a consultației.",
+        footerText: "Centru de reabilitare acreditat în Moldova. Adresa juridică: str. M. Dosoftei 100, ap. 75, Chișinău, MD-2012.",
+        mobileCall: "Sună",
+        mobileTelegram: "Telegram",
+        copied: "IBAN copiat"
+      },
+      ru: {
+        brandSub: "Благотворительный фонд",
+        navAbout: "О фонде",
+        navProgram: "Программа",
+        navCenter: "Центр",
+        navDonate: "Пожертвования",
+        navContact: "Контакты",
+        navCta: "Консультация",
+        heroBadge: "Государственная аккредитация · с 2014 года · Гоянул Ноу, Ставчены",
+        heroTitle: "Аккредитованный центр реабилитации <span>в Молдове</span>",
+        heroLead: "Резидентная программа на 6-12 месяцев для людей, которые хотят преодолеть зависимость и восстановить свою жизнь.",
+        heroConsult: "Запросить консультацию",
+        heroProgram: "Смотреть программу",
+        heroCall: "Позвонить сейчас",
+        statConsult: "проведенных консультаций",
+        statPeople: "людей получили поддержку",
+        statYears: "лет опыта",
+        statPlaces: "резидентных мест",
+        aboutEyebrow: "О фонде",
+        aboutTitle: "Реабилитация с достоинством, бережностью и реальной поддержкой.",
+        aboutText1: "Фонд Optima Fide создает безопасную среду для людей, которые хотят выйти из зависимости и постепенно вернуться к стабильной жизни.",
+        aboutText2: "Мы работаем с уважением к каждому человеку: первичная консультация, резидентная программа, духовная и психосоциальная поддержка, реинтеграция и помощь семье.",
+        aboutPoint1: "Центр с государственной аккредитацией в Республике Молдова",
+        aboutPoint2: "Резидентная программа с понятным ритмом и ежедневной поддержкой",
+        aboutPoint3: "Спокойная атмосфера, порядок, питание и места для отдыха",
+        programEyebrow: "Программа",
+        programTitle: "Три главных направления для перемен.",
+        programLead: "Мы оставили программу ясной и сфокусированной на том, что помогает человеку стабилизироваться, найти мотивацию и делать реальные шаги к новой жизни.",
+        service1Title: "Резидентная реабилитация 6-12 месяцев",
+        service1Text: "Защищенное пространство с ежедневным распорядком, группами, консультированием и поддержкой в преодолении зависимости.",
+        service2Title: "Первичная консультация и мотивация",
+        service2Text: "Конфиденциальная беседа, оценка ситуации и конкретные шаги для входа в программу.",
+        service3Title: "Поддержка семьи и реинтеграция",
+        service3Text: "Помогаем семье понять процесс и готовим постепенное возвращение к ответственности.",
+        learnMore: "Подробнее",
+        journeyEyebrow: "Как это работает",
+        journeyTitle: "Путь выстроен шаг за шагом.",
+        step1Title: "Первый контакт",
+        step1Text: "Отвечаем деликатно, слушаем ситуацию и определяем следующий шаг.",
+        step2Title: "Консультация",
+        step2Text: "Обсуждаем мотивацию, состояние человека и подходит ли программа.",
+        step3Title: "Вход в центр",
+        step3Text: "Человек получает место, ежедневный распорядок и поддержку команды.",
+        step4Title: "Реабилитация",
+        step4Text: "Постоянная работа с зависимостью, привычками, отношениями и ответственностью.",
+        step5Title: "Реинтеграция",
+        step5Text: "Готовим возвращение в семью, к работе и социальной жизни.",
+        centerEyebrow: "Центр",
+        centerTitle: "Безопасное и теплое место, вдали от соблазнов.",
+        centerLead: "Центр в Гоянул Ноу, Ставчены предлагает комнаты отдыха, столовую, зал для встреч и пространства для индивидуальной работы.",
+        accreditEyebrow: "Аккредитация",
+        accreditTitle: "Государственная аккредитация услуг реабилитации.",
+        accreditText: "Фонд работает законно и прозрачно. Сертификат подтверждает аккредитацию социальных и терапевтических услуг в Республике Молдова.",
+        impactEyebrow: "Результаты",
+        impactTitle: "Результаты видны в людях, семьях и сообществе.",
+        impact1: "консультаций для людей и семей.",
+        impact2: "людей получили поддержку в процессе реабилитации.",
+        impact3: "лет постоянной работы с проблемой зависимости.",
+        impact4: "резидентных мест доступны в центре.",
+        partnersEyebrow: "Партнеры",
+        partnersTitle: "Мы работаем вместе с учреждениями, церквями и людьми, которые верят в восстановление.",
+        partner1: "Государственные учреждения",
+        partner2: "Христианские общины",
+        partner3: "Частные доноры",
+        partner4: "Волонтеры",
+        donateEyebrow: "Пожертвования",
+        donateTitle: "Поддержите восстановление пожертвованием.",
+        donateText: "Пожертвование помогает оплачивать консультации, проживание, питание, специалистов и развитие центра. Каждый вклад поддерживает реальные перемены.",
+        donateBtn: "Пожертвовать",
+        copyIban: "Скопировать IBAN",
+        allDetails: "Все реквизиты",
+        bankAccountName: "Название счета",
+        bankNumber: "Номер счета",
+        bankName: "Банк",
+        correspondent: "Банк-корреспондент",
+        contactEyebrow: "Контакты",
+        contactTitle: "Мы отвечаем деликатно и с уважением.",
+        phoneLabel: "Телефон",
+        addressLabel: "Адрес центра",
+        addressText: "ул. Глорией 4, с. Гоянул Ноу, г. Ставчены",
+        formName: "Имя",
+        formPhone: "Телефон",
+        formMessage: "Сообщение",
+        formConsent: "Я согласен, чтобы со мной связались для консультации.",
+        formSubmit: "Отправить заявку",
+        formSuccess: "Спасибо. Для быстрого подтверждения консультации позвоните нам или напишите в Telegram.",
+        footerText: "Аккредитованный центр реабилитации в Молдове. Юридический адрес: ул. М. Дософтея 100, кв. 75, Кишинев, MD-2012.",
+        mobileCall: "Позвонить",
+        mobileTelegram: "Telegram",
+        copied: "IBAN скопирован"
+      },
+      en: {
+        brandSub: "Charitable foundation",
+        navAbout: "About",
+        navProgram: "Program",
+        navCenter: "Center",
+        navDonate: "Donate",
+        navContact: "Contact",
+        navCta: "Consultation",
+        heroBadge: "State accredited · Since 2014 · Goianul Nou, Stăuceni",
+        heroTitle: "Accredited rehabilitation center <span>in Moldova</span>",
+        heroLead: "A 6-12 month residential program for people who want to overcome addiction and rebuild their lives.",
+        heroConsult: "Request consultation",
+        heroProgram: "View program",
+        heroCall: "Call now",
+        statConsult: "consultations provided",
+        statPeople: "people supported",
+        statYears: "years of experience",
+        statPlaces: "residential places",
+        aboutEyebrow: "About",
+        aboutTitle: "Rehabilitation with dignity, discretion and practical support.",
+        aboutText1: "Optima Fide provides a safe environment for people who want to leave addiction behind and gradually return to a stable life.",
+        aboutText2: "We work with respect for every person: initial consultation, residential program, spiritual and psychosocial support, reintegration and family guidance.",
+        aboutPoint1: "State accredited center in the Republic of Moldova",
+        aboutPoint2: "Residential program with clear daily structure",
+        aboutPoint3: "Calm atmosphere, order, meals and resting spaces",
+        programEyebrow: "Program",
+        programTitle: "Three essential directions for change.",
+        programLead: "The program is clear and focused on what helps a person stabilize, find motivation and make real steps toward a new life.",
+        service1Title: "6-12 month residential rehabilitation",
+        service1Text: "A protected space with daily routine, groups, counseling and support for overcoming addiction.",
+        service2Title: "Initial consultation and motivation",
+        service2Text: "A confidential conversation, assessment of the situation and concrete steps for entering the program.",
+        service3Title: "Family support and reintegration",
+        service3Text: "We help families understand the process and prepare a gradual return to responsibility.",
+        learnMore: "Learn more",
+        journeyEyebrow: "How it works",
+        journeyTitle: "The path is built step by step.",
+        step1Title: "First contact",
+        step1Text: "We respond discreetly, listen to the situation and set the next step.",
+        step2Title: "Consultation",
+        step2Text: "We discuss motivation, the person's condition and program fit.",
+        step3Title: "Admission",
+        step3Text: "The person receives a place, daily routine and team support.",
+        step4Title: "Rehabilitation",
+        step4Text: "Consistent work with addiction, habits, relationships and responsibility.",
+        step5Title: "Reintegration",
+        step5Text: "We prepare the return to family, work and social life.",
+        centerEyebrow: "Center",
+        centerTitle: "A safe and warm place, away from temptation.",
+        centerLead: "The center in Goianul Nou, Stăuceni offers bedrooms, dining areas, meeting rooms and spaces for individual work.",
+        accreditEyebrow: "Accreditation",
+        accreditTitle: "State accredited rehabilitation services.",
+        accreditText: "The foundation works legally and transparently. The certificate confirms accreditation of social and therapeutic services in Moldova.",
+        impactEyebrow: "Impact",
+        impactTitle: "The results are seen in people, families and community.",
+        impact1: "consultations provided to people and families.",
+        impact2: "people supported through rehabilitation.",
+        impact3: "years of consistent work with addiction.",
+        impact4: "residential places available in the center.",
+        partnersEyebrow: "Partners",
+        partnersTitle: "We work with institutions, churches and people who believe in recovery.",
+        partner1: "Public institutions",
+        partner2: "Christian communities",
+        partner3: "Private donors",
+        partner4: "Volunteers",
+        donateEyebrow: "Donations",
+        donateTitle: "Support recovery with a donation.",
+        donateText: "Your donation helps consultations, accommodation, food, specialists and center development. Every contribution supports real change.",
+        donateBtn: "Donate",
+        copyIban: "Copy IBAN",
+        allDetails: "All bank details",
+        bankAccountName: "Account name",
+        bankNumber: "Account number",
+        bankName: "Bank",
+        correspondent: "Correspondent bank",
+        contactEyebrow: "Contact",
+        contactTitle: "We respond with discretion and respect.",
+        phoneLabel: "Phone",
+        addressLabel: "Center address",
+        addressText: "Gloriei St. 4, Goianul Nou, Stăuceni",
+        formName: "Name",
+        formPhone: "Phone",
+        formMessage: "Message",
+        formConsent: "I agree to be contacted for a consultation.",
+        formSubmit: "Send request",
+        formSuccess: "Thank you. Please call us or write on Telegram for quick consultation confirmation.",
+        footerText: "Accredited rehabilitation center in Moldova. Legal address: M. Dosoftei St. 100, apt. 75, Chișinău, MD-2012.",
+        mobileCall: "Call",
+        mobileTelegram: "Telegram",
+        copied: "IBAN copied"
+      }
+    };
 
-<!-- DESPRE -->
-<section class="about" id="despre">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img">
-        <img src="center-therapy-room.jpg" alt="Sala de terapie a Centrului de Reabilitare Optima Fide">
-      </div>
-      <div class="about-text">
-        <div class="section-head">
-          <span class="section-label">Despre noi</span>
-          <h2 class="section-title">Fundatia &#x201E;Optima Fide&#x201D;</h2>
-          <p class="section-subtitle">O organizatie non-comerciala fondata pe 18 septembrie 2014 la Chi&#x219;in&#x103;u.</p>
-        </div>
-        <p>Timp de peste 10 ani, am construit un centru specializat de reabilitare terapeutica pentru persoanele dependente de substan&#x21b;e psihoactive. Programul nostru reziden&#x21b;ial dureaza 6&ndash;12 luni &#x219;i combina abordarile psihologice, spirituale &#x219;i sociale.</p>
-        <p>Credem ca fiecare persoana merita o a doua &#x219;ansa. Abordarea noastra holistica sprijina nu doar recuperarea fizica, ci &#x219;i reintegrarea sociala deplina &mdash; familie, munca, comunitate.</p>
-        <p>Evaluarile externe confirma eficacitatea metodelor noastre. Participan&#x21b;ii raporteaza o calitate imbunatatita a vie&#x21b;ii, relati familiale mai sanatoase &#x219;i o noua perspectiva asupra viitorului.</p>
-        <div class="about-accred">
-          <div class="accred-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-          </div>
-          <div class="accred-text">
-            <strong>Certificat de Acreditare AS nr. 0000117</strong>
-            <span>Inspectoratul Social de Stat al Republicii Moldova &middot; 10 octombrie 2025<br>IDNO: 1014620007164</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    const languageLinks = document.querySelectorAll("[data-lang]");
+    const translatable = document.querySelectorAll("[data-i18n]");
+    const navLinks = document.getElementById("navLinks");
+    const menuToggle = document.getElementById("menuToggle");
+    const html = document.documentElement;
+    let currentLang = localStorage.getItem("optimaLang") || "ro";
 
-<!-- PROGRAME -->
-<section class="programs" id="programe">
-  <div class="container">
-    <div class="section-head center">
-      <span class="section-label">Ce oferim</span>
-      <h2 class="section-title">Programele noastre</h2>
-      <p class="section-subtitle">Fiecare program este adaptat nevoilor individuale &#x219;i sus&#x21b;inut de speciali&#x219;ti califica&#x21b;i.</p>
-    </div>
-    <div class="programs-grid">
-      <div class="program-card">
-        <div class="program-icon">
-          <svg viewBox="0 0 24 24" fill="#1a4a9e"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-        </div>
-        <h3>Reabilitare Rezidentiala</h3>
-        <p>Program terapeutic de 6&ndash;12 luni pentru persoanele dependente de alcool &#x219;i substan&#x21b;e psihoactive. Capacitate: 20 reziden&#x21b;i. Centrul este situat in or. Stauceni, s. Golanul Nou.</p>
-      </div>
-      <div class="program-card">
-        <div class="program-icon">
-          <svg viewBox="0 0 24 24" fill="#1a4a9e"><path d="M17 8C8 10 5.9 16.17 3.82 19.31L5.71 21 7 19.36A4.5 4.5 0 0 0 8.5 20c1.93 0 3.5-1.57 3.5-3.5 0-.93-.36-1.77-.95-2.4C13.84 12.5 17 9 17 8zM9.5 15.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5S11 13.17 11 14s-.67 1.5-1.5 1.5z"/></svg>
-        </div>
-        <h3>Ecologie</h3>
-        <p>Program de recuperare prin munca &#x219;i interac&#x21b;iune cu natura. Activita&#x21b;ile in aer liber, gradinaritul &#x219;i ingrijirea mediului contribuie la restabilirea echilibrului interior.</p>
-      </div>
-      <div class="program-card">
-        <div class="program-icon">
-          <svg viewBox="0 0 24 24" fill="#1a4a9e"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-        </div>
-        <h3>&#x201E;&#x41f;&#x43e;&#x434;&#x44a;&#x451;&#x43c;&#x201D; &mdash; Grup Motivational</h3>
-        <p>Intalniri regulate de suport &#x219;i motivare pentru persoanele aflate in diferite etape ale recuperarii. Spatiu sigur pentru partajarea experien&#x21b;elor &#x219;i construirea comunita&#x21b;ii.</p>
-      </div>
-      <div class="program-card">
-        <div class="program-icon">
-          <svg viewBox="0 0 24 24" fill="#1a4a9e"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        </div>
-        <h3>Asistenta pentru Refugiati</h3>
-        <p>Sprijin umanitar &#x219;i psihologic pentru persoanele stramutate &#x219;i familiile care au nevoie de ajutor urgent. Consulta&#x21b;ii, asisten&#x21b;a sociala &#x219;i suport emotional.</p>
-      </div>
-      <div class="program-card">
-        <div class="program-icon">
-          <svg viewBox="0 0 24 24" fill="#1a4a9e"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-        </div>
-        <h3>Centrul Terapeutic Multifunctional</h3>
-        <p>CTM integreaza diverse servicii de sanatate mentala &#x219;i suport social, oferind ingrijire complexa adaptata fiecarei persoane in parte.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- IMPACT -->
-<section class="impact" id="impact">
-  <div class="container">
-    <div class="section-head center">
-      <span class="section-label">Impactul nostru</span>
-      <h2 class="section-title">Cifre care vorbesc</h2>
-      <p class="section-subtitle">Date confirmate de evaluarea externa independenta.</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-box">
-        <span class="stat-num">19 000+</span>
-        <span class="stat-label">Consultatii acordate</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">500+</span>
-        <span class="stat-label">Clienti care au trecut cursul</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">20</span>
-        <span class="stat-label">Locuri rezidentiale</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">6&ndash;12</span>
-        <span class="stat-label">Luni de program</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">10+</span>
-        <span class="stat-label">Ani de activitate</span>
-      </div>
-    </div>
-    <div class="impact-quote">
-      <blockquote>&#x201E;Evaluarea externa a confirmat ca beneficiarii programului raporteaza o calitate imbunatatita a vietii, relatii familiale mai sanatoase &#x219;i o reintegrare sociala de succes.&#x201D;</blockquote>
-      <cite>&mdash; Raportul evaluarii externe independente a Fundatiei &#x201E;Optima Fide&#x201D;</cite>
-    </div>
-  </div>
-</section>
-
-<!-- GALERIE -->
-<section class="gallery" id="galerie">
-  <div class="container">
-    <div class="section-head center">
-      <span class="section-label">Centrul nostru</span>
-      <h2 class="section-title">Locul unde se naste schimbarea</h2>
-      <p class="section-subtitle">Centrul de reabilitare din or. Stauceni &mdash; un spatiu sigur &#x219;i cald, departe de tentatii.</p>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item" data-img="center-dining.jpg">
-        <img src="center-dining.jpg" alt="Sala de mese a Centrului Optima Fide">
-        <div class="overlay"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      </div>
-      <div class="gallery-item" data-img="center-bedroom.jpg">
-        <img src="center-bedroom.jpg" alt="Camera rezidentiala a centrului">
-        <div class="overlay"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      </div>
-      <div class="gallery-item" data-img="center-hallway.jpg">
-        <img src="center-hallway.jpg" alt="Holul renovat al centrului">
-        <div class="overlay"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      </div>
-      <div class="gallery-item" data-img="accreditation.jpg">
-        <img src="accreditation.jpg" alt="Certificat de acreditare">
-        <div class="overlay"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      </div>
-      <div class="gallery-item" data-img="center-stairs.jpg" style="grid-column: 1 / 3;">
-        <img src="center-stairs.jpg" alt="Scara interioara a centrului de reabilitare">
-        <div class="overlay"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      </div>
-      <div class="gallery-item" data-img="therapy-session-blurred.jpg">
-        <img src="therapy-session-blurred.jpg" alt="Activitate terapeutica de grup">
-        <div class="overlay"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      </div>
-      <div class="gallery-item" data-img="community-prayer-blurred.jpg">
-        <img src="community-prayer-blurred.jpg" alt="Intalnire comunitara in centru">
-        <div class="overlay"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      </div>
-      <div class="gallery-item" data-img="community-celebration-blurred.jpg">
-        <img src="community-celebration-blurred.jpg" alt="Moment de sarbatoare in comunitate">
-        <div class="overlay"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CUM FUNCTIONEAZA -->
-<section class="how" id="cum">
-  <div class="container">
-    <div class="section-head center">
-      <span class="section-label">Procesul</span>
-      <h2 class="section-title">Cum functioneaza programul</h2>
-      <p class="section-subtitle">Un traseu clar, sprijinit de profesionisti la fiecare etapa.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>Contactare &amp; Evaluare</h4>
-        <p>Sunati-ne sau scrieti. Facem o evaluare initiala gratuita a situatiei &#x219;i nevoilor.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>Admitere in Program</h4>
-        <p>Stabilim impreuna un plan personalizat &#x219;i primim rezidentul in centrul nostru.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>Reabilitare Activa</h4>
-        <p>6&ndash;12 luni de terapie, activitati structurate, suport psihologic &#x219;i spiritual zilnic.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4>Reintegrare Sociala</h4>
-        <p>Pregatire pentru iesire, sprijin in gasirea muncii, suport continuu post-program.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PARTENERI -->
-<section class="partners" id="parteneri">
-  <div class="container">
-    <div class="section-head center">
-      <span class="section-label">Parteneri</span>
-      <h2 class="section-title">Sustinuti de organizatii internationale</h2>
-      <p class="section-subtitle">Misiunea noastra este posibila datorita partenerilor care cred in schimbare.</p>
-    </div>
-    <div class="partners-grid">
-      <div class="partner-card">
-        <strong>Renovabis</strong>
-        <span>Parteneriat din 2018<br>Organizatie catolica germana de solidaritate</span>
-      </div>
-      <div class="partner-card">
-        <strong>KZE</strong>
-        <span>Sprijin de lunga durata<br>Cooperare in domeniu social</span>
-      </div>
-      <div class="partner-card">
-        <strong>Kindermissionswerk<br>&#x201E;Die Sternsinger&#x201D;</strong>
-        <span>Sprijin umanitar international</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DONATII -->
-<section class="donate" id="donatii">
-  <div class="container">
-    <span class="section-label">Ajutati-ne</span>
-    <h2 class="section-title">Fiecare leu conteaza</h2>
-    <p class="donate-sub">Donatia dvs. sprijina direct programul de reabilitare &#x219;i permite mai multor persoane sa-&#x219;i reconstruiasca viata. Fundatia &#x201E;Optima Fide&#x201D; este acreditata de stat &#x219;i activeaza cu transparenta deplina.</p>
-
-    <div class="donate-options">
-      <details class="donate-card">
-        <summary class="donate-summary">
-          <span class="donate-currency">MDL</span>
-          <span class="donate-iban">MD49VI000002224729306</span>
-          <span class="donate-toggle">Toate detaliile</span>
-        </summary>
-        <div class="donate-details">
-          <div class="donate-row">
-            <span class="donate-label">Beneficiar</span>
-            <span class="donate-value">Fundatia &#x201E;Optima Fide&#x201D;</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">IBAN</span>
-            <span class="donate-value mono">MD49VI000002224729306</span>
-          </div>
-          <hr class="donate-divider">
-          <div class="donate-row">
-            <span class="donate-label">Banca</span>
-            <span class="donate-value">BC &#x201E;Victoriabank&#x201D; SA</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">SWIFT</span>
-            <span class="donate-value mono">VICBMD2X</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">Cont</span>
-            <span class="donate-value mono">2224729306</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">IDNO</span>
-            <span class="donate-value mono">1014620007164</span>
-          </div>
-          <button class="copy-btn" data-copy="MD49VI000002224729306">Copiaza IBAN</button>
-        </div>
-      </details>
-
-      <details class="donate-card">
-        <summary class="donate-summary">
-          <span class="donate-currency">EUR</span>
-          <span class="donate-iban">MD63VI0000000002224729306</span>
-          <span class="donate-toggle">Toate detaliile</span>
-        </summary>
-        <div class="donate-details">
-          <div class="donate-row">
-            <span class="donate-label">Beneficiar</span>
-            <span class="donate-value">Fundatia &#x201E;Optima Fide&#x201D;</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">IBAN</span>
-            <span class="donate-value mono">MD63VI0000000002224729306</span>
-          </div>
-          <hr class="donate-divider">
-          <div class="donate-row">
-            <span class="donate-label">Banca</span>
-            <span class="donate-value">BC &#x201E;Victoriabank&#x201D; SA</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">SWIFT</span>
-            <span class="donate-value mono">VICBMD2X</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">Banca corespondenta</span>
-            <span class="donate-value">DZ Bank AG, Frankfurt am Main, Germany</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">SWIFT corespondent</span>
-            <span class="donate-value mono">GENODEFF</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">Cont</span>
-            <span class="donate-value mono">2224729306</span>
-          </div>
-          <button class="copy-btn" data-copy="MD63VI0000000002224729306">Copiaza IBAN</button>
-        </div>
-      </details>
-
-      <details class="donate-card">
-        <summary class="donate-summary">
-          <span class="donate-currency">USD</span>
-          <span class="donate-iban">MD63VI0000000002224729306</span>
-          <span class="donate-toggle">Toate detaliile</span>
-        </summary>
-        <div class="donate-details">
-          <div class="donate-row">
-            <span class="donate-label">Beneficiar</span>
-            <span class="donate-value">Fundatia &#x201E;Optima Fide&#x201D;</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">IBAN</span>
-            <span class="donate-value mono">MD63VI0000000002224729306</span>
-          </div>
-          <hr class="donate-divider">
-          <div class="donate-row">
-            <span class="donate-label">Banca</span>
-            <span class="donate-value">BC &#x201E;Victoriabank&#x201D; SA</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">SWIFT</span>
-            <span class="donate-value mono">VICBMD2X</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">Banca corespondenta</span>
-            <span class="donate-value">Bank of New York Mellon, New York, N.Y.</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">SWIFT corespondent</span>
-            <span class="donate-value mono">IRVTUS3N</span>
-          </div>
-          <div class="donate-row">
-            <span class="donate-label">Cont</span>
-            <span class="donate-value mono">2224729306</span>
-          </div>
-          <button class="copy-btn" data-copy="MD63VI0000000002224729306">Copiaza IBAN</button>
-        </div>
-      </details>
-    </div>
-
-    <p class="donate-note">Donatiile persoanelor juridice sunt deductibile fiscal conform legislatiei Republicii Moldova.</p>
-
-    <div class="social-links">
-      <a href="https://t.me/PRICAL_OPTIMAFIDE" class="social-link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-        Telegram
-      </a>
-      <a href="https://www.youtube.com/@optimafide6374" class="social-link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3L10 15z"/></svg>
-        YouTube
-      </a>
-      <a href="https://optimafide.md/en/" class="social-link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        Site web oficial
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTE -->
-<section class="contacts" id="contacte">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-label">Contacte</span>
-      <h2 class="section-title">Suntem aici pentru dvs.</h2>
-      <p class="section-subtitle">Nu ezitati sa ne contactati &mdash; fiecare pas conteaza.</p>
-    </div>
-    <div class="contacts-grid">
-      <div class="contact-block">
-        <h3>Date de contact</h3>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          </div>
-          <div>
-            <strong>Telefon</strong>
-            <a href="tel:+37378377337">+373 783 77337</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </div>
-          <div>
-            <strong>Email</strong>
-            <a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-          <div>
-            <strong>Sediu juridic</strong>
-            <span>str. Mitropolit Dosoftei 100, ap. 75<br>Chi&#x219;inau, MD-2012</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-          </div>
-          <div>
-            <strong>Centrul de Reabilitare</strong>
-            <span>or. Stauceni, s. Golanul Nou<br>str. Gloriei nr. 4</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-          </div>
-          <div>
-            <strong>Website</strong>
-            <a href="https://optimafide.md/en/" target="_blank" rel="noopener">optimafide.md</a>
-          </div>
-        </div>
-      </div>
-      <div class="contact-block">
-        <h3>Cum ajungeti la noi</h3>
-        <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--blue-light);">
-          <iframe
-            src="https://maps.google.com/maps?q=str+Gloriei+4+Golanul+Nou+Stauceni+Moldova&z=15&output=embed"
-            width="100%" height="300" style="border:0;display:block;" allowfullscreen=""
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Locatia Centrului de Reabilitare Optima Fide">
-          </iframe>
-          <a href="https://maps.google.com/?q=str+Gloriei+4+Golanul+Nou+Stauceni+Moldova" target="_blank" rel="noopener"
-             style="display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--blue-pale);color:var(--blue-mid);text-decoration:none;font-size:0.88rem;font-weight:600;border-top:1px solid var(--blue-light);">
-            <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--blue-mid);flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            str. Gloriei 4, s. Golanul Nou, or. Stauceni &mdash; Deschide in Google Maps &rarr;
-          </a>
-        </div>
-        <div class="director-box">
-          <strong>Director: Ruslan Magari</strong>
-          <p>Suntem disponibili pentru consultatii telefonice in zilele lucratoare, 9:00&ndash;17:00. Pentru urgente, contactati-ne oricand prin Telegram <a href="https://t.me/PRICAL_OPTIMAFIDE" target="_blank" rel="noopener">@PRICAL_OPTIMAFIDE</a>.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <img src="logo.jpg" alt="Logo Optima Fide">
-      <span>Fundatia &#x201E;Optima Fide&#x201D;</span>
-    </div>
-    <div class="footer-links">
-      <a href="#despre">Despre noi</a>
-      <a href="#programe">Programe</a>
-      <a href="#impact">Impact</a>
-      <a href="#galerie">Centrul nostru</a>
-      <a href="#donatii">Donatii</a>
-      <a href="#contacte">Contacte</a>
-    </div>
-    <p>&#x00A9; 2014&ndash;2026 Fundatia &#x201E;Optima Fide&#x201D; &nbsp;&middot;&nbsp; IDNO 1014620007164 &nbsp;&middot;&nbsp; Chi&#x219;inau, Moldova &nbsp;&middot;&nbsp; <a href="mailto:optimafide.info@gmail.com" style="color:rgba(255,255,255,0.45)">optimafide.info@gmail.com</a></p>
-  </div>
-</footer>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lbClose">&#x2715;</button>
-  <button class="lightbox-prev" id="lbPrev">&#x2039;</button>
-  <img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Imagine marita">
-  <button class="lightbox-next" id="lbNext">&#x203a;</button>
-</div>
-
-<script>
-  var legacyCopyButton = document.createElement('button');
-  legacyCopyButton.id = 'copyIban';
-  legacyCopyButton.type = 'button';
-  legacyCopyButton.hidden = true;
-  document.body.appendChild(legacyCopyButton);
-
-  var mapIcon = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--blue-mid);flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
-  var globeIcon = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>';
-  var translations = {
-    ro: {
-      title: 'Fundația „Optima Fide” — Centru de Reabilitare Moldova',
-      brandSub: 'Fundație de Caritate',
-      metaDescription: 'Fundația „Optima Fide” oferă reabilitare terapeutică pentru persoanele dependente de substanțe psihoactive. Acreditată de stat. Chișinău, Moldova.',
-      ogDescription: '10 ani de reabilitare, peste 19 000 consultații și peste 500 clienți care au trecut cursul de reabilitare. Suntem alături de cei care vor să se schimbe.',
-      nav: ['Despre noi', 'Programe', 'Impact', 'Centru', 'Contacte', 'Donați'],
-      mobileNav: ['Despre noi', 'Programe', 'Impact', 'Centrul nostru', 'Contacte', 'Donați ♥'],
-      footerNav: ['Despre noi', 'Programe', 'Impact', 'Centrul nostru', 'Donații', 'Contacte'],
-      hero: {
-        badge: 'Acreditat de Stat · 10 ani de activitate',
-        title: 'Reabilitare.<br>Speranță. <em>Schimbare.</em>',
-        sub: 'Fundația „Optima Fide” oferă programe terapeutice profesioniste pentru persoanele care doresc să depășească dependența și să-și reconstruiască viața.',
-        primary: 'Susțineți misiunea noastră',
-        secondary: 'Programele noastre',
-        stats: ['Consultații acordate', 'Clienți reabilitați', 'Ani de experiență', 'Locuri rezidențiale']
-      },
-      about: {
-        label: 'Despre noi',
-        title: 'Fundația „Optima Fide”',
-        sub: 'O organizație non-comercială fondată pe 18 septembrie 2014 la Chișinău.',
-        paragraphs: [
-          'Timp de peste 10 ani, am construit un centru specializat de reabilitare terapeutică pentru persoanele dependente de substanțe psihoactive. Programul nostru rezidențial durează 6–12 luni și combină abordările psihologice, spirituale și sociale.',
-          'Credem că fiecare persoană merită o a doua șansă. Abordarea noastră holistică sprijină nu doar recuperarea fizică, ci și reintegrarea socială deplină: familie, muncă, comunitate.',
-          'Evaluările externe confirmă eficacitatea metodelor noastre. Participanții raportează o calitate îmbunătățită a vieții, relații familiale mai sănătoase și o nouă perspectivă asupra viitorului.'
-        ],
-        accredTitle: 'Certificat de Acreditare AS nr. 0000117',
-        accredText: 'Inspectoratul Social de Stat al Republicii Moldova · 10 octombrie 2025<br>IDNO: 1014620007164'
-      },
-      programs: {
-        label: 'Ce oferim',
-        title: 'Programele noastre',
-        sub: 'Fiecare program este adaptat nevoilor individuale și susținut de specialiști calificați.',
-        cards: [
-          ['Reabilitare Rezidențială', 'Program terapeutic de 6–12 luni pentru persoanele dependente de alcool și substanțe psihoactive. Capacitate: 20 rezidenți. Centrul este situat în or. Stăuceni, s. Golanul Nou.'],
-          ['Ecologie', 'Program de recuperare prin muncă și interacțiune cu natura. Activitățile în aer liber, grădinăritul și îngrijirea mediului contribuie la restabilirea echilibrului interior.'],
-          ['„Подъём” — Grup Motivațional', 'Întâlniri regulate de suport și motivare pentru persoanele aflate în diferite etape ale recuperării. Spațiu sigur pentru împărtășirea experiențelor și construirea comunității.'],
-          ['Asistență pentru Refugiați', 'Sprijin umanitar și psihologic pentru persoanele strămutate și familiile care au nevoie de ajutor urgent. Consultații, asistență socială și suport emoțional.'],
-          ['Centrul Terapeutic Multifuncțional', 'CTM integrează diverse servicii de sănătate mentală și suport social, oferind îngrijire complexă adaptată fiecărei persoane în parte.']
-        ]
-      },
-      impact: {
-        label: 'Impactul nostru',
-        title: 'Cifre care vorbesc',
-        sub: 'Date confirmate de evaluarea externă independentă.',
-        stats: ['Consultații acordate', 'Clienți care au trecut cursul', 'Locuri rezidențiale', 'Luni de program', 'Ani de activitate'],
-        quote: '„Evaluarea externă a confirmat că beneficiarii programului raportează o calitate îmbunătățită a vieții, relații familiale mai sănătoase și o reintegrare socială de succes.”',
-        cite: '— Raportul evaluării externe independente a Fundației „Optima Fide”'
-      },
-      gallery: {
-        label: 'Centrul nostru',
-        title: 'Locul unde se naște schimbarea',
-        sub: 'Centrul de reabilitare din or. Stăuceni — un spațiu sigur și cald, departe de tentații.',
-        alts: ['Sala de mese a Centrului Optima Fide', 'Camera rezidențială a centrului', 'Holul renovat al centrului', 'Certificat de acreditare', 'Scara interioară a centrului de reabilitare', 'Activitate terapeutică de grup', 'Întâlnire comunitară în centru', 'Moment de sărbătoare în comunitate']
-      },
-      process: {
-        label: 'Procesul',
-        title: 'Cum funcționează programul',
-        sub: 'Un traseu clar, sprijinit de profesioniști la fiecare etapă.',
-        steps: [
-          ['Contactare & Evaluare', 'Sunați-ne sau scrieți-ne. Facem o evaluare inițială gratuită a situației și nevoilor.'],
-          ['Admitere în Program', 'Stabilim împreună un plan personalizat și primim rezidentul în centrul nostru.'],
-          ['Reabilitare Activă', '6–12 luni de terapie, activități structurate, suport psihologic și spiritual zilnic.'],
-          ['Reintegrare Socială', 'Pregătire pentru ieșire, sprijin în găsirea muncii, suport continuu post-program.']
-        ]
-      },
-      partners: {
-        label: 'Parteneri',
-        title: 'Susținuți de organizații internaționale',
-        sub: 'Misiunea noastră este posibilă datorită partenerilor care cred în schimbare.',
-        cards: ['Parteneriat din 2018<br>Organizație catolică germană de solidaritate', 'Sprijin de lungă durată<br>Cooperare în domeniu social', 'Sprijin umanitar internațional']
-      },
-      donate: {
-        label: 'Ajutați-ne',
-        title: 'Fiecare leu contează',
-        sub: 'Donația dvs. sprijină direct programul de reabilitare și permite mai multor persoane să-și reconstruiască viața. Fundația „Optima Fide” este acreditată de stat și activează cu transparență deplină.',
-        toggle: 'Toate detaliile',
-        labels: {
-          beneficiary: 'Beneficiar',
-          bank: 'Banca',
-          account: 'Cont',
-          correspondent: 'Banca corespondentă',
-          correspondentSwift: 'SWIFT corespondent'
-        },
-        copy: 'Copiază IBAN',
-        copied: 'Copiat',
-        note: 'Donațiile persoanelor juridice sunt deductibile fiscal conform legislației Republicii Moldova.',
-        official: 'Site web oficial'
-      },
-      contacts: {
-        label: 'Contacte',
-        title: 'Suntem aici pentru dvs.',
-        sub: 'Nu ezitați să ne contactați — fiecare pas contează.',
-        dataTitle: 'Date de contact',
-        phone: 'Telefon',
-        email: 'Email',
-        legal: 'Sediu juridic',
-        rehab: 'Centrul de Reabilitare',
-        website: 'Website',
-        mapTitle: 'Cum ajungeți la noi',
-        mapLink: 'str. Gloriei 4, s. Golanul Nou, or. Stăuceni — Deschide în Google Maps →',
-        directorTitle: 'Director: Ruslan Magari',
-        directorText: 'Suntem disponibili pentru consultații telefonice în zilele lucrătoare, 9:00–17:00. Pentru urgențe, contactați-ne oricând prin Telegram <a href="https://t.me/PRICAL_OPTIMAFIDE" target="_blank" rel="noopener">@PRICAL_OPTIMAFIDE</a>.',
-        mapFrameTitle: 'Locația Centrului de Reabilitare Optima Fide'
-      },
-      footer: '© 2014–2026 Fundația „Optima Fide” · IDNO 1014620007164 · Chișinău, Moldova · <a href="mailto:optimafide.info@gmail.com" style="color:rgba(255,255,255,0.45)">optimafide.info@gmail.com</a>'
-    },
-    ru: {
-      title: 'Фонд «Optima Fide» — центр реабилитации в Молдове',
-      brandSub: 'Благотворительный фонд',
-      metaDescription: 'Фонд «Optima Fide» предлагает терапевтическую реабилитацию для людей с зависимостью от психоактивных веществ. Государственная аккредитация. Кишинёв, Молдова.',
-      ogDescription: '10 лет реабилитационной работы, более 19 000 консультаций и более 500 клиентов, прошедших курс реабилитации.',
-      nav: ['О нас', 'Программы', 'Влияние', 'Центр', 'Контакты', 'Помочь'],
-      mobileNav: ['О нас', 'Программы', 'Влияние', 'Наш центр', 'Контакты', 'Помочь ♥'],
-      footerNav: ['О нас', 'Программы', 'Влияние', 'Наш центр', 'Пожертвования', 'Контакты'],
-      hero: {
-        badge: 'Государственная аккредитация · 10 лет деятельности',
-        title: 'Реабилитация.<br>Надежда. <em>Изменение.</em>',
-        sub: 'Фонд «Optima Fide» предлагает профессиональные терапевтические программы для людей, которые хотят преодолеть зависимость и восстановить свою жизнь.',
-        primary: 'Поддержать нашу миссию',
-        secondary: 'Наши программы',
-        stats: ['Консультаций проведено', 'Клиентов прошли курс', 'Лет опыта', 'Резидентных мест']
-      },
-      about: {
-        label: 'О нас',
-        title: 'Фонд «Optima Fide»',
-        sub: 'Некоммерческая организация, основанная 18 сентября 2014 года в Кишинёве.',
-        paragraphs: [
-          'Более 10 лет мы развиваем специализированный центр терапевтической реабилитации для людей с зависимостью от психоактивных веществ. Резидентная программа длится 6–12 месяцев и объединяет психологический, духовный и социальный подходы.',
-          'Мы верим, что каждый человек заслуживает второго шанса. Наш целостный подход поддерживает не только физическое восстановление, но и полноценную социальную реинтеграцию: семью, работу и сообщество.',
-          'Внешние оценки подтверждают эффективность наших методов. Участники отмечают улучшение качества жизни, более здоровые семейные отношения и новый взгляд на будущее.'
-        ],
-        accredTitle: 'Сертификат аккредитации AS № 0000117',
-        accredText: 'Государственная социальная инспекция Республики Молдова · 10 октября 2025<br>IDNO: 1014620007164'
-      },
-      programs: {
-        label: 'Что мы предлагаем',
-        title: 'Наши программы',
-        sub: 'Каждая программа адаптируется к индивидуальным потребностям и сопровождается квалифицированными специалистами.',
-        cards: [
-          ['Резидентная реабилитация', 'Терапевтическая программа 6–12 месяцев для людей с зависимостью от алкоголя и психоактивных веществ. Вместимость: 20 резидентов. Центр расположен в г. Стэучень, с. Голанул Ноу.'],
-          ['Экология', 'Программа восстановления через труд и взаимодействие с природой. Работа на свежем воздухе, садоводство и забота о среде помогают вернуть внутреннее равновесие.'],
-          ['«Подъём» — мотивационная группа', 'Регулярные встречи поддержки и мотивации для людей на разных этапах восстановления. Безопасное пространство для обмена опытом и укрепления сообщества.'],
-          ['Помощь беженцам', 'Гуманитарная и психологическая поддержка перемещённых лиц и семей, которым нужна срочная помощь. Консультации, социальная помощь и эмоциональная поддержка.'],
-          ['Многофункциональный терапевтический центр', 'ЦТМ объединяет услуги психического здоровья и социальной поддержки, предлагая комплексную помощь, адаптированную к каждому человеку.']
-        ]
-      },
-      impact: {
-        label: 'Наше влияние',
-        title: 'Цифры, которые говорят сами за себя',
-        sub: 'Данные подтверждены независимой внешней оценкой.',
-        stats: ['Консультаций проведено', 'Клиентов прошли курс', 'Резидентных мест', 'Месяцев программы', 'Лет деятельности'],
-        quote: '«Внешняя оценка подтвердила, что участники программы отмечают улучшение качества жизни, более здоровые семейные отношения и успешную социальную реинтеграцию.»',
-        cite: '— Отчёт независимой внешней оценки фонда «Optima Fide»'
-      },
-      gallery: {
-        label: 'Наш центр',
-        title: 'Место, где рождаются перемены',
-        sub: 'Реабилитационный центр в г. Стэучень — безопасное и тёплое пространство вдали от соблазнов.',
-        alts: ['Столовая центра Optima Fide', 'Жилая комната центра', 'Обновлённый коридор центра', 'Сертификат аккредитации', 'Внутренняя лестница центра реабилитации', 'Групповая терапевтическая активность', 'Встреча сообщества в центре', 'Праздничный момент в сообществе']
-      },
-      process: {
-        label: 'Процесс',
-        title: 'Как работает программа',
-        sub: 'Понятный путь с поддержкой специалистов на каждом этапе.',
-        steps: [
-          ['Обращение и оценка', 'Позвоните или напишите нам. Мы проведём бесплатную первичную оценку ситуации и потребностей.'],
-          ['Приём в программу', 'Вместе составляем индивидуальный план и принимаем резидента в наш центр.'],
-          ['Активная реабилитация', '6–12 месяцев терапии, структурированных занятий, ежедневной психологической и духовной поддержки.'],
-          ['Социальная реинтеграция', 'Подготовка к выходу, помощь в поиске работы и дальнейшая поддержка после программы.']
-        ]
-      },
-      partners: {
-        label: 'Партнёры',
-        title: 'Нас поддерживают международные организации',
-        sub: 'Наша миссия возможна благодаря партнёрам, которые верят в изменения.',
-        cards: ['Партнёрство с 2018 года<br>Немецкая католическая организация солидарности', 'Долгосрочная поддержка<br>Сотрудничество в социальной сфере', 'Международная гуманитарная поддержка']
-      },
-      donate: {
-        label: 'Помогите нам',
-        title: 'Каждая помощь имеет значение',
-        sub: 'Ваше пожертвование напрямую поддерживает программу реабилитации и помогает большему числу людей восстановить свою жизнь. Фонд «Optima Fide» имеет государственную аккредитацию и работает прозрачно.',
-        toggle: 'Все реквизиты',
-        labels: {
-          beneficiary: 'Получатель',
-          bank: 'Банк',
-          account: 'Счёт',
-          correspondent: 'Банк-корреспондент',
-          correspondentSwift: 'SWIFT корреспондента'
-        },
-        copy: 'Копировать IBAN',
-        copied: 'Скопировано',
-        note: 'Пожертвования юридических лиц подлежат налоговому вычету согласно законодательству Республики Молдова.',
-        official: 'Официальный сайт'
-      },
-      contacts: {
-        label: 'Контакты',
-        title: 'Мы рядом',
-        sub: 'Свяжитесь с нами — каждый шаг имеет значение.',
-        dataTitle: 'Контактные данные',
-        phone: 'Телефон',
-        email: 'Email',
-        legal: 'Юридический адрес',
-        rehab: 'Центр реабилитации',
-        website: 'Сайт',
-        mapTitle: 'Как нас найти',
-        mapLink: 'ул. Глорией 4, с. Голанул Ноу, г. Стэучень — открыть в Google Maps →',
-        directorTitle: 'Директор: Руслан Магари',
-        directorText: 'Мы доступны для телефонных консультаций в рабочие дни, 9:00–17:00. В срочных случаях пишите в Telegram <a href="https://t.me/PRICAL_OPTIMAFIDE" target="_blank" rel="noopener">@PRICAL_OPTIMAFIDE</a>.',
-        mapFrameTitle: 'Локация центра реабилитации Optima Fide'
-      },
-      footer: '© 2014–2026 Фонд «Optima Fide» · IDNO 1014620007164 · Кишинёв, Молдова · <a href="mailto:optimafide.info@gmail.com" style="color:rgba(255,255,255,0.45)">optimafide.info@gmail.com</a>'
-    },
-    en: {
-      title: 'Optima Fide Foundation — Rehabilitation Center in Moldova',
-      brandSub: 'Charitable Foundation',
-      metaDescription: 'Optima Fide Foundation provides therapeutic rehabilitation for people affected by psychoactive substance dependence. State accredited. Chisinau, Moldova.',
-      ogDescription: '10 years of rehabilitation work, more than 19,000 consultations, and more than 500 clients who completed the rehabilitation course.',
-      nav: ['About', 'Programs', 'Impact', 'Center', 'Contacts', 'Donate'],
-      mobileNav: ['About', 'Programs', 'Impact', 'Our Center', 'Contacts', 'Donate ♥'],
-      footerNav: ['About', 'Programs', 'Impact', 'Our Center', 'Donations', 'Contacts'],
-      hero: {
-        badge: 'State Accredited · 10 Years of Work',
-        title: 'Rehabilitation.<br>Hope. <em>Change.</em>',
-        sub: 'Optima Fide Foundation offers professional therapeutic programs for people who want to overcome addiction and rebuild their lives.',
-        primary: 'Support our mission',
-        secondary: 'Our programs',
-        stats: ['Consultations provided', 'Clients completed the course', 'Years of experience', 'Residential places']
-      },
-      about: {
-        label: 'About us',
-        title: 'Optima Fide Foundation',
-        sub: 'A non-profit organization founded on September 18, 2014 in Chisinau.',
-        paragraphs: [
-          'For more than 10 years, we have built a specialized therapeutic rehabilitation center for people affected by psychoactive substance dependence. Our residential program lasts 6–12 months and combines psychological, spiritual, and social approaches.',
-          'We believe every person deserves a second chance. Our holistic approach supports not only physical recovery, but also full social reintegration: family, work, and community.',
-          'External evaluations confirm the effectiveness of our methods. Participants report improved quality of life, healthier family relationships, and a new perspective on the future.'
-        ],
-        accredTitle: 'Accreditation Certificate AS No. 0000117',
-        accredText: 'State Social Inspectorate of the Republic of Moldova · October 10, 2025<br>IDNO: 1014620007164'
-      },
-      programs: {
-        label: 'What we offer',
-        title: 'Our programs',
-        sub: 'Each program is adapted to individual needs and supported by qualified specialists.',
-        cards: [
-          ['Residential Rehabilitation', 'A 6–12 month therapeutic program for people dependent on alcohol and psychoactive substances. Capacity: 20 residents. The center is located in Stauceni, Golanul Nou village.'],
-          ['Ecology', 'A recovery program through work and interaction with nature. Outdoor activities, gardening, and care for the environment help restore inner balance.'],
-          ['“Podjom” — Motivational Group', 'Regular support and motivation meetings for people at different stages of recovery. A safe space for sharing experience and building community.'],
-          ['Assistance for Refugees', 'Humanitarian and psychological support for displaced people and families who need urgent help. Consultations, social assistance, and emotional support.'],
-          ['Multifunctional Therapeutic Center', 'The MTC integrates mental health and social support services, offering comprehensive care adapted to each person.']
-        ]
-      },
-      impact: {
-        label: 'Our impact',
-        title: 'Numbers that speak',
-        sub: 'Data confirmed by an independent external evaluation.',
-        stats: ['Consultations provided', 'Clients completed the course', 'Residential places', 'Program months', 'Years of activity'],
-        quote: '“The external evaluation confirmed that program beneficiaries report improved quality of life, healthier family relationships, and successful social reintegration.”',
-        cite: '— Independent external evaluation report of Optima Fide Foundation'
-      },
-      gallery: {
-        label: 'Our center',
-        title: 'A place where change begins',
-        sub: 'The rehabilitation center in Stauceni is a safe and warm space away from temptation.',
-        alts: ['Dining room of Optima Fide Center', 'Residential room of the center', 'Renovated hallway of the center', 'Accreditation certificate', 'Interior staircase of the rehabilitation center', 'Group therapeutic activity', 'Community meeting at the center', 'Community celebration moment']
-      },
-      process: {
-        label: 'Process',
-        title: 'How the program works',
-        sub: 'A clear path supported by professionals at every stage.',
-        steps: [
-          ['Contact & Evaluation', 'Call or write to us. We provide a free initial evaluation of the situation and needs.'],
-          ['Admission to the Program', 'Together we create a personalized plan and welcome the resident into our center.'],
-          ['Active Rehabilitation', '6–12 months of therapy, structured activities, and daily psychological and spiritual support.'],
-          ['Social Reintegration', 'Preparation for leaving the program, help with finding work, and continued post-program support.']
-        ]
-      },
-      partners: {
-        label: 'Partners',
-        title: 'Supported by international organizations',
-        sub: 'Our mission is possible thanks to partners who believe in change.',
-        cards: ['Partnership since 2018<br>German Catholic solidarity organization', 'Long-term support<br>Cooperation in the social field', 'International humanitarian support']
-      },
-      donate: {
-        label: 'Help us',
-        title: 'Every contribution matters',
-        sub: 'Your donation directly supports the rehabilitation program and helps more people rebuild their lives. Optima Fide Foundation is state accredited and works with full transparency.',
-        toggle: 'All details',
-        labels: {
-          beneficiary: 'Beneficiary',
-          bank: 'Bank',
-          account: 'Account',
-          correspondent: 'Correspondent bank',
-          correspondentSwift: 'Correspondent SWIFT'
-        },
-        copy: 'Copy IBAN',
-        copied: 'Copied',
-        note: 'Donations from legal entities are tax deductible under the legislation of the Republic of Moldova.',
-        official: 'Official website'
-      },
-      contacts: {
-        label: 'Contacts',
-        title: 'We are here for you',
-        sub: 'Do not hesitate to contact us — every step matters.',
-        dataTitle: 'Contact details',
-        phone: 'Phone',
-        email: 'Email',
-        legal: 'Legal address',
-        rehab: 'Rehabilitation Center',
-        website: 'Website',
-        mapTitle: 'How to reach us',
-        mapLink: '4 Gloriei Street, Golanul Nou, Stauceni — open in Google Maps →',
-        directorTitle: 'Director: Ruslan Magari',
-        directorText: 'We are available for phone consultations on working days, 9:00–17:00. For urgent matters, contact us anytime on Telegram <a href="https://t.me/PRICAL_OPTIMAFIDE" target="_blank" rel="noopener">@PRICAL_OPTIMAFIDE</a>.',
-        mapFrameTitle: 'Location of Optima Fide Rehabilitation Center'
-      },
-      footer: '© 2014–2026 Optima Fide Foundation · IDNO 1014620007164 · Chisinau, Moldova · <a href="mailto:optimafide.info@gmail.com" style="color:rgba(255,255,255,0.45)">optimafide.info@gmail.com</a>'
+    function setLanguage(lang) {
+      const dictionary = translations[lang] || translations.ro;
+      currentLang = lang;
+      html.lang = lang;
+      translatable.forEach((node) => {
+        const key = node.dataset.i18n;
+        if (dictionary[key]) node.innerHTML = dictionary[key];
+      });
+      languageLinks.forEach((link) => link.classList.toggle("active", link.dataset.lang === lang));
+      localStorage.setItem("optimaLang", lang);
     }
-  };
 
-  function setText(selector, value) {
-    document.querySelectorAll(selector).forEach(function(el) { el.textContent = value; });
-  }
-  function setHtml(selector, value) {
-    document.querySelectorAll(selector).forEach(function(el) { el.innerHTML = value; });
-  }
-  function setAttr(selector, attr, value) {
-    document.querySelectorAll(selector).forEach(function(el) { el.setAttribute(attr, value); });
-  }
-  function setList(selector, values, mode) {
-    document.querySelectorAll(selector).forEach(function(el, i) {
-      if (values[i] === undefined) return;
-      if (mode === 'html') el.innerHTML = values[i]; else el.textContent = values[i];
-    });
-  }
-
-  function applyLanguage(lang) {
-    var t = translations[lang] || translations.ro;
-    document.documentElement.lang = lang;
-    document.title = t.title;
-    setText('.nav-logo-text span', t.brandSub);
-    setAttr('meta[name="description"]', 'content', t.metaDescription);
-    setAttr('meta[property="og:title"]', 'content', t.title);
-    setAttr('meta[property="og:description"]', 'content', t.ogDescription);
-
-    setList('header nav > a', t.nav);
-    setList('.mobile-nav > a.mobile-link', t.mobileNav);
-    setList('.footer-links a', t.footerNav);
-
-    setText('.hero-badge', t.hero.badge);
-    setHtml('.hero h1', t.hero.title);
-    setText('.hero-sub', t.hero.sub);
-    setText('.hero-actions .btn-primary', t.hero.primary);
-    setText('.hero-actions .btn-outline', t.hero.secondary);
-    setList('.hero-stat-lbl', t.hero.stats);
-
-    setText('#despre .section-label', t.about.label);
-    setHtml('#despre .section-title', t.about.title);
-    setText('#despre .section-subtitle', t.about.sub);
-    setList('#despre .about-text > p', t.about.paragraphs);
-    setText('#despre .accred-text strong', t.about.accredTitle);
-    setHtml('#despre .accred-text span', t.about.accredText);
-
-    setText('#programe .section-label', t.programs.label);
-    setText('#programe .section-title', t.programs.title);
-    setText('#programe .section-subtitle', t.programs.sub);
-    document.querySelectorAll('#programe .program-card').forEach(function(card, i) {
-      if (!t.programs.cards[i]) return;
-      card.querySelector('h3').textContent = t.programs.cards[i][0];
-      card.querySelector('p').textContent = t.programs.cards[i][1];
-    });
-
-    setText('#impact .section-label', t.impact.label);
-    setText('#impact .section-title', t.impact.title);
-    setText('#impact .section-subtitle', t.impact.sub);
-    setList('#impact .stat-label', t.impact.stats);
-    setText('#impact blockquote', t.impact.quote);
-    setText('#impact cite', t.impact.cite);
-
-    setText('#galerie .section-label', t.gallery.label);
-    setText('#galerie .section-title', t.gallery.title);
-    setText('#galerie .section-subtitle', t.gallery.sub);
-    document.querySelectorAll('#galerie .gallery-item img').forEach(function(img, i) {
-      if (t.gallery.alts[i]) img.alt = t.gallery.alts[i];
-    });
-
-    setText('#cum .section-label', t.process.label);
-    setText('#cum .section-title', t.process.title);
-    setText('#cum .section-subtitle', t.process.sub);
-    document.querySelectorAll('#cum .step').forEach(function(step, i) {
-      if (!t.process.steps[i]) return;
-      step.querySelector('h4').textContent = t.process.steps[i][0];
-      step.querySelector('p').textContent = t.process.steps[i][1];
-    });
-
-    setText('#parteneri .section-label', t.partners.label);
-    setText('#parteneri .section-title', t.partners.title);
-    setText('#parteneri .section-subtitle', t.partners.sub);
-    setList('#parteneri .partner-card span', t.partners.cards, 'html');
-
-    setText('#donatii .section-label', t.donate.label);
-    setText('#donatii .section-title', t.donate.title);
-    setText('#donatii .donate-sub', t.donate.sub);
-    setText('#donatii .donate-toggle', t.donate.toggle);
-    setText('#donatii .copy-btn', t.donate.copy);
-    setText('#donatii .donate-note', t.donate.note);
-    setHtml('#donatii .social-link:last-child', globeIcon + t.donate.official);
-    document.querySelectorAll('.donate-card').forEach(function(card) {
-      var labels = card.querySelectorAll('.donate-label');
-      labels.forEach(function(label) {
-        var current = label.textContent.trim().toLowerCase();
-        if (['beneficiar', 'получатель', 'beneficiary'].includes(current)) label.textContent = t.donate.labels.beneficiary;
-        if (['banca', 'банк', 'bank'].includes(current)) label.textContent = t.donate.labels.bank;
-        if (['cont', 'счёт', 'account'].includes(current)) label.textContent = t.donate.labels.account;
-        if (current.includes('corespondent') || current.includes('корреспондент') || current.includes('correspondent bank')) label.textContent = t.donate.labels.correspondent;
-        if (current.includes('swift corespondent') || current.includes('swift корреспондента') || current.includes('correspondent swift')) label.textContent = t.donate.labels.correspondentSwift;
+    languageLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        setLanguage(link.dataset.lang);
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
       });
     });
 
-    setText('#contacte .section-label', t.contacts.label);
-    setText('#contacte .section-title', t.contacts.title);
-    setText('#contacte .section-subtitle', t.contacts.sub);
-    setText('#contacte .contact-block:first-child h3', t.contacts.dataTitle);
-    setText('#contacte .contact-block:nth-child(2) h3', t.contacts.mapTitle);
-    setText('#contacte .contact-item:nth-child(1) strong', t.contacts.phone);
-    setText('#contacte .contact-item:nth-child(2) strong', t.contacts.email);
-    setText('#contacte .contact-item:nth-child(3) strong', t.contacts.legal);
-    setText('#contacte .contact-item:nth-child(4) strong', t.contacts.rehab);
-    setText('#contacte .contact-item:nth-child(5) strong', t.contacts.website);
-    setList('#contacte .contact-block:first-child .contact-item strong', [t.contacts.phone, t.contacts.email, t.contacts.legal, t.contacts.rehab, t.contacts.website]);
-    setHtml('#contacte .contact-block:nth-child(2) a[href^="https://maps.google"]', mapIcon + t.contacts.mapLink);
-    setAttr('#contacte iframe', 'title', t.contacts.mapFrameTitle);
-    setText('#contacte .director-box strong', t.contacts.directorTitle);
-    setHtml('#contacte .director-box p', t.contacts.directorText);
-
-    setHtml('footer .footer-logo span', t.about.title);
-    setHtml('footer .footer-inner > p', t.footer);
-    setAttr('.lang-switch', 'aria-label', lang === 'ru' ? 'Сменить язык' : lang === 'en' ? 'Change language' : 'Schimba limba');
-
-    document.querySelectorAll('[data-lang]').forEach(function(link) {
-      var active = link.dataset.lang === lang;
-      link.classList.toggle('active', active);
-      if (active) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      document.body.classList.toggle("menu-open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
     });
-    localStorage.setItem('optimafide-lang', lang);
-  }
 
-  document.querySelectorAll('[data-lang]').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      applyLanguage(link.dataset.lang);
-      mobileNav.classList.remove('open');
-    });
-  });
-
-  // Mobile nav
-  var burger = document.getElementById('burger');
-  var mobileNav = document.getElementById('mobileNav');
-  var mobileClose = document.getElementById('mobileClose');
-  burger.addEventListener('click', function() { mobileNav.classList.add('open'); });
-  mobileClose.addEventListener('click', function() { mobileNav.classList.remove('open'); });
-  document.querySelectorAll('.mobile-link').forEach(function(a) {
-    a.addEventListener('click', function() { mobileNav.classList.remove('open'); });
-  });
-  applyLanguage(localStorage.getItem('optimafide-lang') || 'ro');
-
-  // Lightbox
-  var items = Array.from(document.querySelectorAll('.gallery-item[data-img]'));
-  var lightbox = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lbImg');
-  var current = 0;
-
-  function openLb(idx) {
-    current = idx;
-    lbImg.src = items[idx].dataset.img;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLb() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  items.forEach(function(item, i) {
-    item.addEventListener('click', function() { openLb(i); });
-  });
-  document.getElementById('lbClose').addEventListener('click', closeLb);
-  document.getElementById('lbPrev').addEventListener('click', function() {
-    openLb((current - 1 + items.length) % items.length);
-  });
-  document.getElementById('lbNext').addEventListener('click', function() {
-    openLb((current + 1) % items.length);
-  });
-  lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLb(); });
-  document.addEventListener('keydown', function(e) {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') openLb((current - 1 + items.length) % items.length);
-    if (e.key === 'ArrowRight') openLb((current + 1) % items.length);
-  });
-
-  // Copy IBAN
-  document.getElementById('copyIban').addEventListener('click', function() {
-    var btn = this;
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText('MD49VI000002224729306').then(function() {
-        btn.textContent = '✓ Copiat';
-        btn.classList.add('copied');
-        setTimeout(function() { btn.textContent = 'Copiati'; btn.classList.remove('copied'); }, 2500);
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
       });
+    });
+
+    document.querySelectorAll("[data-copy-iban]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const original = button.textContent;
+        try {
+          await navigator.clipboard.writeText(button.dataset.copyIban);
+          button.textContent = translations[currentLang].copied;
+          setTimeout(() => { button.textContent = original; }, 1800);
+        } catch {
+          button.textContent = button.dataset.copyIban;
+        }
+      });
+    });
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+    document.querySelectorAll("[data-lightbox]").forEach((button) => {
+      button.addEventListener("click", () => {
+        lightboxImage.src = button.dataset.lightbox;
+        lightboxImage.alt = button.querySelector("img").alt;
+        lightbox.classList.add("open");
+      });
+    });
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightboxImage.src = "center-therapy-room.jpg";
+    }
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLightbox();
+    });
+
+    const form = document.getElementById("consultationForm");
+    const formNote = document.getElementById("formNote");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      formNote.textContent = translations[currentLang].formSuccess;
+      form.reset();
+    });
+
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach((item) => observer.observe(item));
     } else {
-      var ta = document.createElement('textarea');
-      ta.value = 'MD49VI000002224729306';
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      btn.textContent = '✓ Copiat';
-      btn.classList.add('copied');
-      setTimeout(function() { btn.textContent = 'Copiati'; btn.classList.remove('copied'); }, 2500);
+      revealItems.forEach((item) => item.classList.add("visible"));
     }
-  });
 
-  document.querySelectorAll('[data-copy]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var value = btn.dataset.copy;
-      if (!value) return;
-      var original = btn.textContent;
-      function markCopied() {
-        btn.textContent = 'Copiat';
-        btn.classList.add('copied');
-        setTimeout(function() { btn.textContent = original; btn.classList.remove('copied'); }, 2500);
-      }
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(value).then(markCopied);
-      } else {
-        var ta = document.createElement('textarea');
-        ta.value = value;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        markCopied();
-      }
-    });
-  });
-
-  // Animate on scroll
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.stat-box, .program-card, .step, .partner-card').forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
-    observer.observe(el);
-  });
-</script>
+    setLanguage(currentLang);
+  </script>
 </body>
 </html>

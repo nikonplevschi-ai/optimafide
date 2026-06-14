@@ -12,7 +12,7 @@ from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, S
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "assets" / "documents"
+OUT = ROOT / "assets" / "pdfs"
 CACHE = ROOT / "work" / "partner-pdf-images"
 OUT.mkdir(parents=True, exist_ok=True)
 CACHE.mkdir(parents=True, exist_ok=True)

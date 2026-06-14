@@ -7,6 +7,8 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML_PATH = ROOT / "index.html"
 REQUIRED = [
     "hero-center.webp",
+    "team/team-tudor-owner.webp",
+    "tourism/tourism-forest-path-owner.webp",
     'id="activities"',
     'id="optional-services"',
     'id="faq"',
@@ -14,6 +16,11 @@ REQUIRED = [
     "firstDaysTitle",
 ]
 PROHIBITED = [
+    "Andrei Buhna",
+    "Андрей Бухна",
+    ">AB<",
+    "tourism-horse.webp",
+    "tourism-orhei.webp",
     "+373 78 377 337",
     "+373 783 77337",
     "Din 2014",

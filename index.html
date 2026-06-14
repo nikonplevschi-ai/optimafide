@@ -412,7 +412,7 @@
       margin-bottom: 20px;
       overflow: hidden;
       border-radius: var(--photo-radius);
-      background: linear-gradient(90deg, rgba(23,60,50,.9), rgba(23,60,50,.18)), url("assets/images/tourism-orhei.webp") center/cover no-repeat;
+      background: linear-gradient(90deg, rgba(23,60,50,.9), rgba(23,60,50,.18)), url("assets/images/tourism/tourism-forest-path-owner.webp") center/cover no-repeat;
       box-shadow: var(--shadow);
     }
     .tourism-feature-copy { position: absolute; left: 34px; bottom: 34px; max-width: 620px; color: var(--white); }
@@ -503,6 +503,9 @@
       gap: 18px;
     }
     .team-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -526,13 +529,15 @@
       font-size: 4rem;
       font-weight: 800;
     }
-    .team-info { padding: 20px; }
+    .team-info { display: flex; flex: 1; flex-direction: column; padding: 20px; }
     .team-info h3 { font-size: 1.42rem; }
     .team-role { margin-top: 5px; color: var(--muted); font-weight: 700; }
+    .team-function { margin-top: 12px; color: var(--muted); font-size: .94rem; }
     .team-contact {
       display: grid;
       gap: 4px;
-      margin-top: 16px;
+      margin-top: auto;
+      padding-top: 16px;
       color: var(--green);
       font-size: .92rem;
       font-weight: 800;
@@ -550,8 +555,10 @@
       background: var(--card);
       box-shadow: var(--soft-shadow);
     }
-    .tourism-photo { aspect-ratio: 1 / .72; background: var(--line); }
+    .tourism-photo { display: block; width: 100%; aspect-ratio: 1 / .72; overflow: hidden; border: 0; padding: 0; background: var(--line); cursor: zoom-in; }
     .tourism-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .tourism-photo img { transition: transform .3s ease; }
+    .tourism-photo:hover img { transform: scale(1.025); }
     .tourism-card div:last-child { padding: 18px; }
     .tourism-card h3 { font-size: 1.1rem; }
     .tourism-card p { margin-top: 8px; color: var(--muted); font-size: .92rem; }
@@ -1055,28 +1062,24 @@
         </div>
         <div class="team-grid">
           <article class="team-card" data-reveal>
-            <picture class="team-photo"><source srcset="assets/images/team-igor.webp" type="image/webp"><img src="assets/images/team-igor.jpg" alt="Igor Plevschi"></picture>
-            <div class="team-info"><h3 data-i18n="teamIgorName">Igor Plevschi</h3><p class="team-role" data-i18n="teamRoleIgor">Președinte și membru al Consiliului Fundației</p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:general.optimafide@gmail.com">general.optimafide@gmail.com</a></div></div>
+            <picture class="team-photo"><img src="assets/images/team/team-igor-owner.webp" alt="Igor Plevschi"></picture>
+            <div class="team-info"><h3 data-i18n="teamIgorName">Igor Plevschi</h3><p class="team-role" data-i18n="teamRoleIgor">Președinte și membru al Consiliului Fundației</p><p class="team-function" data-i18n="teamFunctionIgor"></p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:general.optimafide@gmail.com">general.optimafide@gmail.com</a></div></div>
           </article>
           <article class="team-card" data-reveal>
-            <div class="team-placeholder" aria-hidden="true">AB</div>
-            <div class="team-info"><h3 data-i18n="teamAndreiName">Andrei Buhna</h3><p class="team-role" data-i18n="teamRoleAndrei">Membru al Consiliului Fundației</p><div class="team-contact"><a href="tel:+37379407766">+373 79 407 766</a><a href="mailto:buhnaandrei85@gmail.com">buhnaandrei85@gmail.com</a></div></div>
+            <picture class="team-photo"><img src="assets/images/team/team-anastasia-owner.webp" alt="Anastasia Plevscaia"></picture>
+            <div class="team-info"><h3 data-i18n="teamAnastasiaName">Anastasia Plevscaia</h3><p class="team-role" data-i18n="teamRoleAnastasia">Membră a Consiliului Fundației, psiholog</p><p class="team-function" data-i18n="teamFunctionAnastasia"></p><div class="team-contact"><a href="tel:+37360679547">+373 60 679 547</a><a href="mailto:optimafide.psiholog@gmail.com">optimafide.psiholog@gmail.com</a></div></div>
           </article>
           <article class="team-card" data-reveal>
-            <picture class="team-photo"><source srcset="assets/images/team-anastasia.webp" type="image/webp"><img src="assets/images/team-anastasia.jpg" alt="Anastasia Plevscaia"></picture>
-            <div class="team-info"><h3 data-i18n="teamAnastasiaName">Anastasia Plevscaia</h3><p class="team-role" data-i18n="teamRoleAnastasia">Membră a Consiliului Fundației, psiholog</p><div class="team-contact"><a href="tel:+37360679547">+373 60 679 547</a><a href="mailto:optimafide.psiholog@gmail.com">optimafide.psiholog@gmail.com</a></div></div>
+            <picture class="team-photo"><img src="assets/images/team/team-ruslan-owner.webp" alt="Ruslan Magari"></picture>
+            <div class="team-info"><h3 data-i18n="teamRuslanName">Ruslan Magari</h3><p class="team-role" data-i18n="teamRoleRuslan">Director executiv</p><p class="team-function" data-i18n="teamFunctionRuslan"></p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:ruslanmagari@gmail.com">ruslanmagari@gmail.com</a></div></div>
           </article>
           <article class="team-card" data-reveal>
-            <picture class="team-photo"><source srcset="assets/images/team-ruslan.webp" type="image/webp"><img src="assets/images/team-ruslan.jpg" alt="Ruslan Magari"></picture>
-            <div class="team-info"><h3 data-i18n="teamRuslanName">Ruslan Magari</h3><p class="team-role" data-i18n="teamRoleRuslan">Director executiv</p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:ruslanmagari@gmail.com">ruslanmagari@gmail.com</a></div></div>
+            <picture class="team-photo"><img src="assets/images/team/team-oksana-owner.webp" alt="Oksana Garbolinskaia"></picture>
+            <div class="team-info"><h3 data-i18n="teamOksanaName">Oksana Garbolinskaia</h3><p class="team-role" data-i18n="teamRoleOksana">Coordonatoare de proiecte</p><p class="team-function" data-i18n="teamFunctionOksana"></p><div class="team-contact"><a href="tel:+37378601352">+373 786 01 352</a><a href="mailto:psyneverlie@gmail.com">psyneverlie@gmail.com</a></div></div>
           </article>
           <article class="team-card" data-reveal>
-            <picture class="team-photo"><source srcset="assets/images/team-oksana.webp" type="image/webp"><img src="assets/images/team-oksana.jpg" alt="Oksana Garbolinskaia"></picture>
-            <div class="team-info"><h3 data-i18n="teamOksanaName">Oksana Garbolinskaia</h3><p class="team-role" data-i18n="teamRoleOksana">Coordonatoare de proiecte</p><div class="team-contact"><a href="tel:+37378601352">+373 786 01 352</a><a href="mailto:psyneverlie@gmail.com">psyneverlie@gmail.com</a></div></div>
-          </article>
-          <article class="team-card" data-reveal>
-            <div class="team-placeholder" aria-hidden="true">TR</div>
-            <div class="team-info"><h3 data-i18n="teamTudorName">Tudor Rotaru</h3><p class="team-role" data-i18n="teamRoleTudor">Consultant de la egal la egal</p><div class="team-contact"><a href="tel:+37362139361">+373 62 139 361</a><a href="mailto:sofos82@mail.ru">sofos82@mail.ru</a></div></div>
+            <picture class="team-photo"><img src="assets/images/team/team-tudor-owner.webp" alt="Tudor Rotaru"></picture>
+            <div class="team-info"><h3 data-i18n="teamTudorName">Tudor Rotaru</h3><p class="team-role" data-i18n="teamRoleTudor">Consultant de la egal la egal</p><p class="team-function" data-i18n="teamFunctionTudor"></p><div class="team-contact"><a href="tel:+37362139361">+373 62 139 361</a><a href="mailto:sofos82@mail.ru">sofos82@mail.ru</a></div></div>
           </article>
         </div>
       </div>
@@ -1148,26 +1151,26 @@
         </div>
         <div class="tourism-grid">
           <article class="tourism-card" data-reveal>
-            <picture class="tourism-photo"><source srcset="assets/images/tourism-saharna.webp" type="image/webp"><img src="assets/images/tourism-saharna.jpg" alt="Mănăstire din Moldova" data-i18n-alt="tourism1Alt"></picture>
+            <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-church-owner.webp"><img src="assets/images/tourism/tourism-church-owner.webp" alt="Mănăstire din Moldova" data-i18n-alt="tourism1Alt"></button>
             <div><h3 data-i18n="tourism1Title">Mănăstiri din Moldova</h3><p data-i18n="tourism1Text">Locuri spirituale liniștite pentru rugăciune, reflecție și recuperare interioară.</p></div>
           </article>
           <article class="tourism-card" data-reveal>
-            <picture class="tourism-photo"><source srcset="assets/images/tourism-orhei.webp" type="image/webp"><img src="assets/images/tourism-orhei.jpg" alt="Orheiul Vechi"></picture>
+            <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-forest-path-owner.webp"><img src="assets/images/tourism/tourism-forest-path-owner.webp" alt="Potecă liniștită prin pădure"></button>
             <div><h3 data-i18n="tourism2Title">Peisaje și natură</h3><p data-i18n="tourism2Text">Dealuri, sate și trasee naturale pentru o schimbare calmă de atmosferă.</p></div>
           </article>
           <article class="tourism-card" data-reveal>
-            <picture class="tourism-photo"><source srcset="assets/images/tourism-sea.webp" type="image/webp"><img src="assets/images/tourism-sea.jpg" alt="Apă și natură"></picture>
+            <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-park-lake-owner.webp"><img src="assets/images/tourism/tourism-park-lake-owner.webp" alt="Apă și natură"></button>
             <div><h3 data-i18n="tourism3Title">Nistru și trasee naturale</h3><p data-i18n="tourism3Text">Apă, spațiu, plimbări și conversații într-un cadru liniștit.</p></div>
           </article>
           <article class="tourism-card" data-reveal>
-            <picture class="tourism-photo"><source srcset="assets/images/tourism-horse.webp" type="image/webp"><img src="assets/images/tourism-horse.jpg" alt="Odihnă în natură"></picture>
+            <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-waterfall-owner.webp"><img src="assets/images/tourism/tourism-waterfall-owner.webp" alt="Odihnă în natură"></button>
             <div><h3 data-i18n="tourism4Title">Pescuit și odihnă în natură</h3><p data-i18n="tourism4Text">Odihnă simplă și calmă lângă apă, organizată prin acord prealabil.</p></div>
           </article>
           <article class="tourism-card" data-reveal>
-            <picture class="tourism-photo"><source srcset="assets/images/tourism-park.webp" type="image/webp"><img src="assets/images/tourism-park.jpg" alt="Plimbări prin oraș"></picture>
+            <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-benches-owner.webp"><img src="assets/images/tourism/tourism-benches-owner.webp" alt="Plimbări prin parc"></button>
             <div><h3 data-i18n="tourism5Title">Locuri culturale și spirituale</h3><p data-i18n="tourism5Text">Cunoașterea Moldovei prin locuri istorice, culturale și spirituale.</p></div>
           </article>
-          <article class="tourism-card" data-reveal><div class="tourism-photo team-placeholder" aria-hidden="true">OF</div><div><h3 data-i18n="tourism6Title">Ieșiri individuale</h3><p data-i18n="tourism6Text">Traseele se discută individual, după starea participantului și regulile programului.</p></div></article>
+          <article class="tourism-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-rocks-owner.webp"><img src="assets/images/tourism/tourism-rocks-owner.webp" alt="Natură liniștită"></button><div><h3 data-i18n="tourism6Title">Ieșiri individuale</h3><p data-i18n="tourism6Text">Traseele se discută individual, după starea participantului și regulile programului.</p></div></article>
         </div>
         <p class="tourism-note" data-reveal><strong data-i18n="tourismNoteTitle">Prin acord prealabil și contra cost</strong><span data-i18n="tourismNoteText">Ieșirile se organizează în funcție de starea participantului, regulile programului, condițiile meteo și acordul prealabil. Costul se discută separat.</span></p>
       </div>
@@ -1412,13 +1415,11 @@
                 "teamTitle": "Oameni care însoțesc procesul cu grijă și responsabilitate.",
                 "teamLead": "Echipa combină experiența administrativă, consilierea, psihologia și sprijinul de la egal la egal.",
                 "teamIgorName": "Igor Plevschi",
-                "teamAndreiName": "Andrei Buhna",
                 "teamAnastasiaName": "Anastasia Plevscaia",
                 "teamRuslanName": "Ruslan Magari",
                 "teamOksanaName": "Oksana Garbolinskaia",
                 "teamTudorName": "Tudor Rotaru",
                 "teamRoleIgor": "Președinte și membru al Consiliului Fundației",
-                "teamRoleAndrei": "Membru al Consiliului Fundației",
                 "teamRoleAnastasia": "Membră a Consiliului Fundației, psiholog",
                 "teamRoleRuslan": "Director executiv",
                 "teamRoleOksana": "Coordonatoare de proiecte",
@@ -1599,13 +1600,11 @@
                 "teamTitle": "Люди, которые сопровождают процесс с заботой и ответственностью.",
                 "teamLead": "В команде сочетаются административный опыт, консультирование, психология и поддержка равный равному.",
                 "teamIgorName": "Игорь Плевский",
-                "teamAndreiName": "Андрей Бухна",
                 "teamAnastasiaName": "Плевская Анастасия",
                 "teamRuslanName": "Руслан Магарь",
                 "teamOksanaName": "Гарболинская Оксана",
                 "teamTudorName": "Тудор Ротару",
                 "teamRoleIgor": "Президент и член Совета Фонда",
-                "teamRoleAndrei": "Член Совета Фонда",
                 "teamRoleAnastasia": "Член Совета Фонда, психолог",
                 "teamRoleRuslan": "Исполнительный директор",
                 "teamRoleOksana": "Координатор проектов",
@@ -1786,13 +1785,11 @@
                 "teamTitle": "People who accompany the process with care and responsibility.",
                 "teamLead": "The team combines administrative experience, counseling, psychology and peer-to-peer support.",
                 "teamIgorName": "Igor Plevschi",
-                "teamAndreiName": "Andrei Buhna",
                 "teamAnastasiaName": "Anastasia Plevscaia",
                 "teamRuslanName": "Ruslan Magari",
                 "teamOksanaName": "Oksana Garbolinskaia",
                 "teamTudorName": "Tudor Rotaru",
                 "teamRoleIgor": "President and member of the Foundation Council",
-                "teamRoleAndrei": "Member of the Foundation Council",
                 "teamRoleAnastasia": "Member of the Foundation Council, psychologist",
                 "teamRoleRuslan": "Executive director",
                 "teamRoleOksana": "Project coordinator",
@@ -1839,6 +1836,12 @@
     };
 
     Object.assign(translations.ro, {
+      teamLead: "În echipă se îmbină experiența organizațională, însoțirea participanților, sprijinul familiei și ajutorul practic în viața zilnică a centrului.",
+      teamFunctionIgor: "Coordonează misiunea fundației, sprijinul spiritual și relațiile cu partenerii.",
+      teamFunctionAnastasia: "Oferă sprijin psihologic și contribuie la înțelegerea procesului de recuperare.",
+      teamFunctionRuslan: "Organizează viața zilnică a centrului și sprijinul practic pentru participanți.",
+      teamFunctionOksana: "Coordonează proiectele, comunicarea și sprijinul pentru participanți și familii.",
+      teamFunctionTudor: "Oferă sprijin de la egal la egal bazat pe experiență și înțelegere.",
       heroTitle: "Un loc unde te poți opri, te poți recupera și poți începe din nou",
       heroLead: "Program rezidențial de recuperare într-un centru acreditat Optima Fide: cazare, masă, ritm zilnic, comunitate terapeutică și sprijin pentru familie.",
       badgeDuration: "Program 6-12 luni", badgeFamily: "20 locuri rezidențiale", heroCaption: "Centrul rezidențial Optima Fide, Goianul Nou, Stăuceni", heroImageAlt: "Centrul rezidențial Optima Fide",
@@ -1859,6 +1862,12 @@
     });
 
     Object.assign(translations.ru, {
+      teamLead: "В команде сочетаются организационный опыт, сопровождение участников программы, поддержка семьи и практическая помощь в ежедневной жизни центра.",
+      teamFunctionIgor: "Координирует миссию фонда, духовную поддержку и отношения с партнёрами.",
+      teamFunctionAnastasia: "Оказывает психологическую поддержку и помогает понимать процесс восстановления.",
+      teamFunctionRuslan: "Организует ежедневную жизнь центра и практическое сопровождение участников.",
+      teamFunctionOksana: "Координирует проекты, коммуникацию и поддержку участников и семей.",
+      teamFunctionTudor: "Оказывает поддержку «равный равному», основанную на опыте и понимании.",
       heroTitle: "Место, где можно остановиться, восстановиться и начать заново", heroLead: "Резиденциальная программа восстановления в аккредитованном центре Optima Fide: проживание, питание, ежедневный ритм, терапевтическое сообщество и поддержка семьи.", badgeDuration: "Программа 6-12 месяцев", badgeFamily: "20 резиденциальных мест", heroCaption: "Резиденциальный центр Optima Fide, Гоянул Ноу, Стэучень", heroImageAlt: "Резиденциальный центр Optima Fide", intakeLead: "Первый разговор не обязывает к поступлению. Мы спокойно выслушаем, объясним возможные шаги и сохраним конфиденциальность.", firstCall: "Позвонить", firstTelegram: "Написать в Telegram",
       situationEyebrow: "Первый шаг", situationTitle: "Что сейчас у вас происходит?", situationLead: "Выберите близкую ситуацию. Мы начнём со спокойного конфиденциального разговора.", sitCta: "Получить консультацию", sit1Title: "Мне нужна помощь", sit1Text: "Я хочу остановиться, но одному не получается.", sit2Title: "Помощь нужна близкому", sit2Text: "Я не знаю, как поговорить и что делать дальше.", sit3Title: "Нужна программа с проживанием", sit3Text: "Дома много соблазнов, конфликтов или нестабильности.", sit4Title: "Был срыв", sit4Text: "Нужен новый старт без осуждения.", sit5Title: "Нужна консультация семьи", sit5Text: "Хотим понять, как правильно поддерживать.",
       forWhomEyebrow: "Кому подходит", forWhomTitle: "Когда смена среды может стать новым началом", who1: "Когда одному не получается остановиться", who2: "Когда семья ищет помощь для близкого", who3: "Когда после срыва нужен новый старт", who4: "Когда дома много соблазнов и конфликтов", who5: "Когда нужна безопасная среда и стабильный ритм", who6: "Когда нужно восстановить ответственность и отношения",
@@ -1874,6 +1883,12 @@
     });
 
     Object.assign(translations.en, {
+      teamLead: "The team combines organizational experience, participant accompaniment, family support and practical help in the center's daily life.",
+      teamFunctionIgor: "Coordinates the foundation's mission, spiritual support and partner relations.",
+      teamFunctionAnastasia: "Provides psychological support and helps participants understand the recovery process.",
+      teamFunctionRuslan: "Organizes the center's daily life and practical support for participants.",
+      teamFunctionOksana: "Coordinates projects, communication and support for participants and families.",
+      teamFunctionTudor: "Provides peer-to-peer support grounded in experience and understanding.",
       heroTitle: "A place to pause, recover and begin again", heroLead: "A residential recovery program at the accredited Optima Fide center: accommodation, meals, daily rhythm, therapeutic community and family support.", badgeDuration: "6-12 month program", badgeFamily: "20 residential places", heroCaption: "Optima Fide residential center, Goianul Nou, Stăuceni", heroImageAlt: "Optima Fide residential center", intakeLead: "The first conversation does not oblige you to enter the center. We listen respectfully, explain possible steps and keep it confidential.", firstCall: "Call", firstTelegram: "Write on Telegram",
       situationEyebrow: "First step", situationTitle: "What is happening in your life right now?", situationLead: "Choose the closest situation. We will begin with a calm, confidential conversation.", sitCta: "Request consultation", sit1Title: "I need help", sit1Text: "I want to stop, but cannot do it alone.", sit2Title: "A loved one needs help", sit2Text: "I do not know how to talk or what to do next.", sit3Title: "I need a residential program", sit3Text: "Home has too many triggers, conflicts or instability.", sit4Title: "There was a relapse", sit4Text: "A new start is needed without judgment.", sit5Title: "Our family needs guidance", sit5Text: "We want to understand how to offer healthy support.",
       forWhomEyebrow: "Who it is for", forWhomTitle: "When a change of environment can become a new beginning", who1: "When stopping alone is not working", who2: "When a family seeks help for a loved one", who3: "When a new start is needed after relapse", who4: "When home has triggers and conflict", who5: "When a safe environment and stable rhythm are needed", who6: "When responsibility and relationships need rebuilding",

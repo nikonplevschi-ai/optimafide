@@ -1,4 +1,5 @@
 const ALLOWED_ORIGINS = new Set([
+  "https://recovery.optimafide.md",
   "https://nikonplevschi-ai.github.io"
 ]);
 

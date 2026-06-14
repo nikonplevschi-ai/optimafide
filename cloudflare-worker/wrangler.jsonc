@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "optima-fide-telegram-requests",
+  "main": "telegram-request-worker.js",
+  "compatibility_date": "2026-06-14",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}

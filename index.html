@@ -6,7 +6,7 @@
   <title>Fundația Optima Fide - Centru de reabilitare acreditat în Moldova</title>
   <meta name="description" content="Centru de reabilitare acreditat în Moldova. Program rezidențial de 6-12 luni pentru persoane care doresc să depășească dependența.">
   <meta property="og:title" content="Fundația Optima Fide">
-  <meta property="og:description" content="Reabilitare cu demnitate, discreție și sprijin profesionist. Din 2014, Goianul Nou, Stăuceni.">
+  <meta property="og:description" content="Reabilitare cu demnitate, discreție și sprijin profesionist. Acreditat de stat din 2019, Goianul Nou, Stăuceni.">
   <meta property="og:image" content="center-therapy-room.jpg">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
       "streetAddress": "str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni",
       "addressCountry": "MD"
     },
-    "telephone": "+37378377337",
+    "telephone": "+37379002064",
     "email": "optimafide.info@gmail.com",
     "url": "https://nikonplevschi-ai.github.io/optimafide/"
   }
@@ -261,6 +261,8 @@
       font-size: clamp(2.8rem, 7vw, 6.6rem);
       max-width: 840px;
       text-wrap: balance;
+      overflow-wrap: normal;
+      word-break: normal;
     }
     .hero h1 span { color: var(--gold); }
     .hero p {
@@ -444,21 +446,31 @@
     .gallery button:hover img { transform: scale(1.04); }
     .accreditation {
       display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 36px;
+      grid-template-columns: minmax(340px, .82fr) 1fr;
+      gap: 42px;
       align-items: center;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--paper);
-      padding: 24px;
+      padding: 32px;
       box-shadow: var(--shadow);
     }
-    .accreditation img {
+    .certificate-view {
       width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
+      border: 0;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: #f7f4ed;
+      box-shadow: inset 0 0 0 1px var(--line);
+      cursor: zoom-in;
+    }
+    .certificate-view img {
+      width: 100%;
+      height: min(70vh, 720px);
+      object-fit: contain;
       border-radius: var(--radius);
       border: 1px solid var(--line);
+      background: var(--white);
     }
     .impact-grid {
       display: grid;
@@ -558,6 +570,39 @@
       color: var(--green);
       margin-bottom: 3px;
     }
+    .map-embed {
+      position: relative;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--cream-soft);
+      box-shadow: 0 10px 26px rgba(40,50,45,.08);
+    }
+    .map-embed iframe {
+      width: 100%;
+      height: 260px;
+      border: 0;
+      display: block;
+      filter: saturate(.82) contrast(.96);
+    }
+    .map-pin-label {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: calc(100% - 28px);
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,253,248,.94);
+      color: var(--green);
+      font-size: .88rem;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(40,50,45,.16);
+    }
+    .map-pin-label svg { color: var(--gold); }
     .contact-form {
       display: grid;
       gap: 14px;
@@ -722,7 +767,7 @@
         padding-top: 112px;
         background-position: center;
       }
-      .hero h1 { font-size: clamp(2.42rem, 13vw, 4rem); }
+      .hero h1 { font-size: clamp(2.05rem, 10vw, 3.45rem); }
       .hero-content { padding-bottom: 56px; }
       .hero-actions .btn { width: 100%; }
       .hero-stats { margin-top: -34px; }
@@ -733,6 +778,9 @@
       .photo-frame img { height: 360px; }
       .gallery { grid-template-columns: 1fr; grid-auto-rows: 220px; }
       .gallery button:first-child { grid-column: auto; }
+      .accreditation { padding: 18px; gap: 28px; }
+      .certificate-view { padding: 10px; }
+      .certificate-view img { height: min(72vh, 560px); }
       .bank-row { grid-template-columns: 1fr; gap: 2px; }
       .mobile-cta { display: grid; }
       .site-footer { padding-bottom: 94px; }
@@ -777,13 +825,13 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <div class="hero-content" data-reveal>
-          <div class="hero-badge" data-i18n="heroBadge">Acreditat de Stat · Din 2014 · Goianul Nou, Stăuceni</div>
+          <div class="hero-badge" data-i18n="heroBadge">Acreditat de Stat · Din 2019 · Goianul Nou, Stăuceni</div>
           <h1 id="hero-title" data-i18n="heroTitle">Centru de reabilitare acreditat <span>în Moldova</span></h1>
           <p data-i18n="heroLead">Program rezidențial de 6-12 luni pentru persoane care doresc să depășească dependența și să-și reconstruiască viața.</p>
           <div class="hero-actions">
             <a class="btn gold" href="#contacte" data-i18n="heroConsult">Solicită consultație</a>
             <a class="btn light" href="#program" data-i18n="heroProgram">Vezi programul</a>
-            <a class="btn light" href="tel:+37378377337" data-i18n="heroCall">Sună acum</a>
+            <a class="btn light" href="tel:+37379002064" data-i18n="heroCall">Sună acum</a>
           </div>
         </div>
       </div>
@@ -889,7 +937,9 @@
 
     <section class="section" id="acreditare">
       <div class="container accreditation" data-reveal>
-        <img src="accreditation.jpg" alt="Certificat de acreditare Optima Fide">
+        <button class="certificate-view" type="button" data-lightbox="accreditation.jpg" aria-label="Deschide certificatul de acreditare">
+          <img src="accreditation.jpg" alt="Certificat de acreditare Optima Fide">
+        </button>
         <div class="text-block">
           <div class="eyebrow" data-i18n="accreditEyebrow">Acreditare</div>
           <h2 data-i18n="accreditTitle">Acreditat de stat pentru servicii de reabilitare.</h2>
@@ -984,7 +1034,7 @@
           <h2 data-i18n="contactTitle">Răspundem cu discreție și respect.</h2>
           <div class="contact-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2z"/></svg>
-            <div><strong data-i18n="phoneLabel">Telefon</strong><a href="tel:+37378377337">+373 78 377 337</a></div>
+            <div><strong data-i18n="phoneLabel">Telefon</strong><a href="tel:+37379002064">+373 79 002 064</a></div>
           </div>
           <div class="contact-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21.5 4.5 2.5 12l7 2.5m12-10-6.5 16-5.5-6m12-10-12 10"/></svg>
@@ -997,6 +1047,13 @@
           <div class="contact-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-4.7 7-11a7 7 0 0 0-14 0c0 6.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
             <div><strong data-i18n="addressLabel">Adresa centrului</strong><span data-i18n="addressText">str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni</span></div>
+          </div>
+          <div class="map-embed">
+            <iframe title="Harta centrului Optima Fide" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=str.%20Gloriei%204%2C%20Goianul%20Nou%2C%20Stauceni%2C%20Moldova&output=embed"></iframe>
+            <a class="map-pin-label" href="https://www.google.com/maps/search/?api=1&query=str.%20Gloriei%204%2C%20Goianul%20Nou%2C%20Stauceni%2C%20Moldova" target="_blank" rel="noopener" aria-label="Deschide adresa centrului pe Google Maps">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.8A2.8 2.8 0 1 1 12 6a2.8 2.8 0 0 1 0 5.8Z"/></svg>
+              <span data-i18n="mapLabel">Vezi centrul pe hartă</span>
+            </a>
           </div>
         </div>
         <form class="contact-card contact-form" id="consultationForm" data-reveal>
@@ -1038,7 +1095,7 @@
   </footer>
 
   <div class="mobile-cta" aria-label="Acțiuni rapide">
-    <a class="btn primary" href="tel:+37378377337" data-i18n="mobileCall">Sună</a>
+    <a class="btn primary" href="tel:+37379002064" data-i18n="mobileCall">Sună</a>
     <a class="btn gold" href="https://t.me/optimafide" target="_blank" rel="noopener" data-i18n="mobileTelegram">Telegram</a>
   </div>
 
@@ -1057,7 +1114,7 @@
         navDonate: "Donații",
         navContact: "Contacte",
         navCta: "Consultație",
-        heroBadge: "Acreditat de Stat · Din 2014 · Goianul Nou, Stăuceni",
+        heroBadge: "Acreditat de Stat · Din 2019 · Goianul Nou, Stăuceni",
         heroTitle: "Centru de reabilitare acreditat <span>în Moldova</span>",
         heroLead: "Program rezidențial de 6-12 luni pentru persoane care doresc să depășească dependența și să-și reconstruiască viața.",
         heroConsult: "Solicită consultație",
@@ -1129,6 +1186,7 @@
         phoneLabel: "Telefon",
         addressLabel: "Adresa centrului",
         addressText: "str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni",
+        mapLabel: "Vezi centrul pe hartă",
         formName: "Nume",
         formPhone: "Telefon",
         formMessage: "Mesaj",
@@ -1148,7 +1206,7 @@
         navDonate: "Пожертвования",
         navContact: "Контакты",
         navCta: "Консультация",
-        heroBadge: "Государственная аккредитация · с 2014 года · Гоянул Ноу, Ставчены",
+        heroBadge: "Государственная аккредитация · с 2019 года · Гоянул Ноу, Ставчены",
         heroTitle: "Аккредитованный центр реабилитации <span>в Молдове</span>",
         heroLead: "Резидентная программа на 6-12 месяцев для людей, которые хотят преодолеть зависимость и восстановить свою жизнь.",
         heroConsult: "Запросить консультацию",
@@ -1220,6 +1278,7 @@
         phoneLabel: "Телефон",
         addressLabel: "Адрес центра",
         addressText: "ул. Глорией 4, с. Гоянул Ноу, г. Ставчены",
+        mapLabel: "Смотреть центр на карте",
         formName: "Имя",
         formPhone: "Телефон",
         formMessage: "Сообщение",
@@ -1239,7 +1298,7 @@
         navDonate: "Donate",
         navContact: "Contact",
         navCta: "Consultation",
-        heroBadge: "State accredited · Since 2014 · Goianul Nou, Stăuceni",
+        heroBadge: "State accredited · Since 2019 · Goianul Nou, Stăuceni",
         heroTitle: "Accredited rehabilitation center <span>in Moldova</span>",
         heroLead: "A 6-12 month residential program for people who want to overcome addiction and rebuild their lives.",
         heroConsult: "Request consultation",
@@ -1311,6 +1370,7 @@
         phoneLabel: "Phone",
         addressLabel: "Center address",
         addressText: "Gloriei St. 4, Goianul Nou, Stăuceni",
+        mapLabel: "View center on map",
         formName: "Name",
         formPhone: "Phone",
         formMessage: "Message",

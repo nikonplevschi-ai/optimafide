@@ -98,6 +98,15 @@
     .btn.gold { background: var(--gold); color: #1f261f; }
     .btn.light { background: rgba(255,255,255,.92); color: var(--green); }
     .btn.outline { background: transparent; color: var(--green); border: 1px solid rgba(23,60,50,.24); }
+    .btn.disabled, .btn[aria-disabled="true"] {
+      cursor: default;
+      color: rgba(38,49,45,.66);
+      background: rgba(238,244,240,.9);
+      border: 1px solid var(--line);
+      box-shadow: none;
+      pointer-events: none;
+    }
+    .btn.disabled:hover { transform: none; box-shadow: none; }
     .icon { width: 20px; height: 20px; flex: 0 0 20px; }
     .site-header {
       position: fixed;
@@ -601,7 +610,8 @@
       background: linear-gradient(180deg, rgba(255,253,248,.04), rgba(255,253,248,.2)), url("assets/images/hero-center.webp") center/cover no-repeat;
       box-shadow: var(--soft-shadow);
     }
-    .donation-photo { min-height: 520px; background-image: url("center-dining.jpg"); }
+    .donation-photo { min-height: 520px; background-image: linear-gradient(180deg, rgba(255,253,248,.06), rgba(23,60,50,.14)), url("assets/images/donation-recovery-space.webp"); background-position: center; }
+    .donation-note { margin-top: 12px; color: var(--green); font-weight: 800; }
     .bank-list { display: grid; gap: 12px; margin-top: 20px; }
     details.bank-details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow: hidden; }
     details.bank-details summary {
@@ -771,6 +781,7 @@
       .gallery-tile:first-child { grid-column: auto; }
       .certificate-button { padding: 10px; }
       .certificate-button img { height: min(72vh, 560px); }
+      .donation-photo { min-height: 340px; }
       .certificate-facts div, .bank-row { grid-template-columns: 1fr; gap: 2px; }
       .footer-grid { grid-template-columns: 1fr; }
       .mobile-cta { display: grid; }
@@ -1245,10 +1256,12 @@
           <div class="eyebrow" data-i18n="donateEyebrow">Donații</div>
           <h2 data-i18n="donateTitle">Susțineți recuperarea unei vieți</h2>
           <p data-i18n="donateText">Donația dvs. ajută la cazare, hrană, consultații, activități terapeutice și dezvoltarea centrului.</p>
+          <p class="donation-note" data-i18n="donateNote">Fiecare donație ajută la susținerea unui spațiu sigur de recuperare pentru persoane și familii.</p>
           <p style="margin-top:12px" data-i18n="partnerText">Suntem deschiși colaborării cu comunități bisericești, servicii sociale, fundații, specialiști și donatori.</p>
           <div class="hero-actions">
             <button class="btn primary" type="button" data-copy-iban="MD63VI000000002224729306" data-i18n="copyIban">Copiază IBAN</button>
             <a class="btn outline" href="#bank-details" data-i18n="allDetails">Toate rechizitele</a>
+            <span class="btn disabled" aria-disabled="true" data-i18n="paypalSoon">PayPal — скоро доступно</span>
           </div>
           <div class="bank-list" id="bank-details">
             <details class="bank-details"><summary><span>MDL</span><span class="iban">MD63VI000000002224729306</span></summary><div class="bank-body">
@@ -1308,7 +1321,7 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div><strong>Optima Fide</strong><p data-i18n="footerText">Centru rezidențial de recuperare și reabilitare în Moldova. Adresa juridică: str. M. Dosoftei 100, ap. 75, Chișinău, MD-2012.</p></div>
+      <div><strong>Optima Fide</strong><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p></div>
       <div class="footer-links"><a href="#program" data-i18n="navProgram">Programul</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
     </div>
   </footer>
@@ -1481,8 +1494,10 @@
                 "donateEyebrow": "Donații",
                 "donateTitle": "Susțineți recuperarea unei vieți",
                 "donateText": "Donația dvs. ajută la cazare, hrană, consultații, activități terapeutice și dezvoltarea centrului.",
+                "donateNote": "Fiecare donație ajută la susținerea unui spațiu sigur de recuperare pentru persoane și familii.",
                 "copyIban": "Copiază IBAN",
                 "allDetails": "Toate rechizitele",
+                "paypalSoon": "PayPal — disponibil în curând",
                 "bankAccountName": "Denumire cont",
                 "bankName": "Banca",
                 "correspondent": "Bancă corespondentă",
@@ -1498,7 +1513,7 @@
                 "formConsent": "Sunt de acord să fiu contactat pentru consultație.",
                 "formSubmit": "Trimite cererea",
                 "formSuccess": "Mulțumim. Pentru confirmare rapidă, vă rugăm să ne sunați sau să scrieți pe Telegram.",
-                "footerText": "Centru rezidențial de recuperare în Moldova. Adresa juridică: str. M. Dosoftei 100, ap. 75, Chișinău, MD-2012.",
+                "footerText": "Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.",
                 "mobileCall": "Sună",
                 "copied": "IBAN copiat"
           },
@@ -1666,8 +1681,10 @@
                 "donateEyebrow": "Пожертвования",
                 "donateTitle": "Поддержите восстановление одной жизни",
                 "donateText": "Ваше пожертвование помогает с проживанием, питанием, консультациями, терапевтическими активностями и развитием центра.",
+                "donateNote": "Каждое пожертвование помогает поддерживать безопасное пространство восстановления для людей и семей.",
                 "copyIban": "Скопировать IBAN",
                 "allDetails": "Все реквизиты",
+                "paypalSoon": "PayPal — скоро доступно",
                 "bankAccountName": "Название счёта",
                 "bankName": "Банк",
                 "correspondent": "Банк-корреспондент",
@@ -1683,7 +1700,7 @@
                 "formConsent": "Я согласен, чтобы со мной связались для консультации.",
                 "formSubmit": "Отправить заявку",
                 "formSuccess": "Спасибо. Для быстрого подтверждения позвоните нам или напишите в Telegram.",
-                "footerText": "Резиденциальная программа восстановления в Молдове. Юридический адрес: ул. М. Дософтей 100, кв. 75, Кишинёв, MD-2012.",
+                "footerText": "Резиденциальная программа восстановления в Молдове. Адрес центра: ул. Глорией 4, с. Гоянул Ноу, г. Ставчены.",
                 "mobileCall": "Позвонить",
                 "copied": "IBAN скопирован"
           },
@@ -1851,8 +1868,10 @@
                 "donateEyebrow": "Donations",
                 "donateTitle": "Support the recovery of one life",
                 "donateText": "Your donation helps accommodation, meals, consultations, therapeutic activities and center development.",
+                "donateNote": "Each donation helps sustain a safe recovery space for people and families.",
                 "copyIban": "Copy IBAN",
                 "allDetails": "All bank details",
+                "paypalSoon": "PayPal — coming soon",
                 "bankAccountName": "Account name",
                 "bankName": "Bank",
                 "correspondent": "Correspondent bank",
@@ -1868,7 +1887,7 @@
                 "formConsent": "I agree to be contacted for a consultation.",
                 "formSubmit": "Send request",
                 "formSuccess": "Thank you. For quick confirmation, please call us or write on Telegram.",
-                "footerText": "Residential recovery program in Moldova. Legal address: M. Dosoftei St. 100, apt. 75, Chișinău, MD-2012.",
+                "footerText": "Residential recovery program in Moldova. Center address: Gloriei St. 4, Goianul Nou, Stăuceni.",
                 "mobileCall": "Call",
                 "copied": "IBAN copied"
           }

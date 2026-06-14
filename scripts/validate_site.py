@@ -38,6 +38,13 @@ def main() -> int:
             failures.append(f"Missing translation dictionary: {lang}")
             continue
         available = set(re.findall(r'"([^"]+)"\s*:', match))
+        extension = re.search(
+            rf"Object\.assign\(translations\.{lang},\s*\{{(.*?)\n\s*\}}\);",
+            html,
+            re.DOTALL,
+        )
+        if extension:
+            available.update(re.findall(r"\b([A-Za-z][A-Za-z0-9]+)\s*:", extension.group(1)))
         missing = sorted(used_keys - available)
         if missing:
             failures.append(f"{lang} missing keys: {', '.join(missing)}")

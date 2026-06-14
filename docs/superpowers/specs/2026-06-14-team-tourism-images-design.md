@@ -1,4 +1,4 @@
-# Team and Tourism Images Design
+﻿# Team and Tourism Images Design
 
 ## Goal
 
@@ -13,8 +13,8 @@ Improve trust and visual consistency in two areas:
 - Remove Andrei Buhna completely, including initials, contacts, and translation
   keys.
 - Keep five confirmed people: Igor Plevschi, Anastasia Plevscaia, Ruslan
-  Magari, Oksana Garbolinskaia, and Tudor Rotaru.
-- Use the matching real photos from `C:\Users\igor\Desktop\команда`.
+  Magari, Oksana Harbolinscaia, and Tudor Rotaru.
+- Use the matching real photos from `C:\Users\igor\Desktop\РєРѕРјР°РЅРґР°`.
 - Do not add Ivan Kopciac because no confirmed role was provided.
 - Preserve existing confirmed contacts. Tudor uses `+373 62 139 361` and the
   existing project email `sofos82@mail.ru`.

@@ -38,7 +38,7 @@ styles.add(ParagraphStyle(name="BulletX", parent=styles["B"], leftIndent=14, fir
 def jpg(path):
     source = ROOT / path
     target = CACHE / f"{source.stem}.jpg"
-    if not target.exists():
+    if not target.exists() or target.stat().st_mtime < source.stat().st_mtime:
         PILImage.open(source).convert("RGB").save(target, "JPEG", quality=91)
     return str(target)
 
@@ -75,7 +75,7 @@ def footer(canvas, doc):
 
 story = [
     img("assets/images/hero-center.webp", 170 * mm), Spacer(1, 5 * mm),
-    p("OPTIMA FIDE", "Small"), p("Место, где можно остановиться, восстановиться и начать заново", "T"),
+    p("OPTIMA FIDE", "Small"), p("Optima Fide — программа восстановления с проживанием", "T"),
     p("Резиденциальная программа восстановления в аккредитованном центре в Молдове", "H"),
     p("Проживание, питание, ежедневный ритм, терапевтическое сообщество и поддержка семьи."),
     note("Первый шаг", "спокойный конфиденциальный разговор. Он не обязывает к поступлению в центр."),
@@ -121,5 +121,5 @@ for q, a in [("Можно ли сначала просто поговорить?
     story += [p(f"<b>{q}</b>"), p(a)]
 story += [p("Контакты", "H"), p("<b>+373 79 002 064</b>"), p("optimafide.info@gmail.com  |  Telegram: @optimafide"), p("Goianul Nou, Stăuceni, Republica Moldova", "Small")]
 
-SimpleDocTemplate(str(OUT / "optima-fide-family-offer-ru.pdf"), pagesize=A4, rightMargin=20 * mm, leftMargin=20 * mm, topMargin=17 * mm, bottomMargin=18 * mm, title="Optima Fide — предложение для семьи", author="Optima Fide").build(story, onFirstPage=footer, onLaterPages=footer)
+SimpleDocTemplate(str(OUT / "optima-fide-family-offer-ru.pdf"), pagesize=A4, rightMargin=20 * mm, leftMargin=20 * mm, topMargin=17 * mm, bottomMargin=18 * mm, title="Optima Fide — программа восстановления с проживанием", author="Optima Fide").build(story, onFirstPage=footer, onLaterPages=footer)
 print(OUT / "optima-fide-family-offer-ru.pdf")

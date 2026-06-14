@@ -62,6 +62,13 @@ Present eight concise offer cards immediately after the hero/intake area:
 accommodation, meals, daily rhythm, groups, family support, spirituality
 without pressure, center activities, and reintegration.
 
+### Quick Situation Choice
+
+Immediately after the hero and first-step message, add five localized cards:
+help for myself, help for a loved one, a residential program, a new start
+after relapse, and a family consultation. Each card leads to the existing
+consultation form and uses reassuring, non-judgmental language.
+
 ### A Day at the Center
 
 Replace the current generic six-step recovery timeline with a localized
@@ -98,6 +105,11 @@ Add a practical admission section with these localized steps:
 Include a concise "what to bring" list: documents, change of clothes, personal
 hygiene items, necessary personal belongings, and medicines only after prior
 agreement.
+
+Add a compact "first three days" block explaining arrival and orientation,
+calm adaptation of sleep/food/basic safety, and an initial accompaniment plan.
+Add calm stay rules covering respect, daily rhythm, no alcohol or narcotic
+substances, shared responsibilities, and care for the home and people.
 
 ### Why Optima Fide
 
@@ -190,12 +202,30 @@ The downloadable PDF proposal is explicitly deferred to a separate follow-up
 task after the updated website is complete and published. Do not add a
 non-working PDF download button in this implementation.
 
+The follow-up should produce two PDFs: a simple family-facing explanation and
+a partner/donor presentation.
+
 ### Family Support
 
 Rewrite the existing family section as a warm direct message to relatives
 seeking help for a loved one. Explain that the family can contact the center
 first, understand how to speak without pressure, and prepare a possible entry
 into the program. Keep a single clear "Talk to us" action.
+
+### Confidentiality, Limits, and Partners
+
+Add a concise trust statement near the first-step content explaining that the
+first conversation is confidential, respectful, individual, and without
+pressure or publicity.
+
+Add a visible localized "Important to understand" block near optional services
+and the footer. It states that Optima Fide is a residential recovery and
+therapeutic-community rehabilitation center, and does not replace emergency
+medical care, inpatient psychiatry, or emergency detoxification.
+
+Strengthen the existing donation section with a short partner message for
+church communities, social services, foundations, specialists, and donors.
+Keep only working actions; do not add a download button until the PDFs exist.
 
 ## Localization
 
@@ -225,6 +255,7 @@ section.
   arranged through specialized professionals and institutions.
 - Spiritual support is presented as optional and without pressure.
 - Existing verified figures may be reused; no new numerical claims are added.
+- Do not add testimonials without authentic approved source material.
 
 ## Verification
 

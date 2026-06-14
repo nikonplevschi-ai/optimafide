@@ -2215,7 +2215,7 @@
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxClose = document.getElementById("lightboxClose");
-    const TELEGRAM_WORKER_URL = "https://YOUR-WORKER-DOMAIN.workers.dev";
+    const TELEGRAM_WORKER_URL = "https://optima-fide-telegram-requests.constractoptimafide.workers.dev";
     let currentLang = localStorage.getItem("optimaLang") || "ro";
 
     function setLanguage(lang) {
@@ -2328,7 +2328,6 @@
       button.textContent = translations[currentLang].telegramFormSending;
       telegramRequestNote.textContent = "";
       try {
-        if (TELEGRAM_WORKER_URL.includes("YOUR-WORKER-DOMAIN")) throw new Error("Worker URL is not configured");
         const response = await fetch(TELEGRAM_WORKER_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },

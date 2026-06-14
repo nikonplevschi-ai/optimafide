@@ -33,8 +33,8 @@ trust/team/donation area.
 
 The section contains:
 
-- a large photographic feature using suitable existing repository tourism
-  assets;
+- a large photographic feature using the user-provided `1.webp` image of the
+  Optima Fide center as the main image;
 - an explicit localized label stating that outings are arranged by prior
   agreement and for an additional fee;
 - six destination cards: monasteries, landscapes and nature, the Dniester
@@ -43,8 +43,9 @@ The section contains:
 - a localized note explaining that outings depend on the participant's
   condition, program rules, weather, and prior agreement.
 
-Existing repository WebP/JPG tourism images will be reused. No new image with
-uncertain licensing will be introduced.
+Existing repository WebP/JPG tourism images will be reused for the destination
+cards. The main image is supplied by the project owner. No image with uncertain
+licensing will be introduced.
 
 ### Optional Services
 

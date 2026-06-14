@@ -165,7 +165,7 @@ story = [
 
 team = [
     ("assets/images/team/team-igor-owner.webp", "Fr. Igor Plevschi", "Foundation president / spiritual accompaniment", "Coordinates the mission, partnerships and the spiritual dimension of the program."),
-    ("assets/images/team/team-anastasia-owner.webp", "Anastasia Plevscaia", "Program accompaniment / participant support", "Supports participants in daily rhythm and engagement in the recovery process."),
+    ("assets/images/team/team-anastasia-owner.webp", "Anastasia Plevscaia", "Psychologist / participant support", "Provides psychological support and helps participants engage in the recovery process."),
     ("assets/images/team/team-ruslan-owner.webp", "Ruslan Magari", "Center manager / daily organization", "Responsible for order, stay conditions and practical daily life in the center."),
     ("assets/images/team/team-oksana-owner.webp", "Oksana Harbolinscaia", "Program coordinator / family communication", "Supports communication with participants, families and the accompaniment process."),
     ("assets/images/team/team-tudor-owner.webp", "Tudor Rotaru", "Peer-to-peer consultant", "Supports participants through personal experience, communication and practical accompaniment."),

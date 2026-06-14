@@ -711,7 +711,7 @@
       .hero { min-height: 92vh; padding-top: 112px; }
       .hero {
         min-height: auto;
-        padding: 410px 0 48px;
+        padding: 224px 0 32px;
         align-items: start;
         color: var(--text);
         background:
@@ -721,10 +721,14 @@
       }
       .hero::after { display: none; }
       .hero-copy { padding-bottom: 0; }
-      .hero h1 { color: var(--green); }
-      .hero p { color: var(--muted); }
-      .hero-badge { border-color: var(--line); background: var(--card); color: var(--green); }
-      .hero-caption { position: static; margin-top: 20px; color: var(--muted); text-shadow: none; }
+      .hero h1 { color: var(--green); font-size: 1.9rem; }
+      .hero p { color: var(--muted); font-size: .98rem; margin-top: 15px; }
+      .hero-badges { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 16px; }
+      .hero-badge { min-width: 0; min-height: 30px; padding: 6px 9px; border-color: var(--line); background: var(--card); color: var(--green); font-size: .62rem; line-height: 1.25; text-transform: none; }
+      .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px; }
+      .hero-actions .btn { width: auto; min-height: 44px; padding: 0 12px; white-space: normal; }
+      .hero-actions .btn:first-child { grid-column: 1 / -1; }
+      .hero-caption { top: -42px; right: auto; bottom: auto; left: 0; width: fit-content; max-width: calc(100% - 28px); padding: 5px 8px; border-radius: 6px; background: rgba(255,253,248,.9); color: var(--green); font-size: .66rem; text-shadow: none; }
       .hero h1 { font-size: clamp(2.15rem, 10vw, 3.35rem); }
       .hero-actions .btn, .intake-form .btn { width: 100%; }
       .hero-badges { gap: 7px; }

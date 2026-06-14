@@ -630,11 +630,7 @@
     .telegram-cta-copy h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
     .telegram-cta-copy p { margin-top: 10px; color: var(--muted); }
     .telegram-cta-actions { display: flex; flex-wrap: wrap; gap: 10px; flex: 0 0 auto; }
-    .telegram-request-form { width: min(100%, 460px); display: grid; gap: 13px; flex: 0 0 460px; }
-    .telegram-request-form textarea { min-height: 118px; }
-    .telegram-request-form button:disabled { opacity: .62; cursor: wait; }
-    .honeypot-field { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    .telegram-request-note a { color: var(--green); font-weight: 900; }
+    .telegram-contact-number { display: inline-flex; margin-top: 18px; color: var(--green); font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; text-decoration: none; }
     .voices-section { background: linear-gradient(180deg, rgba(238,244,240,.74), rgba(255,253,248,.86)); }
     .voices-grid {
       display: grid;
@@ -753,6 +749,46 @@
       font-size: 28px;
       cursor: pointer;
     }
+    body.contact-modal-open { overflow: hidden; }
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(12,22,19,.62);
+    }
+    .contact-modal.open { display: flex; }
+    .contact-modal-card {
+      position: relative;
+      width: min(100%, 500px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+    .contact-modal-card h2 { padding-right: 42px; font-size: clamp(1.75rem, 4vw, 2.4rem); }
+    .contact-modal-card p { margin-top: 12px; color: var(--muted); }
+    .contact-modal-number { display: block; margin-top: 22px; color: var(--green); font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 900; text-decoration: none; }
+    .contact-modal-actions { display: grid; gap: 10px; margin-top: 24px; }
+    .contact-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--green);
+      font-size: 25px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .contact-modal-status { min-height: 22px; margin-top: 12px; color: var(--green); font-weight: 900; text-align: center; }
     .mobile-cta {
       display: none;
       position: fixed;
@@ -848,7 +884,9 @@
       .voice-card { min-height: auto; padding: 22px; }
       .telegram-cta { align-items: stretch; flex-direction: column; padding: 22px; }
       .telegram-cta-actions { display: grid; grid-template-columns: 1fr; }
-      .telegram-request-form { width: 100%; flex-basis: auto; }
+      .contact-modal { align-items: flex-end; padding: 0; }
+      .contact-modal-card { width: 100%; max-height: calc(100vh - 20px); overflow-y: auto; border-radius: var(--radius) var(--radius) 0 0; padding: 28px 20px calc(24px + env(safe-area-inset-bottom)); }
+      .contact-modal-actions .btn { width: 100%; }
       .tourism-feature { min-height: 520px; }
       .tourism-feature-copy { left: 22px; right: 22px; bottom: 24px; }
       .gallery-grid { grid-auto-rows: 220px; }
@@ -911,7 +949,7 @@
             <a class="btn gold" href="#consultatie" data-i18n="heroConsult">Solicită consultație</a>
             <a class="btn light" href="#conditii" data-i18n="heroStay">Vezi condițiile</a>
             <a class="btn light" href="tel:+37379002064" data-i18n="heroCall">Sună acum</a>
-            <a class="btn light" href="https://t.me/optimafide" target="_blank" rel="noopener noreferrer" data-i18n="telegramCta">Scrie pe Telegram</a>
+            <a class="btn light" href="#" data-contact-modal data-i18n="telegramCta">Scrie pe Telegram</a>
           </div>
         </div>
         <p class="hero-caption" data-i18n="heroCaption">Centrul rezidențial Optima Fide, Goianul Nou, Stăuceni</p>
@@ -924,7 +962,7 @@
         <p class="intake-lead" data-i18n="intakeLead">Prima conversație nu vă obligă să intrați în centru. Ascultăm cu respect, explicăm pașii posibili și păstrăm confidențialitatea.</p>
         <div class="quick-actions">
           <a class="btn outline" href="tel:+37379002064" data-i18n="firstCall">Sună</a>
-          <a class="btn outline" href="https://t.me/optimafide" target="_blank" rel="noopener noreferrer" data-i18n="firstTelegram">Scrie pe Telegram</a>
+          <a class="btn outline" href="#" data-contact-modal data-i18n="firstTelegram">Scrie pe Telegram</a>
         </div>
         <form class="intake-form" id="intakeForm">
           <div class="field">
@@ -1338,7 +1376,7 @@
             <a class="btn outline" href="#bank-details" data-i18n="allDetails">Toate rechizitele</a>
             <a class="btn outline" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="paypalSoon">Donează prin PayPal</a>
           </div>
-          <p class="donation-telegram-note"><a href="https://t.me/optimafide" target="_blank" rel="noopener noreferrer" data-i18n="donationTelegramNote">Pentru întrebări despre donații, ne puteți scrie pe Telegram.</a></p>
+          <p class="donation-telegram-note"><a href="#" data-contact-modal data-i18n="donationTelegramNote">Pentru întrebări despre donații, ne puteți scrie pe Telegram.</a></p>
           <div class="bank-list" id="bank-details">
             <details class="bank-details"><summary><span>MDL</span><span class="iban">MD63VI000000002224729306</span></summary><div class="bank-body">
               <div class="bank-row"><span data-i18n="bankAccountName">Denumire cont</span><strong>Fundația Optima Fide</strong></div><div class="bank-row"><span>IBAN</span><strong>MD63VI000000002224729306</strong></div><div class="bank-row"><span data-i18n="bankName">Banca</span><strong>BC Victoriabank SA</strong></div><div class="bank-row"><span>SWIFT</span><strong>VICBMD2X</strong></div>
@@ -1421,21 +1459,13 @@
           <div class="telegram-cta-copy">
             <div class="eyebrow">Telegram</div>
             <h2 data-i18n="quickTelegramTitle">Aveți nevoie de un prim răspuns?</h2>
-            <p data-i18n="quickTelegramText">Lăsați o întrebare scurtă — mesajul ajunge imediat la noi pe Telegram. Numele poate fi opțional.</p>
+            <p data-i18n="contactModalText">Ne puteți scrie pe Telegram sau suna. Răspundem cu discreție și respect.</p>
+            <a class="telegram-contact-number" href="tel:+37379002064">+373 79 002 064</a>
             <div class="telegram-cta-actions">
-              <a class="btn gold" href="https://t.me/optimafide" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a class="btn gold" href="#" data-contact-modal data-i18n="firstTelegram">Scrie pe Telegram</a>
               <a class="btn outline" href="tel:+37379002064" data-i18n="firstCall">Sună</a>
             </div>
           </div>
-          <form class="telegram-request-form" id="telegramRequestForm">
-            <div class="field"><label for="telegramRequestName" data-i18n="telegramFormName">Nume — opțional</label><input id="telegramRequestName" name="name" autocomplete="name" maxlength="120"></div>
-            <div class="field"><label for="telegramRequestContact" data-i18n="telegramFormContact">Telefon sau Telegram — opțional, dar recomandat</label><input id="telegramRequestContact" name="contact" autocomplete="tel" maxlength="160"></div>
-            <div class="field"><label for="telegramRequestMessage" data-i18n="telegramFormMessage">Întrebare / situație — obligatoriu</label><textarea id="telegramRequestMessage" name="message" minlength="5" maxlength="1500" required></textarea></div>
-            <div class="honeypot-field" aria-hidden="true"><label for="telegramRequestWebsite">Website</label><input id="telegramRequestWebsite" name="website" tabindex="-1" autocomplete="off"></div>
-            <label class="consent"><input type="checkbox" name="consent" required><span data-i18n="telegramFormConsent">Sunt de acord să fiu contactat pentru răspuns la întrebarea mea.</span></label>
-            <button class="btn primary" type="submit" data-i18n="telegramFormSubmit">Trimite pe Telegram</button>
-            <div class="form-note telegram-request-note" id="telegramRequestNote" aria-live="polite"></div>
-          </form>
         </div>
       </div>
     </section>
@@ -1446,7 +1476,7 @@
           <div class="eyebrow" data-i18n="contactEyebrow">Contacte</div>
           <h2 data-i18n="contactTitle">Răspundem cu discreție și respect.</h2>
           <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2z"/></svg><div><strong data-i18n="phoneLabel">Telefon</strong><a href="tel:+37379002064">+373 79 002 064</a></div></div>
-          <div class="contact-item telegram-contact"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21.5 4.5 2.5 12l7 2.5m12-10-6.5 16-5.5-6m12-10-12 10"/></svg><div><strong>Telegram</strong><a href="https://t.me/optimafide" target="_blank" rel="noopener noreferrer">@optimafide</a></div></div>
+          <div class="contact-item telegram-contact"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21.5 4.5 2.5 12l7 2.5m12-10-6.5 16-5.5-6m12-10-12 10"/></svg><div><strong>Telegram</strong><a href="#" data-contact-modal>@optimafide</a></div></div>
           <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg><div><strong>Email</strong><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
           <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-4.7 7-11a7 7 0 0 0-14 0c0 6.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong data-i18n="addressLabel">Adresa centrului</strong><span data-i18n="addressText">str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni</span></div></div>
           <div class="map-embed"><iframe title="Harta centrului Optima Fide" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=str.%20Gloriei%204%2C%20Goianul%20Nou%2C%20Stauceni%2C%20Moldova&output=embed"></iframe><a class="map-pin-label" href="https://www.google.com/maps/search/?api=1&query=str.%20Gloriei%204%2C%20Goianul%20Nou%2C%20Stauceni%2C%20Moldova" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.8A2.8 2.8 0 1 1 12 6a2.8 2.8 0 0 1 0 5.8Z"/></svg><span data-i18n="mapLabel">Vezi centrul pe hartă</span></a></div>
@@ -1469,7 +1499,21 @@
       <div class="footer-links"><a href="#program" data-i18n="navProgram">Programul</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
     </div>
   </footer>
-  <div class="mobile-cta"><a class="btn primary" href="tel:+37379002064" data-i18n="mobileCall">Sună</a><a class="btn gold" href="https://t.me/optimafide" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+  <div class="mobile-cta"><a class="btn primary" href="tel:+37379002064" data-i18n="mobileCall">Sună</a><a class="btn gold" href="#" data-contact-modal>Telegram</a></div>
+  <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="contactModalTitle">
+    <div class="contact-modal-card">
+      <button class="contact-modal-close" id="contactModalClose" type="button" data-i18n-aria-label="contactModalClose" aria-label="Închide">×</button>
+      <h2 id="contactModalTitle" data-i18n="contactModalTitle">Contactați Optima Fide</h2>
+      <p data-i18n="contactModalText">Ne puteți scrie pe Telegram sau suna. Răspundem cu discreție și respect.</p>
+      <a class="contact-modal-number" href="tel:+37379002064">+373 79 002 064</a>
+      <div class="contact-modal-actions">
+        <a class="btn primary" href="tel:+37379002064" data-i18n="contactModalCall">Sună</a>
+        <a class="btn gold" href="https://t.me/optimafide" target="_blank" rel="noopener noreferrer" data-i18n="contactModalTelegram">Scrie pe Telegram</a>
+        <button class="btn outline" id="contactModalCopy" type="button" data-i18n="contactModalCopy">Copiază numărul</button>
+      </div>
+      <div class="contact-modal-status" id="contactModalStatus" aria-live="polite"></div>
+    </div>
+  </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotografie"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="Închide">×</button><img id="lightboxImage" src="assets/images/hero-center.webp" alt=""></div>
 
   <script>
@@ -2080,8 +2124,8 @@
       heroLead: "Program rezidențial de recuperare într-un centru acreditat Optima Fide: cazare, masă, ritm zilnic, comunitate terapeutică și sprijin pentru familie.",
       badgeDuration: "Program 6-12 luni", badgeFamily: "20 locuri rezidențiale", heroCaption: "Centrul rezidențial Optima Fide, Goianul Nou, Stăuceni", heroImageAlt: "Centrul rezidențial Optima Fide",
       intakeLead: "Prima conversație nu vă obligă să intrați în centru. Ascultăm cu respect, explicăm pașii posibili și păstrăm confidențialitatea.", firstCall: "Sună", firstTelegram: "Scrie pe Telegram",
-      telegramCta: "Scrie pe Telegram", quickTelegramTitle: "Aveți nevoie de un prim răspuns?", quickTelegramText: "Lăsați o întrebare scurtă — mesajul ajunge imediat la noi pe Telegram. Numele poate fi opțional.", donationTelegramNote: "Pentru întrebări despre donații, ne puteți scrie pe Telegram.",
-      telegramFormName: "Nume — opțional", telegramFormContact: "Telefon sau Telegram — opțional, dar recomandat", telegramFormMessage: "Întrebare / situație — obligatoriu", telegramFormConsent: "Sunt de acord să fiu contactat pentru răspuns la întrebarea mea.", telegramFormSubmit: "Trimite pe Telegram", telegramFormSending: "Se trimite…", telegramFormSuccess: "Mulțumim. Mesajul a fost trimis. Vom răspunde cât mai curând.", telegramFormError: "Mesajul nu a fost trimis. Vă rugăm să ne scrieți direct pe Telegram: <a href=\"https://t.me/optimafide\" target=\"_blank\" rel=\"noopener noreferrer\">@optimafide</a>",
+      contactModalTitle: "Contactați Optima Fide", contactModalText: "Ne puteți scrie pe Telegram sau suna. Răspundem cu discreție și respect.", contactModalCall: "Sună", contactModalTelegram: "Scrie pe Telegram", contactModalCopy: "Copiază numărul", contactModalCopied: "Numărul a fost copiat", contactModalClose: "Închide",
+      telegramCta: "Scrie pe Telegram", quickTelegramTitle: "Aveți nevoie de un prim răspuns?", quickTelegramText: "Ne puteți scrie pe Telegram sau suna. Răspundem cu discreție și respect.", donationTelegramNote: "Pentru întrebări despre donații, ne puteți scrie pe Telegram.",
       situationEyebrow: "Primul pas", situationTitle: "Ce se întâmplă acum în viața dvs.?", situationLead: "Alegeți situația cea mai apropiată. Vom începe cu o conversație calmă și confidențială.", sitCta: "Solicită consultație",
       sit1Title: "Am nevoie de ajutor", sit1Text: "Vreau să mă opresc, dar singur nu reușesc.", sit2Title: "Ajutor pentru cineva apropiat", sit2Text: "Nu știu cum să vorbesc și ce să fac mai departe.", sit3Title: "Am nevoie de un program cu cazare", sit3Text: "Acasă sunt multe tentații, conflicte sau instabilitate.", sit4Title: "A fost o recădere", sit4Text: "Este nevoie de un nou început fără judecată.", sit5Title: "Familia are nevoie de orientare", sit5Text: "Vrem să înțelegem cum putem sprijini corect.",
       forWhomEyebrow: "Cui i se potrivește", forWhomTitle: "Când o schimbare de mediu poate deveni un nou început", who1: "Când singur nu reușești să te oprești", who2: "Când familia caută ajutor pentru cineva apropiat", who3: "Când după o recădere este nevoie de un nou start", who4: "Când acasă sunt tentații și conflicte", who5: "Când este nevoie de siguranță și ritm stabil", who6: "Când trebuie reconstruite responsabilitatea și relațiile",
@@ -2137,8 +2181,8 @@
       voice6Person: "Иван, 47 лет",
       voice6Text: "Мне помогло то, что здесь есть не только разговоры, но и жизнь в общине. Когда рядом люди, которые тоже стараются меняться, легче не убегать от себя и постепенно учиться жить по-другому.",
       heroTitle: "Место, где можно остановиться, восстановиться и начать заново", heroLead: "Резиденциальная программа восстановления в аккредитованном центре Optima Fide: проживание, питание, ежедневный ритм, терапевтическое сообщество и поддержка семьи.", badgeDuration: "Программа 6-12 месяцев", badgeFamily: "20 резиденциальных мест", heroCaption: "Резиденциальный центр Optima Fide, Гоянул Ноу, Стэучень", heroImageAlt: "Резиденциальный центр Optima Fide", intakeLead: "Первый разговор не обязывает к поступлению. Мы спокойно выслушаем, объясним возможные шаги и сохраним конфиденциальность.", firstCall: "Позвонить", firstTelegram: "Написать в Telegram",
-      telegramCta: "Написать в Telegram", quickTelegramTitle: "Нужен первый ответ?", quickTelegramText: "Оставьте короткий вопрос — сообщение сразу придёт нам в Telegram. Имя можно не указывать.", donationTelegramNote: "По вопросам пожертвований можно написать нам в Telegram.",
-      telegramFormName: "Имя — необязательно", telegramFormContact: "Телефон или Telegram — необязательно, но желательно", telegramFormMessage: "Вопрос / ситуация — обязательно", telegramFormConsent: "Я согласен, чтобы со мной связались для ответа на мой вопрос.", telegramFormSubmit: "Отправить в Telegram", telegramFormSending: "Отправляется…", telegramFormSuccess: "Спасибо. Сообщение отправлено. Мы ответим как можно скорее.", telegramFormError: "Сообщение не отправилось. Пожалуйста, напишите нам напрямую в Telegram: <a href=\"https://t.me/optimafide\" target=\"_blank\" rel=\"noopener noreferrer\">@optimafide</a>",
+      contactModalTitle: "Связаться с Optima Fide", contactModalText: "Напишите нам в Telegram или позвоните. Мы ответим деликатно и конфиденциально.", contactModalCall: "Позвонить", contactModalTelegram: "Написать в Telegram", contactModalCopy: "Скопировать номер", contactModalCopied: "Номер скопирован", contactModalClose: "Закрыть",
+      telegramCta: "Написать в Telegram", quickTelegramTitle: "Нужен первый ответ?", quickTelegramText: "Напишите нам в Telegram или позвоните. Мы ответим деликатно и конфиденциально.", donationTelegramNote: "По вопросам пожертвований можно написать нам в Telegram.",
       situationEyebrow: "Первый шаг", situationTitle: "Что сейчас у вас происходит?", situationLead: "Выберите близкую ситуацию. Мы начнём со спокойного конфиденциального разговора.", sitCta: "Получить консультацию", sit1Title: "Мне нужна помощь", sit1Text: "Я хочу остановиться, но одному не получается.", sit2Title: "Помощь нужна близкому", sit2Text: "Я не знаю, как поговорить и что делать дальше.", sit3Title: "Нужна программа с проживанием", sit3Text: "Дома много соблазнов, конфликтов или нестабильности.", sit4Title: "Был срыв", sit4Text: "Нужен новый старт без осуждения.", sit5Title: "Нужна консультация семьи", sit5Text: "Хотим понять, как правильно поддерживать.",
       forWhomEyebrow: "Кому подходит", forWhomTitle: "Когда смена среды может стать новым началом", who1: "Когда одному не получается остановиться", who2: "Когда семья ищет помощь для близкого", who3: "Когда после срыва нужен новый старт", who4: "Когда дома много соблазнов и конфликтов", who5: "Когда нужна безопасная среда и стабильный ритм", who6: "Когда нужно восстановить ответственность и отношения",
       activitiesEyebrow: "Активности в центре", activitiesTitle: "Движение, общение и здоровый отдых", activitiesLead: "Простые активности поддерживают дисциплину, внимание, командность и возвращение к радостям без разрушительных привычек.", act1Title: "Бильярд", act1Text: "Спокойная игра для внимания, выдержки и общения.", act2Title: "Пинг-понг", act2Text: "Лёгкое движение, реакция и радость совместной активности.", act3Title: "Футбольное поле", act3Text: "Командная игра поддерживает дисциплину, сотрудничество и здоровое движение.", act4Title: "Мангал и обеды на свежем воздухе", act4Text: "Общие трапезы создают атмосферу дома и общения.", act5Title: "Двор и отдых на природе", act5Text: "Пространство для прогулок, тишины и здорового ритма.",
@@ -2192,8 +2236,8 @@
       voice6Person: "Ivan, 47",
       voice6Text: "What helped me was that here there are not only conversations, but also life in community. When people around you are also trying to change, it is easier not to run away from yourself and to gradually learn to live differently.",
       heroTitle: "A place to pause, recover and begin again", heroLead: "A residential recovery program at the accredited Optima Fide center: accommodation, meals, daily rhythm, therapeutic community and family support.", badgeDuration: "6-12 month program", badgeFamily: "20 residential places", heroCaption: "Optima Fide residential center, Goianul Nou, Stăuceni", heroImageAlt: "Optima Fide residential center", intakeLead: "The first conversation does not oblige you to enter the center. We listen respectfully, explain possible steps and keep it confidential.", firstCall: "Call", firstTelegram: "Write on Telegram",
-      telegramCta: "Write on Telegram", quickTelegramTitle: "Need a first answer?", quickTelegramText: "Leave a short question — the message will immediately reach us on Telegram. Name is optional.", donationTelegramNote: "For donation questions, you can write to us on Telegram.",
-      telegramFormName: "Name — optional", telegramFormContact: "Phone or Telegram — optional but recommended", telegramFormMessage: "Question / situation — required", telegramFormConsent: "I agree to be contacted in order to answer my question.", telegramFormSubmit: "Send to Telegram", telegramFormSending: "Sending…", telegramFormSuccess: "Thank you. The message has been sent. We will respond as soon as possible.", telegramFormError: "The message was not sent. Please write to us directly on Telegram: <a href=\"https://t.me/optimafide\" target=\"_blank\" rel=\"noopener noreferrer\">@optimafide</a>",
+      contactModalTitle: "Contact Optima Fide", contactModalText: "You can write to us on Telegram or call. We respond with discretion and respect.", contactModalCall: "Call", contactModalTelegram: "Write on Telegram", contactModalCopy: "Copy number", contactModalCopied: "Number copied", contactModalClose: "Close",
+      telegramCta: "Write on Telegram", quickTelegramTitle: "Need a first answer?", quickTelegramText: "You can write to us on Telegram or call. We respond with discretion and respect.", donationTelegramNote: "For donation questions, you can write to us on Telegram.",
       situationEyebrow: "First step", situationTitle: "What is happening in your life right now?", situationLead: "Choose the closest situation. We will begin with a calm, confidential conversation.", sitCta: "Request consultation", sit1Title: "I need help", sit1Text: "I want to stop, but cannot do it alone.", sit2Title: "A loved one needs help", sit2Text: "I do not know how to talk or what to do next.", sit3Title: "I need a residential program", sit3Text: "Home has too many triggers, conflicts or instability.", sit4Title: "There was a relapse", sit4Text: "A new start is needed without judgment.", sit5Title: "Our family needs guidance", sit5Text: "We want to understand how to offer healthy support.",
       forWhomEyebrow: "Who it is for", forWhomTitle: "When a change of environment can become a new beginning", who1: "When stopping alone is not working", who2: "When a family seeks help for a loved one", who3: "When a new start is needed after relapse", who4: "When home has triggers and conflict", who5: "When a safe environment and stable rhythm are needed", who6: "When responsibility and relationships need rebuilding",
       activitiesEyebrow: "Activities at the center", activitiesTitle: "Movement, communication and healthy rest", activitiesLead: "Simple activities support discipline, attention, teamwork and a return to joy without destructive habits.", act1Title: "Billiards", act1Text: "A calm activity for attention, patience and communication.", act2Title: "Table tennis", act2Text: "Light movement, reaction and the joy of shared activity.", act3Title: "Football field", act3Text: "Team play supports discipline, cooperation and healthy movement.", act4Title: "Barbecue and outdoor meals", act4Text: "Shared meals create a home-like atmosphere and communication.", act5Title: "Courtyard and outdoor rest", act5Text: "Space for walks, quiet and a healthy rhythm.",
@@ -2210,12 +2254,12 @@
     const languageLinks = document.querySelectorAll("[data-lang]");
     const translatable = document.querySelectorAll("[data-i18n]");
     const translatableAlt = document.querySelectorAll("[data-i18n-alt]");
+    const translatableAriaLabel = document.querySelectorAll("[data-i18n-aria-label]");
     const navLinks = document.getElementById("navLinks");
     const menuToggle = document.getElementById("menuToggle");
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxClose = document.getElementById("lightboxClose");
-    const TELEGRAM_WORKER_URL = "https://optima-fide-telegram-requests.constractoptimafide.workers.dev";
     let currentLang = localStorage.getItem("optimaLang") || "ro";
 
     function setLanguage(lang) {
@@ -2229,6 +2273,10 @@
       translatableAlt.forEach((node) => {
         const key = node.dataset.i18nAlt;
         if (dictionary[key]) node.alt = dictionary[key];
+      });
+      translatableAriaLabel.forEach((node) => {
+        const key = node.dataset.i18nAriaLabel;
+        if (dictionary[key]) node.setAttribute("aria-label", dictionary[key]);
       });
       languageLinks.forEach((link) => link.classList.toggle("active", link.dataset.lang === lang));
       localStorage.setItem("optimaLang", lang);
@@ -2303,56 +2351,64 @@
       contactForm.reset();
     });
 
-    const telegramRequestForm = document.getElementById("telegramRequestForm");
-    const telegramRequestNote = document.getElementById("telegramRequestNote");
-    telegramRequestForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const form = event.currentTarget;
-      const button = form.querySelector('button[type="submit"]');
-      if (button.disabled) return;
+    const contactModal = document.getElementById("contactModal");
+    const contactModalClose = document.getElementById("contactModalClose");
+    const contactModalCopy = document.getElementById("contactModalCopy");
+    const contactModalStatus = document.getElementById("contactModalStatus");
+    let contactModalTrigger = null;
 
-      const data = new FormData(form);
-      const website = String(data.get("website") || "").trim();
-      const message = String(data.get("message") || "").trim();
-      if (message.length < 5) {
-        form.querySelector('[name="message"]').focus();
-        return;
-      }
-      if (website) {
-        telegramRequestNote.textContent = translations[currentLang].telegramFormSuccess;
-        form.reset();
-        return;
-      }
+    function getContactModalFocusable() {
+      return [...contactModal.querySelectorAll('a[href], button:not([disabled])')];
+    }
 
-      button.disabled = true;
-      button.textContent = translations[currentLang].telegramFormSending;
-      telegramRequestNote.textContent = "";
+    function openContactModal(trigger) {
+      contactModalTrigger = trigger;
+      contactModal.classList.add("open");
+      contactModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("contact-modal-open");
+      contactModalStatus.textContent = "";
+      contactModalClose.focus();
+    }
+
+    function closeContactModal() {
+      if (!contactModal.classList.contains("open")) return;
+      contactModal.classList.remove("open");
+      contactModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("contact-modal-open");
+      contactModalStatus.textContent = "";
+      contactModalTrigger?.focus();
+    }
+
+    document.querySelectorAll("[data-contact-modal]").forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        openContactModal(trigger);
+      });
+    });
+    contactModalClose.addEventListener("click", closeContactModal);
+    contactModal.addEventListener("click", (event) => { if (event.target === contactModal) closeContactModal(); });
+    contactModalCopy.addEventListener("click", async () => {
       try {
-        const response = await fetch(TELEGRAM_WORKER_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: String(data.get("name") || "").trim(),
-            contact: String(data.get("contact") || "").trim(),
-            message,
-            website,
-            lang: currentLang,
-            page: window.location.href,
-            userAgent: navigator.userAgent,
-            createdAt: new Date().toISOString()
-          })
-        });
-        const result = await response.json().catch(() => ({ ok: false }));
-        if (!response.ok || !result.ok) throw new Error("Request failed");
-        telegramRequestNote.textContent = translations[currentLang].telegramFormSuccess;
-        form.reset();
+        await navigator.clipboard.writeText("+373 79 002 064");
+        contactModalStatus.textContent = translations[currentLang].contactModalCopied;
       } catch {
-        telegramRequestNote.innerHTML = translations[currentLang].telegramFormError;
-      } finally {
-        button.disabled = false;
-        button.textContent = translations[currentLang].telegramFormSubmit;
+        contactModalStatus.textContent = "+373 79 002 064";
       }
     });
+    contactModal.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab") return;
+      const focusable = getContactModalFocusable();
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeContactModal(); });
 
     const revealItems = document.querySelectorAll("[data-reveal]");
     if ("IntersectionObserver" in window) {

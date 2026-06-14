@@ -46,6 +46,16 @@ Add a localized image caption:
 
 ## Page Structure
 
+### Accreditation Certificate
+
+Replace the current certificate image with the user-provided PDF:
+`C:\Users\igor\Desktop\Отправка по электронной почте IMG_0001_702ee374-40e9-449d-a99c-4ea800e95c99.pdf`.
+
+The source is a single A4 page (`595.2 x 841.92 pt`) containing one
+full-page image. Extract and optimize it as WebP/JPG assets while preserving
+the exact A4 aspect ratio. The certificate must remain fully visible without
+cropping in the accreditation section and lightbox.
+
 ### Center Activities
 
 Extend the existing center-zones area after its photo gallery. Add a compact

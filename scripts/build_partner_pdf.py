@@ -14,8 +14,10 @@ from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, S
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "pdfs"
 CACHE = ROOT / "work" / "partner-pdf-images"
+PDF_TEAM_DIR = ROOT / "assets" / "images" / "team" / "pdf"
 OUT.mkdir(parents=True, exist_ok=True)
 CACHE.mkdir(parents=True, exist_ok=True)
+PDF_TEAM_DIR.mkdir(parents=True, exist_ok=True)
 
 pdfmetrics.registerFont(TTFont("Arial", "C:/Windows/Fonts/arial.ttf"))
 pdfmetrics.registerFont(TTFont("Arial-Bold", "C:/Windows/Fonts/arialbd.ttf"))
@@ -33,6 +35,9 @@ styles.add(ParagraphStyle(name="B", fontName="Arial", fontSize=10.2, leading=13.
 styles.add(ParagraphStyle(name="Small", fontName="Arial", fontSize=8.4, leading=10.5, textColor=MUTED, spaceAfter=5))
 styles.add(ParagraphStyle(name="Center", parent=styles["Small"], alignment=TA_CENTER))
 styles.add(ParagraphStyle(name="BulletX", parent=styles["B"], leftIndent=14, firstLineIndent=-8, bulletIndent=4))
+styles.add(ParagraphStyle(name="TeamName", fontName="Arial-Bold", fontSize=9.2, leading=11, textColor=GREEN, spaceAfter=2))
+styles.add(ParagraphStyle(name="TeamRole", fontName="Arial-Bold", fontSize=7.6, leading=9, textColor=GOLD, spaceAfter=3))
+styles.add(ParagraphStyle(name="TeamDesc", fontName="Arial", fontSize=7.3, leading=9, textColor=INK, spaceAfter=0))
 
 
 def jpg(path):
@@ -51,6 +56,28 @@ def img(path, width=170 * mm, height=None):
     return Image(source, width=width, height=width * im.height / im.width)
 
 
+def team_photo(path):
+    source = ROOT / path
+    target = PDF_TEAM_DIR / f"{source.stem}-4x5.jpg"
+    updated_after = max(source.stat().st_mtime, Path(__file__).stat().st_mtime)
+    if not target.exists() or target.stat().st_mtime < updated_after:
+        with PILImage.open(source).convert("RGB") as im:
+            ratio = 4 / 5
+            width, height = im.size
+            if width / height > ratio:
+                crop_height = int(height * 0.68)
+                new_width = int(crop_height * ratio)
+                left = max(0, (width - new_width) // 2)
+                top = max(0, int((height - crop_height) * 0.15))
+                box = (left, top, left + new_width, top + crop_height)
+            else:
+                new_height = int(width / ratio)
+                top = max(0, min(height - new_height, int((height - new_height) * 0.18)))
+                box = (0, top, width, top + new_height)
+            im.crop(box).resize((800, 1000), PILImage.LANCZOS).save(target, "JPEG", quality=92)
+    return Image(str(target), width=30 * mm, height=37.5 * mm)
+
+
 def p(text, style="B"):
     return Paragraph(text, styles[style])
 
@@ -63,6 +90,45 @@ def note(label, text):
     table = Table([[Paragraph(f"<b>{label}:</b> {text}", styles["B"])]], colWidths=[170 * mm])
     table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), SOFT), ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#D4E2DA")), ("LEFTPADDING", (0, 0), (-1, -1), 10), ("RIGHTPADDING", (0, 0), (-1, -1), 10), ("TOPPADDING", (0, 0), (-1, -1), 8), ("BOTTOMPADDING", (0, 0), (-1, -1), 5)]))
     return table
+
+
+def team_card(path, name, role, description, width=82 * mm):
+    text = [Paragraph(name, styles["TeamName"]), Paragraph(role, styles["TeamRole"]), Paragraph(description, styles["TeamDesc"])]
+    card = Table([[team_photo(path), text]], colWidths=[34 * mm, width - 34 * mm])
+    card.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F7FAF8")),
+        ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#D4E2DA")),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 5),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+        ("TOPPADDING", (0, 0), (-1, -1), 5),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+    ]))
+    return card
+
+
+def team_grid(team):
+    card_w = 82 * mm
+    grid = Table([
+        [team_card(*team[0], width=card_w), team_card(*team[1], width=card_w)],
+        [team_card(*team[2], width=card_w), team_card(*team[3], width=card_w)],
+    ], colWidths=[card_w, card_w], hAlign="CENTER")
+    grid.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+    ]))
+    centered_last = Table([["", team_card(*team[4], width=card_w), ""]], colWidths=[(170 * mm - card_w) / 2, card_w, (170 * mm - card_w) / 2], hAlign="CENTER")
+    centered_last.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+    ]))
+    return [grid, centered_last]
 
 
 def footer(canvas, doc):
@@ -94,22 +160,18 @@ story = [
     *bullets(["Residential building in Goianul Nou, Stăuceni.", "20 residential places.", "Dining and common spaces.", "Outdoor courtyard and activity areas.", "Spaces for group meetings and daily community rhythm."]),
     PageBreak(),
     p("Team", "T"),
+    p("The team combines organizational experience, participant support, family communication and daily accompaniment.", "Small"),
 ]
 
 team = [
-    ("assets/images/team/team-igor-owner.webp", "Fr. Igor Plevschi", "Foundation president / spiritual accompaniment"),
-    ("assets/images/team/team-anastasia-owner.webp", "Anastasia Plevscaia", "Program accompaniment / participant support"),
-    ("assets/images/team/team-ruslan-owner.webp", "Ruslan Magari", "Center manager / daily organization"),
-    ("assets/images/team/team-oksana-owner.webp", "Oksana Harbolinscaia", "Program coordinator / family and communication"),
-    ("assets/images/team/team-tudor-owner.webp", "Tudor Rotaru", "Peer-to-peer consultant"),
+    ("assets/images/team/team-igor-owner.webp", "Fr. Igor Plevschi", "Foundation president / spiritual accompaniment", "Coordinates the mission, partnerships and the spiritual dimension of the program."),
+    ("assets/images/team/team-anastasia-owner.webp", "Anastasia Plevscaia", "Program accompaniment / participant support", "Supports participants in daily rhythm and engagement in the recovery process."),
+    ("assets/images/team/team-ruslan-owner.webp", "Ruslan Magari", "Center manager / daily organization", "Responsible for order, stay conditions and practical daily life in the center."),
+    ("assets/images/team/team-oksana-owner.webp", "Oksana Harbolinscaia", "Program coordinator / family communication", "Supports communication with participants, families and the accompaniment process."),
+    ("assets/images/team/team-tudor-owner.webp", "Tudor Rotaru", "Peer-to-peer consultant", "Supports participants through personal experience, communication and practical accompaniment."),
 ]
-cells = []
-for path, name, role in team:
-    cells.append([img(path, 28 * mm, 36 * mm), Paragraph(f"<b>{name}</b><br/>{role}", styles["Small"])])
-team_table = Table(cells, colWidths=[34 * mm, 136 * mm])
-team_table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F7FAF8")), ("VALIGN", (0, 0), (-1, -1), "MIDDLE"), ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#D4E2DA")), ("INNERGRID", (0, 0), (-1, -1), 0.3, colors.HexColor("#D4E2DA")), ("TOPPADDING", (0, 0), (-1, -1), 6), ("BOTTOMPADDING", (0, 0), (-1, -1), 6)]))
 story += [
-    team_table,
+    *team_grid(team),
     PageBreak(),
     p("Results and current scale", "T"),
     *bullets(["19,000+ consultations provided over the years.", "500+ people received help.", "20 residential places in the center.", "State accreditation and a concrete residential location in Moldova."]),

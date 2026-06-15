@@ -33,6 +33,11 @@ REQUIRED = [
     "community-life.webp",
     "outdoor-recovery.webp",
     'data-i18n="illustrativeNote"',
+    "excursion-dendrarium.webp",
+    "excursion-cascade-park.webp",
+    "excursion-history-museum.webp",
+    "excursion-ethnography-museum.webp",
+    "excursion-water-tower.webp",
 ]
 PROHIBITED = [
     "Andrei Buhna",
@@ -51,6 +56,7 @@ PROHIBITED = [
     "Golanul Nou",
     "Clienți reabilitați",
     "Clienti reabilitati",
+    "https://recovery.optimafide.md/",
 ]
 
 

@@ -15,4 +15,5 @@ The center building and interior images are project-provided Optima Fide photos:
 - `assets/images/visual/spaces-main.webp`
 - `assets/images/visual/spaces-group-room.webp`
 - `assets/images/visual/spaces-dining.webp`
+- `assets/images/visual/daily-rhythm.webp` - user-provided image from `C:\Users\igor\Desktop\optimafide\images.jpg`
 - `assets/images/visual/spaces-chapel.webp`

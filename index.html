@@ -913,6 +913,20 @@
     .day-moment::before { content: ""; position: absolute; top: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 7px rgba(200,164,93,.18); }
     .day-moment span { color: var(--gold); font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
     .day-moment h3 { margin-top: 8px; font-family: Inter, sans-serif; font-size: .95rem; line-height: 1.45; }
+    .visual-story { padding: clamp(88px, 11vw, 150px) 0; }
+    .visual-story.soft { background: var(--soft); }
+    .visual-story-grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: clamp(42px, 8vw, 110px); align-items: center; }
+    .visual-story.reverse .visual-story-copy { order: 2; }
+    .visual-story-copy h2 { font-size: clamp(2.7rem, 5vw, 5rem); }
+    .visual-story-copy > p { max-width: 620px; margin-top: 20px; color: var(--muted); font-size: 1.08rem; }
+    .visual-story-photo { min-height: 620px; overflow: hidden; border-radius: 34px; box-shadow: var(--shadow); }
+    .visual-story-photo img { width: 100%; height: 100%; min-height: 620px; object-fit: cover; }
+    .visual-story-points { display: grid; gap: 0; margin-top: 30px; border-top: 1px solid var(--line); }
+    .visual-story-points span { padding: 15px 0; border-bottom: 1px solid var(--line); color: var(--green); font-weight: 700; }
+    .family-questions { display: grid; margin-top: 26px; border-top: 1px solid var(--line); }
+    .family-questions details { padding: 0; border-bottom: 1px solid var(--line); }
+    .family-questions summary { padding: 18px 4px; color: var(--green); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.35rem; font-weight: 700; cursor: pointer; }
+    .family-questions p { max-width: 620px; padding: 0 4px 20px; color: var(--muted); }
     #situations, #include, #for-whom, #program, #conditii, #centru { display: none; }
     [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--delay, 0ms); }
     [data-reveal].visible { opacity: 1; transform: translateY(0); }
@@ -946,7 +960,8 @@
       .menu-toggle { display: inline-flex; }
       .nav-actions .btn { display: none; }
       .hero-layout, .intake-form, .family-layout, .donation-layout, .contact-layout, .accreditation-card { grid-template-columns: 1fr; }
-      .story-layout, .story-layout.reverse, .day-scene-grid { grid-template-columns: 1fr; }
+      .story-layout, .story-layout.reverse, .day-scene-grid, .visual-story-grid { grid-template-columns: 1fr; }
+      .visual-story.reverse .visual-story-copy { order: initial; }
       .story-layout.reverse .story-photo { order: 0; }
       .story-photo, .story-photo img, .day-scene-photo, .day-scene-photo img { min-height: 500px; }
       .hero-copy { padding-bottom: 0; }
@@ -1012,7 +1027,7 @@
       .intake { margin-top: -28px; }
       .stats-row, .packages, .conditions-grid, .included-grid, .timeline, .family-cards, .gallery-grid, .team-grid, .tourism-grid, .situation-grid, .activity-grid, .service-grid, .trust-grid, .admission-grid, .comparison-grid, .offer-grid { grid-template-columns: 1fr; }
       .story-section, .day-scene { padding: 72px 0; }
-      .story-photo, .story-photo img, .day-scene-photo, .day-scene-photo img { min-height: 0; aspect-ratio: 4 / 3; }
+      .story-photo, .story-photo img, .day-scene-photo, .day-scene-photo img, .visual-story-photo, .visual-story-photo img { min-height: 0; aspect-ratio: 4 / 3; }
       .story-copy h2, .day-scene h2 { font-size: clamp(2.3rem, 12vw, 3.7rem); }
       .recovery-canvas { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; }
       .recovery-canvas .recovery-shot { flex: 0 0 86%; min-height: 390px; scroll-snap-align: center; }
@@ -1148,7 +1163,7 @@
     <section class="story-section" id="life-center">
       <div class="container story-layout">
         <figure class="story-photo" data-reveal>
-          <img src="assets/images/visual/group-session.webp" alt="" loading="lazy">
+          <img src="assets/images/visual/life-center.webp" alt="" loading="lazy" decoding="async">
         </figure>
         <div class="story-copy" data-reveal>
           <div class="eyebrow" data-i18n="galleryEyebrow">Zonele centrului</div>
@@ -1176,15 +1191,15 @@
           <p data-i18n="galleryLead">Centrul este creat ca o rezidență liniștită: aici persoana locuiește, se recuperează, comunică, lucrează cu sine și revine treptat la responsabilitate.</p>
         </div>
         <div class="recovery-canvas" data-reveal>
-          <button class="recovery-shot" type="button" data-lightbox="assets/images/center-building.webp"><img src="assets/images/center-building.webp" alt="" loading="lazy"><span data-i18n="gal1">Clădirea centrului</span></button>
-          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/group-room.webp"><img src="assets/images/visual/group-room.webp" alt="" loading="lazy"><span data-i18n="gal2">Sală de grupuri</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-main.webp"><img src="assets/images/visual/spaces-main.webp" alt="" loading="lazy" decoding="async"><span data-i18n="gal1">Clădirea centrului</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-group-room.webp"><img src="assets/images/visual/spaces-group-room.webp" alt="" loading="lazy" decoding="async"><span data-i18n="gal2">Sală de grupuri</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/bedroom.webp"><img src="assets/images/visual/bedroom.webp" alt="" loading="lazy"><span data-i18n="gal4">Camere</span></button>
         </div>
         <div class="recovery-strip" data-reveal>
-          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/dining-room.webp"><img src="assets/images/visual/dining-room.webp" alt="" loading="lazy"><span data-i18n="gal5">Sala de mese</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-dining.webp"><img src="assets/images/visual/spaces-dining.webp" alt="" loading="lazy" decoding="async"><span data-i18n="gal5">Sala de mese</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/hallway.webp"><img src="assets/images/visual/hallway.webp" alt="" loading="lazy"><span data-i18n="amenity4Title">Spații pentru întâlniri</span></button>
-          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/stairs.webp"><img src="assets/images/visual/stairs.webp" alt="" loading="lazy"><span data-i18n="amenity6Title">Mediu protejat</span></button>
-          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/outdoor-recovery.webp"><img src="assets/images/visual/outdoor-recovery.webp" alt="" loading="lazy"><span data-i18n="act5Title">Curte și odihnă în natură</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-chapel.webp"><img src="assets/images/visual/spaces-chapel.webp" alt="" loading="lazy" decoding="async"><span data-i18n="amenity6Title">Mediu protejat</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-yard.webp"><img src="assets/images/visual/spaces-yard.webp" alt="" loading="lazy" decoding="async"><span data-i18n="act5Title">Curte și odihnă în natură</span></button>
         </div>
       </div>
     </section>
@@ -1202,6 +1217,45 @@
           <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/group-session.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>03</span><h3 data-i18n="base3">Însoțire individuală</h3><p data-i18n="inc4Text">Întâlnirile de grup ajută persoana să se înțeleagă și să învețe comunicarea sănătoasă.</p></div></article>
           <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/personal-consultation.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>04</span><h3 data-i18n="inc7Title">Sprijin pentru familie</h3><p data-i18n="inc8Text">Pregătire pentru revenirea în familie, responsabilități, muncă și viață socială.</p></div></article>
         </div>
+      </div>
+    </section>
+
+    <section class="visual-story soft" id="group-support">
+      <div class="container visual-story-grid">
+        <div class="visual-story-copy" data-reveal>
+          <div class="eyebrow" data-i18n="groupStoryEyebrow">Grupuri și sprijin</div>
+          <h2 data-i18n="groupStoryTitle">Grupurile ajută ca omul să nu rămână singur</h2>
+          <p data-i18n="groupStoryText">Recuperarea este mai ușoară când alături sunt oameni care înțeleg drumul, susțin ordinea și ajută la păstrarea direcției.</p>
+          <div class="visual-story-points"><span data-i18n="groupPoint1">Dialog într-o atmosferă sigură</span><span data-i18n="groupPoint2">Experiență împărtășită cu respect</span><span data-i18n="groupPoint3">Sprijin zilnic și responsabilitate</span></div>
+          <p class="illustrative-note" data-i18n="illustrativeNote">Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților.</p>
+        </div>
+        <figure class="visual-story-photo" data-reveal><img src="assets/images/visual/group-session.webp" alt="" loading="lazy" decoding="async"></figure>
+      </div>
+    </section>
+
+    <section class="visual-story reverse" id="personal-guidance">
+      <div class="container visual-story-grid">
+        <figure class="visual-story-photo" data-reveal><img src="assets/images/visual/personal-consultation.webp" alt="" loading="lazy" decoding="async"></figure>
+        <div class="visual-story-copy" data-reveal>
+          <div class="eyebrow" data-i18n="consultStoryEyebrow">Consultație personală</div>
+          <h2 data-i18n="consultStoryTitle">Prima discuție ajută să înțelegi următorul pas</h2>
+          <p data-i18n="consultStoryText">Poți vorbi liniștit despre situație, poți pune întrebări și poți primi o orientare clară despre condiții și începutul recuperării.</p>
+          <p><a class="btn primary" href="#consultatie" data-i18n="consultStoryCta">Pune o întrebare</a></p>
+          <p class="illustrative-note" data-i18n="illustrativeNote">Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visual-story soft" id="activity-movement">
+      <div class="container visual-story-grid">
+        <div class="visual-story-copy" data-reveal>
+          <div class="eyebrow" data-i18n="activityStoryEyebrow">Activități și mișcare</div>
+          <h2 data-i18n="activityStoryTitle">Recuperarea nu înseamnă doar discuții</h2>
+          <p data-i18n="activityStoryText">Mișcarea, munca, viața comună, plimbările și responsabilitățile simple ajută la refacerea ordinii interioare.</p>
+          <div class="visual-story-points"><span data-i18n="activityPoint1">Mișcare și sport</span><span data-i18n="activityPoint2">Muncă și responsabilitate</span><span data-i18n="activityPoint3">Odihnă și ritm sănătos</span></div>
+          <p class="illustrative-note" data-i18n="illustrativeNote">Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților.</p>
+        </div>
+        <figure class="visual-story-photo" data-reveal><img src="assets/images/visual/wellness-activity.webp" alt="" loading="lazy" decoding="async"></figure>
       </div>
     </section>
 
@@ -1515,16 +1569,16 @@
 
     <section class="section" id="familie">
       <div class="container family-layout">
-        <div class="family-photo" data-reveal aria-hidden="true"></div>
+        <div class="family-photo" data-reveal aria-hidden="true" style="background-image:linear-gradient(180deg,rgba(255,253,248,.04),rgba(255,253,248,.2)),url('assets/images/visual/family-support.webp')"></div>
         <div data-reveal>
           <div class="eyebrow" data-i18n="familyEyebrow">Pentru familie</div>
           <h2 data-i18n="familyTitle">Nu sunteți singuri.</h2>
           <p data-i18n="familyLead">Dependența afectează nu doar persoana, ci și familia. De aceea, Optima Fide oferă sprijin, orientare și însoțire pentru cei apropiați.</p>
-          <div class="family-cards">
-            <article class="family-card"><h3 data-i18n="family1">Cum vorbim cu persoana dependentă?</h3></article>
-            <article class="family-card"><h3 data-i18n="family2">Cum pregătim intrarea în program?</h3></article>
-            <article class="family-card"><h3 data-i18n="family3">Cum susținem fără a controla?</h3></article>
-            <article class="family-card"><h3 data-i18n="family4">Cum se face revenirea acasă?</h3></article>
+          <div class="family-questions">
+            <details><summary data-i18n="family1">Cum vorbim cu persoana dependentă?</summary><p data-i18n="familyAnswer1">Începem cu un dialog calm, fără amenințări și acuzații.</p></details>
+            <details><summary data-i18n="family2">Cum pregătim intrarea în program?</summary><p data-i18n="familyAnswer2">Clarificăm condițiile, lucrurile necesare și primii pași împreună.</p></details>
+            <details><summary data-i18n="family3">Cum susținem fără a controla?</summary><p data-i18n="familyAnswer3">Ajutăm familia să păstreze limite sănătoase și o comunicare respectuoasă.</p></details>
+            <details><summary data-i18n="family4">Cum se face revenirea acasă?</summary><p data-i18n="familyAnswer4">Revenirea este pregătită treptat, cu responsabilități și sprijin clar.</p></details>
           </div>
           <p style="margin-top:22px"><a class="btn primary" href="#contacte" data-i18n="familyCta">Discutați cu noi</a></p>
         </div>
@@ -2552,6 +2606,24 @@
       tourism4Text: "Heritage, nature and traditions in a distinctive cultural space.",
       tourism5Title: "Water Tower",
       tourism5Text: "The city's history and a panoramic view over Chișinău."
+    });
+    Object.assign(translations.ro, {
+      groupStoryEyebrow: "Grupuri și sprijin", groupStoryTitle: "Grupurile ajută ca omul să nu rămână singur", groupStoryText: "Recuperarea este mai ușoară când alături sunt oameni care înțeleg drumul, susțin ordinea și ajută la păstrarea direcției.", groupPoint1: "Dialog într-o atmosferă sigură", groupPoint2: "Experiență împărtășită cu respect", groupPoint3: "Sprijin zilnic și responsabilitate",
+      consultStoryEyebrow: "Consultație personală", consultStoryTitle: "Prima discuție ajută să înțelegi următorul pas", consultStoryText: "Poți vorbi liniștit despre situație, poți pune întrebări și poți primi o orientare clară despre condiții și începutul recuperării.", consultStoryCta: "Pune o întrebare",
+      activityStoryEyebrow: "Activități și mișcare", activityStoryTitle: "Recuperarea nu înseamnă doar discuții", activityStoryText: "Mișcarea, munca, viața comună, plimbările și responsabilitățile simple ajută la refacerea ordinii interioare.", activityPoint1: "Mișcare și sport", activityPoint2: "Muncă și responsabilitate", activityPoint3: "Odihnă și ritm sănătos"
+      ,familyAnswer1: "Începem cu un dialog calm, fără amenințări și acuzații.", familyAnswer2: "Clarificăm condițiile, lucrurile necesare și primii pași împreună.", familyAnswer3: "Ajutăm familia să păstreze limite sănătoase și o comunicare respectuoasă.", familyAnswer4: "Revenirea este pregătită treptat, cu responsabilități și sprijin clar."
+    });
+    Object.assign(translations.ru, {
+      groupStoryEyebrow: "Группы и поддержка", groupStoryTitle: "Группы помогают не оставаться одному", groupStoryText: "Восстановление проходит легче, когда рядом есть люди, которые понимают путь, поддерживают порядок и помогают держать направление.", groupPoint1: "Разговор в безопасной атмосфере", groupPoint2: "Опыт людей, проходящих похожий путь", groupPoint3: "Ежедневная поддержка и ответственность",
+      consultStoryEyebrow: "Личная консультация", consultStoryTitle: "Первый разговор помогает понять следующий шаг", consultStoryText: "Можно спокойно рассказать ситуацию, задать вопросы и получить ориентир: что возможно сейчас, какие условия есть и как начать путь восстановления.", consultStoryCta: "Задать вопрос",
+      activityStoryEyebrow: "Активности и движение", activityStoryTitle: "Восстановление — это не только разговоры", activityStoryText: "Движение, труд, общая жизнь, прогулки и простые ежедневные обязанности помогают возвращать внутренний порядок.", activityPoint1: "Движение и спорт", activityPoint2: "Труд и ответственность", activityPoint3: "Отдых и здоровый ритм"
+      ,familyAnswer1: "Начинаем со спокойного разговора без угроз и обвинений.", familyAnswer2: "Вместе уточняем условия, необходимые вещи и первые шаги.", familyAnswer3: "Помогаем семье сохранять здоровые границы и уважительное общение.", familyAnswer4: "Возвращение домой готовится постепенно, с понятной поддержкой и ответственностью."
+    });
+    Object.assign(translations.en, {
+      groupStoryEyebrow: "Groups and support", groupStoryTitle: "Groups help a person not to stay alone", groupStoryText: "Recovery is easier when there are people nearby who understand the path, support daily order and help keep direction.", groupPoint1: "Conversation in a safe atmosphere", groupPoint2: "Experience shared with respect", groupPoint3: "Daily support and responsibility",
+      consultStoryEyebrow: "Personal consultation", consultStoryTitle: "The first conversation helps clarify the next step", consultStoryText: "You can calmly explain the situation, ask questions and receive clear orientation about conditions and how recovery can begin.", consultStoryCta: "Ask a question",
+      activityStoryEyebrow: "Activities and movement", activityStoryTitle: "Recovery is not only conversations", activityStoryText: "Movement, work, community life, walks and simple daily responsibilities help restore inner order.", activityPoint1: "Movement and sport", activityPoint2: "Work and responsibility", activityPoint3: "Rest and a healthy rhythm"
+      ,familyAnswer1: "We begin with a calm conversation without threats or blame.", familyAnswer2: "Together we clarify conditions, practical needs and first steps.", familyAnswer3: "We help families keep healthy boundaries and respectful communication.", familyAnswer4: "Returning home is prepared gradually, with clear support and responsibility."
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

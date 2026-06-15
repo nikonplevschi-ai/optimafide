@@ -7,5 +7,6 @@ All listed images were downloaded from Pexels and converted to WebP for the Opti
 - `wellness-activity.webp`: [People kneeling together on sand](https://www.pexels.com/photo/people-kneeling-together-on-sand-8381739/)
 - `community-life.webp`: [Young adults socializing at an indoor event](https://www.pexels.com/photo/young-adults-socializing-at-an-indoor-event-33714886/)
 - `outdoor-recovery.webp`: [Group of friends walking in forest path](https://www.pexels.com/photo/group-of-friends-walking-in-forest-path-29686543/)
+- `family-support.webp`: [Two men sitting on gray sofa having a conversation](https://www.pexels.com/photo/two-men-sitting-on-gray-sofa-having-a-conversation-8550029/)
 
 These are illustrative stock images. They do not depict Optima Fide participants.

@@ -7,7 +7,7 @@ Illustrative photos do not depict Optima Fide participants.
 - `assets/images/visual/wellness-activity.webp` - Pexels - https://www.pexels.com/photo/people-kneeling-together-on-sand-8381739/ - illustrative image
 - `assets/images/visual/community-life.webp` - Pexels - https://www.pexels.com/photo/young-adults-socializing-at-an-indoor-event-33714886/ - illustrative image
 - `assets/images/visual/spaces-yard.webp` - derived from the licensed Pexels image documented as `outdoor-recovery.webp`
-- `assets/images/visual/family-support.webp` - derived from the licensed Pexels image documented as `personal-consultation.webp`
+- `assets/images/visual/family-support.webp` - Pexels - https://www.pexels.com/photo/two-men-sitting-on-gray-sofa-having-a-conversation-8550029/ - illustrative image
 
 The center building and interior images are project-provided Optima Fide photos:
 

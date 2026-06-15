@@ -57,6 +57,7 @@
       color: var(--text);
       background: var(--bg);
       line-height: 1.6;
+      overflow-x: hidden;
     }
     body.menu-open { overflow: hidden; }
     img { display: block; max-width: 100%; }
@@ -647,7 +648,7 @@
     .family-photo, .donation-photo {
       min-height: 420px;
       border-radius: var(--photo-radius);
-      background: linear-gradient(180deg, rgba(255,253,248,.04), rgba(255,253,248,.2)), url("assets/images/hero-center.webp") center/cover no-repeat;
+      background: linear-gradient(180deg, rgba(255,253,248,.04), rgba(255,253,248,.2)), url("assets/images/visual/personal-consultation.webp") center/cover no-repeat;
       box-shadow: var(--soft-shadow);
     }
     .donation-photo { min-height: 520px; background-image: linear-gradient(180deg, rgba(255,253,248,.04), rgba(23,60,50,.12)), url("assets/images/donation-support-hands.webp"); background-position: center; }
@@ -849,6 +850,69 @@
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
     }
+    .story-section { padding: clamp(88px, 11vw, 150px) 0; }
+    .story-section.dark { background: var(--green); color: rgba(255,255,255,.78); }
+    .story-section.dark h2, .story-section.dark h3 { color: var(--white); }
+    .story-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+      gap: clamp(42px, 7vw, 100px);
+      align-items: center;
+    }
+    .story-layout.reverse { grid-template-columns: minmax(360px, .88fr) minmax(0, 1.12fr); }
+    .story-layout.reverse .story-photo { order: 2; }
+    .story-photo {
+      min-height: 620px;
+      overflow: hidden;
+      border-radius: 34px;
+      background: var(--soft);
+      box-shadow: var(--shadow);
+    }
+    .story-photo img { width: 100%; height: 100%; min-height: 620px; object-fit: cover; }
+    .story-copy h2 { max-width: 680px; font-size: clamp(2.7rem, 5vw, 5.4rem); }
+    .story-copy > p { max-width: 620px; margin-top: 22px; color: var(--muted); font-size: clamp(1.02rem, 1.5vw, 1.22rem); }
+    .story-section.dark .story-copy > p { color: rgba(255,255,255,.72); }
+    .illustrative-note { margin-top: 14px; color: var(--muted); font-size: .78rem; font-weight: 700; }
+    .story-points { display: grid; gap: 0; margin-top: 34px; border-top: 1px solid var(--line); }
+    .story-point { display: grid; grid-template-columns: 42px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .story-point span { color: var(--gold); font-weight: 900; }
+    .story-point h3 { font-family: Inter, sans-serif; font-size: 1rem; line-height: 1.45; }
+    .recovery-canvas { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: repeat(2, 280px); gap: 16px; }
+    .recovery-shot { position: relative; overflow: hidden; border: 0; border-radius: 28px; padding: 0; background: var(--soft); cursor: zoom-in; }
+    .recovery-shot:first-child { grid-row: 1 / 3; }
+    .recovery-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s ease; }
+    .recovery-shot:hover img { transform: scale(1.025); }
+    .recovery-shot span { position: absolute; left: 18px; bottom: 18px; padding: 8px 12px; border-radius: 999px; background: rgba(255,253,248,.92); color: var(--green); font-size: .78rem; font-weight: 900; }
+    .recovery-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 34%); gap: 16px; margin-top: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+    .recovery-strip .recovery-shot { min-height: 250px; scroll-snap-align: start; }
+    .visual-program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .visual-program {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      border-radius: 30px;
+      background: var(--green);
+      box-shadow: var(--soft-shadow);
+    }
+    .visual-program:nth-child(2), .visual-program:nth-child(3) { min-height: 350px; }
+    .visual-program img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .56; }
+    .visual-program::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(10,28,23,.9)); }
+    .visual-program-copy { position: absolute; z-index: 1; left: 28px; right: 28px; bottom: 28px; color: rgba(255,255,255,.78); }
+    .visual-program-copy span { color: var(--gold); font-weight: 900; }
+    .visual-program-copy h3 { margin-top: 8px; color: var(--white); font-size: clamp(1.7rem, 3vw, 2.6rem); }
+    .visual-program-copy p { max-width: 540px; margin-top: 10px; }
+    .day-scene { padding: clamp(88px, 11vw, 150px) 0; background: var(--soft); }
+    .day-scene-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(40px, 7vw, 90px); align-items: center; }
+    .day-scene-photo { min-height: 600px; overflow: hidden; border-radius: 34px; box-shadow: var(--shadow); }
+    .day-scene-photo img { width: 100%; height: 100%; min-height: 600px; object-fit: cover; }
+    .day-scene h2 { font-size: clamp(2.7rem, 5vw, 5rem); }
+    .day-line { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
+    .day-line::before { content: ""; position: absolute; top: 7px; left: 7px; right: 7px; height: 1px; background: var(--gold); }
+    .day-moment { position: relative; padding-top: 28px; }
+    .day-moment::before { content: ""; position: absolute; top: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 7px rgba(200,164,93,.18); }
+    .day-moment span { color: var(--gold); font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .day-moment h3 { margin-top: 8px; font-family: Inter, sans-serif; font-size: .95rem; line-height: 1.45; }
+    #situations, #include, #for-whom, #program, #conditii, #centru { display: none; }
     [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--delay, 0ms); }
     [data-reveal].visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) {
@@ -881,6 +945,9 @@
       .menu-toggle { display: inline-flex; }
       .nav-actions .btn { display: none; }
       .hero-layout, .intake-form, .family-layout, .donation-layout, .contact-layout, .accreditation-card { grid-template-columns: 1fr; }
+      .story-layout, .story-layout.reverse, .day-scene-grid { grid-template-columns: 1fr; }
+      .story-layout.reverse .story-photo { order: 0; }
+      .story-photo, .story-photo img, .day-scene-photo, .day-scene-photo img { min-height: 500px; }
       .hero-copy { padding-bottom: 0; }
       .stay-card { max-width: 560px; }
       .packages, .conditions-grid, .included-grid, .situation-grid, .activity-grid, .service-grid, .trust-grid, .admission-grid { grid-template-columns: 1fr 1fr; }
@@ -909,6 +976,7 @@
     @media (max-width: 720px) {
       .container { width: min(100% - 28px, 1180px); }
       .section { padding: 68px 0; }
+      .btn { max-width: 100%; white-space: normal; }
       .nav { height: 68px; }
       .nav-links { top: 68px; }
       .brand { min-width: auto; }
@@ -942,6 +1010,18 @@
       .hero-badge { font-size: .68rem; min-height: 30px; }
       .intake { margin-top: -28px; }
       .stats-row, .packages, .conditions-grid, .included-grid, .timeline, .family-cards, .gallery-grid, .team-grid, .tourism-grid, .situation-grid, .activity-grid, .service-grid, .trust-grid, .admission-grid, .comparison-grid, .offer-grid { grid-template-columns: 1fr; }
+      .story-section, .day-scene { padding: 72px 0; }
+      .story-photo, .story-photo img, .day-scene-photo, .day-scene-photo img { min-height: 0; aspect-ratio: 4 / 3; }
+      .story-copy h2, .day-scene h2 { font-size: clamp(2.3rem, 12vw, 3.7rem); }
+      .recovery-canvas { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; }
+      .recovery-canvas .recovery-shot { flex: 0 0 86%; min-height: 390px; scroll-snap-align: center; }
+      .recovery-strip { grid-auto-columns: 86%; }
+      .visual-program-grid { grid-template-columns: 1fr; }
+      .visual-program, .visual-program:nth-child(2), .visual-program:nth-child(3) { min-height: 390px; }
+      .day-line { grid-template-columns: 1fr; gap: 0; margin-left: 8px; }
+      .day-line::before { top: 7px; bottom: 7px; left: 7px; right: auto; width: 1px; height: auto; }
+      .day-moment { padding: 0 0 28px 38px; }
+      .day-moment::before { left: 0; }
       .voices-grid { grid-template-columns: 1fr; }
       .voice-card { min-height: auto; padding: 22px; }
       .telegram-cta { align-items: stretch; flex-direction: column; padding: 22px; }
@@ -1061,6 +1141,83 @@
           </div>
           <button class="btn primary" type="submit" data-i18n="requestCall">Solicită apel</button>
         </form>
+      </div>
+    </section>
+
+    <section class="story-section" id="life-center">
+      <div class="container story-layout">
+        <figure class="story-photo" data-reveal>
+          <img src="assets/images/visual/group-session.webp" alt="" loading="lazy">
+        </figure>
+        <div class="story-copy" data-reveal>
+          <div class="eyebrow" data-i18n="galleryEyebrow">Zonele centrului</div>
+          <h2 data-i18n="stayTitle">Un mediu ordonat, cald și protejat.</h2>
+          <p data-i18n="stayLead">Centrul oferă un mediu ordonat, cald și protejat, unde recuperarea se desfășoară într-un ritm zilnic clar.</p>
+          <div class="story-points">
+            <div class="story-point"><span>01</span><h3 data-i18n="amenity1Text">Camere simple și ordonate pentru odihnă și stabilitate.</h3></div>
+            <div class="story-point"><span>02</span><h3 data-i18n="amenity3Text">Ritm zilnic, grupuri, activități și responsabilități.</h3></div>
+            <div class="story-point"><span>03</span><h3 data-i18n="amenity6Text">Distanță de tentații și susținere din partea comunității.</h3></div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#recovery-spaces" data-i18n="heroStay">Vezi condițiile</a>
+            <a class="btn outline" href="#" data-contact-modal data-i18n="firstTelegram">Scrie pe Telegram</a>
+          </div>
+          <p class="illustrative-note" data-i18n="illustrativeNote">Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section dark" id="recovery-spaces">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="galleryEyebrow">Zonele centrului</div>
+          <h2 data-i18n="galleryTitle">Spațiul în care este mai ușor să începi o viață nouă.</h2>
+          <p data-i18n="galleryLead">Centrul este creat ca o rezidență liniștită: aici persoana locuiește, se recuperează, comunică, lucrează cu sine și revine treptat la responsabilitate.</p>
+        </div>
+        <div class="recovery-canvas" data-reveal>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/center-building.webp"><img src="assets/images/center-building.webp" alt="" loading="lazy"><span data-i18n="gal1">Clădirea centrului</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/group-room.webp"><img src="assets/images/visual/group-room.webp" alt="" loading="lazy"><span data-i18n="gal2">Sală de grupuri</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/bedroom.webp"><img src="assets/images/visual/bedroom.webp" alt="" loading="lazy"><span data-i18n="gal4">Camere</span></button>
+        </div>
+        <div class="recovery-strip" data-reveal>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/dining-room.webp"><img src="assets/images/visual/dining-room.webp" alt="" loading="lazy"><span data-i18n="gal5">Sala de mese</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/hallway.webp"><img src="assets/images/visual/hallway.webp" alt="" loading="lazy"><span data-i18n="amenity4Title">Spații pentru întâlniri</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/stairs.webp"><img src="assets/images/visual/stairs.webp" alt="" loading="lazy"><span data-i18n="amenity6Title">Mediu protejat</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/outdoor-recovery.webp"><img src="assets/images/visual/outdoor-recovery.webp" alt="" loading="lazy"><span data-i18n="act5Title">Curte și odihnă în natură</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section" id="visual-program">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="includeEyebrow">Ce include programul</div>
+          <h2 data-i18n="includeTitle">Ce intră în programul de recuperare</h2>
+          <p data-i18n="includeLead">Programul unește locuirea, alimentația, ritmul zilnic, comunitatea terapeutică și sprijinul familiei.</p>
+        </div>
+        <div class="visual-program-grid">
+          <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/community-life.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>01</span><h3 data-i18n="base1">Cazare și masă</h3><p data-i18n="inc1Text">Camere simple, curate și liniștite pentru odihnă, somn stabil și ritm zilnic.</p></div></article>
+          <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/stairs.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>02</span><h3 data-i18n="inc3Title">Ritm zilnic</h3><p data-i18n="inc3Text">Un ritm zilnic clar ajută la disciplină, responsabilitate și stabilitate.</p></div></article>
+          <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/group-session.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>03</span><h3 data-i18n="base3">Însoțire individuală</h3><p data-i18n="inc4Text">Întâlnirile de grup ajută persoana să se înțeleagă și să învețe comunicarea sănătoasă.</p></div></article>
+          <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/personal-consultation.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>04</span><h3 data-i18n="inc7Title">Sprijin pentru familie</h3><p data-i18n="inc8Text">Pregătire pentru revenirea în familie, responsabilități, muncă și viață socială.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="day-scene" id="day-center">
+      <div class="container day-scene-grid">
+        <div data-reveal>
+          <div class="eyebrow" data-i18n="timelineEyebrow">O zi în centru</div>
+          <h2 data-i18n="timelineTitle">Un ritm calm, clar și previzibil.</h2>
+          <p class="intake-lead" data-i18n="timelineLead">Programul exact poate varia, dar fiecare zi păstrează ordine, comunicare, responsabilitate și timp pentru odihnă.</p>
+          <div class="day-line">
+            <article class="day-moment"><span data-i18n="dayMorning">Dimineața</span><h3 data-i18n="tl1">Ordine, igienă, mic dejun și pregătirea zilei</h3></article>
+            <article class="day-moment"><span data-i18n="dayDay">Ziua</span><h3 data-i18n="tl2">Grupuri, responsabilități și lucru individual</h3></article>
+            <article class="day-moment"><span data-i18n="dayEvening">Seara</span><h3 data-i18n="tl4">Comunicare, liniște, rugăciune opțională și bilanțul zilei</h3></article>
+            <article class="day-moment"><span data-i18n="dayNight">Odihnă</span><h3 data-i18n="tl5">Odihnă și restabilirea somnului</h3></article>
+          </div>
+        </div>
+        <figure class="day-scene-photo" data-reveal><img src="assets/images/visual/wellness-activity.webp" alt="" loading="lazy"></figure>
       </div>
     </section>
 
@@ -1327,11 +1484,11 @@
           <p data-i18n="timelineLead">Programul exact poate varia, dar fiecare zi păstrează ordine, comunicare, responsabilitate și timp pentru odihnă.</p>
         </div>
         <div class="timeline">
-          <article class="step" data-reveal><span>DIMINEAȚA</span><h3 data-i18n="tl1">Ordine, igienă, mic dejun și pregătirea zilei</h3></article>
-          <article class="step" data-reveal><span>ZIUA</span><h3 data-i18n="tl2">Grupuri, responsabilități și lucru individual</h3></article>
-          <article class="step" data-reveal><span>DUPĂ-AMIAZA</span><h3 data-i18n="tl3">Activitate, sport, curte și învățare</h3></article>
-          <article class="step" data-reveal><span>SEARA</span><h3 data-i18n="tl4">Comunicare, liniște, rugăciune opțională și bilanțul zilei</h3></article>
-          <article class="step" data-reveal><span>NOAPTEA</span><h3 data-i18n="tl5">Odihnă și restabilirea somnului</h3></article>
+          <article class="step" data-reveal><span data-i18n="dayMorning">DIMINEAȚA</span><h3 data-i18n="tl1">Ordine, igienă, mic dejun și pregătirea zilei</h3></article>
+          <article class="step" data-reveal><span data-i18n="dayDay">ZIUA</span><h3 data-i18n="tl2">Grupuri, responsabilități și lucru individual</h3></article>
+          <article class="step" data-reveal><span data-i18n="dayAfternoon">DUPĂ-AMIAZA</span><h3 data-i18n="tl3">Activitate, sport, curte și învățare</h3></article>
+          <article class="step" data-reveal><span data-i18n="dayEvening">SEARA</span><h3 data-i18n="tl4">Comunicare, liniște, rugăciune opțională și bilanțul zilei</h3></article>
+          <article class="step" data-reveal><span data-i18n="dayNight">NOAPTEA</span><h3 data-i18n="tl5">Odihnă și restabilirea somnului</h3></article>
         </div>
       </div>
     </section>
@@ -2333,6 +2490,31 @@
       service1Title: "Massage", service1Text: "May help relaxation and reduce tension. Available by prior appointment.", service2Title: "Hairdresser", service2Text: "Supports personal care, dignity and a sense of order.", service3Title: "Surgical doctor consultation", service3Text: "If needed, a consultation may be arranged through a specialized doctor.", service4Title: "Addiction medicine consultants", service4Text: "Consultations may be arranged through specialists for assessment and recommendations.", service5Title: "Tests and examinations", service5Text: "Arranged through specialized medical institutions and laboratories.", service6Title: "Individual services", service6Text: "Transport, accompaniment, specialist appointments and other practical needs.", legalTitle: "Important to understand", legalText: "Medical consultations, tests and examinations are arranged through specialized professionals and institutions. Optima Fide does not replace emergency medical care, inpatient psychiatry or emergency detoxification.",
       familyTitle: "If you are seeking help for a loved one", familyLead: "Often the family is first to understand that help is needed. We help you calmly understand the situation, speak without pressure and prepare a possible entry into the program.", partnerText: "We welcome cooperation with church communities, social services, foundations, specialists and donors.",
       faqTitle: "Frequently asked questions", faqLead: "Short answers to questions that arise before the first call.", faq1Q: "Can we simply talk first?", faq1A: "Yes. The first conversation is confidential and does not oblige entry into the program.", faq2Q: "How long is the program?", faq2A: "Duration is discussed individually after consultation.", faq3Q: "Are accommodation and meals included?", faq3A: "Yes, the residential program includes accommodation, meals and daily rhythm.", faq4Q: "Can family contact the center without the person?", faq4A: "Yes. Families can receive guidance on how to talk and possible next steps.", faq5Q: "Can someone come from another city or country?", faq5A: "Yes. Arrival and practical details are coordinated in advance.", faq6Q: "What should we bring?", faq6A: "Documents, comfortable clothes, hygiene items and necessary belongings. The list is clarified during consultation.", faq7Q: "What is paid separately?", faq7A: "Outings, personal services, external consultations, tests, transport and individual needs.", faq8Q: "Are medical consultations available?", faq8A: "When needed, they are arranged separately through specialized professionals and institutions.", faq9Q: "Can the person be visited?", faq9A: "Visits are discussed individually according to the program stage and center rules.", faq10Q: "How do we begin?", faq10A: "Call or write on Telegram. We will listen and explain the next steps."
+    });
+
+    Object.assign(translations.ro, {
+      dayMorning: "Dimineața",
+      dayDay: "Ziua",
+      dayAfternoon: "După-amiaza",
+      dayEvening: "Seara",
+      dayNight: "Noaptea și odihna",
+      illustrativeNote: "Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților."
+    });
+    Object.assign(translations.ru, {
+      dayMorning: "Утро",
+      dayDay: "День",
+      dayAfternoon: "После обеда",
+      dayEvening: "Вечер",
+      dayNight: "Ночь и отдых",
+      illustrativeNote: "Иллюстративное фото. Программа проходит с уважением к конфиденциальности участников."
+    });
+    Object.assign(translations.en, {
+      dayMorning: "Morning",
+      dayDay: "Day",
+      dayAfternoon: "Afternoon",
+      dayEvening: "Evening",
+      dayNight: "Night and rest",
+      illustrativeNote: "Illustrative image. The program respects participants’ confidentiality."
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

@@ -16,6 +16,23 @@ REQUIRED = [
     'id="faq"',
     "additionalFee",
     "firstDaysTitle",
+    'id="life-center"',
+    'id="recovery-spaces"',
+    'class="visual-program-grid"',
+    'class="day-scene"',
+    'class="day-line"',
+    'data-visual-program',
+    'data-i18n="dayMorning"',
+    'data-i18n="dayDay"',
+    'data-i18n="dayAfternoon"',
+    'data-i18n="dayEvening"',
+    'data-i18n="dayNight"',
+    "group-session.webp",
+    "personal-consultation.webp",
+    "wellness-activity.webp",
+    "community-life.webp",
+    "outdoor-recovery.webp",
+    'data-i18n="illustrativeNote"',
 ]
 PROHIBITED = [
     "Andrei Buhna",
@@ -52,12 +69,12 @@ def main() -> int:
             failures.append(f"Missing translation dictionary: {lang}")
             continue
         available = set(re.findall(r'"([^"]+)"\s*:', match))
-        extension = re.search(
+        extensions = re.finditer(
             rf"Object\.assign\(translations\.{lang},\s*\{{(.*?)\n\s*\}}\);",
             html,
             re.DOTALL,
         )
-        if extension:
+        for extension in extensions:
             available.update(re.findall(r"\b([A-Za-z][A-Za-z0-9]+)\s*:", extension.group(1)))
         missing = sorted(used_keys - available)
         if missing:

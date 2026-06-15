@@ -187,7 +187,7 @@ story += [
     Spacer(1, 4 * mm),
     p("<b>Phone:</b> +373 79 002 064"),
     p("<b>Email:</b> optimafide.info@gmail.com"),
-    p("<b>Website:</b> https://nikonplevschi-ai.github.io/optimafide/"),
+    p("<b>Website:</b> https://recovery.optimafide.md/"),
     p("<b>Address:</b> str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni, Republic of Moldova", "Small"),
 ]
 

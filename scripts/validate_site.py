@@ -56,7 +56,6 @@ PROHIBITED = [
     "Golanul Nou",
     "Clienți reabilitați",
     "Clienti reabilitati",
-    "https://recovery.optimafide.md/",
 ]
 
 

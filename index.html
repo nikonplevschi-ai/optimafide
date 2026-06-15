@@ -326,7 +326,7 @@
     .intake-form {
       margin-top: 18px;
       display: grid;
-      grid-template-columns: 1.1fr 1.1fr .9fr auto;
+      grid-template-columns: 1fr 1fr .85fr 1.1fr auto;
       gap: 12px;
       align-items: end;
     }
@@ -552,7 +552,7 @@
     .family-card, .soft-card, .contact-card, .donation-card { padding: 26px; }
     .offer-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
     .offer-card {
@@ -967,6 +967,7 @@
       .hero-copy { padding-bottom: 0; }
       .stay-card { max-width: 560px; }
       .packages, .conditions-grid, .included-grid, .situation-grid, .activity-grid, .service-grid, .trust-grid, .admission-grid { grid-template-columns: 1fr 1fr; }
+      .offer-grid { grid-template-columns: 1fr 1fr; }
       .voices-grid { grid-template-columns: 1fr 1fr; }
       .timeline { grid-template-columns: repeat(3, 1fr); }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -1151,9 +1152,13 @@
           <div class="field">
             <label for="contactType" data-i18n="fieldContact">Contact</label>
             <select id="contactType" name="contactType">
-              <option>Telefon</option>
-              <option>Telegram</option>
+              <option value="Telefon" data-i18n="contactPhone">Telefon</option>
+              <option value="Telegram" data-i18n="contactTelegram">Telegram</option>
             </select>
+          </div>
+          <div class="field">
+            <label for="intakeContact" data-i18n="fieldContactValue">Telefon sau Telegram</label>
+            <input id="intakeContact" name="contact" autocomplete="tel" inputmode="tel" placeholder="+373 79 002 064" required>
           </div>
           <button class="btn primary" type="submit" data-i18n="requestCall">Solicită apel</button>
         </form>
@@ -1458,6 +1463,7 @@
         <div class="offer-grid">
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerFamilyTitle">PDF pentru familie</h3><p data-i18n="offerFamilyText">Programul, condițiile, primele zile, ce este inclus și cum începeți.</p></div><a class="btn primary" href="assets/pdfs/optima-fide-family-offer-ru.pdf" target="_blank" rel="noopener" data-i18n="familyPdfCta">Descarcă PDF</a></article>
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerPartnerTitle">PDF pentru parteneri</h3><p data-i18n="offerPartnerText">Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.</p></div><a class="btn outline" href="assets/pdfs/optima-fide-partner-offer-en.pdf" target="_blank" rel="noopener" data-i18n="partnerPdfCta">Descarcă PDF</a></article>
+          <article class="offer-card" data-reveal><div><h3 data-i18n="offerPriceTitle">Listă de prețuri Word</h3><p data-i18n="offerPriceText">Prețuri recomandate, reducere socială până la 50% și servicii achitate separat.</p></div><a class="btn outline" href="assets/docs/optima-fide-price-list-2026.docx" download data-i18n="priceDocxCta">Descarcă Word</a></article>
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerConsultTitle">Consultație</h3><p data-i18n="offerConsultText">Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.</p></div><a class="btn gold" href="#contacte" data-i18n="consultCta">Contactați-ne</a></article>
         </div>
       </div>
@@ -1848,6 +1854,9 @@
                 "supportResidential": "Program rezidențial",
                 "supportFamily": "Sprijin familie",
                 "fieldContact": "Contact",
+                "contactPhone": "Telefon",
+                "contactTelegram": "Telegram",
+                "fieldContactValue": "Telefon sau Telegram",
                 "requestCall": "Solicită apel",
                 "statConsult": "consultații acordate",
                 "statPeople": "persoane au primit ajutor",
@@ -2035,6 +2044,9 @@
                 "supportResidential": "Резиденциальная программа",
                 "supportFamily": "Поддержка семьи",
                 "fieldContact": "Контакт",
+                "contactPhone": "Телефон",
+                "contactTelegram": "Telegram",
+                "fieldContactValue": "Телефон или Telegram",
                 "requestCall": "Запросить звонок",
                 "statConsult": "проведённых консультаций",
                 "statPeople": "человек получили помощь",
@@ -2222,6 +2234,9 @@
                 "supportResidential": "Residential program",
                 "supportFamily": "Family support",
                 "fieldContact": "Contact",
+                "contactPhone": "Phone",
+                "contactTelegram": "Telegram",
+                "fieldContactValue": "Phone or Telegram",
                 "requestCall": "Request call",
                 "statConsult": "consultations provided",
                 "statPeople": "people received help",
@@ -2395,7 +2410,7 @@
       tourism6Title: "Ieșiri individuale", tourism6Text: "Numai prin acord prealabil și contra cost, ținând cont de starea participantului și regulile programului.",
       optionalNoticeTitle: "Important", optionalNoticeText: "Ieșirile de recuperare și serviciile suplimentare nu sunt obligatorii. Sunt disponibile prin acord prealabil, ținând cont de starea participantului și regulile centrului, și se achită separat.",
       familyPdfCta: "Descarcă oferta PDF pentru familie",
-      offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Două materiale scurte: unul pentru familie, altul pentru parteneri și donatori.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", consultCta: "Contactați-ne",
+      offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Materiale scurte pentru familie, parteneri, donatori și lista de prețuri.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerPriceTitle: "Listă de prețuri Word", offerPriceText: "Prețuri recomandate, reducere socială până la 50% și servicii achitate separat.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", priceDocxCta: "Descarcă Word", consultCta: "Contactați-ne",
       teamFunctionTudor: "Oferă sprijin de la egal la egal bazat pe experiență și înțelegere.",
       voicesEyebrow: "Voci anonime",
       voicesTitle: "Voci ale recuperării",
@@ -2456,7 +2471,7 @@
       tourism6Title: "Индивидуальные выезды", tourism6Text: "Только по согласованию и за отдельную плату, с учётом состояния участника и правил программы.",
       optionalNoticeTitle: "Важно", optionalNoticeText: "Восстановительные поездки и дополнительные услуги не являются обязательной частью программы. Они доступны по согласованию, с учётом состояния участника, правил центра и оплачиваются отдельно.",
       familyPdfCta: "Скачать предложение PDF для семьи",
-      offersEyebrow: "PDF-материалы", offersTitle: "Скачать предложение", offersLead: "Два коротких материала: для семьи и для партнёров или доноров.", offerFamilyTitle: "PDF для семьи", offerFamilyText: "Программа, условия, первые дни, что входит и как начать.", offerPartnerTitle: "PDF для партнёров", offerPartnerText: "Миссия, аккредитация, инфраструктура, результаты, партнёрство и реквизиты.", offerConsultTitle: "Консультация", offerConsultText: "Если ситуация срочная или непонятная, начните со спокойного разговора.", partnerPdfCta: "Скачать PDF", consultCta: "Связаться",
+      offersEyebrow: "PDF-материалы", offersTitle: "Скачать предложение", offersLead: "Короткие материалы для семьи, партнёров, доноров и прайс-лист услуг.", offerFamilyTitle: "PDF для семьи", offerFamilyText: "Программа, условия, первые дни, что входит и как начать.", offerPartnerTitle: "PDF для партнёров", offerPartnerText: "Миссия, аккредитация, инфраструктура, результаты, партнёрство и реквизиты.", offerPriceTitle: "Прайс-лист Word", offerPriceText: "Рекомендованные цены, социальная скидка до 50% и услуги за отдельную плату.", offerConsultTitle: "Консультация", offerConsultText: "Если ситуация срочная или непонятная, начните со спокойного разговора.", partnerPdfCta: "Скачать PDF", priceDocxCta: "Скачать Word", consultCta: "Связаться",
       teamFunctionTudor: "Оказывает поддержку «равный равному», основанную на опыте и понимании.",
       voicesEyebrow: "Анонимные истории",
       voicesTitle: "Голоса восстановления",
@@ -2512,7 +2527,7 @@
       tourism6Title: "Individual outings", tourism6Text: "Only by prior agreement and for an additional fee, considering participant condition and program rules.",
       optionalNoticeTitle: "Important", optionalNoticeText: "Recovery outings and optional services are not mandatory parts of the program. They are available by prior agreement, considering participant condition and center rules, and are paid separately.",
       familyPdfCta: "Download the family PDF offer",
-      offersEyebrow: "PDF materials", offersTitle: "Download the right offer", offersLead: "Two short materials: one for families and one for partners or donors.", offerFamilyTitle: "Family PDF", offerFamilyText: "Program, conditions, first days, what is included and how to begin.", offerPartnerTitle: "Partner PDF", offerPartnerText: "Mission, accreditation, infrastructure, results, partnership and bank details.", offerConsultTitle: "Consultation", offerConsultText: "If the situation is urgent or unclear, begin with a calm conversation.", partnerPdfCta: "Download PDF", consultCta: "Contact us",
+      offersEyebrow: "PDF materials", offersTitle: "Download the right offer", offersLead: "Short materials for families, partners, donors and the service price list.", offerFamilyTitle: "Family PDF", offerFamilyText: "Program, conditions, first days, what is included and how to begin.", offerPartnerTitle: "Partner PDF", offerPartnerText: "Mission, accreditation, infrastructure, results, partnership and bank details.", offerPriceTitle: "Word price list", offerPriceText: "Recommended prices, social discount up to 50% and separately paid services.", offerConsultTitle: "Consultation", offerConsultText: "If the situation is urgent or unclear, begin with a calm conversation.", partnerPdfCta: "Download PDF", priceDocxCta: "Download Word", consultCta: "Contact us",
       teamFunctionTudor: "Provides peer-to-peer support grounded in experience and understanding.",
       voicesEyebrow: "Anonymous stories",
       voicesTitle: "Voices of recovery",

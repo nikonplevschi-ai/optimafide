@@ -5,6 +5,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML_PATH = ROOT / "index.html"
+GOOGLE_VERIFICATION_PATH = ROOT / "google696019cf5de45d47.html"
+GOOGLE_VERIFICATION_CONTENT = "google-site-verification: google696019cf5de45d47.html"
 REQUIRED = [
     "hero-center.webp",
     "team/team-tudor-owner.webp",
@@ -106,6 +108,11 @@ EXPECTED_TEAM_CONTACTS = {
 def main() -> int:
     html = HTML_PATH.read_text(encoding="utf-8")
     failures: list[str] = []
+
+    if not GOOGLE_VERIFICATION_PATH.exists():
+        failures.append("Missing Google verification file")
+    elif GOOGLE_VERIFICATION_PATH.read_text(encoding="utf-8").strip() != GOOGLE_VERIFICATION_CONTENT:
+        failures.append("Invalid Google verification file content")
     used_keys = set(re.findall(r'data-i18n(?:-alt)?="([^"]+)"', html))
 
     for lang in ("ro", "ru", "en"):

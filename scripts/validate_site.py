@@ -157,6 +157,10 @@ def main() -> int:
     if not team_photo_rule or "overflow: hidden" not in team_photo_rule.group(1):
         failures.append("Team photo containers must crop portrait images")
 
+    team_grid_rule = re.search(r"\.team-grid\s*\{([^}]*)\}", html, re.DOTALL)
+    if not team_grid_rule or "grid-auto-rows: 1fr" not in team_grid_rule.group(1):
+        failures.append("Team grid rows must have equal height")
+
     for name, (phone_href, phone_text, email) in EXPECTED_TEAM_CONTACTS.items():
         card = re.search(
             rf'<article class="team-card".*?alt="{re.escape(name)}".*?</article>',

@@ -46,7 +46,6 @@ REQUIRED = [
     "spaces-dining.webp",
     "spaces-yard.webp",
     "spaces-chapel.webp",
-    "family-support.webp",
     "excursion-dendrarium.webp",
     "excursion-cascade-park.webp",
     "excursion-history-museum.webp",
@@ -55,6 +54,8 @@ REQUIRED = [
     "team/team-ruslan-owner-2026.png",
     "team/team-oksana-owner-2026.png",
     "visual/daily-rhythm-hq.png",
+    "visual/group-support-owner.jpg",
+    "visual/family-help-owner.jpg",
     '<meta name="google-site-verification" content="xZ_T9EjYJ_9vJWXbHZWo5uzpubsGZZ5qbSsYukcCPgQ">',
 ]
 PROHIBITED = [
@@ -73,6 +74,7 @@ PROHIBITED = [
     "Golanul Nou",
     "Clienți reabilitați",
     "Clienti reabilitati",
+    "team-photo-anastasia",
 ]
 
 EXPECTED_RESOURCE_CTA = {
@@ -167,6 +169,19 @@ def main() -> int:
         for expected in (f'href="tel:{phone_href}"', phone_text, f'href="mailto:{email}"'):
             if expected not in card.group(0):
                 failures.append(f"{name} missing contact: {expected}")
+
+    expected_section_images = {
+        "group-support": "assets/images/visual/group-support-owner.jpg",
+        "familie": "assets/images/visual/family-help-owner.jpg",
+    }
+    for section_id, image_path in expected_section_images.items():
+        section = re.search(
+            rf'<section[^>]+id="{section_id}".*?</section>',
+            html,
+            re.DOTALL,
+        )
+        if not section or image_path not in section.group(0):
+            failures.append(f"Section {section_id} must use {image_path}")
 
     refs = re.findall(
         r'(?:src|data-lightbox|content)="((?!https?:|data:|#|mailto:|tel:)[^"]+\.(?:jpg|jpeg|png|webp|pdf))"',

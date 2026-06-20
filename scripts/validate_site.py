@@ -50,6 +50,10 @@ REQUIRED = [
     "excursion-history-museum.webp",
     "excursion-ethnography-museum.webp",
     "excursion-water-tower.webp",
+    "team/team-ruslan-owner-2026.png",
+    "team/team-oksana-owner-2026.png",
+    "visual/daily-rhythm-hq.png",
+    '<meta name="google-site-verification" content="xZ_T9EjYJ_9vJWXbHZWo5uzpubsGZZ5qbSsYukcCPgQ">',
 ]
 PROHIBITED = [
     "Andrei Buhna",
@@ -62,13 +66,41 @@ PROHIBITED = [
     "therapy-session-blurred",
     "community-prayer-blurred",
     "community-celebration-blurred",
-    "+373 78 377 337",
     "+373 783 77337",
     "Din 2014",
     "Golanul Nou",
     "Clienți reabilitați",
     "Clienti reabilitati",
 ]
+
+EXPECTED_RESOURCE_CTA = {
+    "ro": {
+        "familyPdfCta": "Descarcă PDF",
+        "partnerPdfCta": "Descarcă PDF",
+        "priceDocxCta": "Descarcă Word",
+        "consultCta": "Contactează-ne",
+    },
+    "ru": {
+        "familyPdfCta": "Скачать PDF",
+        "partnerPdfCta": "Скачать PDF",
+        "priceDocxCta": "Скачать Word",
+        "consultCta": "Связаться",
+    },
+    "en": {
+        "familyPdfCta": "Download PDF",
+        "partnerPdfCta": "Download PDF",
+        "priceDocxCta": "Download Word",
+        "consultCta": "Contact us",
+    },
+}
+
+EXPECTED_TEAM_CONTACTS = {
+    "Igor Plevschi": ("+37378377337", "+373 78 377 337", "general.optimafide@gmail.com"),
+    "Anastasia Plevscaia": ("+37360679547", "+373 60 679 547", "optimafide.psiholog@gmail.com"),
+    "Ruslan Magari": ("+37379002064", "+373 79 002 064", "ruslanmagari@gmail.com"),
+    "Oksana Harbolinscaia": ("+37378601352", "+373 78 601 352", "psyneverlie@gmail.com"),
+    "Tudor Rotaru": ("+37362139361", "+373 62 139 361", "sofos82@mail.ru"),
+}
 
 
 def main() -> int:
@@ -86,16 +118,48 @@ def main() -> int:
             failures.append(f"Missing translation dictionary: {lang}")
             continue
         available = set(re.findall(r'"([^"]+)"\s*:', match))
-        extensions = re.finditer(
+        extensions = list(re.finditer(
             rf"Object\.assign\(translations\.{lang},\s*\{{(.*?)\n\s*\}}\);",
             html,
             re.DOTALL,
-        )
+        ))
         for extension in extensions:
             available.update(re.findall(r"\b([A-Za-z][A-Za-z0-9]+)\s*:", extension.group(1)))
         missing = sorted(used_keys - available)
         if missing:
             failures.append(f"{lang} missing keys: {', '.join(missing)}")
+        translation_source = match + "\n".join(extension.group(1) for extension in extensions)
+        for key, expected in EXPECTED_RESOURCE_CTA[lang].items():
+            if not re.search(rf'\b{key}:\s*"{re.escape(expected)}"', translation_source):
+                failures.append(f'{lang} {key} must be "{expected}"')
+
+    offer_button_rule = re.search(r"\.offer-card\s+\.btn\s*\{([^}]*)\}", html, re.DOTALL)
+    if not offer_button_rule:
+        failures.append("Missing compact offer-card button rule")
+    else:
+        declarations = offer_button_rule.group(1)
+        for required_declaration in ("max-width: 100%", "white-space: normal"):
+            if required_declaration not in declarations:
+                failures.append(f"Offer-card buttons missing: {required_declaration}")
+
+    team_photo_rule = re.search(r"\.team-photo,\s*\.team-placeholder\s*\{([^}]*)\}", html, re.DOTALL)
+    if not team_photo_rule or "display: block" not in team_photo_rule.group(1):
+        failures.append("Team photo containers must be block-level")
+    if not team_photo_rule or "overflow: hidden" not in team_photo_rule.group(1):
+        failures.append("Team photo containers must crop portrait images")
+
+    for name, (phone_href, phone_text, email) in EXPECTED_TEAM_CONTACTS.items():
+        card = re.search(
+            rf'<article class="team-card".*?alt="{re.escape(name)}".*?</article>',
+            html,
+            re.DOTALL,
+        )
+        if not card:
+            failures.append(f"Missing team card: {name}")
+            continue
+        for expected in (f'href="tel:{phone_href}"', phone_text, f'href="mailto:{email}"'):
+            if expected not in card.group(0):
+                failures.append(f"{name} missing contact: {expected}")
 
     refs = re.findall(
         r'(?:src|data-lightbox|content)="((?!https?:|data:|#|mailto:|tel:)[^"]+\.(?:jpg|jpeg|png|webp|pdf))"',

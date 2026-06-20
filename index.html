@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="xZ_T9EjYJ_9vJWXbHZWo5uzpubsGZZ5qbSsYukcCPgQ">
   <title>Optima Fide — резиденциальный центр восстановления в Молдове</title>
   <meta name="description" content="Проживание, питание, программа 6–12 месяцев, поддержка семьи и государственная аккредитация в центре Optima Fide.">
   <meta property="og:title" content="Optima Fide — резиденциальный центр восстановления в Молдове">
@@ -570,6 +571,15 @@
     }
     .offer-card h3 { font-size: 1.24rem; }
     .offer-card p { margin-top: 10px; color: var(--muted); }
+    .offer-card .btn {
+      max-width: 100%;
+      width: fit-content;
+      min-height: 44px;
+      padding: 0 16px;
+      font-size: .94rem;
+      line-height: 1.2;
+      white-space: normal;
+    }
     .team-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -588,11 +598,13 @@
     }
     .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
     .team-photo, .team-placeholder {
+      display: block;
       width: 100%;
       aspect-ratio: 4 / 4.6;
+      overflow: hidden;
       background: var(--soft);
     }
-    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .team-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .team-photo img.team-photo-anastasia { transform: scale(1.09); transform-origin: 50% 34%; }
     .team-placeholder {
       display: grid;
@@ -1277,7 +1289,7 @@
             <article class="day-moment"><span data-i18n="dayNight">Odihnă</span><h3 data-i18n="tl5">Odihnă și restabilirea somnului</h3></article>
           </div>
         </div>
-        <figure class="day-scene-photo" data-reveal><img src="assets/images/visual/daily-rhythm.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="day-scene-photo" data-reveal><img src="assets/images/visual/daily-rhythm-hq.png" alt="" loading="lazy" decoding="async"></figure>
       </div>
     </section>
 
@@ -1464,7 +1476,7 @@
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerFamilyTitle">PDF pentru familie</h3><p data-i18n="offerFamilyText">Programul, condițiile, primele zile, ce este inclus și cum începeți.</p></div><a class="btn primary" href="assets/pdfs/optima-fide-family-offer-ru.pdf" target="_blank" rel="noopener" data-i18n="familyPdfCta">Descarcă PDF</a></article>
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerPartnerTitle">PDF pentru parteneri</h3><p data-i18n="offerPartnerText">Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.</p></div><a class="btn outline" href="assets/pdfs/optima-fide-partner-offer-en.pdf" target="_blank" rel="noopener" data-i18n="partnerPdfCta">Descarcă PDF</a></article>
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerPriceTitle">Listă de prețuri Word</h3><p data-i18n="offerPriceText">Prețuri recomandate, reducere socială până la 50% și servicii achitate separat.</p></div><a class="btn outline" href="assets/docs/optima-fide-price-list-2026.docx" download data-i18n="priceDocxCta">Descarcă Word</a></article>
-          <article class="offer-card" data-reveal><div><h3 data-i18n="offerConsultTitle">Consultație</h3><p data-i18n="offerConsultText">Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.</p></div><a class="btn gold" href="#contacte" data-i18n="consultCta">Contactați-ne</a></article>
+          <article class="offer-card" data-reveal><div><h3 data-i18n="offerConsultTitle">Consultație</h3><p data-i18n="offerConsultText">Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.</p></div><a class="btn gold" href="#contacte" data-i18n="consultCta">Contactează-ne</a></article>
         </div>
       </div>
     </section>
@@ -1515,23 +1527,23 @@
         <div class="team-grid">
           <article class="team-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-igor-owner.webp" alt="Igor Plevschi"></picture>
-            <div class="team-info"><h3 data-i18n="teamIgorName">Igor Plevschi</h3><p class="team-role" data-i18n="teamRoleIgor">Președinte și membru al Consiliului Fundației</p><p class="team-function" data-i18n="teamFunctionIgor"></p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:general.optimafide@gmail.com">general.optimafide@gmail.com</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamIgorName">Igor Plevschi</h3><p class="team-role" data-i18n="teamRoleIgor">Președinte și membru al Consiliului Fundației</p><p class="team-function" data-i18n="teamFunctionIgor"></p><div class="team-contact"><a href="tel:+37378377337">+373 78 377 337</a><a href="mailto:general.optimafide@gmail.com">general.optimafide@gmail.com</a></div></div>
           </article>
           <article class="team-card" data-reveal>
             <picture class="team-photo"><img class="team-photo-anastasia" src="assets/images/team/team-anastasia-owner.webp" alt="Anastasia Plevscaia"></picture>
-            <div class="team-info"><h3 data-i18n="teamAnastasiaName">Anastasia Plevscaia</h3><p class="team-role" data-i18n="teamRoleAnastasia">Psiholog / sprijin pentru participanți</p><p class="team-function" data-i18n="teamFunctionAnastasia"></p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:optimafide.psiholog@gmail.com">optimafide.psiholog@gmail.com</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamAnastasiaName">Anastasia Plevscaia</h3><p class="team-role" data-i18n="teamRoleAnastasia">Psiholog / sprijin pentru participanți</p><p class="team-function" data-i18n="teamFunctionAnastasia"></p><div class="team-contact"><a href="tel:+37360679547">+373 60 679 547</a><a href="mailto:optimafide.psiholog@gmail.com">optimafide.psiholog@gmail.com</a></div></div>
           </article>
           <article class="team-card" data-reveal>
-            <picture class="team-photo"><img src="assets/images/team/team-ruslan-owner.webp" alt="Ruslan Magari"></picture>
+            <picture class="team-photo"><img src="assets/images/team/team-ruslan-owner-2026.png" alt="Ruslan Magari"></picture>
             <div class="team-info"><h3 data-i18n="teamRuslanName">Ruslan Magari</h3><p class="team-role" data-i18n="teamRoleRuslan">Director executiv</p><p class="team-function" data-i18n="teamFunctionRuslan"></p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:ruslanmagari@gmail.com">ruslanmagari@gmail.com</a></div></div>
           </article>
           <article class="team-card" data-reveal>
-            <picture class="team-photo"><img src="assets/images/team/team-oksana-owner.webp" alt="Oksana Harbolinscaia"></picture>
-            <div class="team-info"><h3 data-i18n="teamOksanaName">Oksana Harbolinscaia</h3><p class="team-role" data-i18n="teamRoleOksana">Coordonatoarea programului / familie și comunicare</p><p class="team-function" data-i18n="teamFunctionOksana"></p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:psyneverlie@gmail.com">psyneverlie@gmail.com</a></div></div>
+            <picture class="team-photo"><img src="assets/images/team/team-oksana-owner-2026.png" alt="Oksana Harbolinscaia"></picture>
+            <div class="team-info"><h3 data-i18n="teamOksanaName">Oksana Harbolinscaia</h3><p class="team-role" data-i18n="teamRoleOksana">Coordonatoarea programului / familie și comunicare</p><p class="team-function" data-i18n="teamFunctionOksana"></p><div class="team-contact"><a href="tel:+37378601352">+373 78 601 352</a><a href="mailto:psyneverlie@gmail.com">psyneverlie@gmail.com</a></div></div>
           </article>
           <article class="team-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-tudor-owner.webp" alt="Tudor Rotaru"></picture>
-            <div class="team-info"><h3 data-i18n="teamTudorName">Tudor Rotaru</h3><p class="team-role" data-i18n="teamRoleTudor">Consultant de la egal la egal</p><p class="team-function" data-i18n="teamFunctionTudor"></p><div class="team-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:sofos82@mail.ru">sofos82@mail.ru</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamTudorName">Tudor Rotaru</h3><p class="team-role" data-i18n="teamRoleTudor">Consultant de la egal la egal</p><p class="team-function" data-i18n="teamFunctionTudor"></p><div class="team-contact"><a href="tel:+37362139361">+373 62 139 361</a><a href="mailto:sofos82@mail.ru">sofos82@mail.ru</a></div></div>
           </article>
         </div>
       </div>
@@ -2409,8 +2421,8 @@
       tourism5Title: "Parc și bănci", tourism5Text: "Plimbări, calm și odihnă simplă într-un spațiu verde.",
       tourism6Title: "Ieșiri individuale", tourism6Text: "Numai prin acord prealabil și contra cost, ținând cont de starea participantului și regulile programului.",
       optionalNoticeTitle: "Important", optionalNoticeText: "Ieșirile de recuperare și serviciile suplimentare nu sunt obligatorii. Sunt disponibile prin acord prealabil, ținând cont de starea participantului și regulile centrului, și se achită separat.",
-      familyPdfCta: "Descarcă oferta PDF pentru familie",
-      offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Materiale scurte pentru familie, parteneri, donatori și lista de prețuri.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerPriceTitle: "Listă de prețuri Word", offerPriceText: "Prețuri recomandate, reducere socială până la 50% și servicii achitate separat.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", priceDocxCta: "Descarcă Word", consultCta: "Contactați-ne",
+      familyPdfCta: "Descarcă PDF",
+      offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Materiale scurte pentru familie, parteneri, donatori și lista de prețuri.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerPriceTitle: "Listă de prețuri Word", offerPriceText: "Prețuri recomandate, reducere socială până la 50% și servicii achitate separat.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", priceDocxCta: "Descarcă Word", consultCta: "Contactează-ne",
       teamFunctionTudor: "Oferă sprijin de la egal la egal bazat pe experiență și înțelegere.",
       voicesEyebrow: "Voci anonime",
       voicesTitle: "Voci ale recuperării",
@@ -2470,7 +2482,7 @@
       tourism5Title: "Парк и лавочки", tourism5Text: "Прогулки, спокойствие и простой отдых в зелёном пространстве.",
       tourism6Title: "Индивидуальные выезды", tourism6Text: "Только по согласованию и за отдельную плату, с учётом состояния участника и правил программы.",
       optionalNoticeTitle: "Важно", optionalNoticeText: "Восстановительные поездки и дополнительные услуги не являются обязательной частью программы. Они доступны по согласованию, с учётом состояния участника, правил центра и оплачиваются отдельно.",
-      familyPdfCta: "Скачать предложение PDF для семьи",
+      familyPdfCta: "Скачать PDF",
       offersEyebrow: "PDF-материалы", offersTitle: "Скачать предложение", offersLead: "Короткие материалы для семьи, партнёров, доноров и прайс-лист услуг.", offerFamilyTitle: "PDF для семьи", offerFamilyText: "Программа, условия, первые дни, что входит и как начать.", offerPartnerTitle: "PDF для партнёров", offerPartnerText: "Миссия, аккредитация, инфраструктура, результаты, партнёрство и реквизиты.", offerPriceTitle: "Прайс-лист Word", offerPriceText: "Рекомендованные цены, социальная скидка до 50% и услуги за отдельную плату.", offerConsultTitle: "Консультация", offerConsultText: "Если ситуация срочная или непонятная, начните со спокойного разговора.", partnerPdfCta: "Скачать PDF", priceDocxCta: "Скачать Word", consultCta: "Связаться",
       teamFunctionTudor: "Оказывает поддержку «равный равному», основанную на опыте и понимании.",
       voicesEyebrow: "Анонимные истории",
@@ -2526,7 +2538,7 @@
       tourism5Title: "Park and benches", tourism5Text: "Walks, calm and simple rest in a green space.",
       tourism6Title: "Individual outings", tourism6Text: "Only by prior agreement and for an additional fee, considering participant condition and program rules.",
       optionalNoticeTitle: "Important", optionalNoticeText: "Recovery outings and optional services are not mandatory parts of the program. They are available by prior agreement, considering participant condition and center rules, and are paid separately.",
-      familyPdfCta: "Download the family PDF offer",
+      familyPdfCta: "Download PDF",
       offersEyebrow: "PDF materials", offersTitle: "Download the right offer", offersLead: "Short materials for families, partners, donors and the service price list.", offerFamilyTitle: "Family PDF", offerFamilyText: "Program, conditions, first days, what is included and how to begin.", offerPartnerTitle: "Partner PDF", offerPartnerText: "Mission, accreditation, infrastructure, results, partnership and bank details.", offerPriceTitle: "Word price list", offerPriceText: "Recommended prices, social discount up to 50% and separately paid services.", offerConsultTitle: "Consultation", offerConsultText: "If the situation is urgent or unclear, begin with a calm conversation.", partnerPdfCta: "Download PDF", priceDocxCta: "Download Word", consultCta: "Contact us",
       teamFunctionTudor: "Provides peer-to-peer support grounded in experience and understanding.",
       voicesEyebrow: "Anonymous stories",

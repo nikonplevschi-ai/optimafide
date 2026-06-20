@@ -37,6 +37,10 @@ export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
 
+    if (request.method === "GET") {
+      return json(origin, { ok: true, service: "optima-fide-telegram-requests" });
+    }
+
     if (!isAllowedOrigin(origin)) {
       return json(origin, { ok: false, error: "Origin not allowed" }, 403);
     }

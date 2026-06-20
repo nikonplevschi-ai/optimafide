@@ -7,6 +7,9 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML_PATH = ROOT / "index.html"
 GOOGLE_VERIFICATION_PATH = ROOT / "google696019cf5de45d47.html"
 GOOGLE_VERIFICATION_CONTENT = "google-site-verification: google696019cf5de45d47.html"
+ROBOTS_PATH = ROOT / "robots.txt"
+SITEMAP_PATH = ROOT / "sitemap.xml"
+TELEGRAM_WORKER_PATH = ROOT / "cloudflare-worker" / "telegram-request-worker.js"
 REQUIRED = [
     "hero-center.webp",
     "team/team-tudor-owner.webp",
@@ -56,7 +59,9 @@ REQUIRED = [
     "visual/daily-rhythm-hq.png",
     "visual/group-support-owner.jpg",
     "visual/family-help-owner.jpg",
+    "family-support.webp",
     '<meta name="google-site-verification" content="xZ_T9EjYJ_9vJWXbHZWo5uzpubsGZZ5qbSsYukcCPgQ">',
+    '<link rel="canonical" href="https://recovery.optimafide.md/">',
 ]
 PROHIBITED = [
     "Andrei Buhna",
@@ -98,6 +103,30 @@ EXPECTED_RESOURCE_CTA = {
     },
 }
 
+EXPECTED_TRANSLATIONS = {
+    "ro": {
+        "hallwayCaption": "Spațiu pentru liniște și concentrare",
+        "dayMorning": "Dimineața",
+        "dayDay": "Ziua",
+        "dayAfternoon": "După-amiaza",
+        "dayEvening": "Seara",
+    },
+    "ru": {
+        "hallwayCaption": "Пространство для тихого отдыха и концентрации",
+        "dayMorning": "Утро",
+        "dayDay": "День",
+        "dayAfternoon": "После обеда",
+        "dayEvening": "Вечер",
+    },
+    "en": {
+        "hallwayCaption": "Space for quiet rest and concentration",
+        "dayMorning": "Morning",
+        "dayDay": "Day",
+        "dayAfternoon": "Afternoon",
+        "dayEvening": "Evening",
+    },
+}
+
 EXPECTED_TEAM_CONTACTS = {
     "Igor Plevschi": ("+37378377337", "+373 78 377 337", "general.optimafide@gmail.com"),
     "Anastasia Plevscaia": ("+37360679547", "+373 60 679 547", "optimafide.psiholog@gmail.com"),
@@ -115,6 +144,15 @@ def main() -> int:
         failures.append("Missing Google verification file")
     elif GOOGLE_VERIFICATION_PATH.read_text(encoding="utf-8").strip() != GOOGLE_VERIFICATION_CONTENT:
         failures.append("Invalid Google verification file content")
+
+    if not ROBOTS_PATH.exists() or "Sitemap: https://recovery.optimafide.md/sitemap.xml" not in ROBOTS_PATH.read_text(encoding="utf-8"):
+        failures.append("Missing or invalid robots.txt")
+    if not SITEMAP_PATH.exists() or "<loc>https://recovery.optimafide.md/</loc>" not in SITEMAP_PATH.read_text(encoding="utf-8"):
+        failures.append("Missing or invalid sitemap.xml")
+
+    worker = TELEGRAM_WORKER_PATH.read_text(encoding="utf-8")
+    if 'request.method === "GET"' not in worker or 'service: "optima-fide-telegram-requests"' not in worker:
+        failures.append("Telegram Worker must expose a GET health check")
     used_keys = set(re.findall(r'data-i18n(?:-alt)?="([^"]+)"', html))
 
     for lang in ("ro", "ru", "en"):
@@ -139,6 +177,9 @@ def main() -> int:
             failures.append(f"{lang} missing keys: {', '.join(missing)}")
         translation_source = match + "\n".join(extension.group(1) for extension in extensions)
         for key, expected in EXPECTED_RESOURCE_CTA[lang].items():
+            if not re.search(rf'\b{key}:\s*"{re.escape(expected)}"', translation_source):
+                failures.append(f'{lang} {key} must be "{expected}"')
+        for key, expected in EXPECTED_TRANSLATIONS[lang].items():
             if not re.search(rf'\b{key}:\s*"{re.escape(expected)}"', translation_source):
                 failures.append(f'{lang} {key} must be "{expected}"')
 
@@ -186,6 +227,21 @@ def main() -> int:
         )
         if not section or image_path not in section.group(0):
             failures.append(f"Section {section_id} must use {image_path}")
+
+    img_sources = re.findall(r'<img[^>]+src="([^"]+)"', html)
+    if img_sources.count("assets/images/visual/personal-consultation.webp") != 1:
+        failures.append("Personal consultation photo must not be repeated")
+
+    if html.count("fetch(TELEGRAM_WORKER_URL") < 2:
+        failures.append("Both site request forms must submit to the Telegram Worker")
+
+    for card in re.findall(r'<article class="team-card".*?</article>', html, re.DOTALL):
+        if 'loading="lazy"' not in card:
+            failures.append("Team photos below the fold must use lazy loading")
+            break
+    certificate = re.search(r'<button class="certificate-button".*?</button>', html, re.DOTALL)
+    if not certificate or 'loading="lazy"' not in certificate.group(0):
+        failures.append("Accreditation image below the fold must use lazy loading")
 
     refs = re.findall(
         r'(?:src|data-lightbox|content)="((?!https?:|data:|#|mailto:|tel:)[^"]+\.(?:jpg|jpeg|png|webp|pdf))"',

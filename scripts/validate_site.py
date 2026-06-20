@@ -44,9 +44,7 @@ REQUIRED = [
     'class="visual-story',
     'class="family-questions"',
     "life-center.webp",
-    "spaces-main.webp",
     "spaces-group-room.webp",
-    "spaces-dining.webp",
     "spaces-yard.webp",
     "spaces-chapel.webp",
     "excursion-dendrarium.webp",
@@ -60,8 +58,11 @@ REQUIRED = [
     "visual/group-support-owner.jpg",
     "visual/family-help-owner.jpg",
     "family-support.webp",
+    "center-stairs.jpg",
     '<meta name="google-site-verification" content="xZ_T9EjYJ_9vJWXbHZWo5uzpubsGZZ5qbSsYukcCPgQ">',
     '<link rel="canonical" href="https://recovery.optimafide.md/">',
+    '<title>Optima Fide — centru rezidențial de recuperare în Moldova</title>',
+    '<meta name="description" content="Cazare, masă, program rezidențial de recuperare, sprijin pentru familie și acreditare de stat la centrul Optima Fide din Moldova.">',
 ]
 PROHIBITED = [
     "Andrei Buhna",
@@ -80,6 +81,9 @@ PROHIBITED = [
     "Clienți reabilitați",
     "Clienti reabilitati",
     "team-photo-anastasia",
+    "assets/images/visual/spaces-main.webp",
+    "assets/images/visual/spaces-dining.webp",
+    "assets/images/visual/stairs.webp",
 ]
 
 EXPECTED_RESOURCE_CTA = {
@@ -235,6 +239,12 @@ def main() -> int:
     if html.count("fetch(TELEGRAM_WORKER_URL") < 2:
         failures.append("Both site request forms must submit to the Telegram Worker")
 
+    day_line = re.search(r'<div class="day-line">(.*?)</div>', html, re.DOTALL)
+    expected_day_line = ["dayMorning", "dayDay", "dayAfternoon", "dayEvening"]
+    actual_day_line = re.findall(r'data-i18n="(day[A-Za-z]+)"', day_line.group(1) if day_line else "")
+    if actual_day_line != expected_day_line:
+        failures.append("Day line must show morning, day, afternoon and evening in order")
+
     for card in re.findall(r'<article class="team-card".*?</article>', html, re.DOTALL):
         if 'loading="lazy"' not in card:
             failures.append("Team photos below the fold must use lazy loading")
@@ -242,6 +252,10 @@ def main() -> int:
     certificate = re.search(r'<button class="certificate-button".*?</button>', html, re.DOTALL)
     if not certificate or 'loading="lazy"' not in certificate.group(0):
         failures.append("Accreditation image below the fold must use lazy loading")
+    for tile in re.findall(r'<button class="gallery-tile".*?</button>', html, re.DOTALL):
+        if 'loading="lazy"' not in tile:
+            failures.append("Gallery photos below the fold must use lazy loading")
+            break
 
     refs = re.findall(
         r'(?:src|data-lightbox|content)="((?!https?:|data:|#|mailto:|tel:)[^"]+\.(?:jpg|jpeg|png|webp|pdf))"',

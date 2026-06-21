@@ -8,9 +8,10 @@ required_markup = (
     "assets/images/accreditation-certificate-from-pdf.webp",
     "assets/images/accreditation-certificate-from-pdf.jpg",
     "object-position: 44% center",
-    'class="app-icon" src="assets/icons/phone.svg"',
     'class="app-icon" src="assets/icons/telegram.svg"',
     'class="app-icon" src="assets/icons/whatsapp.svg"',
+    'class="app-icon" src="assets/icons/viber.svg"',
+    'href="viber://chat?number=%2B37379002064"><img class="app-icon" src="assets/icons/viber.svg"',
     ".nav-actions > .btn.gold { white-space: nowrap; min-width: 132px;",
     ".mobile-cta-label { font-size: .68rem; line-height: 1.1; white-space: nowrap;",
 )
@@ -22,13 +23,22 @@ required_files = (
     "assets/images/accreditation-certificate-from-pdf.webp",
     "assets/images/accreditation-certificate-from-pdf.jpg",
     "assets/images/accreditation-certificate-from-pdf.sha256",
-    "assets/icons/phone.svg",
     "assets/icons/telegram.svg",
     "assets/icons/whatsapp.svg",
+    "assets/icons/viber.svg",
 )
 
 for relative_path in required_files:
     path = ROOT / relative_path
     assert path.exists() and path.stat().st_size > 0, f"missing asset: {relative_path}"
+
+for removed_cta in (
+    'href="tel:+37379002064"><img class="app-icon"',
+    'data-i18n="firstCall"',
+    'data-i18n="mobileCall"',
+    'data-i18n="contactModalCall"',
+    "tel:",
+):
+    assert removed_cta not in HTML, f"phone CTA should be removed: {removed_cta}"
 
 print("PDF certificate, hero position and app icons: OK")

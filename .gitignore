@@ -3,5 +3,6 @@
 Thumbs.db
 .dev.vars
 .wrangler/
+.worktrees/
 node_modules/
 work/

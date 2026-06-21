@@ -206,6 +206,7 @@ DESIGN_SYSTEM_REQUIREMENTS = [
     'viber://chat?number=%2B37379002064',
     'class="intake-intro"',
     'class="brand-emblem"',
+    'class="brand-emblem"><img src="logo.jpg"',
     'href="https://wa.me/37379002064"',
 ]
 
@@ -256,6 +257,15 @@ def main() -> int:
         ):
             if declaration not in v3_css:
                 failures.append(f"Premium visual redesign V3 CSS missing: {declaration}")
+
+    v4_layer = re.search(r"/\* Approved homepage V4 \*/(.*?)/\* End approved homepage V4 \*/", html, re.DOTALL)
+    if not v4_layer:
+        failures.append("Missing approved homepage V4 layout layer")
+    else:
+        v4_css = v4_layer.group(1)
+        for declaration in ("main > .hero { order: 1", "#admission { order: 3", "#donatii { order: 9", "#faq { order: 10"):
+            if declaration not in v4_css:
+                failures.append(f"Approved homepage V4 CSS missing: {declaration}")
 
     if not GOOGLE_VERIFICATION_PATH.exists():
         failures.append("Missing Google verification file")

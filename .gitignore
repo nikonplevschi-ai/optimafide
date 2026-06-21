@@ -1,8 +1,11 @@
 .claude/
 .DS_Store
 Thumbs.db
+.env
+.env.*
 .dev.vars
 .wrangler/
+.cache/
 .worktrees/
 node_modules/
 work/

@@ -1027,7 +1027,7 @@
       box-shadow: var(--soft-shadow);
     }
     .visual-program:nth-child(2), .visual-program:nth-child(3) { min-height: 350px; }
-    .visual-program img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .56; }
+    .visual-program img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: .56; }
     .visual-program::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(10,28,23,.9)); }
     .visual-program-copy { position: absolute; z-index: 1; left: 28px; right: 28px; bottom: 28px; color: rgba(255,255,255,.78); }
     .visual-program-copy span { color: var(--gold); font-weight: 900; }
@@ -1051,7 +1051,10 @@
     .visual-story-copy h2 { font-size: clamp(2.7rem, 5vw, 5rem); }
     .visual-story-copy > p { max-width: 620px; margin-top: 20px; color: var(--muted); font-size: 1.08rem; }
     .visual-story-photo { min-height: 620px; overflow: hidden; border-radius: 34px; box-shadow: var(--shadow); }
-    .visual-story-photo img { width: 100%; height: 100%; min-height: 620px; object-fit: cover; }
+    .visual-story-photo img { width: 100%; height: 100%; min-height: 620px; object-fit: cover; object-position: center center; }
+    .photo-position-walk { object-position: center center; }
+    .photo-position-activity { object-position: center center; }
+    .photo-position-community { object-position: center center; }
     .visual-story-points { display: grid; gap: 0; margin-top: 30px; border-top: 1px solid var(--line); }
     .visual-story-points span { padding: 15px 0; border-bottom: 1px solid var(--line); color: var(--green); font-weight: 700; }
     .family-questions { display: grid; margin-top: 26px; border-top: 1px solid var(--line); }
@@ -2001,7 +2004,472 @@
         padding: 22px;
       }
     }
-    /* End approved homepage V4 */
+    /* Approved mockup alignment V5 */
+    body {
+      background:
+        radial-gradient(circle at 5% 16%, rgba(143,160,134,.12), transparent 28%),
+        radial-gradient(circle at 92% 10%, rgba(217,184,108,.10), transparent 25%),
+        linear-gradient(180deg, #fbf7ee 0%, #f7f0e4 48%, #fbf7ee 100%);
+      color: var(--of-text);
+    }
+    .site-header {
+      width: min(1400px, calc(100% - 40px));
+      left: 50%;
+      transform: translateX(-50%);
+      top: 10px;
+      border: 1px solid rgba(16,37,31,.08);
+      border-radius: 18px;
+      background: rgba(255,251,243,.91);
+      box-shadow: 0 12px 36px rgba(18,44,36,.07);
+    }
+    .nav { width: min(1240px, calc(100% - 32px)); height: 72px; }
+    .brand-emblem { border: 0; background: transparent; box-shadow: none; }
+    .brand strong { font-size: 1.45rem; }
+    .nav-links a { font-size: .82rem; }
+    .header-phone { font-size: .9rem; }
+    .nav-actions > .btn.gold { min-height: 46px; min-width: 124px; padding-inline: 20px; }
+    main { gap: 0; }
+    #weekend-together,
+    #recovery-spaces,
+    #situations,
+    #include,
+    #for-whom,
+    #conditii,
+    #centru,
+    #activity-movement,
+    #day-center,
+    #group-support,
+    #personal-guidance,
+    #optional-services,
+    #turism,
+    #voices,
+    #echipa,
+    #contacte { display: none !important; }
+    .stats-row { display: none !important; }
+    #admission .timeline,
+    #admission .timeline + .hero-actions,
+    #admission [data-i18n="timelineEyebrow"],
+    #admission [data-i18n="timelineTitle"],
+    #admission [data-i18n="timelineLead"] { display: none !important; }
+    main > .hero { order: 1; }
+    #consultatie { order: 2; }
+    #admission { order: 3; }
+    #acreditare { order: 4; }
+    #life-center { order: 5; }
+    #visual-program { order: 6; }
+    #program { order: 7; }
+    #familie { order: 8; }
+    #oferte-pdf { order: 9; }
+    #donatii { order: 10; }
+    #faq { order: 11; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+    .section, .story-section, .visual-story, .day-scene { padding: clamp(34px, 5.2vw, 70px) 0; }
+    .section-head { max-width: 720px; margin-inline: auto; text-align: center; }
+    .section-head h2 { font-size: clamp(2rem, 3.8vw, 3.1rem); line-height: 1.05; }
+    .hero {
+      padding: 112px 0 28px;
+      min-height: auto;
+    }
+    .hero::before { inset: 0; filter: blur(18px); opacity: .75; }
+    .hero-frame {
+      width: min(1320px, calc(100% - 56px));
+      min-height: clamp(560px, 64vh, 660px);
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255,251,243,.94);
+      box-shadow: 0 24px 74px rgba(18,44,36,.12);
+    }
+    .hero-media::before {
+      background:
+        radial-gradient(ellipse at 14% 68%, rgba(143,160,134,.18), transparent 42%),
+        linear-gradient(90deg, rgba(255,251,243,1) 0%, rgba(255,251,243,.97) 27%, rgba(255,251,243,.78) 41%, rgba(255,251,243,.42) 53%, rgba(255,251,243,.06) 70%, transparent 100%);
+    }
+    .hero-media img {
+      object-position: 52% center;
+      filter: saturate(.92) contrast(1.02) brightness(1.04) sepia(.03);
+    }
+    .hero-layout {
+      min-height: clamp(560px, 64vh, 660px);
+      padding: clamp(46px, 6vw, 78px) clamp(42px, 7vw, 88px);
+      padding-bottom: 72px;
+    }
+    .hero-copy { max-width: 530px; }
+    .hero-title {
+      max-width: 530px;
+      font-size: clamp(3.4rem, 6vw, 5.35rem);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+    .hero-subtitle {
+      max-width: 470px;
+      margin-top: 24px;
+      font-size: clamp(.98rem, 1.25vw, 1.13rem);
+      line-height: 1.55;
+    }
+    .hero-badges { max-width: 540px; gap: 8px; margin-bottom: 34px; }
+    .hero-badge {
+      min-height: 32px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: rgba(255,253,247,.82);
+      font-size: .72rem;
+      box-shadow: 0 8px 20px rgba(18,44,36,.05);
+    }
+    .hero-actions { margin-top: 30px; }
+    .hero-actions .btn { min-height: 48px; padding-inline: 24px; font-size: .86rem; }
+    .hero-trust-line {
+      left: clamp(42px, 7vw, 88px);
+      right: clamp(42px, 7vw, 88px);
+      bottom: 28px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(157,118,43,.25);
+      justify-content: center;
+      color: rgba(16,37,31,.72);
+      font-size: .78rem;
+    }
+    .intake { width: min(1180px, calc(100% - 64px)); margin: 24px auto 0; }
+    .intake-panel {
+      min-height: 0;
+      display: block;
+      padding: clamp(28px, 4vw, 48px);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 94% 16%, rgba(143,160,134,.16), transparent 28%),
+        rgba(255,251,243,.94);
+      box-shadow: 0 18px 54px rgba(18,44,36,.10);
+    }
+    .intake-panel::before { width: 0; }
+    .intake-intro { max-width: 760px; }
+    .intake-intro h2 { font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.04; }
+    .intake-intro .intake-lead { max-width: 690px; font-size: .96rem; line-height: 1.55; }
+    .quick-actions {
+      max-width: 760px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+    .quick-actions .btn {
+      min-height: 72px;
+      border-radius: 18px;
+      font-size: .88rem;
+    }
+    .intake-form {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      align-items: end;
+      gap: 12px;
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,253,247,.72);
+    }
+    .intake-form > .btn { grid-column: auto; min-height: 52px; }
+    .field label { font-size: .72rem; }
+    input, textarea, select { min-height: 46px; border-radius: 10px; }
+    #admission .container,
+    #trust .container,
+    #program .container {
+      width: min(1180px, calc(100% - 64px));
+      padding: clamp(26px, 4vw, 44px);
+      border-radius: 26px;
+      background: rgba(255,251,243,.86);
+      box-shadow: 0 16px 46px rgba(18,44,36,.08);
+    }
+    #admission .section-head { margin-bottom: 30px; }
+    #admission .admission-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+    #admission .comparison-grid { display: none; }
+    .admission-card .card-mark,
+    .situation-card .card-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #d9b86c, #b8872f);
+      color: #fffaf1;
+    }
+    #acreditare .accreditation-card { width: min(1180px, calc(100% - 64px)); }
+    #acreditare .certificate-button { display: none; }
+    #acreditare .accreditation-card {
+      display: block;
+      padding: clamp(28px, 4vw, 46px);
+      text-align: center;
+      background: linear-gradient(135deg, rgba(239,246,235,.92), rgba(255,251,243,.84));
+      box-shadow: 0 16px 46px rgba(18,44,36,.08);
+    }
+    #acreditare h2 {
+      max-width: 720px;
+      margin-inline: auto;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+    }
+    #acreditare p { max-width: 680px; margin-inline: auto; }
+    #acreditare .certificate-facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    #acreditare .certificate-facts div {
+      min-height: 128px;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,253,247,.48);
+      box-shadow: inset 0 0 0 1px rgba(16,37,31,.08);
+    }
+    #acreditare .certificate-facts strong {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      text-align: center;
+    }
+    #trust .container { background: linear-gradient(135deg, rgba(239,246,235,.92), rgba(255,251,243,.84)); }
+    #trust .container::before,
+    #trust .trust-meaning,
+    #trust .section-head .eyebrow,
+    #trust .section-head p { display: none; }
+    #trust .section-head { margin: 0 auto 28px; text-align: center; }
+    #trust .trust-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin: 0;
+    }
+    #trust .trust-card,
+    #trust .trust-card.featured {
+      min-height: 150px;
+      display: block;
+      padding: 20px;
+      text-align: center;
+      color: var(--of-text);
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+    #trust .trust-card.featured h3,
+    #trust .trust-card h3 { color: var(--of-green-950); font-size: clamp(1.05rem, 1.5vw, 1.28rem); }
+    #trust .trust-card p,
+    #trust .trust-card.featured p { color: var(--of-muted); font-size: .82rem; line-height: 1.45; }
+    #trust .trust-card::before {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 12px;
+      border: 1px solid rgba(16,37,31,.14);
+      border-radius: 14px;
+      background: rgba(255,253,247,.56);
+    }
+    #life-center { padding-bottom: 8px; }
+    #life-center .story-layout {
+      width: min(1180px, calc(100% - 64px));
+      display: block;
+    }
+    #life-center .story-copy { text-align: center; }
+    #life-center .story-copy > .eyebrow,
+    #life-center .story-copy > h2,
+    #life-center .story-copy > p,
+    #life-center .story-copy .story-points,
+    #life-center .story-copy .hero-actions,
+    #life-center .story-copy .illustrative-note,
+    #life-center .story-photo { display: none; }
+    #life-center .story-layout::before {
+      content: "Жизнь в центре";
+      display: block;
+      margin-bottom: 0;
+      color: var(--of-green-950);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      line-height: 1.05;
+      text-align: center;
+    }
+    #visual-program {
+      padding-top: 8px;
+      background: transparent;
+    }
+    #visual-program .container { width: min(1180px, calc(100% - 64px)); }
+    #visual-program .section-head { display: none; }
+    .visual-program-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .visual-program,
+    .visual-program:nth-child(2),
+    .visual-program:nth-child(3) {
+      min-height: 245px;
+      border-radius: 16px;
+      background: rgba(255,251,243,.92);
+      box-shadow: 0 12px 32px rgba(18,44,36,.08);
+    }
+    .visual-program img { opacity: 1; height: 58%; }
+    .visual-program::after { background: linear-gradient(180deg, transparent 35%, rgba(255,251,243,.96) 66%, rgba(255,251,243,1)); }
+    .visual-program-copy {
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      color: var(--of-muted);
+    }
+    .visual-program-copy span { display: none; }
+    .visual-program-copy h3 { color: var(--of-green-950); font-family: var(--font-body); font-size: .95rem; line-height: 1.25; }
+    .visual-program-copy p { margin-top: 5px; font-size: .72rem; line-height: 1.35; }
+    #program .section-head { display: none; }
+    #program .packages {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    #program .package {
+      min-height: 160px;
+      padding: 20px;
+      border-radius: 18px;
+    }
+    #program .package:nth-child(n+5) { display: none; }
+    #program .package h3 { font-size: 1.05rem; }
+    #program .package-meta { display: none; }
+    #program .package .btn { display: none; }
+    #program .container::before {
+      content: "Программа восстановления";
+      display: block;
+      margin-bottom: 22px;
+      text-align: center;
+      color: var(--of-green-950);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+    }
+    #program .container::after {
+      content: "Подробнее о программе";
+      display: block;
+      width: fit-content;
+      margin: 24px auto 0;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--of-green-900);
+      color: #fffaf1;
+      font-weight: 800;
+      font-size: .86rem;
+    }
+    #familie .family-layout {
+      width: min(1180px, calc(100% - 64px));
+      grid-template-columns: .86fr 1.14fr;
+      gap: 0;
+      background: rgba(255,251,243,.9);
+      box-shadow: 0 16px 46px rgba(18,44,36,.08);
+    }
+    #familie .family-photo { min-height: 330px; }
+    #familie .family-questions details:nth-child(n+4) { display: none; }
+    #familie .family-questions summary { font-family: var(--font-body); font-size: .94rem; }
+    #oferte-pdf .offer-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    #oferte-pdf .offer-card {
+      min-height: 150px;
+      padding: 64px 18px 18px;
+      border-radius: 18px;
+    }
+    #oferte-pdf .offer-card h3 { font-size: 1rem; }
+    #oferte-pdf .offer-card p { font-size: .78rem; }
+    #donatii .donation-layout {
+      width: min(1180px, calc(100% - 64px));
+      padding: 34px 44px;
+      border-radius: 22px;
+    }
+    #donatii .bank-list { display: none; }
+    #donatii .donation-card h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+    #faq .container { width: min(1180px, calc(100% - 64px)); }
+    #faq .faq-list details {
+      border-radius: 10px;
+      box-shadow: none;
+      background: rgba(255,253,247,.72);
+    }
+    #faq .faq-list summary { min-height: 48px; padding: 14px 18px; font-size: .86rem; }
+    #faq .faq-list details p { font-size: .84rem; }
+    .site-footer {
+      width: min(1400px, calc(100% - 40px));
+      margin: 40px auto 0;
+      border-radius: 16px 16px 0 0;
+      padding: 42px 0 24px;
+    }
+    @media (max-width: 980px) {
+      .intake-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #trust .trust-grid,
+      .visual-program-grid,
+      #program .packages,
+      #oferte-pdf .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #familie .family-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .site-header {
+        width: calc(100% - 20px);
+        top: 8px;
+        border-radius: 16px;
+      }
+      .nav { height: 62px; width: calc(100% - 16px); }
+      .nav-links,
+      .header-phone,
+      .nav-actions > .btn.gold { display: none; }
+      .hero { padding: 86px 0 24px; }
+      .hero-frame,
+      .intake,
+      #admission .container,
+      #trust .container,
+      #life-center .story-layout,
+      #visual-program .container,
+      #program .container,
+      #familie .family-layout,
+      #oferte-pdf .container,
+      #donatii .donation-layout,
+      #faq .container {
+        width: calc(100% - 28px);
+      }
+      .hero-frame { border-radius: 18px; min-height: 0; }
+      .hero-media {
+        height: 205px;
+        min-height: 205px;
+        order: 1;
+      }
+      .hero-media::before {
+        background: linear-gradient(180deg, rgba(255,251,243,.08) 30%, rgba(255,251,243,.88) 100%);
+      }
+      .hero-media img { object-position: 54% center; }
+      .hero-layout { padding: 18px 18px 22px; }
+      .hero-badges {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow: visible;
+        gap: 7px;
+        margin: 0 0 18px;
+        padding: 0;
+      }
+      .hero-badge { min-height: 28px; justify-content: center; font-size: .58rem; }
+      .hero-title { font-size: clamp(2.45rem, 12vw, 3.25rem); line-height: 1; }
+      .hero-subtitle { margin-top: 14px; font-size: .86rem; line-height: 1.45; }
+      .hero-actions { margin-top: 18px; gap: 8px; }
+      .hero-actions .btn { min-height: 44px; font-size: .78rem; }
+      .hero-trust-line { margin-top: 18px; padding-top: 14px; font-size: .68rem; }
+      .intake { margin-top: 10px; }
+      .intake-panel { padding: 20px 16px; border-radius: 18px; }
+      .intake-intro h2 { font-size: clamp(1.45rem, 7vw, 2rem); }
+      .intake-intro .intake-lead { font-size: .78rem; }
+      .quick-actions { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .quick-actions .btn { min-height: 68px; font-size: .68rem; border-radius: 14px; }
+      .intake-form { grid-template-columns: 1fr; padding: 12px; gap: 9px; }
+      .field label { font-size: .65rem; }
+      input, textarea, select { min-height: 40px; font-size: .8rem; }
+      .section, .story-section, .visual-story, .day-scene { padding: 28px 0; }
+      #admission .admission-grid,
+      #trust .trust-grid,
+      #acreditare .certificate-facts,
+      .visual-program-grid,
+      #program .packages,
+      #oferte-pdf .offer-grid { grid-template-columns: 1fr; }
+      #trust .trust-card:nth-child(n+5),
+      #program .package:nth-child(n+4) { display: none; }
+      .visual-program,
+      .visual-program:nth-child(2),
+      .visual-program:nth-child(3) { min-height: 210px; }
+      #familie .family-photo { min-height: 220px; }
+      #donatii .donation-layout { padding: 24px 18px; }
+      #faq .faq-list { grid-template-columns: 1fr; }
+      .site-footer { width: calc(100% - 20px); padding-bottom: 100px; }
+      .mobile-cta { display: grid; }
+    }
+    /* End approved mockup alignment V5 */
   </style>
 </head>
 <body>
@@ -2200,7 +2668,7 @@
         <div class="visual-program-grid">
           <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/community-life.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>01</span><h3 data-i18n="base1">Cazare și masă</h3><p data-i18n="inc1Text">Camere simple, curate și liniștite pentru odihnă, somn stabil și ritm zilnic.</p></div></article>
           <article class="visual-program" data-visual-program data-reveal><img src="center-stairs.jpg" alt="" loading="lazy" decoding="async"><div class="visual-program-copy"><span>02</span><h3 data-i18n="inc3Title">Ritm zilnic</h3><p data-i18n="inc3Text">Un ritm zilnic clar ajută la disciplină, responsabilitate și stabilitate.</p></div></article>
-          <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/group-session.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>03</span><h3 data-i18n="base3">Însoțire individuală</h3><p data-i18n="inc4Text">Întâlnirile de grup ajută persoana să se înțeleagă și să învețe comunicarea sănătoasă.</p></div></article>
+          <article class="visual-program" data-visual-program data-reveal><img class="photo-position-community" src="assets/images/warm-community-meeting-premium.webp" data-i18n-alt="warmCommunityAlt" alt="Întâlnire caldă a comunității în centru" loading="lazy" decoding="async"><div class="visual-program-copy"><span>03</span><h3 data-i18n="base3">Însoțire individuală</h3><p data-i18n="inc4Text">Întâlnirile de grup ajută persoana să se înțeleagă și să învețe comunicarea sănătoasă.</p></div></article>
           <article class="visual-program" data-visual-program data-reveal><img src="assets/images/visual/family-support.webp" alt="" loading="lazy"><div class="visual-program-copy"><span>04</span><h3 data-i18n="inc7Title">Sprijin pentru familie</h3><p data-i18n="inc8Text">Pregătire pentru revenirea în familie, responsabilități, muncă și viață socială.</p></div></article>
         </div>
       </div>
@@ -2215,7 +2683,7 @@
           <div class="visual-story-points"><span data-i18n="groupPoint1">Dialog într-o atmosferă sigură</span><span data-i18n="groupPoint2">Experiență împărtășită cu respect</span><span data-i18n="groupPoint3">Sprijin zilnic și responsabilitate</span></div>
           <p class="illustrative-note" data-i18n="illustrativeNote">Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților.</p>
         </div>
-        <figure class="visual-story-photo" data-reveal><img src="assets/images/visual/group-support-owner.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="visual-story-photo" data-reveal><img class="photo-position-walk" src="assets/images/community-walk-premium.webp" data-i18n-alt="communityWalkAlt" alt="Oameni mergând împreună în lumină caldă" loading="lazy" decoding="async"></figure>
       </div>
     </section>
 
@@ -2241,7 +2709,7 @@
           <div class="visual-story-points"><span data-i18n="activityPoint1">Mișcare și sport</span><span data-i18n="activityPoint2">Muncă și responsabilitate</span><span data-i18n="activityPoint3">Odihnă și ritm sănătos</span></div>
           <p class="illustrative-note" data-i18n="illustrativeNote">Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților.</p>
         </div>
-        <figure class="visual-story-photo" data-reveal><img src="assets/images/visual/wellness-activity.webp" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="visual-story-photo" data-reveal><img class="photo-position-activity" src="assets/images/ping-pong-activity-premium.webp" data-i18n-alt="pingPongActivityAlt" alt="Spațiu pentru activitate și tenis de masă" loading="lazy" decoding="async"></figure>
       </div>
     </section>
 
@@ -3570,7 +4038,10 @@
       dayAfternoon: "După-amiaza",
       dayEvening: "Seara",
       dayNight: "Noaptea și odihna",
-      illustrativeNote: "Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților."
+      illustrativeNote: "Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților.",
+      communityWalkAlt: "Oameni mergând împreună în lumină caldă",
+      warmCommunityAlt: "Întâlnire caldă a comunității în centru",
+      pingPongActivityAlt: "Spațiu pentru activitate și tenis de masă"
     });
     Object.assign(translations.ru, {
       hallwayCaption: "Пространство для тихого отдыха и концентрации",
@@ -3579,7 +4050,10 @@
       dayAfternoon: "После обеда",
       dayEvening: "Вечер",
       dayNight: "Ночь и отдых",
-      illustrativeNote: "Иллюстративное фото. Программа проходит с уважением к конфиденциальности участников."
+      illustrativeNote: "Иллюстративное фото. Программа проходит с уважением к конфиденциальности участников.",
+      communityWalkAlt: "Люди идут вместе в тёплом дневном свете",
+      warmCommunityAlt: "Тёплая встреча общины в центре",
+      pingPongActivityAlt: "Пространство для активности и настольного тенниса"
     });
     Object.assign(translations.en, {
       hallwayCaption: "Space for quiet rest and concentration",
@@ -3588,7 +4062,10 @@
       dayAfternoon: "Afternoon",
       dayEvening: "Evening",
       dayNight: "Night and rest",
-      illustrativeNote: "Illustrative image. The program respects participants’ confidentiality."
+      illustrativeNote: "Illustrative image. The program respects participants’ confidentiality.",
+      communityWalkAlt: "People walking together in warm daylight",
+      warmCommunityAlt: "A warm community gathering at the center",
+      pingPongActivityAlt: "A space for activity and table tennis"
     });
     Object.assign(translations.ro, {
       tourism1Title: "Dendrariul",

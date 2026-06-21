@@ -823,6 +823,23 @@
     .voice-quote { position: relative; z-index: 1; color: var(--text); font-size: .98rem; line-height: 1.62; }
     .voice-person { margin-top: auto; padding-top: 20px; color: var(--green); font-weight: 900; }
     .voice-note { margin-top: 5px; color: var(--muted); font-size: .78rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+    .voices-grid .voice-card:nth-child(n+4) {
+      min-height: 0;
+      padding: 22px 24px;
+      background: rgba(255,250,241,.74);
+    }
+    .voices-grid .voice-card:nth-child(n+4)::before {
+      top: -24px;
+      right: 16px;
+      font-size: 5rem;
+      opacity: .62;
+    }
+    .voices-grid .voice-card:nth-child(n+4) .voice-quote {
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
     .voices-note {
       margin-top: 18px;
       border: 1px solid var(--line);
@@ -1571,7 +1588,8 @@
     .intake-form > .btn { width: fit-content; min-width: 190px; grid-column: auto; align-self: end; }
     input, textarea, select { min-height: 52px; border-radius: 17px; background: rgba(255,253,247,.93); box-shadow: inset 0 1px 0 rgba(255,255,255,.55); }
     input:focus, textarea:focus, select:focus { outline: none; border-color: rgba(201,154,61,.58); box-shadow: 0 0 0 4px rgba(201,154,61,.14), inset 0 1px 0 rgba(255,255,255,.55); }
-    .section, .story-section, .visual-story, .day-scene { position: relative; }
+    .section, .story-section, .visual-story, .day-scene { position: relative; scroll-margin-top: 96px; }
+    .intake, .telegram-cta, .contact-layout { scroll-margin-top: 96px; }
     .section.soft, .visual-story.soft, .day-scene, .voices-section { background: linear-gradient(180deg, rgba(248,242,231,.62), rgba(238,243,234,.42)); }
     .intake-panel, .package, .amenity, .included-card, .situation-card,
     .activity-card, .service-card, .trust-card, .admission-card,
@@ -1613,14 +1631,86 @@
     #admission .admission-grid { gap: 18px; }
     #admission .admission-card { border: 0; background: rgba(255,253,247,.72); box-shadow: inset 0 0 0 1px var(--of-border), 0 12px 30px rgba(18,44,36,.07); }
     #trust .container {
+      position: relative;
+      overflow: hidden;
       padding: clamp(34px, 5vw, 62px);
       border: 1px solid rgba(16,37,31,.08);
       border-radius: 34px;
-      background: linear-gradient(135deg, rgba(223,232,220,.82), rgba(255,250,241,.88));
+      background:
+        radial-gradient(circle at 90% 8%, rgba(201,154,61,.16), transparent 26%),
+        radial-gradient(circle at 8% 92%, rgba(143,160,134,.22), transparent 30%),
+        linear-gradient(135deg, rgba(255,250,241,.94), rgba(237,244,235,.86));
       box-shadow: 0 22px 68px rgba(18,44,36,.11);
     }
-    #trust .trust-card { text-align: center; background: transparent; border: 0; box-shadow: none; }
-    #trust .trust-card::before { content: "◇"; display: block; margin-bottom: 12px; color: var(--of-gold-700); font-size: 2rem; }
+    #trust { scroll-margin-top: 96px; }
+    #trust .container::before {
+      content: "";
+      position: absolute;
+      top: 44px;
+      bottom: 44px;
+      left: clamp(18px, 4vw, 54px);
+      width: 2px;
+      background: linear-gradient(180deg, transparent, rgba(201,154,61,.66), transparent);
+    }
+    #trust .section-head { max-width: 850px; margin-left: clamp(18px, 4vw, 44px); }
+    #trust .trust-grid {
+      position: relative;
+      grid-template-columns: 1.05fr 1fr;
+      align-items: stretch;
+      gap: 18px;
+      margin-left: clamp(18px, 4vw, 44px);
+    }
+    #trust .trust-card {
+      position: relative;
+      min-height: 150px;
+      padding: 24px 24px 22px;
+      text-align: left;
+      background: rgba(255,253,247,.72);
+      border: 1px solid rgba(16,37,31,.1);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.38), 0 14px 34px rgba(18,44,36,.07);
+    }
+    #trust .trust-card::before {
+      content: "";
+      display: block;
+      width: 34px;
+      height: 2px;
+      margin-bottom: 16px;
+      background: var(--of-gold);
+    }
+    #trust .trust-card.featured {
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 318px;
+      background: linear-gradient(160deg, rgba(11,55,44,.96), rgba(19,73,58,.9));
+      color: rgba(255,250,241,.86);
+    }
+    #trust .trust-card.featured h3 { color: #fffaf1; font-size: clamp(2rem, 4vw, 3.25rem); }
+    #trust .trust-card.featured p { color: rgba(255,250,241,.78); font-size: 1.02rem; }
+    #trust .trust-card h3 { font-size: clamp(1.45rem, 2vw, 2rem); }
+    #trust .trust-meaning {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: .82fr 1fr;
+      gap: 18px;
+      align-items: center;
+      margin-top: 4px;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,250,241,.62);
+      border: 1px solid rgba(16,37,31,.08);
+    }
+    #trust .trust-meaning h3 { font-size: clamp(1.6rem, 2.4vw, 2.35rem); }
+    #trust .trust-meaning ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    #trust .trust-meaning li { display: flex; gap: 10px; color: var(--of-muted); font-weight: 650; }
+    #trust .trust-meaning li::before { content: ""; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--of-gold); flex: 0 0 8px; }
+    @media (max-width: 760px) {
+      #trust .container::before { display: none; }
+      #trust .section-head, #trust .trust-grid { margin-left: 0; }
+      #trust .trust-grid, #trust .trust-meaning { grid-template-columns: 1fr; }
+      #trust .trust-card, #trust .trust-card.featured { min-height: 0; }
+    }
     #familie .family-layout {
       overflow: hidden;
       padding: 12px;
@@ -1647,6 +1737,7 @@
     #donatii .donation-card { max-width: 940px; padding: 0; border: 0; background: transparent; box-shadow: none; color: rgba(255,250,241,.84); }
     #donatii .donation-card h2, #donatii .donation-card strong { color: var(--of-surface); }
     #donatii .donation-card p, #donatii .donation-note, #donatii .donation-telegram-note { color: rgba(255,250,241,.76); }
+    #donatii .donation-telegram-note a { color: rgba(255,250,241,.9); text-decoration-color: rgba(217,184,108,.62); }
     #donatii details.bank-details { border-color: rgba(255,250,241,.14); background: rgba(255,250,241,.06); box-shadow: none; }
     #donatii details.bank-details summary, #donatii .iban, #donatii .bank-row { color: rgba(255,250,241,.88); }
     #donatii .bank-body { border-top-color: rgba(255,250,241,.12); }
@@ -1679,11 +1770,15 @@
       .footer-social a:hover { border-color: rgba(217,184,108,.62); color: var(--of-gold-200); transform: translateY(-2px); }
     }
     @media (max-width: 760px) {
-      .nav { width: calc(100% - 24px); height: 70px; }
+      .nav { width: calc(100% - 16px); height: 70px; gap: 8px; padding-inline: 8px; }
       .brand { min-width: 0; }
       .brand-emblem { width: 40px; height: 40px; flex-basis: 40px; border-radius: 13px; }
       .brand-emblem img { width: 30px; height: 30px; }
       .brand strong { font-size: 1.35rem; }
+      .nav-actions { flex-shrink: 0; gap: 6px; }
+      .menu-toggle { width: 38px; height: 38px; flex: 0 0 38px; }
+      .lang-switch { gap: 2px; padding: 2px; }
+      .lang-switch a { width: 28px; height: 28px; font-size: .68rem; }
       .hero { padding: 84px 12px 72px; }
       .hero-frame { min-height: auto; border-radius: 28px; display: flex; flex-direction: column; }
       .hero-media { position: relative; order: 1; height: 280px; min-height: 280px; padding: 0; margin: 0; border-radius: 0; }
@@ -1712,6 +1807,16 @@
       #admission .container, #trust .container, #donatii .donation-layout { width: calc(100% - 24px); padding: 26px 20px; border-radius: 26px; }
       #familie .family-layout { padding: 8px; border-radius: 26px; }
       .mobile-cta { border-radius: 20px; background: rgba(255,250,241,.94); backdrop-filter: blur(18px); }
+    }
+    @media (max-width: 430px) {
+      .nav { width: calc(100% - 12px); gap: 4px; padding-inline: 6px; }
+      .brand { flex: 1 1 0; gap: 7px; overflow: hidden; }
+      .brand-emblem { width: 36px; height: 36px; flex-basis: 36px; border-radius: 12px; }
+      .brand-emblem img { width: 27px; height: 27px; }
+      .brand strong { font-size: 1.08rem; }
+      .nav-actions { gap: 4px; }
+      .menu-toggle { width: 34px; height: 34px; flex-basis: 34px; }
+      .lang-switch a { width: 25px; height: 26px; font-size: .64rem; }
     }
     /* End premium visual redesign V3 */
     /* Approved homepage V4 */
@@ -1764,6 +1869,24 @@
       #program .container { width: calc(100% - 24px); padding: 26px 20px; border-radius: 26px; }
       #program .package { min-height: 0; }
       .hero-copy::after { width: 360px; height: 340px; left: -120px; bottom: -80px; }
+      #trust .container { padding: 26px 20px; }
+      #trust .section-head { margin-bottom: 22px; }
+      #trust .trust-grid {
+        gap: 12px;
+        grid-auto-rows: auto;
+      }
+      #trust .trust-card,
+      #trust .trust-card.featured {
+        height: auto;
+        min-height: 0;
+        padding: 22px;
+      }
+      #trust .trust-card.featured { gap: 24px; }
+      #trust .trust-card.featured h3 { font-size: clamp(2rem, 10vw, 2.7rem); }
+      #trust .trust-meaning {
+        gap: 14px;
+        padding: 22px;
+      }
     }
     /* End approved homepage V4 */
   </style>
@@ -2177,14 +2300,26 @@
 
     <section class="section" id="trust">
       <div class="container">
-        <div class="section-head" data-reveal><div class="eyebrow" data-i18n="trustEyebrow">De ce Optima Fide</div><h2 data-i18n="trustTitle">Un centru concret, acreditat și deschis dialogului</h2><p data-i18n="trustLead">Încrederea începe cu fapte clare, o adresă concretă și o conversație fără presiune.</p></div>
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="trustEyebrow">De ce Optima Fide</div>
+          <h2 data-i18n="trustTitle">Centru acreditat, cu un început clar și respectuos</h2>
+          <p data-i18n="trustLead">Nu promitem miracole și nu împingem familia spre decizii rapide. Arătăm ce există concret: acreditare, adresă, echipă, ritm zilnic și un prim dialog fără presiune.</p>
+        </div>
         <div class="trust-grid">
-          <article class="trust-card" data-reveal><h3 data-i18n="trust1">Acreditare de stat</h3></article>
-          <article class="trust-card" data-reveal><h3 data-i18n="trust2">Format rezidențial și 20 de locuri</h3></article>
-          <article class="trust-card" data-reveal><h3>19 000+</h3><p data-i18n="statConsult">consultații acordate</p></article>
-          <article class="trust-card" data-reveal><h3>500+</h3><p data-i18n="statPeople">persoane au primit ajutor</p></article>
-          <article class="trust-card" data-reveal><h3 data-i18n="trust5">Sprijin pentru familie și însoțire</h3></article>
-          <article class="trust-card" data-reveal><h3 data-i18n="trust6">Dimensiune spirituală fără presiune</h3></article>
+          <article class="trust-card featured" data-reveal>
+            <div><h3 data-i18n="trust1">Acreditare de stat</h3><p data-i18n="trustProof1">Serviciul de reabilitare este confirmat prin certificat și poate fi verificat înainte de intrarea în program.</p></div>
+            <a class="btn light" href="#acreditare" data-i18n="trustCta">Vezi acreditarea</a>
+          </article>
+          <article class="trust-card" data-reveal><h3 data-i18n="trust2">20 de locuri rezidențiale</h3><p data-i18n="trustProof2">Un format mic, cu cazare, masă și ritm zilnic urmărit de echipă.</p></article>
+          <article class="trust-card" data-reveal><h3>19 000+</h3><p data-i18n="trustProof3">consultații și orientări oferite persoanelor și familiilor.</p></article>
+          <div class="trust-meaning" data-reveal>
+            <h3 data-i18n="trustMeaningTitle">Ce înseamnă asta pentru primul pas</h3>
+            <ul>
+              <li data-i18n="trustMeaning1">Aveți un loc concret, nu o promisiune abstractă.</li>
+              <li data-i18n="trustMeaning2">Puteți discuta înainte de orice decizie.</li>
+              <li data-i18n="trustMeaning3">Familia primește claritate fără presiune sau rușinare.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -3147,7 +3282,7 @@
       offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Materiale scurte pentru familie, parteneri, donatori și lista de prețuri.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerPriceTitle: "Listă de prețuri Word", offerPriceText: "Prețuri recomandate, reducere socială până la 50% și servicii achitate separat.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", priceDocxCta: "Descarcă Word", consultCta: "Contactează-ne",
       teamFunctionTudor: "Oferă sprijin de la egal la egal bazat pe experiență și înțelegere.",
       voicesEyebrow: "Voci anonime",
-      voicesTitle: "Voci ale recuperării",
+      voicesTitle: "Oamenii vorbesc despre liniște, ordine și sprijin",
       voicesLead: "Recuperarea începe adesea nu cu siguranță, ci cu o primă discuție sinceră, un mediu sigur și sprijin aproape. Numele au fost schimbate.",
       voicesNote: "Numele au fost schimbate. Istoriile redau experiențe de recuperare și arată cât de importante sunt mediul sigur, ritmul zilnic și sprijinul apropiat.",
       voiceChanged: "nume schimbat",
@@ -3177,7 +3312,7 @@
       timelineEyebrow: "O zi în centru", timelineTitle: "Un ritm calm, clar și previzibil.", timelineLead: "Programul exact poate varia, dar fiecare zi păstrează ordine, comunicare, responsabilitate și timp pentru odihnă.", tl1: "Ordine, igienă, mic dejun și pregătirea zilei", tl2: "Grupuri, responsabilități și lucru individual", tl3: "Activitate, sport, curte și învățare", tl4: "Comunicare, liniște, rugăciune opțională și bilanțul zilei", tl5: "Odihnă și restabilirea somnului",
       admissionEyebrow: "Intrarea în program", admissionTitle: "Cum începe șederea în centru", admissionLead: "Fiecare pas este discutat înainte, astfel încât persoana și familia să știe ce urmează.", adm1Title: "Apel și consultație", adm1Text: "Discutăm situația, nevoile, motivația și condițiile posibile.", adm2Title: "Pregătire și sosire", adm2Text: "Stabilim data, documentele, lucrurile necesare și sosirea în centru.", firstDaysTitle: "Primele trei zile", firstDaysText: "Cunoașterea centrului și a regulilor, adaptare calmă și primul plan de însoțire.",
       bringTitle: "Ce să luați cu dvs.", bring1: "Act de identitate", bring2: "Haine comode și încălțăminte de sezon", bring3: "Produse de igienă personală", bring4: "Lucruri personale necesare, fără exces", bring5: "Medicamente numai după coordonare", bringNote: "Lista completă poate fi precizată în timpul consultației.", rulesTitle: "Reguli care sprijină recuperarea", rule1: "Respect pentru ceilalți participanți", rule2: "Participare la ritmul zilnic", rule3: "Fără alcool și substanțe narcotice", rule4: "Responsabilități comune", rule5: "Grijă față de casă și oameni",
-      trustEyebrow: "De ce Optima Fide", trustTitle: "Un centru concret, acreditat și deschis dialogului", trustLead: "Încrederea începe cu fapte clare, o adresă concretă și o conversație fără presiune.", trust1: "Acreditare de stat", trust2: "Format rezidențial și 20 de locuri", trust5: "Sprijin pentru familie și însoțire", trust6: "Dimensiune spirituală fără presiune",
+      trustEyebrow: "De ce Optima Fide", trustTitle: "Centru acreditat, cu un început clar și respectuos", trustLead: "Nu promitem miracole și nu împingem familia spre decizii rapide. Arătăm ce există concret: acreditare, adresă, echipă, ritm zilnic și un prim dialog fără presiune.", trust1: "Acreditare de stat", trust2: "20 de locuri rezidențiale", trust5: "Sprijin pentru familie și însoțire", trust6: "Dimensiune spirituală fără presiune", trustCta: "Vezi acreditarea", trustMeaning3: "Familia primește claritate fără presiune sau rușinare.", trustMeaning2: "Puteți discuta înainte de orice decizie.", trustMeaning1: "Aveți un loc concret, nu o promisiune abstractă.", trustMeaningTitle: "Ce înseamnă asta pentru primul pas", trustProof3: "consultații și orientări oferite persoanelor și familiilor.", trustProof2: "Un format mic, cu cazare, masă și ritm zilnic urmărit de echipă.", trustProof1: "Serviciul de reabilitare este confirmat prin certificat și poate fi verificat înainte de intrarea în program.",
       tourismEyebrow: "Ieșiri de recuperare", tourismTitle: "Ieșiri de recuperare prin Moldova", tourismLead: "La cerere și contra cost, pot fi organizate ieșiri liniștite spre mănăstiri, natură, Nistru și locuri culturale.", additionalFee: "Contra cost", tourism1Alt: "Mănăstire din Moldova", tourism1Title: "Mănăstiri din Moldova", tourism1Text: "Locuri spirituale liniștite pentru rugăciune, reflecție și recuperare interioară.", tourism2Title: "Peisaje și natură", tourism2Text: "Dealuri, sate și trasee naturale pentru o schimbare calmă de atmosferă.", tourism3Title: "Nistru și trasee naturale", tourism3Text: "Apă, spațiu, plimbări și conversații într-un cadru liniștit.", tourism4Title: "Pescuit și odihnă în natură", tourism4Text: "Odihnă simplă și calmă lângă apă, organizată prin acord prealabil.", tourism5Title: "Locuri culturale și spirituale", tourism5Text: "Cunoașterea Moldovei prin locuri istorice, culturale și spirituale.", tourism6Title: "Ieșiri individuale", tourism6Text: "Traseele se discută individual, după starea participantului și regulile programului.", tourismNoteTitle: "Prin acord prealabil și contra cost", tourismNoteText: "Ieșirile se organizează în funcție de starea participantului, regulile programului, condițiile meteo și acordul prealabil. Costul se discută separat.",
       optionalEyebrow: "Ofertă clară", optionalTitle: "Ce intră în program și ce se coordonează separat", optionalLead: "Separăm clar programul de bază de serviciile suplimentare, pentru ca familia să poată lua o decizie informată.", baseTitle: "Programul de bază include", base1: "Cazare și masă", base2: "Ritm zilnic și grupuri", base3: "Însoțire individuală", base4: "Sprijin spiritual opțional și sprijin pentru familie", base5: "Activități în centru și pregătire pentru reintegrare", paidTitle: "Se coordonează și se achită separat", paid1: "Ieșiri de recuperare prin Moldova", paid2: "Masaj și frizer", paid3: "Consultații prin specialiști de profil", paid4: "Analize și investigații", paid5: "Transport și servicii individuale",
       service1Title: "Masaj", service1Text: "Poate ajuta la relaxare și reducerea tensiunii. Disponibil cu programare prealabilă.", service2Title: "Frizer / coafor", service2Text: "Sprijină îngrijirea personală, demnitatea și sentimentul de ordine.", service3Title: "Consultație la medic chirurg", service3Text: "La nevoie, consultația poate fi organizată printr-un specialist de profil.", service4Title: "Consultanți în narcologie", service4Text: "Consultațiile pot fi organizate prin specialiști pentru evaluare și recomandări.", service5Title: "Analize și investigații", service5Text: "Se organizează prin instituții medicale și laboratoare de profil.", service6Title: "Servicii individuale", service6Text: "Transport, însoțire, programări la specialiști și alte nevoi practice.", legalTitle: "Important de înțeles", legalText: "Consultațiile medicale, analizele și investigațiile sunt organizate prin specialiști și instituții de profil. Optima Fide nu înlocuiește ajutorul medical de urgență, psihiatria staționară sau detoxifierea de urgență.",
@@ -3208,7 +3343,7 @@
       offersEyebrow: "PDF-материалы", offersTitle: "Скачать предложение", offersLead: "Короткие материалы для семьи, партнёров, доноров и прайс-лист услуг.", offerFamilyTitle: "PDF для семьи", offerFamilyText: "Программа, условия, первые дни, что входит и как начать.", offerPartnerTitle: "PDF для партнёров", offerPartnerText: "Миссия, аккредитация, инфраструктура, результаты, партнёрство и реквизиты.", offerPriceTitle: "Прайс-лист Word", offerPriceText: "Рекомендованные цены, социальная скидка до 50% и услуги за отдельную плату.", offerConsultTitle: "Консультация", offerConsultText: "Если ситуация срочная или непонятная, начните со спокойного разговора.", partnerPdfCta: "Скачать PDF", priceDocxCta: "Скачать Word", consultCta: "Связаться",
       teamFunctionTudor: "Оказывает поддержку «равный равному», основанную на опыте и понимании.",
       voicesEyebrow: "Анонимные истории",
-      voicesTitle: "Голоса восстановления",
+      voicesTitle: "Люди говорят о спокойствии, порядке и поддержке",
       voicesLead: "Восстановление часто начинается не с уверенности, а с первого честного разговора, безопасной среды и поддержки рядом. Имена изменены.",
       voicesNote: "Имена изменены. Истории передают личный опыт восстановления и показывают, как важны безопасная среда, ежедневный ритм и поддержка рядом.",
       voiceChanged: "имя изменено",
@@ -3233,7 +3368,7 @@
       activitiesEyebrow: "Активности в центре", activitiesTitle: "Движение, общение и здоровый отдых", activitiesLead: "Простые активности поддерживают дисциплину, внимание, командность и возвращение к радостям без разрушительных привычек.", act1Title: "Бильярд", act1Text: "Спокойная игра для внимания, выдержки и общения.", act2Title: "Пинг-понг", act2Text: "Лёгкое движение, реакция и радость совместной активности.", act3Title: "Футбольное поле", act3Text: "Командная игра поддерживает дисциплину, сотрудничество и здоровое движение.", act4Title: "Мангал и обеды на свежем воздухе", act4Text: "Общие трапезы создают атмосферу дома и общения.", act5Title: "Двор и отдых на природе", act5Text: "Пространство для прогулок, тишины и здорового ритма.",
       timelineEyebrow: "Один день в центре", timelineTitle: "Спокойный, ясный и предсказуемый ритм.", timelineLead: "Точное расписание может меняться, но каждый день сохраняет порядок, общение, ответственность и время для отдыха.", tl1: "Порядок, гигиена, завтрак и настрой на день", tl2: "Группы, обязанности и индивидуальная работа", tl3: "Активность, спорт, двор и обучение", tl4: "Общение, тишина, молитва по желанию и итоги дня", tl5: "Отдых и восстановление сна",
       admissionEyebrow: "Поступление в программу", admissionTitle: "Как начинается пребывание в центре", admissionLead: "Каждый шаг обсуждается заранее, чтобы человек и семья знали, что будет дальше.", adm1Title: "Звонок и консультация", adm1Text: "Обсуждаем ситуацию, потребности, мотивацию и возможные условия.", adm2Title: "Подготовка и приезд", adm2Text: "Согласовываем дату, документы, необходимые вещи и приезд.", firstDaysTitle: "Первые три дня", firstDaysText: "Знакомство с центром и правилами, спокойная адаптация и первый план сопровождения.", bringTitle: "Что взять с собой", bring1: "Документ, удостоверяющий личность", bring2: "Удобную одежду и сезонную обувь", bring3: "Средства личной гигиены", bring4: "Необходимые личные вещи без излишков", bring5: "Лекарства только после согласования", bringNote: "Полный список можно уточнить во время консультации.", rulesTitle: "Правила, которые помогают восстановлению", rule1: "Уважение к другим участникам", rule2: "Участие в ежедневном ритме", rule3: "Отсутствие алкоголя и наркотических веществ", rule4: "Участие в общих обязанностях", rule5: "Бережное отношение к дому и людям",
-      trustEyebrow: "Почему Optima Fide", trustTitle: "Конкретный аккредитованный центр, открытый диалогу", trustLead: "Доверие начинается с ясных фактов, конкретного адреса и разговора без давления.", trust1: "Государственная аккредитация", trust2: "Резиденциальный формат и 20 мест", trust5: "Поддержка семьи и сопровождение", trust6: "Духовное измерение без давления",
+      trustEyebrow: "Почему Optima Fide", trustTitle: "Аккредитованный центр с открытым и уважительным подходом", trustLead: "Здесь не обещают чудес и не давят на семью быстрыми решениями. Мы показываем конкретные опоры: аккредитацию, адрес, команду, ежедневный ритм и первый разговор без давления.", trust1: "Государственная аккредитация", trust2: "20 резиденциальных мест", trust5: "Поддержка семьи и сопровождение", trust6: "Духовное измерение без давления", trustCta: "Смотреть аккредитацию", trustMeaning3: "Семья получает ясность без давления и стыда.", trustMeaning2: "Можно спокойно поговорить до любого решения.", trustMeaning1: "Есть конкретное место, а не абстрактное обещание.", trustMeaningTitle: "Что это значит для первого шага", trustProof3: "консультаций и ориентирующих разговоров для людей и семей.", trustProof2: "Небольшой формат с проживанием, питанием и ежедневным ритмом под сопровождением команды.", trustProof1: "Услуга реабилитации подтверждена сертификатом, который можно проверить до входа в программу.",
       tourismEyebrow: "Восстановительные поездки", tourismTitle: "Восстановительные поездки по Молдове", tourismLead: "По согласованию и за отдельную плату возможны спокойные поездки к монастырям, природе, Днестру и культурным местам.", additionalFee: "За отдельную плату", tourism1Alt: "Монастырь в Молдове", tourism1Title: "Монастыри Молдовы", tourism1Text: "Спокойные духовные места для молитвы, размышления и внутреннего восстановления.", tourism2Title: "Пейзажи и природа", tourism2Text: "Холмы, сёла и природные маршруты для спокойной смены обстановки.", tourism3Title: "Днестр и природные маршруты", tourism3Text: "Вода, простор, прогулки и разговоры в спокойной обстановке.", tourism4Title: "Рыбалка и отдых на природе", tourism4Text: "Простой спокойный отдых у воды по предварительному согласованию.", tourism5Title: "Культурные и духовные места", tourism5Text: "Знакомство с Молдовой через исторические, культурные и духовные места.", tourism6Title: "Индивидуальные выезды", tourism6Text: "Маршруты обсуждаются индивидуально с учётом состояния и правил программы.", tourismNoteTitle: "По согласованию и за отдельную плату", tourismNoteText: "Поездки организуются с учётом состояния участника, правил программы, погоды и предварительного согласования. Стоимость обсуждается отдельно.",
       optionalEyebrow: "Честное предложение", optionalTitle: "Что входит в программу и что согласуется отдельно", optionalLead: "Мы чётко отделяем базовую программу от дополнительных услуг, чтобы семья могла принять информированное решение.", baseTitle: "В базовую программу входит", base1: "Проживание и питание", base2: "Ежедневный ритм и группы", base3: "Индивидуальное сопровождение", base4: "Духовная поддержка по желанию и поддержка семьи", base5: "Активности в центре и подготовка к реинтеграции", paidTitle: "Согласуется и оплачивается отдельно", paid1: "Восстановительные поездки по Молдове", paid2: "Массаж и парикмахер", paid3: "Консультации профильных специалистов", paid4: "Анализы и обследования", paid5: "Транспорт и индивидуальные услуги",
       service1Title: "Массаж", service1Text: "Может помочь расслабиться и снять напряжение. Доступен по предварительной записи.", service2Title: "Парикмахер", service2Text: "Поддерживает уход за собой, достоинство и чувство порядка.", service3Title: "Консультация врача-хирурга", service3Text: "При необходимости консультация может быть организована через профильного специалиста.", service4Title: "Консультанты из наркологии", service4Text: "Консультации могут быть организованы через специалистов для оценки и рекомендаций.", service5Title: "Анализы и обследования", service5Text: "Организуются через профильные медицинские учреждения и лаборатории.", service6Title: "Индивидуальные услуги", service6Text: "Транспорт, сопровождение, запись к специалистам и другие практические потребности.", legalTitle: "Важно понимать", legalText: "Медицинские консультации, анализы и обследования организуются через профильных специалистов и учреждения. Optima Fide не заменяет неотложную медицинскую помощь, стационарную психиатрию или экстренную детоксикацию.",
@@ -3264,7 +3399,7 @@
       offersEyebrow: "PDF materials", offersTitle: "Download the right offer", offersLead: "Short materials for families, partners, donors and the service price list.", offerFamilyTitle: "Family PDF", offerFamilyText: "Program, conditions, first days, what is included and how to begin.", offerPartnerTitle: "Partner PDF", offerPartnerText: "Mission, accreditation, infrastructure, results, partnership and bank details.", offerPriceTitle: "Word price list", offerPriceText: "Recommended prices, social discount up to 50% and separately paid services.", offerConsultTitle: "Consultation", offerConsultText: "If the situation is urgent or unclear, begin with a calm conversation.", partnerPdfCta: "Download PDF", priceDocxCta: "Download Word", consultCta: "Contact us",
       teamFunctionTudor: "Provides peer-to-peer support grounded in experience and understanding.",
       voicesEyebrow: "Anonymous stories",
-      voicesTitle: "Voices of recovery",
+      voicesTitle: "People speak about calm, order and support",
       voicesLead: "Recovery often begins not with certainty, but with a first honest conversation, a safe environment and support nearby. Names have been changed.",
       voicesNote: "Names have been changed. These stories reflect recovery experiences and show the importance of a safe environment, daily rhythm and support nearby.",
       voiceChanged: "name changed",
@@ -3289,7 +3424,7 @@
       activitiesEyebrow: "Activities at the center", activitiesTitle: "Movement, communication and healthy rest", activitiesLead: "Simple activities support discipline, attention, teamwork and a return to joy without destructive habits.", act1Title: "Billiards", act1Text: "A calm activity for attention, patience and communication.", act2Title: "Table tennis", act2Text: "Light movement, reaction and the joy of shared activity.", act3Title: "Football field", act3Text: "Team play supports discipline, cooperation and healthy movement.", act4Title: "Barbecue and outdoor meals", act4Text: "Shared meals create a home-like atmosphere and communication.", act5Title: "Courtyard and outdoor rest", act5Text: "Space for walks, quiet and a healthy rhythm.",
       timelineEyebrow: "A day at the center", timelineTitle: "A calm, clear and predictable rhythm.", timelineLead: "The exact schedule may vary, but each day keeps order, communication, responsibility and time for rest.", tl1: "Order, hygiene, breakfast and preparing for the day", tl2: "Groups, responsibilities and individual work", tl3: "Activity, sport, courtyard and learning", tl4: "Communication, quiet, optional prayer and reflection", tl5: "Rest and rebuilding sleep",
       admissionEyebrow: "Entering the program", admissionTitle: "How the stay at the center begins", admissionLead: "Each step is discussed in advance so the person and family know what comes next.", adm1Title: "Call and consultation", adm1Text: "We discuss the situation, needs, motivation and possible conditions.", adm2Title: "Preparation and arrival", adm2Text: "We agree on timing, documents, necessary belongings and arrival.", firstDaysTitle: "The first three days", firstDaysText: "Getting to know the center and rules, calm adaptation and an initial support plan.", bringTitle: "What to bring", bring1: "Identity document", bring2: "Comfortable clothes and seasonal footwear", bring3: "Personal hygiene items", bring4: "Necessary personal belongings without excess", bring5: "Medicines only after prior agreement", bringNote: "The full list can be clarified during consultation.", rulesTitle: "Rules that support recovery", rule1: "Respect for other participants", rule2: "Participation in the daily rhythm", rule3: "No alcohol or narcotic substances", rule4: "Shared responsibilities", rule5: "Care for the home and people",
-      trustEyebrow: "Why Optima Fide", trustTitle: "A concrete accredited center open to dialogue", trustLead: "Trust begins with clear facts, a concrete address and a conversation without pressure.", trust1: "State accreditation", trust2: "Residential format and 20 places", trust5: "Family support and accompaniment", trust6: "Spiritual dimension without pressure",
+      trustEyebrow: "Why Optima Fide", trustTitle: "An accredited center with an open, respectful approach", trustLead: "We do not promise miracles or push families toward rushed decisions. We show concrete anchors: accreditation, address, team, daily rhythm and a first conversation without pressure.", trust1: "State accreditation", trust2: "20 residential places", trust5: "Family support and accompaniment", trust6: "Spiritual dimension without pressure", trustCta: "View accreditation", trustMeaning3: "Family receives clarity without pressure or shame.", trustMeaning2: "You can talk calmly before making any decision.", trustMeaning1: "There is a concrete place, not an abstract promise.", trustMeaningTitle: "What this means for the first step", trustProof3: "consultations and orientation conversations for people and families.", trustProof2: "A small residential format with accommodation, meals and a daily rhythm followed by the team.", trustProof1: "The rehabilitation service is confirmed by certificate and can be checked before admission.",
       tourismEyebrow: "Recovery outings", tourismTitle: "Recovery outings across Moldova", tourismLead: "Upon request and for an additional fee, calm outings may be arranged to monasteries, nature, the Dniester and cultural places.", additionalFee: "Additional fee", tourism1Alt: "Monastery in Moldova", tourism1Title: "Monasteries of Moldova", tourism1Text: "Peaceful spiritual places for prayer, reflection and inner recovery.", tourism2Title: "Landscapes and nature", tourism2Text: "Hills, villages and natural routes for a calm change of environment.", tourism3Title: "Dniester and nature routes", tourism3Text: "Water, space, walks and conversation in a peaceful setting.", tourism4Title: "Fishing and outdoor rest", tourism4Text: "Simple calm rest near water arranged by prior agreement.", tourism5Title: "Cultural and spiritual places", tourism5Text: "Discovering Moldova through historical, cultural and spiritual places.", tourism6Title: "Individual outings", tourism6Text: "Routes are discussed individually according to condition and program rules.", tourismNoteTitle: "By prior agreement and for an additional fee", tourismNoteText: "Outings depend on participant condition, program rules, weather and prior agreement. Cost is discussed separately.",
       optionalEyebrow: "A clear offer", optionalTitle: "What is included and what is arranged separately", optionalLead: "We clearly separate the base program from optional services so families can make an informed decision.", baseTitle: "The base program includes", base1: "Accommodation and meals", base2: "Daily rhythm and groups", base3: "Individual accompaniment", base4: "Optional spiritual support and family support", base5: "Center activities and reintegration preparation", paidTitle: "Arranged and paid separately", paid1: "Recovery outings across Moldova", paid2: "Massage and hairdresser", paid3: "Consultations through specialized professionals", paid4: "Tests and examinations", paid5: "Transport and individual services",
       service1Title: "Massage", service1Text: "May help relaxation and reduce tension. Available by prior appointment.", service2Title: "Hairdresser", service2Text: "Supports personal care, dignity and a sense of order.", service3Title: "Surgical doctor consultation", service3Text: "If needed, a consultation may be arranged through a specialized doctor.", service4Title: "Addiction medicine consultants", service4Text: "Consultations may be arranged through specialists for assessment and recommendations.", service5Title: "Tests and examinations", service5Text: "Arranged through specialized medical institutions and laboratories.", service6Title: "Individual services", service6Text: "Transport, accompaniment, specialist appointments and other practical needs.", legalTitle: "Important to understand", legalText: "Medical consultations, tests and examinations are arranged through specialized professionals and institutions. Optima Fide does not replace emergency medical care, inpatient psychiatry or emergency detoxification.",

@@ -12,6 +12,7 @@ required_markup = (
     'class="app-icon" src="assets/icons/telegram.svg"',
     'class="app-icon" src="assets/icons/whatsapp.svg"',
     ".nav-actions > .btn.gold { white-space: nowrap; min-width: 132px;",
+    ".mobile-cta-label { font-size: .68rem; line-height: 1.1; white-space: nowrap;",
 )
 
 for marker in required_markup:

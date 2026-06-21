@@ -1825,7 +1825,8 @@
     main > .hero { order: 1; }
     #consultatie { order: 2; }
     #admission { order: 3; }
-    #trust { order: 4; }
+    #trust, #acreditare { order: 4; }
+    .section-anchor { display: block; height: 0; scroll-margin-top: 96px; }
     #life-center, #recovery-spaces { order: 5; }
     #visual-program, #program { order: 6; }
     #familie { order: 7; }
@@ -2298,32 +2299,7 @@
       </div>
     </section>
 
-    <section class="section" id="trust">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <div class="eyebrow" data-i18n="trustEyebrow">De ce Optima Fide</div>
-          <h2 data-i18n="trustTitle">Centru acreditat, cu un început clar și respectuos</h2>
-          <p data-i18n="trustLead">Nu promitem miracole și nu împingem familia spre decizii rapide. Arătăm ce există concret: acreditare, adresă, echipă, ritm zilnic și un prim dialog fără presiune.</p>
-        </div>
-        <div class="trust-grid">
-          <article class="trust-card featured" data-reveal>
-            <div><h3 data-i18n="trust1">Acreditare de stat</h3><p data-i18n="trustProof1">Serviciul de reabilitare este confirmat prin certificat și poate fi verificat înainte de intrarea în program.</p></div>
-            <a class="btn light" href="#acreditare" data-i18n="trustCta">Vezi acreditarea</a>
-          </article>
-          <article class="trust-card" data-reveal><h3 data-i18n="trust2">20 de locuri rezidențiale</h3><p data-i18n="trustProof2">Un format mic, cu cazare, masă și ritm zilnic urmărit de echipă.</p></article>
-          <article class="trust-card" data-reveal><h3>19 000+</h3><p data-i18n="trustProof3">consultații și orientări oferite persoanelor și familiilor.</p></article>
-          <div class="trust-meaning" data-reveal>
-            <h3 data-i18n="trustMeaningTitle">Ce înseamnă asta pentru primul pas</h3>
-            <ul>
-              <li data-i18n="trustMeaning1">Aveți un loc concret, nu o promisiune abstractă.</li>
-              <li data-i18n="trustMeaning2">Puteți discuta înainte de orice decizie.</li>
-              <li data-i18n="trustMeaning3">Familia primește claritate fără presiune sau rușinare.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <div class="section-anchor" id="trust" aria-hidden="true"></div>
     <section class="section soft" id="acreditare">
       <div class="container accreditation-card" data-reveal>
         <button class="certificate-button" type="button" data-lightbox="assets/images/accreditation-certificate-clean.webp" aria-label="Deschide certificatul de acreditare">

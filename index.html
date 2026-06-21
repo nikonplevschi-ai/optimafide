@@ -9,7 +9,7 @@
   <meta name="description" content="Cazare, masă, program rezidențial de recuperare, sprijin pentru familie și acreditare de stat la centrul Optima Fide din Moldova.">
   <meta property="og:title" content="Optima Fide — centru rezidențial de recuperare în Moldova">
   <meta property="og:description" content="Cazare, masă, program rezidențial de recuperare, sprijin pentru familie și acreditare de stat.">
-  <meta property="og:image" content="https://optimafide.pages.dev/assets/images/hero-center.webp">
+  <meta property="og:image" content="https://optimafide.pages.dev/assets/images/hero/hero-center-premium.webp">
   <meta property="og:image:alt" content="Centrul rezidențial Optima Fide, Goianul Nou, Stăuceni">
   <meta property="og:url" content="https://optimafide.pages.dev/">
   <meta property="og:type" content="website">
@@ -37,6 +37,25 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
+      --font-heading: "Cormorant Garamond", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --of-ivory: #f7f2e8;
+      --of-cream: #fbf8f0;
+      --of-warm-white: #fffdf7;
+      --of-green-950: #06261f;
+      --of-green-900: #0b372c;
+      --of-green-800: #13493a;
+      --of-green-700: #1f5c49;
+      --of-sage: #8fa086;
+      --of-sage-soft: rgba(143, 160, 134, .22);
+      --of-gold: #c99a3d;
+      --of-gold-soft: #d9b86c;
+      --of-gold-dark: #9d762b;
+      --of-text: #10251f;
+      --of-muted: #5f6f67;
+      --of-border: rgba(16, 37, 31, .12);
+      --of-shadow-soft: 0 24px 80px rgba(18, 44, 36, .14);
+      --of-shadow-card: 0 12px 38px rgba(18, 44, 36, .10);
       --bg: #f8f3ea;
       --soft: #efe7da;
       --card: #fffdf8;
@@ -55,7 +74,7 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--font-body);
       color: var(--text);
       background: var(--bg);
       line-height: 1.6;
@@ -64,7 +83,7 @@
     body.menu-open { overflow: hidden; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
-    h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 700; line-height: 1.04; color: var(--green); text-wrap: balance; }
+    h1, h2, h3 { margin: 0; font-family: var(--font-heading); font-weight: 700; line-height: 1.04; color: var(--green); text-wrap: balance; }
     p { margin: 0; }
     button, input, select, textarea { font: inherit; }
     .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
@@ -117,10 +136,11 @@
       position: fixed;
       inset: 0 0 auto;
       z-index: 50;
-      background: rgba(255,253,248,.94);
-      border-bottom: 1px solid rgba(226,215,198,.78);
-      box-shadow: 0 8px 28px rgba(38,49,45,.045);
-      backdrop-filter: blur(16px);
+      background: rgba(255,253,247,.88);
+      border-bottom: 1px solid rgba(16,37,31,.08);
+      box-shadow: 0 8px 30px rgba(18,44,36,.04);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
     .nav {
       height: 78px;
@@ -146,14 +166,16 @@
       object-fit: contain;
       padding: 4px;
     }
-    .brand strong { display: block; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.45rem; font-weight: 700; letter-spacing: .01em; line-height: 1; }
+    .brand strong { display: block; font-family: var(--font-heading); font-size: clamp(1.35rem, 1.6vw, 1.75rem); font-weight: 700; letter-spacing: .01em; line-height: 1; color: var(--of-green-950); }
     .brand span span { display: block; color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 18px; }
-    .nav-links a { position: relative; color: var(--text); font-family: Inter, sans-serif; font-size: .92rem; font-weight: 600; letter-spacing: .01em; text-decoration: none; transition: color .2s ease; }
+    .nav-links .nav-secondary { display: none; }
+    .nav-links a { position: relative; color: rgba(16,37,31,.84); font-family: var(--font-body); font-size: .92rem; font-weight: 600; line-height: 1; letter-spacing: .01em; text-decoration: none; transition: color .22s ease, transform .22s ease; }
     .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: center; transition: transform .2s ease; }
-    .nav-links a:hover { color: var(--green-2); }
+    .nav-links a:hover { color: var(--of-gold-dark); transform: translateY(-1px); }
     .nav-links a:hover::after { transform: scaleX(1); }
     .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .header-phone { color: var(--of-green-950); font-size: .92rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
     .nav-actions > .btn.gold { min-height: 44px; padding-inline: 20px; background: #d1ad66; box-shadow: 0 8px 22px rgba(186,145,72,.18); }
     .nav-actions > .btn.gold:hover { background: #d8b873; }
     .lang-switch {
@@ -190,110 +212,166 @@
       cursor: pointer;
     }
     .hero {
-      padding: 102px 24px 48px;
-      color: var(--white);
       position: relative;
+      padding: 102px clamp(18px, 2.5vw, 34px) 48px;
+      color: var(--of-text);
       background:
-        radial-gradient(circle at 12% 20%, rgba(144,160,128,.18), transparent 34%),
-        radial-gradient(circle at 88% 12%, rgba(107,126,92,.16), transparent 30%),
-        var(--bg);
+        radial-gradient(circle at 10% 10%, rgba(217,184,108,.16), transparent 34%),
+        radial-gradient(circle at 90% 12%, rgba(143,160,134,.24), transparent 32%),
+        linear-gradient(180deg, var(--of-ivory) 0%, #efe8d8 100%);
     }
     .hero-frame {
       position: relative;
       width: min(1380px, 100%);
-      min-height: min(780px, calc(100vh - 126px));
+      min-height: clamp(620px, 74vh, 780px);
       margin: 0 auto;
       overflow: hidden;
-      border: 1px solid rgba(226,215,198,.82);
-      border-radius: 34px;
+      border: 1px solid rgba(16,37,31,.1);
+      border-radius: clamp(24px, 3vw, 36px);
       background:
-        radial-gradient(circle at 78% 20%, rgba(144,160,128,.24), transparent 40%),
-        radial-gradient(circle at 18% 70%, rgba(107,126,92,.22), transparent 42%),
-        linear-gradient(145deg, rgba(230,225,214,.82), rgba(198,207,190,.72));
-      box-shadow: 0 30px 90px rgba(38,49,45,.17);
+        linear-gradient(90deg, rgba(255,253,247,.98) 0%, rgba(255,253,247,.91) 34%, rgba(255,253,247,.42) 58%, rgba(255,253,247,.08) 100%),
+        radial-gradient(circle at 12% 88%, rgba(143,160,134,.26), transparent 34%),
+        radial-gradient(circle at 72% 12%, rgba(217,184,108,.16), transparent 28%),
+        var(--of-cream);
+      box-shadow: var(--of-shadow-soft);
+      animation: heroEnter .7s cubic-bezier(.22,1,.36,1) both;
+    }
+    .hero-frame::before,
+    .hero-frame::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(42px);
+      transform: translate3d(0,0,0);
+    }
+    .hero-frame::before {
+      width: 520px;
+      height: 360px;
+      left: -120px;
+      bottom: -90px;
+      background: radial-gradient(circle, rgba(143,160,134,.34), rgba(143,160,134,.16) 42%, transparent 72%);
+      animation: heroMistA 16s ease-in-out infinite alternate;
+    }
+    .hero-frame::after {
+      width: 620px;
+      height: 420px;
+      right: -150px;
+      top: -90px;
+      background: radial-gradient(circle, rgba(217,184,108,.22), rgba(143,160,134,.18) 42%, transparent 72%);
+      animation: heroMistB 19s ease-in-out infinite alternate;
     }
     .hero-media {
       position: absolute;
-      inset: 18px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border-radius: 24px;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      pointer-events: none;
     }
     .hero-media::before {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(90deg, rgba(17,31,25,.5) 0%, rgba(17,31,25,.16) 43%, transparent 72%),
-        linear-gradient(180deg, transparent 45%, rgba(12,22,18,.48) 100%);
-      pointer-events: none;
+      z-index: 2;
+      background: linear-gradient(90deg, var(--of-warm-white) 0%, rgba(255,253,247,.97) 31%, rgba(255,253,247,.65) 48%, rgba(255,253,247,.12) 72%, transparent 100%);
     }
     .hero-media img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      max-width: none;
+      width: min(74%, 1040px);
+      height: auto;
+      max-height: 90%;
       object-fit: contain;
-      object-position: center center;
-      filter: saturate(.9) contrast(.98);
+      object-position: center right;
+      filter: saturate(.96) contrast(.98);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.64) 16%, #000 36%);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.64) 16%, #000 36%);
     }
     .hero-layout {
       position: relative;
-      z-index: 2;
-      min-height: min(780px, calc(100vh - 126px));
-      padding: 48px 0;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
+      z-index: 4;
+      width: 100%;
+      min-height: clamp(620px, 74vh, 780px);
+      padding: clamp(30px, 5vw, 72px);
+      padding-bottom: clamp(92px, 9vw, 118px);
+      display: flex;
       align-items: center;
-      gap: 34px;
       pointer-events: none;
     }
-    .hero-copy { min-width: 0; max-width: 780px; pointer-events: auto; }
-    .hero-caption {
-      position: absolute;
-      right: 6px;
-      bottom: 28px;
-      color: rgba(255,255,255,.86);
-      font-size: .78rem;
+    .hero-copy { min-width: 0; max-width: 640px; pointer-events: auto; }
+    .hero-title {
+      max-width: 760px;
+      margin: 0 0 clamp(18px, 2.3vw, 28px);
+      color: var(--of-green-950);
+      font-family: var(--font-heading);
+      font-size: clamp(3.4rem, 6.4vw, 5.8rem);
       font-weight: 700;
-      text-shadow: 0 2px 12px rgba(0,0,0,.34);
-    }
-    .hero h1 {
-      color: var(--white);
-      font-size: clamp(2.7rem, 6vw, 5.9rem);
-      max-width: 850px;
+      line-height: .96;
+      letter-spacing: -.035em;
+      text-wrap: balance;
       overflow-wrap: normal;
       word-break: normal;
     }
-    .hero p {
-      max-width: 760px;
-      margin-top: 22px;
-      color: rgba(255,255,255,.9);
-      font-size: clamp(1.06rem, 1.7vw, 1.32rem);
+    .hero-subtitle {
+      max-width: 580px;
+      margin: 0 0 clamp(26px, 3vw, 38px);
+      color: rgba(16,37,31,.82);
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
+      font-weight: 500;
+      line-height: 1.55;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 24px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .hero-actions .btn { min-height: 52px; padding: 0 24px; font-family: var(--font-body); font-size: .96rem; font-weight: 800; }
+    .hero-primary { border: 1px solid rgba(157,118,43,.24); background: linear-gradient(180deg, #d4ad5b, var(--of-gold)); color: #112720; box-shadow: 0 14px 34px rgba(157,118,43,.24); }
+    .hero-secondary { border: 1px solid rgba(16,37,31,.12); background: rgba(255,253,247,.86); color: var(--of-green-950); box-shadow: 0 10px 26px rgba(18,44,36,.08); }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; max-width: 720px; margin-bottom: clamp(22px, 3vw, 34px); }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       max-width: 100%;
-      min-height: 34px;
-      padding: 0 13px;
-      border: 1px solid rgba(255,255,255,.32);
+      min-height: 32px;
+      padding: 7px 12px;
+      border: 1px solid rgba(16,37,31,.1);
       border-radius: 999px;
-      background: rgba(255,255,255,.12);
-      color: rgba(255,255,255,.94);
-      font-size: .78rem;
-      font-weight: 900;
-      letter-spacing: .04em;
-      text-transform: uppercase;
+      background: rgba(255,253,247,.72);
+      color: rgba(16,37,31,.82);
+      box-shadow: 0 8px 24px rgba(18,44,36,.08);
+      font-family: var(--font-body);
+      font-size: clamp(.72rem, .85vw, .84rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: .01em;
       white-space: normal;
       overflow-wrap: anywhere;
-      backdrop-filter: blur(9px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
+    .hero-trust-line {
+      position: absolute;
+      left: clamp(30px, 5vw, 72px);
+      right: clamp(30px, 5vw, 72px);
+      bottom: clamp(20px, 3vw, 34px);
+      z-index: 4;
+      color: rgba(16,37,31,.72);
+      font-family: var(--font-body);
+      font-size: clamp(.78rem, .92vw, .92rem);
+      font-weight: 650;
+      line-height: 1.5;
+      letter-spacing: .01em;
+    }
+    .hero--family .hero-frame { background: linear-gradient(105deg, rgba(255,253,247,.98), rgba(247,242,232,.78)), var(--of-cream); }
+    .hero--family .hero-frame::before { opacity: .82; }
+    .hero--trust .hero-frame { background: linear-gradient(105deg, rgba(255,253,247,.96), rgba(143,160,134,.36)), var(--of-cream); }
+    .hero--trust .hero-badge { border-color: rgba(11,55,44,.2); }
+    .hero-badge,
+    .hero-title,
+    .hero-subtitle,
+    .hero-actions { animation: heroContentEnter .76s cubic-bezier(.22,1,.36,1) both; }
+    .hero-title { animation-delay: 90ms; }
+    .hero-subtitle { animation-delay: 150ms; }
+    .hero-actions { animation-delay: 210ms; }
     .stay-card {
       border: 1px solid rgba(255,255,255,.34);
       border-radius: var(--radius);
@@ -885,7 +963,9 @@
       border-radius: 34px;
       background: var(--soft);
       box-shadow: var(--shadow);
+      transition: opacity .24s ease, transform .24s ease;
     }
+    body.hero-visible .mobile-cta { opacity: 0; transform: translateY(calc(100% + 24px)); pointer-events: none; }
     .story-photo img { width: 100%; height: 100%; min-height: 620px; object-fit: cover; }
     .story-copy h2 { max-width: 680px; font-size: clamp(2.7rem, 5vw, 5.4rem); }
     .story-copy > p { max-width: 620px; margin-top: 22px; color: var(--muted); font-size: clamp(1.02rem, 1.5vw, 1.22rem); }
@@ -973,9 +1053,11 @@
       .nav-links.open { display: flex; }
       .nav-links.open { animation: navMenuIn .22s ease both; }
       .nav-links a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+      .nav-links .nav-secondary { display: block; }
       .nav-links a::after { display: none; }
       .menu-toggle { display: inline-flex; }
       .nav-actions .btn { display: none; }
+      .header-phone { display: none; }
       .hero-layout, .intake-form, .family-layout, .donation-layout, .contact-layout, .accreditation-card { grid-template-columns: 1fr; }
       .story-layout, .story-layout.reverse, .day-scene-grid, .visual-story-grid { grid-template-columns: 1fr; }
       .visual-story.reverse .visual-story-copy { order: initial; }
@@ -1077,6 +1159,51 @@
       .mobile-cta { display: grid; }
       .site-footer { padding-bottom: 96px; }
     }
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .hero-frame, .hero-layout { min-height: 640px; }
+      .hero-layout { padding: 48px; padding-bottom: 96px; }
+      .hero-copy { max-width: 560px; }
+      .hero-title { font-size: clamp(3.2rem, 6vw, 5rem); }
+      .hero-media { position: absolute; inset: 0; margin: 0; aspect-ratio: auto; border-radius: inherit; }
+      .hero-media::before { background: linear-gradient(90deg, var(--of-warm-white) 0%, rgba(255,253,247,.97) 35%, rgba(255,253,247,.72) 54%, rgba(255,253,247,.16) 80%, transparent 100%); }
+      .hero-media img { width: 68%; max-height: 88%; opacity: .92; }
+    }
+    @media (max-width: 768px) {
+      .hero { min-height: auto; padding: 80px 12px 32px; color: var(--of-text); }
+      .hero-frame { min-height: auto; border-radius: 24px; display: flex; flex-direction: column; }
+      .hero-media { position: relative; inset: auto; order: 1; min-height: 0; aspect-ratio: auto; margin: 0; padding: 16px 14px 0; justify-content: center; border-radius: 0; }
+      .hero-media::before { background: linear-gradient(180deg, transparent 62%, rgba(251,248,240,.76) 100%); }
+      .hero-media img { width: 100%; height: auto; max-height: 280px; object-fit: contain; object-position: center; opacity: 1; -webkit-mask-image: none; mask-image: none; }
+      .hero-layout { order: 2; min-height: auto; padding: 24px 20px 0; display: flex; flex-direction: column; align-items: stretch; pointer-events: auto; }
+      .hero-copy { order: 2; max-width: none; }
+      .hero-badges { display: flex; gap: 6px; margin-bottom: 18px; }
+      .hero-badge, .hero-badge:first-child { grid-column: auto; min-height: 28px; padding: 6px 10px; font-size: .7rem; line-height: 1.2; }
+      .hero-title, .hero h1 { margin-bottom: 16px; color: var(--of-green-950); font-size: clamp(2.6rem, 12.5vw, 3.55rem); line-height: .98; letter-spacing: -.03em; }
+      .hero-subtitle, .hero p { max-width: none; margin: 0 0 22px; color: rgba(16,37,31,.82); font-size: 1rem; line-height: 1.48; }
+      .hero-actions { display: flex; flex-direction: column; align-items: stretch; gap: 10px; margin: 0; }
+      .hero-actions .btn, .hero-actions .btn:first-child, .hero .hero-actions .btn:last-child { width: 100%; min-height: 50px; padding: 0 18px; grid-column: auto; }
+      .hero-trust-line { position: relative; order: 3; left: auto; right: auto; bottom: auto; width: 100%; margin-top: 22px; padding: 18px 0 22px; border-top: 1px solid rgba(16,37,31,.1); font-size: .78rem; }
+      .hero-frame::before { width: 360px; height: 260px; left: -150px; bottom: 12%; }
+      .hero-frame::after { width: 390px; height: 280px; right: -190px; top: -80px; }
+    }
+    @keyframes heroEnter {
+      from { opacity: 0; transform: translateY(18px) scale(.992); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes heroContentEnter {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroMistA {
+      0% { transform: translate3d(0,0,0) scale(1); opacity: .58; }
+      50% { transform: translate3d(26px,-18px,0) scale(1.06); opacity: .74; }
+      100% { transform: translate3d(48px,-8px,0) scale(1.02); opacity: .64; }
+    }
+    @keyframes heroMistB {
+      0% { transform: translate3d(0,0,0) scale(1); opacity: .5; }
+      50% { transform: translate3d(-32px,20px,0) scale(1.08); opacity: .68; }
+      100% { transform: translate3d(-16px,36px,0) scale(1.03); opacity: .58; }
+    }
     @keyframes navMenuIn {
       from { opacity: 0; transform: translateY(-8px); }
       to { opacity: 1; transform: translateY(0); }
@@ -1094,13 +1221,14 @@
         <a href="#centru" data-i18n="navCenter">Centrul</a>
         <a href="#program" data-i18n="navProgram">Programul</a>
         <a href="#conditii" data-i18n="navStay">Condiții de ședere</a>
-        <a href="#echipa" data-i18n="navTeam">Echipa</a>
-        <a href="#turism" data-i18n="navTourism">Turism</a>
+        <a class="nav-secondary" href="#echipa" data-i18n="navTeam">Echipa</a>
+        <a class="nav-secondary" href="#turism" data-i18n="navTourism">Turism</a>
         <a href="#familie" data-i18n="navFamily">Pentru familie</a>
         <a href="#donatii" data-i18n="navDonate">Donații</a>
         <a href="#contacte" data-i18n="navContact">Contacte</a>
       </nav>
       <div class="nav-actions">
+        <a class="header-phone" href="tel:+37379002064">0790 02 064</a>
         <div class="lang-switch" aria-label="Schimbare limbă">
           <a href="#" data-lang="ro" class="active">RO</a>
           <a href="#" data-lang="ru">RU</a>
@@ -1115,13 +1243,13 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero hero--calm" aria-labelledby="hero-title">
       <div class="hero-frame">
-        <div class="hero-media" aria-hidden="true">
-          <img src="assets/images/center-building.webp" alt="">
+        <div class="hero-media">
+          <img src="assets/images/hero/hero-center-premium.webp" data-i18n-alt="heroImageAlt" alt="Centrul rezidențial Optima Fide">
         </div>
-        <div class="container hero-layout">
-          <div class="hero-copy" data-reveal>
+        <div class="hero-layout">
+          <div class="hero-copy">
             <div class="hero-badges">
               <span class="hero-badge" data-i18n="badgeAccreditation">Acreditare de stat</span>
               <span class="hero-badge" data-i18n="badgeDuration">Durată flexibilă</span>
@@ -1129,16 +1257,14 @@
               <span class="hero-badge" data-i18n="badgeFamily">Sprijin pentru familie</span>
               <span class="hero-badge" data-i18n="badgePlace">Goianul Nou, Stăuceni</span>
             </div>
-            <h1 id="hero-title" data-i18n="heroTitle">Un loc unde te poți opri, te poți recupera și poți începe din nou</h1>
-            <p data-i18n="heroLead">Cazare, masă, ritm zilnic, comunitate terapeutică, sprijin psihosocial, spiritual și suport pentru familie într-un centru acreditat de stat. Durata se stabilește după consultație: 3 zile, 7 zile, 2 săptămâni, 1 lună, 3 luni, 6 luni sau 1 an.</p>
+            <h1 class="hero-title" id="hero-title" data-i18n="heroTitle">Un loc unde te poți opri și începe din nou</h1>
+            <p class="hero-subtitle" data-i18n="heroLead">Program rezidențial de recuperare: cazare, masă, ritm zilnic, comunitate terapeutică și sprijin pentru familie.</p>
             <div class="hero-actions">
-              <a class="btn gold" href="#consultatie" data-i18n="heroConsult">Solicită consultație</a>
-              <a class="btn light" href="#conditii" data-i18n="heroStay">Vezi condițiile</a>
-              <a class="btn light" href="tel:+37379002064" data-i18n="heroCall">Sună acum</a>
-              <a class="btn light" href="#" data-contact-modal data-i18n="telegramCta">Scrie pe Telegram</a>
+              <a class="btn hero-primary" href="#consultatie" data-i18n="heroConsult">Solicită o consultație</a>
+              <a class="btn hero-secondary" href="#" data-contact-modal data-i18n="telegramCta">Scrie în Telegram</a>
             </div>
           </div>
-          <p class="hero-caption" data-i18n="heroCaption">Centrul rezidențial Optima Fide, Goianul Nou, Stăuceni</p>
+          <div class="hero-trust-line" data-i18n="heroTrustLine">Acreditare · 20 locuri · 500+ persoane sprijinite · confidențial</div>
         </div>
       </div>
     </section>
@@ -2671,6 +2797,45 @@
       activityStoryEyebrow: "Activities and movement", activityStoryTitle: "Recovery is not only conversations", activityStoryText: "Movement, work, community life, walks and simple daily responsibilities help restore inner order.", activityPoint1: "Movement and sport", activityPoint2: "Work and responsibility", activityPoint3: "Rest and a healthy rhythm"
       ,familyAnswer1: "We begin with a calm conversation without threats or blame.", familyAnswer2: "Together we clarify conditions, practical needs and first steps.", familyAnswer3: "We help families keep healthy boundaries and respectful communication.", familyAnswer4: "Returning home is prepared gradually, with clear support and responsibility."
     });
+    Object.assign(translations.ro, {
+      badgeAccreditation: "Acreditare de stat",
+      badgeDuration: "Program 6–12 luni",
+      badgeBoard: "Cazare și masă",
+      badgeFamily: "20 locuri",
+      badgePlace: "Goianul Nou, Stăuceni",
+      heroTitle: "Un loc unde te poți opri și începe din nou",
+      heroLead: "Program rezidențial de recuperare: cazare, masă, ritm zilnic, comunitate terapeutică și sprijin pentru familie.",
+      heroConsult: "Solicită o consultație",
+      telegramCta: "Scrie în Telegram",
+      heroTrustLine: "Acreditare · 20 locuri · 500+ persoane sprijinite · confidențial",
+      heroImageAlt: "Centrul rezidențial Optima Fide din Goianul Nou"
+    });
+    Object.assign(translations.ru, {
+      badgeAccreditation: "Государственная аккредитация",
+      badgeDuration: "Программа 6–12 месяцев",
+      badgeBoard: "Проживание и питание",
+      badgeFamily: "20 мест",
+      badgePlace: "Goianul Nou, Stăuceni",
+      heroTitle: "Место, где можно остановиться и начать заново",
+      heroLead: "Резиденциальная программа восстановления: проживание, питание, ежедневный ритм, сообщество и поддержка семьи.",
+      heroConsult: "Запросить консультацию",
+      telegramCta: "Написать в Telegram",
+      heroTrustLine: "Аккредитация · 20 мест · 500+ человек получили помощь · конфиденциально",
+      heroImageAlt: "Резиденциальный центр Optima Fide в Goianul Nou"
+    });
+    Object.assign(translations.en, {
+      badgeAccreditation: "State accreditation",
+      badgeDuration: "6–12 month program",
+      badgeBoard: "Accommodation and meals",
+      badgeFamily: "20 places",
+      badgePlace: "Goianul Nou, Stăuceni",
+      heroTitle: "A place to pause, recover and begin again",
+      heroLead: "A residential recovery program with accommodation, meals, daily rhythm, community support and family guidance.",
+      heroConsult: "Request a consultation",
+      telegramCta: "Write on Telegram",
+      heroTrustLine: "Accredited · 20 residential places · 500+ people supported · confidential",
+      heroImageAlt: "Optima Fide residential center in Goianul Nou"
+    });
 
     const languageLinks = document.querySelectorAll("[data-lang]");
     const translatable = document.querySelectorAll("[data-i18n]");
@@ -2925,6 +3090,14 @@
       revealItems.forEach((item) => observer.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add("visible"));
+    }
+
+    const heroSection = document.querySelector(".hero");
+    if (heroSection && "IntersectionObserver" in window) {
+      const heroObserver = new IntersectionObserver(([entry]) => {
+        document.body.classList.toggle("hero-visible", entry.isIntersecting);
+      }, { threshold: .08 });
+      heroObserver.observe(heroSection);
     }
 
     setLanguage(currentLang);

@@ -59,6 +59,12 @@ REQUIRED = [
     "visual/family-help-owner.jpg",
     "family-support.webp",
     "center-stairs.jpg",
+    'class="hero hero--calm"',
+    'class="hero-trust-line"',
+    "assets/images/hero/hero-center-premium.webp",
+    ".hero--family .hero-frame",
+    ".hero--trust .hero-frame",
+    "@media (prefers-reduced-motion: reduce)",
     '<meta name="google-site-verification" content="xZ_T9EjYJ_9vJWXbHZWo5uzpubsGZZ5qbSsYukcCPgQ">',
     '<link rel="canonical" href="https://optimafide.pages.dev/">',
     '<meta property="og:url" content="https://optimafide.pages.dev/">',
@@ -110,7 +116,16 @@ EXPECTED_RESOURCE_CTA = {
 
 EXPECTED_TRANSLATIONS = {
     "ro": {
-        "badgeAccreditation": "Acreditare de stat · din 2019 · Goianul Nou, Stăuceni",
+        "badgeAccreditation": "Acreditare de stat",
+        "badgeDuration": "Program 6–12 luni",
+        "badgeBoard": "Cazare și masă",
+        "badgeFamily": "20 locuri",
+        "badgePlace": "Goianul Nou, Stăuceni",
+        "heroTitle": "Un loc unde te poți opri și începe din nou",
+        "heroLead": "Program rezidențial de recuperare: cazare, masă, ritm zilnic, comunitate terapeutică și sprijin pentru familie.",
+        "heroConsult": "Solicită o consultație",
+        "telegramCta": "Scrie în Telegram",
+        "heroTrustLine": "Acreditare · 20 locuri · 500+ persoane sprijinite · confidențial",
         "hallwayCaption": "Spațiu pentru liniște și concentrare",
         "dayMorning": "Dimineața",
         "dayDay": "Ziua",
@@ -118,7 +133,16 @@ EXPECTED_TRANSLATIONS = {
         "dayEvening": "Seara",
     },
     "ru": {
-        "badgeAccreditation": "Государственная аккредитация · с 2019 года · Гоянул Ноу, Стаучены",
+        "badgeAccreditation": "Государственная аккредитация",
+        "badgeDuration": "Программа 6–12 месяцев",
+        "badgeBoard": "Проживание и питание",
+        "badgeFamily": "20 мест",
+        "badgePlace": "Goianul Nou, Stăuceni",
+        "heroTitle": "Место, где можно остановиться и начать заново",
+        "heroLead": "Резиденциальная программа восстановления: проживание, питание, ежедневный ритм, сообщество и поддержка семьи.",
+        "heroConsult": "Запросить консультацию",
+        "telegramCta": "Написать в Telegram",
+        "heroTrustLine": "Аккредитация · 20 мест · 500+ человек получили помощь · конфиденциально",
         "hallwayCaption": "Пространство для тихого отдыха и концентрации",
         "dayMorning": "Утро",
         "dayDay": "День",
@@ -126,7 +150,16 @@ EXPECTED_TRANSLATIONS = {
         "dayEvening": "Вечер",
     },
     "en": {
-        "badgeAccreditation": "State accreditation · since 2019 · Goianul Nou, Stăuceni",
+        "badgeAccreditation": "State accreditation",
+        "badgeDuration": "6–12 month program",
+        "badgeBoard": "Accommodation and meals",
+        "badgeFamily": "20 places",
+        "badgePlace": "Goianul Nou, Stăuceni",
+        "heroTitle": "A place to pause, recover and begin again",
+        "heroLead": "A residential recovery program with accommodation, meals, daily rhythm, community support and family guidance.",
+        "heroConsult": "Request a consultation",
+        "telegramCta": "Write on Telegram",
+        "heroTrustLine": "Accredited · 20 residential places · 500+ people supported · confidential",
         "hallwayCaption": "Space for quiet rest and concentration",
         "dayMorning": "Morning",
         "dayDay": "Day",
@@ -205,7 +238,7 @@ def main() -> int:
         failures.append("Missing hero layout rule")
     else:
         declarations = hero_layout_rule.group(1)
-        for required_declaration in ("align-items: center", "padding: 48px 0"):
+        for required_declaration in ("display: flex", "padding: clamp(30px, 5vw, 72px)"):
             if required_declaration not in declarations:
                 failures.append(f"Hero layout missing safe badge spacing: {required_declaration}")
 
@@ -217,9 +250,6 @@ def main() -> int:
         for required_declaration in ("max-width: 100%", "white-space: normal"):
             if required_declaration not in declarations:
                 failures.append(f"Hero badges missing: {required_declaration}")
-
-    if ".hero-badge:first-child { grid-column: 1 / -1; }" not in html:
-        failures.append("Mobile accreditation badge must span the full hero width")
 
     team_photo_rule = re.search(r"\.team-photo,\s*\.team-placeholder\s*\{([^}]*)\}", html, re.DOTALL)
     if not team_photo_rule or "display: block" not in team_photo_rule.group(1):

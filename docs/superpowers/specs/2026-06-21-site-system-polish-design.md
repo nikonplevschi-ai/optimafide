@@ -19,6 +19,43 @@ The completed hero remains the visual standard and is not redesigned in this sta
 
 Use the existing `--of-*` hero tokens as the source of truth. Add focused aliases only when they clarify ownership, such as card radius, card padding, section spacing and interactive shadow.
 
+### Approved Color Palette
+
+The site must use these exact primary tokens:
+
+```css
+:root {
+  --of-bg: #f5efe4;
+  --of-surface: #fffaf1;
+  --of-surface-soft: #f8f2e7;
+  --of-green-deep: #06261f;
+  --of-green-main: #0b372c;
+  --of-green-soft: #dfe8dc;
+  --of-sage: #8fa086;
+  --of-sage-light: #eef3ea;
+  --of-gold: #c99a3d;
+  --of-gold-soft: #d9b86c;
+  --of-gold-hover: #b8872f;
+  --of-text: #10251f;
+  --of-muted: #65736b;
+  --of-border: rgba(16, 37, 31, .11);
+  --of-shadow: 0 18px 55px rgba(18, 44, 36, .11);
+}
+```
+
+Body uses `--of-bg`, cards use `--of-surface`, soft sections use `--of-surface-soft`, headings use `--of-green-deep`, body copy uses `--of-text`, muted copy uses `--of-muted`, primary CTA uses `--of-gold` with `--of-gold-hover`, badges use `--of-sage-light` or `--of-surface`, and borders/shadows use the approved tokens.
+
+Remove accidental cold-gray and blue UI accents. Photography keeps realistic sky and environmental colors, but shared UI surfaces must remain warm, sage-toned and residential rather than clinical or office-like.
+
+The hero mist is adjusted to the approved warmer blend:
+
+```css
+background:
+  radial-gradient(circle at 12% 82%, rgba(143, 160, 134, .30), transparent 36%),
+  radial-gradient(circle at 78% 18%, rgba(217, 184, 108, .18), transparent 32%),
+  linear-gradient(90deg, rgba(255, 250, 241, .96), rgba(255, 250, 241, .48), rgba(223, 232, 220, .22));
+```
+
 ### Surfaces
 
 - Default card radius: 24px, with a permitted 22–28px range for component-specific proportions.
@@ -138,8 +175,14 @@ Save artifacts under `C:\Users\igor\Desktop\OptimaFide_site_work\`:
 
 ## Delivery
 
-Commit only stage-two changes as:
+Create two ordered stage-two commits:
+
+1. Color palette and warm hero mist:
+
+`Refine site color palette with premium sage tones`
+
+2. Card, spacing, animation and copy system:
 
 `Polish all site cards spacing animations and copy`
 
-Push `main`, deploy Cloudflare Pages, verify `https://optimafide.pages.dev/`, and report the commit hash. The hero stage remains a separate prior commit.
+Push `main`, deploy Cloudflare Pages after both commits, verify `https://optimafide.pages.dev/`, and report both commit hashes. The completed hero stage remains a separate prior commit.

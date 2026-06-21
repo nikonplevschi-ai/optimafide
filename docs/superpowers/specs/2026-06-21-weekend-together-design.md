@@ -39,6 +39,8 @@ Three localized FAQ entries cover leaving after the weekend, having a loved one 
 
 Reuse an existing calm family-support image already shipped with the site, avoiding a new generated or stock asset. Do not alter the accreditation presentation, payment links, downloadable PDF or Word files, social links, Telegram Worker behavior, existing contact flows, sitemap, or robots rules except where verification reveals a direct regression caused by this feature.
 
+The approved hero receives a narrow visual correction: its ivory/sage mist continues smoothly to both viewport edges, while the center building is shifted slightly left without changing the hero copy, height, or mobile composition. The accreditation certificate remains the current full, cleaned image and keeps its lightbox behavior; only its on-page frame is corrected to an upright A4 proportion with centered, uncropped rendering and a restrained premium border.
+
 ## Verification And Delivery
 
 Add a focused validation test that initially fails because the new section, translations, prices, support option, and FAQ entries are absent. After implementation, run the focused test, `python scripts/validate_site.py`, and `git diff --check`. Verify RO/RU/EN, supported responsive widths, images, console, links, downloads, sitemap, robots, and production deployment. Save the requested desktop, mobile, and price-card screenshots plus the report, then commit with `Add Weekend Together service`, push `main`, and deploy Cloudflare Pages.

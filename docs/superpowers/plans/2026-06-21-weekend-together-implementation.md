@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add a localized, responsive Weekend Together offer with weekend-only pricing, direct contact actions, form integration, and FAQ coverage.
+**Goal:** Add a localized, responsive Weekend Together offer with weekend-only pricing, direct contact actions, form integration, FAQ coverage, and the approved hero and certificate alignment polish.
 
 **Architecture:** Keep the static single-page architecture. Add one semantic section and its component-scoped CSS to `index.html`, extend the three existing translation dictionaries, and add a focused Python validator that reads the real HTML and asserts the public contract.
 
@@ -35,6 +35,9 @@ required = {
     'data-i18n="faqWeekend1Q"': "weekend FAQ 1",
     'data-i18n="faqWeekend2Q"': "weekend FAQ 2",
     'data-i18n="faqWeekend3Q"': "weekend FAQ 3",
+    ".hero::before": "full-width hero mist",
+    "object-position: 56% center": "building shift",
+    "aspect-ratio: 595 / 842": "upright certificate frame",
 }
 
 missing = [label for marker, label in required.items() if marker not in html]
@@ -127,7 +130,30 @@ git add -- index.html scripts/validate_weekend_together.py
 git commit -m "Add Weekend Together service"
 ```
 
-### Task 3: Responsive And Functional Verification
+### Task 3: Polish Hero And Certificate Presentation
+
+**Files:**
+- Modify: `index.html`
+- Test: `scripts/validate_weekend_together.py`
+
+- [ ] **Step 1: Extend the hero mist to viewport edges**
+
+Add a non-interactive `.hero::before` layer spanning the hero section with soft ivory/sage radial and linear gradients. Keep `.hero-frame` above it and avoid changing the approved content, dimensions, or actions.
+
+- [ ] **Step 2: Shift the building slightly left**
+
+Set the desktop hero image to `object-position: 56% center`, preserving the existing mobile composition and cover behavior.
+
+- [ ] **Step 3: Present the full certificate upright**
+
+Give `.certificate-button picture` an upright `aspect-ratio: 595 / 842`, center it, and render `.certificate-button img` at `width: 100%`, `height: 100%`, `object-fit: contain`, and `transform: none`. Preserve both the current JPEG/WebP sources and lightbox target.
+
+- [ ] **Step 4: Run the focused validator**
+
+Run: `python scripts/validate_weekend_together.py`
+Expected: `Weekend Together contract: OK`
+
+### Task 4: Responsive And Functional Verification
 
 **Files:**
 - Modify if needed: `index.html`
@@ -154,7 +180,7 @@ Check Telegram Worker, Telegram bot, WhatsApp, Facebook, Viber, PayPal, PDF, Wor
 
 Record the implemented placement, four permitted weekend prices, absence of longer-stay prices, translations, responsive results, link checks, validator output, screenshots, commit, and deployment URLs in `C:/Users/igor/Desktop/OptimaFide_site_work/notes/weekend-together-report.md`.
 
-### Task 4: Screenshots And Deployment
+### Task 5: Screenshots And Deployment
 
 **Files:**
 - Create: `C:/Users/igor/Desktop/OptimaFide_site_work/exports/weekend-together-desktop.png`

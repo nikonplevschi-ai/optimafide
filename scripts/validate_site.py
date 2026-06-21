@@ -215,6 +215,16 @@ def main() -> int:
         if requirement not in html:
             failures.append(f"Missing design-system contract: {requirement}")
 
+    confirmed_links = {
+        "WhatsApp": ("https://wa.me/37379002064", 3),
+        "Facebook": ("https://www.facebook.com/profile.php?id=100064660152285", 4),
+        "Telegram": ("https://t.me/optimafide_bot", 6),
+        "Viber": ("viber://chat?number=%2B37379002064", 3),
+    }
+    for channel, (url, minimum) in confirmed_links.items():
+        if html.count(url) < minimum:
+            failures.append(f"{channel} confirmed link is missing from required contact surfaces")
+
     system_layer = re.search(r"/\* Optima Fide design system \*/(.*?)/\* End Optima Fide design system \*/", html, re.DOTALL)
     if not system_layer:
         failures.append("Missing unified Optima Fide design-system CSS layer")

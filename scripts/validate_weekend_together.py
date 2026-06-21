@@ -17,7 +17,7 @@ required = {
     'data-i18n="faqWeekend2Q"': "weekend FAQ 2",
     'data-i18n="faqWeekend3Q"': "weekend FAQ 3",
     ".hero::before": "full-width hero mist",
-    "object-position: 56% center": "building shift",
+    "object-position: 44% center": "building shift",
     "aspect-ratio: 595 / 842": "upright certificate frame",
     ".weekend-media img { position: absolute; inset: 0;": "full-height weekend image",
 }

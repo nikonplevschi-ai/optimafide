@@ -1556,7 +1556,7 @@
       height: 100%;
       max-height: none;
       object-fit: cover;
-      object-position: 56% center;
+      object-position: 44% center;
       filter: saturate(1.02) contrast(1.06) brightness(1.02);
       -webkit-mask-image: none;
       mask-image: none;
@@ -1588,9 +1588,8 @@
     .intake-intro .intake-lead { max-width: 760px; margin-top: 16px; font-size: 1.08rem; }
     .quick-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 720px; margin-top: 26px; }
     .quick-actions .btn { min-height: 84px; padding: 13px 18px; border-radius: 20px; flex-direction: column; gap: 4px; }
-    .quick-actions .btn::before { content: "☎"; color: var(--of-sage-700); font-size: 1.35rem; line-height: 1; }
-    .quick-actions .btn:nth-child(2)::before { content: "➤"; color: #2a9dc7; }
-    .quick-actions .btn:nth-child(3)::before { content: "◉"; color: #2a9b55; }
+    .app-icon { display: block; width: 22px; height: 22px; flex: 0 0 22px; object-fit: contain; }
+    .quick-actions .app-icon { width: 24px; height: 24px; flex-basis: 24px; }
     .intake-form {
       position: relative;
       z-index: 1;
@@ -1752,6 +1751,8 @@
     #donatii .donation-card { max-width: 940px; padding: 0; border: 0; background: transparent; box-shadow: none; color: rgba(255,250,241,.84); }
     #donatii .donation-card h2, #donatii .donation-card strong { color: var(--of-surface); }
     #donatii .donation-card p, #donatii .donation-note, #donatii .donation-telegram-note { color: rgba(255,250,241,.76); }
+    #donatii .donation-impact { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    #donatii .donation-impact span { padding: 9px 14px; border: 1px solid rgba(217,184,108,.34); border-radius: 999px; background: rgba(255,250,241,.07); color: rgba(255,250,241,.9); font-size: .86rem; font-weight: 800; }
     #donatii .donation-telegram-note a { color: rgba(255,250,241,.9); text-decoration-color: rgba(217,184,108,.62); }
     #donatii details.bank-details { border-color: rgba(255,250,241,.14); background: rgba(255,250,241,.06); box-shadow: none; }
     #donatii details.bank-details summary, #donatii .iban, #donatii .bank-row { color: rgba(255,250,241,.88); }
@@ -1798,7 +1799,7 @@
       .hero-frame { min-height: auto; border-radius: 28px; display: flex; flex-direction: column; }
       .hero-media { position: relative; order: 1; height: 280px; min-height: 280px; padding: 0; margin: 0; border-radius: 0; }
       .hero-media::before { background: linear-gradient(180deg, rgba(255,250,241,.04) 48%, rgba(255,250,241,.76) 100%); }
-      .hero-media img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: 56% center; -webkit-mask-image: none; mask-image: none; }
+      .hero-media img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: 44% center; -webkit-mask-image: none; mask-image: none; }
       .hero-layout { order: 2; min-height: auto; padding: 26px 20px 28px; display: block; }
       .hero-copy { max-width: none; }
       .hero-title { max-width: 100%; font-size: clamp(3rem, 14vw, 4.15rem); line-height: .94; }
@@ -1850,6 +1851,7 @@
     #donatii { order: 10; }
     #faq { order: 11; }
     #contacte { order: 30; }
+    .nav-actions > .btn.gold { white-space: nowrap; min-width: 132px; padding-inline: 18px; }
     .weekend-offer {
       overflow: hidden;
       padding-block: clamp(72px, 8vw, 112px);
@@ -1908,9 +1910,13 @@
     .weekend-continuation { margin-top: 20px; color: var(--of-green-main); font-weight: 800; line-height: 1.55; }
     .weekend-notice { margin-top: 16px; padding: 18px 20px; border-left: 3px solid var(--of-gold); background: rgba(255,250,241,.56); color: var(--of-muted); font-size: .9rem; line-height: 1.58; }
     .weekend-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .weekend-actions .btn { gap: 9px; }
     .certificate-button { display: grid; place-items: center; width: 100%; padding: clamp(12px, 2vw, 20px); }
     .certificate-button picture { display: block; width: min(100%, 560px); aspect-ratio: 595 / 842; margin-inline: auto; }
     .certificate-button img { display: block; width: 100%; height: 100%; max-height: none; object-fit: contain; border-radius: 12px; transform: none; }
+    #acreditare .accreditation-card { border-radius: 30px; }
+    #acreditare .certificate-button { border-radius: 24px; }
+    #acreditare h2 { font-size: clamp(2.5rem, 3.8vw, 3.9rem); line-height: 1.02; }
     @media (max-width: 900px) {
       .weekend-shell { grid-template-columns: 1fr; }
       .weekend-media { min-height: 0; aspect-ratio: 4 / 3; }
@@ -2052,9 +2058,9 @@
           <h2 id="intake-title" data-i18n="intakeTitle">Începeți cu o consultație confidențială</h2>
           <p class="intake-lead" data-i18n="intakeLead">Prima conversație nu vă obligă să intrați în centru. Ascultăm cu respect, explicăm pașii posibili și păstrăm confidențialitatea.</p>
           <div class="quick-actions">
-            <a class="btn primary" href="tel:+37379002064" data-i18n="firstCall">Sună</a>
-            <a class="btn outline" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="firstTelegram">Scrie pe Telegram</a>
-            <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="btn primary" href="tel:+37379002064"><img class="app-icon" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span data-i18n="firstCall">Sună</span></a>
+            <a class="btn outline" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/telegram.svg" alt="" aria-hidden="true"><span data-i18n="firstTelegram">Scrie pe Telegram</span></a>
+            <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/whatsapp.svg" alt="" aria-hidden="true"><span>WhatsApp</span></a>
           </div>
         </div>
         <form class="intake-form" id="intakeForm">
@@ -2093,7 +2099,7 @@
     <section class="section weekend-offer" id="weekend-together" aria-labelledby="weekend-title">
       <div class="container weekend-shell">
         <figure class="weekend-media" data-reveal>
-          <img src="assets/images/visual/family-support.webp" alt="" loading="lazy" decoding="async">
+          <img src="assets/images/visual/family-help-owner.jpg" alt="" loading="lazy" decoding="async">
         </figure>
         <div class="weekend-copy" data-reveal>
           <div class="eyebrow" data-i18n="weekendEyebrow">Un prim pas împreună</div>
@@ -2119,9 +2125,9 @@
           <p class="weekend-continuation" data-i18n="weekendContinuation">Dacă după weekend participantul și familia doresc să discute o ședere mai lungă, variantele și condițiile sunt discutate individual după consultație.</p>
           <p class="weekend-notice" data-i18n="weekendSafety">„Weekend împreună” nu este detoxifiere medicală și nu înlocuiește ajutorul medical de urgență. Înainte de sosire, avem o discuție preliminară pentru a înțelege situația și pentru a ne asigura că formatul este sigur pentru participant, însoțitor și centru.</p>
           <div class="weekend-actions">
-            <a class="btn primary" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="weekendBook">Înscrie-te la „Weekend împreună”</a>
-            <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer" data-i18n="weekendWhatsapp">Scrie pe WhatsApp</a>
-            <a class="btn outline" href="tel:+37379002064" data-i18n="weekendCall">Sună</a>
+            <a class="btn primary" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/telegram.svg" alt="" aria-hidden="true"><span data-i18n="weekendBook">Înscrie-te la „Weekend împreună”</span></a>
+            <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/whatsapp.svg" alt="" aria-hidden="true"><span data-i18n="weekendWhatsapp">Scrie pe WhatsApp</span></a>
+            <a class="btn outline" href="tel:+37379002064"><img class="app-icon" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span data-i18n="weekendCall">Sună</span></a>
           </div>
         </div>
       </div>
@@ -2396,7 +2402,7 @@
         <div class="gallery-grid" data-reveal>
           <button class="gallery-tile" type="button" data-lightbox="assets/images/hero-center.webp"><img src="assets/images/hero-center.webp" alt="Clădirea centrului Optima Fide" data-i18n-alt="heroImageAlt" loading="lazy" decoding="async"><span class="gallery-caption" data-i18n="gal1">Clădirea centrului</span></button>
           <button class="gallery-tile" type="button" data-lightbox="center-therapy-room.jpg"><img src="center-therapy-room.jpg" alt="Sală de grupuri" loading="lazy" decoding="async"><span class="gallery-caption" data-i18n="gal2">Sală de grupuri</span></button>
-          <button class="gallery-tile" type="button" data-lightbox="assets/images/accreditation-certificate-clean.webp"><img src="assets/images/accreditation-certificate-clean.webp" alt="Certificat de acreditare Optima Fide" loading="lazy" decoding="async"><span class="gallery-caption" data-i18n="gal3">Acreditare</span></button>
+          <button class="gallery-tile" type="button" data-lightbox="assets/images/accreditation-certificate-from-pdf.webp"><img src="assets/images/accreditation-certificate-from-pdf.webp" alt="Certificat de acreditare Optima Fide" loading="lazy" decoding="async"><span class="gallery-caption" data-i18n="gal3">Acreditare</span></button>
           <button class="gallery-tile" type="button" data-lightbox="center-bedroom.jpg"><img src="center-bedroom.jpg" alt="Cameră rezidențială" loading="lazy" decoding="async"><span class="gallery-caption" data-i18n="gal4">Camere</span></button>
           <button class="gallery-tile" type="button" data-lightbox="center-dining.jpg"><img src="center-dining.jpg" alt="Sala de mese" loading="lazy" decoding="async"><span class="gallery-caption" data-i18n="gal5">Sala de mese</span></button>
         </div>
@@ -2434,15 +2440,15 @@
     <div class="section-anchor" id="trust" aria-hidden="true"></div>
     <section class="section soft" id="acreditare">
       <div class="container accreditation-card" data-reveal>
-        <button class="certificate-button" type="button" data-lightbox="assets/images/accreditation-certificate-clean.webp" aria-label="Deschide certificatul de acreditare">
+        <button class="certificate-button" type="button" data-lightbox="assets/images/accreditation-certificate-from-pdf.webp" aria-label="Deschide certificatul de acreditare">
           <picture>
-            <source srcset="assets/images/accreditation-certificate-clean.webp" type="image/webp">
-            <img src="assets/images/accreditation-certificate-clean.jpg" alt="Certificat de acreditare Optima Fide" loading="lazy" decoding="async">
+            <source srcset="assets/images/accreditation-certificate-from-pdf.webp" type="image/webp">
+            <img src="assets/images/accreditation-certificate-from-pdf.jpg" alt="Certificat de acreditare Optima Fide" loading="lazy" decoding="async">
           </picture>
         </button>
         <div>
           <div class="eyebrow" data-i18n="certEyebrow">Acreditare de stat</div>
-          <h2 data-i18n="certTitle">Serviciu de reabilitare acreditat prin comunitate terapeutică.</h2>
+          <h2 data-i18n="certTitle">Acreditarea de stat a serviciului de reabilitare</h2>
           <p data-i18n="certText">Certificatul confirmă acreditarea serviciului de reabilitare prin comunitate terapeutică pentru consumatori de substanțe psihoactive și pacienți ai terapiei de substituție.</p>
           <div class="certificate-facts">
             <div><span data-i18n="certNumberLabel">Număr</span><strong>AS nr. 0000117</strong></div>
@@ -2609,12 +2615,13 @@
           <div class="eyebrow" data-i18n="donateEyebrow">Donații</div>
           <h2 data-i18n="donateTitle">Susțineți recuperarea unei vieți</h2>
           <p data-i18n="donateText">Donația dvs. ajută la cazare, hrană, consultații, activități terapeutice și dezvoltarea centrului.</p>
+          <div class="donation-impact" aria-label="Direcțiile sprijinului"><span data-i18n="donateImpact1">Cazare</span><span data-i18n="donateImpact2">Masă</span><span data-i18n="donateImpact3">Consultații</span></div>
           <p class="donation-note" data-i18n="donateNote">Fiecare donație ajută la susținerea unui spațiu sigur de recuperare pentru persoane și familii.</p>
           <p style="margin-top:12px" data-i18n="partnerText">Suntem deschiși colaborării cu comunități bisericești, servicii sociale, fundații, specialiști și donatori.</p>
           <div class="hero-actions">
-            <button class="btn primary" type="button" data-copy-iban="MD63VI000000002224729306" data-i18n="copyIban">Copiază IBAN</button>
+            <a class="btn primary" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="paypalSoon">Donează prin PayPal</a>
+            <button class="btn outline" type="button" data-copy-iban="MD63VI000000002224729306" data-i18n="copyIban">Copiază IBAN</button>
             <a class="btn outline" href="#bank-details" data-i18n="allDetails">Toate rechizitele</a>
-            <a class="btn outline" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="paypalSoon">Donează prin PayPal</a>
           </div>
           <p class="donation-telegram-note"><a href="#" data-contact-modal data-i18n="donationTelegramNote">Pentru întrebări despre donații, ne puteți scrie pe Telegram.</a></p>
           <div class="bank-list" id="bank-details">
@@ -2764,8 +2771,8 @@
     </div>
   </footer>
   <div class="mobile-cta">
-    <a class="btn primary" href="tel:+37379002064"><span class="mobile-cta-icon" aria-hidden="true">☎</span><span class="mobile-cta-label" data-i18n="mobileCall">Sună</span></a>
-    <a class="btn light" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><span class="mobile-cta-icon" aria-hidden="true">➤</span><span class="mobile-cta-label">Telegram</span></a>
+    <a class="btn primary" href="tel:+37379002064"><img class="app-icon" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span class="mobile-cta-label" data-i18n="mobileCall">Sună</span></a>
+    <a class="btn light" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/telegram.svg" alt="" aria-hidden="true"><span class="mobile-cta-label">Telegram</span></a>
     <a class="btn outline" href="#" data-contact-modal><span class="mobile-cta-icon" aria-hidden="true">•••</span><span class="mobile-cta-label" data-i18n="mobileMore">Mai mult</span></a>
   </div>
   <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="contactModalTitle">
@@ -3759,6 +3766,36 @@
       faqWeekend2A: "Yes. The format is designed for the participant and one loved one. An additional accompanying person is possible by prior agreement.",
       faqWeekend3Q: "Can the participant stay longer after the weekend?",
       faqWeekend3A: "Yes. If the participant and family would like to consider a longer stay, the options and conditions are discussed individually after the consultation."
+    });
+    Object.assign(translations.ro, {
+      certTitle: "Acreditarea de stat a serviciului de reabilitare",
+      programTitle: "Un program onest de recuperare, fără promisiuni goale",
+      optionalTitle: "Ce este inclus în program și ce se discută separat",
+      trustTitle: "Un centru acreditat cu o abordare deschisă și respectuoasă",
+      donateText: "Sprijinul dumneavoastră ajută la păstrarea unui loc în care omul poate începe din nou.",
+      donateImpact1: "Cazare",
+      donateImpact2: "Masă",
+      donateImpact3: "Consultații"
+    });
+    Object.assign(translations.ru, {
+      certTitle: "Государственная аккредитация услуги реабилитации",
+      programTitle: "Честная программа восстановления без пустых обещаний",
+      optionalTitle: "Что входит в программу, а что обсуждается отдельно",
+      trustTitle: "Аккредитованный центр с открытым и уважительным подходом",
+      donateText: "Ваша поддержка помогает сохранять место, где человек может начать заново.",
+      donateImpact1: "Проживание",
+      donateImpact2: "Питание",
+      donateImpact3: "Консультации"
+    });
+    Object.assign(translations.en, {
+      certTitle: "State accreditation of the rehabilitation service",
+      programTitle: "An honest recovery program without empty promises",
+      optionalTitle: "What is included in the program and what is discussed separately",
+      trustTitle: "An accredited center with an open and respectful approach",
+      donateText: "Your support helps preserve a place where a person can begin again.",
+      donateImpact1: "Accommodation",
+      donateImpact2: "Meals",
+      donateImpact3: "Consultations"
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

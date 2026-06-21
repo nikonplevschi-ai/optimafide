@@ -244,13 +244,14 @@
       position: relative;
       z-index: 2;
       min-height: min(780px, calc(100vh - 126px));
+      padding: 48px 0;
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      align-items: end;
+      align-items: center;
       gap: 34px;
       pointer-events: none;
     }
-    .hero-copy { max-width: 780px; padding: 0 0 56px; pointer-events: auto; }
+    .hero-copy { min-width: 0; max-width: 780px; pointer-events: auto; }
     .hero-caption {
       position: absolute;
       right: 6px;
@@ -278,6 +279,7 @@
     .hero-badge {
       display: inline-flex;
       align-items: center;
+      max-width: 100%;
       min-height: 34px;
       padding: 0 13px;
       border: 1px solid rgba(255,255,255,.32);
@@ -288,6 +290,8 @@
       font-weight: 900;
       letter-spacing: .04em;
       text-transform: uppercase;
+      white-space: normal;
+      overflow-wrap: anywhere;
       backdrop-filter: blur(9px);
     }
     .stay-card {
@@ -1028,6 +1032,7 @@
       .hero h1 { color: var(--green); font-size: 1.9rem; }
       .hero p { color: var(--muted); font-size: .98rem; margin-top: 15px; }
       .hero-badges { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 16px; }
+      .hero-badge:first-child { grid-column: 1 / -1; }
       .hero-badge { min-width: 0; min-height: 30px; padding: 6px 9px; border-color: var(--line); background: var(--card); color: var(--green); font-size: .62rem; line-height: 1.25; text-transform: none; }
       .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px; }
       .hero-actions .btn { width: auto; min-height: 44px; padding: 0 12px; white-space: normal; }
@@ -2033,7 +2038,7 @@
                 "navDonate": "Пожертвования",
                 "navContact": "Контакты",
                 "navCta": "Консультация",
-                "badgeAccreditation": "Государственная аккредитация · с 2019 года · Гоянул Ноу, Ставчены",
+                "badgeAccreditation": "Государственная аккредитация · с 2019 года · Гоянул Ноу, Стаучены",
                 "badgeDuration": "Гибкая длительность",
                 "badgeBoard": "Проживание и питание",
                 "badgeFamily": "Поддержка семьи",

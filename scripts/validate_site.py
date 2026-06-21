@@ -109,6 +109,7 @@ EXPECTED_RESOURCE_CTA = {
 
 EXPECTED_TRANSLATIONS = {
     "ro": {
+        "badgeAccreditation": "Acreditare de stat · din 2019 · Goianul Nou, Stăuceni",
         "hallwayCaption": "Spațiu pentru liniște și concentrare",
         "dayMorning": "Dimineața",
         "dayDay": "Ziua",
@@ -116,6 +117,7 @@ EXPECTED_TRANSLATIONS = {
         "dayEvening": "Seara",
     },
     "ru": {
+        "badgeAccreditation": "Государственная аккредитация · с 2019 года · Гоянул Ноу, Стаучены",
         "hallwayCaption": "Пространство для тихого отдыха и концентрации",
         "dayMorning": "Утро",
         "dayDay": "День",
@@ -123,6 +125,7 @@ EXPECTED_TRANSLATIONS = {
         "dayEvening": "Вечер",
     },
     "en": {
+        "badgeAccreditation": "State accreditation · since 2019 · Goianul Nou, Stăuceni",
         "hallwayCaption": "Space for quiet rest and concentration",
         "dayMorning": "Morning",
         "dayDay": "Day",
@@ -181,10 +184,10 @@ def main() -> int:
             failures.append(f"{lang} missing keys: {', '.join(missing)}")
         translation_source = match + "\n".join(extension.group(1) for extension in extensions)
         for key, expected in EXPECTED_RESOURCE_CTA[lang].items():
-            if not re.search(rf'\b{key}:\s*"{re.escape(expected)}"', translation_source):
+            if not re.search(rf'["\']?{key}["\']?\s*:\s*"{re.escape(expected)}"', translation_source):
                 failures.append(f'{lang} {key} must be "{expected}"')
         for key, expected in EXPECTED_TRANSLATIONS[lang].items():
-            if not re.search(rf'\b{key}:\s*"{re.escape(expected)}"', translation_source):
+            if not re.search(rf'["\']?{key}["\']?\s*:\s*"{re.escape(expected)}"', translation_source):
                 failures.append(f'{lang} {key} must be "{expected}"')
 
     offer_button_rule = re.search(r"\.offer-card\s+\.btn\s*\{([^}]*)\}", html, re.DOTALL)
@@ -195,6 +198,27 @@ def main() -> int:
         for required_declaration in ("max-width: 100%", "white-space: normal"):
             if required_declaration not in declarations:
                 failures.append(f"Offer-card buttons missing: {required_declaration}")
+
+    hero_layout_rule = re.search(r"\.hero-layout\s*\{([^}]*)\}", html, re.DOTALL)
+    if not hero_layout_rule:
+        failures.append("Missing hero layout rule")
+    else:
+        declarations = hero_layout_rule.group(1)
+        for required_declaration in ("align-items: center", "padding: 48px 0"):
+            if required_declaration not in declarations:
+                failures.append(f"Hero layout missing safe badge spacing: {required_declaration}")
+
+    hero_badge_rule = re.search(r"\.hero-badge\s*\{([^}]*)\}", html, re.DOTALL)
+    if not hero_badge_rule:
+        failures.append("Missing hero badge rule")
+    else:
+        declarations = hero_badge_rule.group(1)
+        for required_declaration in ("max-width: 100%", "white-space: normal"):
+            if required_declaration not in declarations:
+                failures.append(f"Hero badges missing: {required_declaration}")
+
+    if ".hero-badge:first-child { grid-column: 1 / -1; }" not in html:
+        failures.append("Mobile accreditation badge must span the full hero width")
 
     team_photo_rule = re.search(r"\.team-photo,\s*\.team-placeholder\s*\{([^}]*)\}", html, re.DOTALL)
     if not team_photo_rule or "display: block" not in team_photo_rule.group(1):

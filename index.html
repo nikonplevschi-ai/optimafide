@@ -31,7 +31,11 @@
     },
     "telephone": "+37379002064",
     "email": "optimafide.info@gmail.com",
-    "url": "https://optimafide.pages.dev/"
+    "url": "https://optimafide.pages.dev/",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100064660152285",
+      "https://t.me/optimafide_bot"
+    ]
   }
   </script>
   <style>
@@ -39,36 +43,49 @@
     :root {
       --font-heading: "Cormorant Garamond", Georgia, serif;
       --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --of-ivory: #f7f2e8;
-      --of-cream: #fbf8f0;
-      --of-warm-white: #fffdf7;
-      --of-green-950: #06261f;
-      --of-green-900: #0b372c;
+      --of-bg: #f5efe4;
+      --of-surface: #fffaf1;
+      --of-surface-soft: #f8f2e7;
+      --of-surface-glass: rgba(255, 250, 241, 0.82);
+      --of-green-deep: #06261f;
+      --of-green-main: #0b372c;
+      --of-green-soft: #dfe8dc;
       --of-green-800: #13493a;
       --of-green-700: #1f5c49;
       --of-sage: #8fa086;
-      --of-sage-soft: rgba(143, 160, 134, .22);
+      --of-sage-dark: #65785f;
+      --of-sage-light: #eef3ea;
       --of-gold: #c99a3d;
       --of-gold-soft: #d9b86c;
-      --of-gold-dark: #9d762b;
+      --of-gold-hover: #b8872f;
       --of-text: #10251f;
-      --of-muted: #5f6f67;
-      --of-border: rgba(16, 37, 31, .12);
-      --of-shadow-soft: 0 24px 80px rgba(18, 44, 36, .14);
-      --of-shadow-card: 0 12px 38px rgba(18, 44, 36, .10);
-      --bg: #f8f3ea;
-      --soft: #efe7da;
-      --card: #fffdf8;
-      --green: #173c32;
-      --green-2: #2f5d50;
-      --gold: #c8a45d;
-      --text: #26312d;
-      --muted: #6f7772;
-      --line: #e2d7c6;
+      --of-muted: #65736b;
+      --of-muted-soft: #87928b;
+      --of-border: rgba(16, 37, 31, 0.11);
+      --of-border-strong: rgba(16, 37, 31, 0.18);
+      --of-shadow-soft: 0 18px 55px rgba(18, 44, 36, 0.11);
+      --of-shadow-card: 0 12px 34px rgba(18, 44, 36, 0.08);
+      --of-shadow-hover: 0 22px 70px rgba(18, 44, 36, 0.14);
+      --of-ivory: var(--of-bg);
+      --of-cream: var(--of-surface-soft);
+      --of-warm-white: var(--of-surface);
+      --of-green-950: var(--of-green-deep);
+      --of-green-900: var(--of-green-main);
+      --of-sage-soft: rgba(143, 160, 134, .22);
+      --of-gold-dark: var(--of-gold-hover);
+      --bg: var(--of-bg);
+      --soft: var(--of-surface-soft);
+      --card: var(--of-surface);
+      --green: var(--of-green-main);
+      --green-2: var(--of-sage-dark);
+      --gold: var(--of-gold);
+      --text: var(--of-text);
+      --muted: var(--of-muted);
+      --line: var(--of-border);
       --white: #ffffff;
-      --shadow: 0 24px 70px rgba(38, 49, 45, .14);
-      --soft-shadow: 0 14px 36px rgba(38, 49, 45, .10);
-      --radius: 8px;
+      --shadow: var(--of-shadow-soft);
+      --soft-shadow: var(--of-shadow-card);
+      --radius: 24px;
       --photo-radius: 24px;
     }
     html { scroll-behavior: smooth; }
@@ -1208,6 +1225,202 @@
       from { opacity: 0; transform: translateY(-8px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Optima Fide design system */
+    body {
+      background: var(--of-bg);
+      color: var(--of-text);
+      font-size: clamp(1rem, 1.05vw, 1.125rem);
+    }
+    h1, h2, h3 { color: var(--of-green-deep); }
+    h2, .section-title {
+      font-size: clamp(2.4rem, 4.5vw, 4.4rem);
+      line-height: 1.02;
+      letter-spacing: -.025em;
+    }
+    h3, .card-title {
+      color: var(--of-green-main);
+      font-size: clamp(1.42rem, 1.8vw, 1.9rem);
+      font-weight: 600;
+      line-height: 1.08;
+    }
+    .section { padding-block: clamp(88px, 9vw, 128px); }
+    .section.soft, .visual-story.soft, .day-scene { background: var(--of-surface-soft); }
+    .container { width: min(1180px, calc(100% - clamp(32px, 8vw, 96px))); }
+    .section-head { max-width: 760px; margin-bottom: clamp(30px, 4vw, 48px); }
+    .section-head p, .card-text, .muted { color: var(--of-muted); line-height: 1.55; }
+    .eyebrow { color: var(--of-gold-hover); font-weight: 800; letter-spacing: .11em; }
+    .site-header {
+      background: rgba(255, 250, 241, .88);
+      border-bottom-color: rgba(16, 37, 31, .08);
+      box-shadow: 0 8px 28px rgba(18, 44, 36, .04);
+    }
+    .btn {
+      max-width: 100%;
+      min-height: 48px;
+      border-radius: 14px;
+      padding: 0 20px;
+      color: var(--of-green-deep);
+      font-size: .92rem;
+      line-height: 1.25;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      box-shadow: none;
+    }
+    .btn.primary, .btn.gold {
+      background: var(--of-gold);
+      color: var(--of-green-deep);
+      box-shadow: 0 10px 24px rgba(184, 135, 47, .18);
+    }
+    .btn.light { background: var(--of-surface); color: var(--of-green-main); }
+    .btn.outline { background: rgba(255, 250, 241, .62); color: var(--of-green-main); border-color: var(--of-border-strong); }
+    .nav-actions > .btn.gold { background: var(--of-gold); }
+    .nav-actions > .btn.gold:hover { background: var(--of-gold-hover); }
+    .intake-panel,
+    .package, .amenity, .included-card, .situation-card, .activity-card,
+    .service-card, .trust-card, .admission-card, .notice-panel,
+    .comparison-panel, .offer-card, .team-card, .tourism-card,
+    .tourism-note, .family-card, .soft-card, .contact-card,
+    .donation-card, .telegram-cta, .voice-card, .voices-note,
+    .accreditation-card, .faq-list details, details.bank-details,
+    .contact-modal-card {
+      border: 1px solid var(--of-border);
+      border-radius: 24px;
+      background: rgba(255, 250, 241, .9);
+      box-shadow: var(--of-shadow-card);
+      color: var(--of-text);
+    }
+    .included-card, .situation-card, .activity-card, .service-card,
+    .trust-card, .admission-card, .offer-card, .family-card,
+    .soft-card, .contact-card, .donation-card, .voice-card {
+      padding: clamp(20px, 2.2vw, 30px);
+    }
+    .included-grid, .situation-grid, .activity-grid, .service-grid,
+    .trust-grid, .admission-grid, .offer-grid, .team-grid,
+    .tourism-grid, .voices-grid, .family-cards, .conditions-grid,
+    .packages { gap: clamp(18px, 2vw, 28px); }
+    .included-grid, .situation-grid, .activity-grid, .service-grid,
+    .trust-grid, .admission-grid, .offer-grid, .team-grid,
+    .tourism-grid, .voices-grid { grid-auto-rows: 1fr; }
+    .included-card, .situation-card, .activity-card, .service-card,
+    .trust-card, .admission-card, .offer-card, .team-card,
+    .tourism-card, .voice-card { height: 100%; }
+    .included-card:hover, .package:hover, .amenity:hover,
+    .family-card:hover, .soft-card:hover, .voice-card:hover { transform: none; box-shadow: var(--of-shadow-card); }
+    .team-card, .tourism-card, .gallery-tile, .recovery-shot,
+    .visual-program, .certificate-button, .resource-card {
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+    .team-photo, .team-placeholder { background: var(--of-sage-light); }
+    .team-photo img, .tourism-photo img, .gallery-tile img,
+    .story-photo img, .visual-story-photo img, .day-scene-photo img,
+    .recovery-shot img, .visual-program img {
+      filter: saturate(.88) contrast(.97) sepia(.025);
+    }
+    .team-info { padding: 24px; }
+    .team-role, .team-function, .tourism-card p, .voice-note { color: var(--of-muted); }
+    .tourism-card div:last-child { padding: 22px; }
+    .offer-card { min-height: 240px; }
+    .offer-card .btn { margin-top: 22px; }
+    .card-mark, .included-card span, .amenity-icon {
+      background: var(--of-sage-light);
+      color: var(--of-green-main);
+      box-shadow: inset 0 0 0 1px var(--of-border);
+    }
+    .fee-badge { background: rgba(217, 184, 108, .22); color: var(--of-green-main); }
+    input, select, textarea {
+      min-height: 50px;
+      border-color: var(--of-border-strong);
+      border-radius: 14px;
+      background: rgba(255, 250, 241, .92);
+      color: var(--of-text);
+    }
+    input:focus, select:focus, textarea:focus,
+    .btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid rgba(201, 154, 61, .32);
+      outline-offset: 3px;
+      border-color: var(--of-gold-hover);
+      box-shadow: none;
+    }
+    .faq-list details[open], details.bank-details[open] {
+      border-color: rgba(201, 154, 61, .28);
+      background: var(--of-surface);
+    }
+    .faq-list summary, details.bank-details summary { color: var(--of-green-main); }
+    .confirmed-contact-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .confirmed-contact-links a {
+      min-width: 0;
+      padding: 11px 14px;
+      border: 1px solid var(--of-border);
+      border-radius: 14px;
+      background: var(--of-sage-light);
+      color: var(--of-green-main);
+      font-size: .88rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+    }
+    .gallery-tile, .story-photo, .visual-story-photo, .day-scene-photo,
+    .recovery-shot, .visual-program, .family-photo, .donation-photo {
+      box-shadow: var(--of-shadow-card);
+    }
+    .site-footer {
+      padding: 64px 0;
+      background: linear-gradient(135deg, var(--of-green-deep), var(--of-green-main));
+      color: rgba(255, 250, 241, .76);
+    }
+    .footer-grid { gap: 40px; }
+    .site-footer strong { color: var(--of-surface); font-size: 1.9rem; }
+    .footer-links a { color: var(--of-surface); font-weight: 650; }
+    .footer-social { display: flex; flex-wrap: wrap; grid-column: 1 / -1; gap: 12px 20px; }
+    .footer-social a { color: var(--of-gold-soft); font-size: .9rem; font-weight: 700; text-decoration: none; }
+    [data-reveal] { transform: translateY(14px); }
+    .mobile-cta {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-color: var(--of-border);
+      border-radius: 22px;
+      background: rgba(255, 250, 241, .95);
+      box-shadow: var(--of-shadow-soft);
+    }
+    .mobile-cta .btn { min-width: 0; min-height: 52px; padding: 6px 8px; border-radius: 15px; flex-direction: column; gap: 1px; }
+    .mobile-cta-icon { font-size: 1rem; line-height: 1; }
+    .mobile-cta-label { font-size: .68rem; line-height: 1.1; }
+    @media (hover: hover) and (pointer: fine) {
+      .btn:hover { transform: translateY(-2px); }
+      .btn.primary:hover, .btn.gold:hover { background: var(--of-gold-hover); box-shadow: 0 14px 30px rgba(184, 135, 47, .22); }
+      .team-card:hover, .tourism-card:hover, .gallery-tile:hover,
+      .recovery-shot:hover, .visual-program:hover, .certificate-button:hover {
+        transform: translateY(-3px);
+        border-color: rgba(201, 154, 61, .24);
+        box-shadow: var(--of-shadow-hover);
+      }
+    }
+    @media (max-width: 768px) {
+      .section { padding-block: 56px; }
+      .container { width: min(100% - 32px, 1180px); }
+      h2, .section-title { font-size: clamp(2.15rem, 11vw, 3.2rem); }
+      h3, .card-title { font-size: clamp(1.42rem, 7vw, 1.9rem); }
+      .included-card, .situation-card, .activity-card, .service-card,
+      .trust-card, .admission-card, .offer-card, .team-info,
+      .tourism-card div:last-child, .family-card, .soft-card,
+      .contact-card, .donation-card, .voice-card { padding: 20px; }
+      .offer-card { min-height: 0; }
+      .site-footer { padding: 52px 0 112px; }
+      .mobile-cta { left: 8px; right: 8px; bottom: max(8px, env(safe-area-inset-bottom)); gap: 5px; padding: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    /* End Optima Fide design system */
   </style>
 </head>
 <body>
@@ -1924,6 +2137,12 @@
           <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg><div><strong>Email</strong><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
           <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-4.7 7-11a7 7 0 0 0-14 0c0 6.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong data-i18n="addressLabel">Adresa centrului</strong><span data-i18n="addressText">str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni</span></div></div>
           <div class="map-embed"><iframe title="Harta centrului Optima Fide" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=str.%20Gloriei%204%2C%20Goianul%20Nou%2C%20Stauceni%2C%20Moldova&output=embed"></iframe><a class="map-pin-label" href="https://www.google.com/maps/search/?api=1&query=str.%20Gloriei%204%2C%20Goianul%20Nou%2C%20Stauceni%2C%20Moldova" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.8A2.8 2.8 0 1 1 12 6a2.8 2.8 0 0 1 0 5.8Z"/></svg><span data-i18n="mapLabel">Vezi centrul pe hartă</span></a></div>
+          <div class="confirmed-contact-links">
+            <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="viber://chat?number=%2B37379002064">Viber</a>
+            <a href="https://www.facebook.com/profile.php?id=100064660152285" target="_blank" rel="noopener noreferrer">Facebook</a>
+          </div>
         </div>
         <form class="contact-card contact-form" id="contactForm" data-reveal>
           <div class="field"><label for="name" data-i18n="formName">Nume</label><input id="name" name="name" autocomplete="name" required></div>
@@ -1941,9 +2160,19 @@
     <div class="container footer-grid">
       <div><strong>Optima Fide</strong><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p></div>
       <div class="footer-links"><a href="#program" data-i18n="navProgram">Programul</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
+      <div class="footer-social">
+        <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="viber://chat?number=%2B37379002064">Viber</a>
+        <a href="https://www.facebook.com/profile.php?id=100064660152285" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
     </div>
   </footer>
-  <div class="mobile-cta"><a class="btn primary" href="tel:+37379002064" data-i18n="mobileCall">Sună</a><a class="btn gold" href="#" data-contact-modal>Telegram</a></div>
+  <div class="mobile-cta">
+    <a class="btn primary" href="tel:+37379002064"><span class="mobile-cta-icon" aria-hidden="true">☎</span><span class="mobile-cta-label" data-i18n="mobileCall">Sună</span></a>
+    <a class="btn light" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><span class="mobile-cta-icon" aria-hidden="true">➤</span><span class="mobile-cta-label">Telegram</span></a>
+    <a class="btn outline" href="#" data-contact-modal><span class="mobile-cta-icon" aria-hidden="true">•••</span><span class="mobile-cta-label" data-i18n="mobileMore">Mai mult</span></a>
+  </div>
   <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="contactModalTitle">
     <div class="contact-modal-card">
       <button class="contact-modal-close" id="contactModalClose" type="button" data-i18n-aria-label="contactModalClose" aria-label="Închide">×</button>
@@ -1954,6 +2183,9 @@
         <a class="btn primary" href="tel:+37379002064" data-i18n="contactModalCall">Sună</a>
         <a class="btn gold" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="contactModalTelegram">Scrie pe Telegram</a>
         <button class="btn outline" id="contactModalCopy" type="button" data-i18n="contactModalCopy">Copiază numărul</button>
+        <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a class="btn outline" href="viber://chat?number=%2B37379002064">Viber</a>
+        <a class="btn outline" href="https://www.facebook.com/profile.php?id=100064660152285" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
       <div class="contact-modal-status" id="contactModalStatus" aria-live="polite"></div>
     </div>
@@ -2151,6 +2383,7 @@
                 "formDefaultMessage": "Cerere de consultație",
                 "footerText": "Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.",
                 "mobileCall": "Sună",
+                "mobileMore": "Mai mult",
                 "copied": "IBAN copiat"
           },
           "ru": {
@@ -2342,6 +2575,7 @@
                 "formDefaultMessage": "Заявка на консультацию",
                 "footerText": "Резиденциальная программа восстановления в Молдове. Адрес центра: ул. Глорией 4, с. Гоянул Ноу, г. Ставчены.",
                 "mobileCall": "Позвонить",
+                "mobileMore": "Ещё",
                 "copied": "IBAN скопирован"
           },
           "en": {
@@ -2533,6 +2767,7 @@
                 "formDefaultMessage": "Consultation request",
                 "footerText": "Residential recovery program in Moldova. Center address: Gloriei St. 4, Goianul Nou, Stăuceni.",
                 "mobileCall": "Call",
+                "mobileMore": "More",
                 "copied": "IBAN copied"
           }
     };

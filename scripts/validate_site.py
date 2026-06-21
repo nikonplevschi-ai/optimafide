@@ -176,10 +176,58 @@ EXPECTED_TEAM_CONTACTS = {
     "Tudor Rotaru": ("+37362139361", "+373 62 139 361", "sofos82@mail.ru"),
 }
 
+DESIGN_SYSTEM_REQUIREMENTS = [
+    "--of-bg: #f5efe4",
+    "--of-surface: #fffaf1",
+    "--of-surface-soft: #f8f2e7",
+    "--of-surface-glass: rgba(255, 250, 241, 0.82)",
+    "--of-green-deep: #06261f",
+    "--of-green-main: #0b372c",
+    "--of-green-soft: #dfe8dc",
+    "--of-sage: #8fa086",
+    "--of-sage-dark: #65785f",
+    "--of-sage-light: #eef3ea",
+    "--of-gold: #c99a3d",
+    "--of-gold-soft: #d9b86c",
+    "--of-gold-hover: #b8872f",
+    "--of-text: #10251f",
+    "--of-muted: #65736b",
+    "--of-muted-soft: #87928b",
+    "--of-border: rgba(16, 37, 31, 0.11)",
+    "--of-border-strong: rgba(16, 37, 31, 0.18)",
+    "--of-shadow-soft: 0 18px 55px rgba(18, 44, 36, 0.11)",
+    "--of-shadow-card: 0 12px 34px rgba(18, 44, 36, 0.08)",
+    "--of-shadow-hover: 0 22px 70px rgba(18, 44, 36, 0.14)",
+    'class="mobile-cta-label"',
+    'data-i18n="mobileMore"',
+    'https://wa.me/37379002064',
+    'https://www.facebook.com/profile.php?id=100064660152285',
+    'https://t.me/optimafide_bot',
+    'viber://chat?number=%2B37379002064',
+]
+
 
 def main() -> int:
     html = HTML_PATH.read_text(encoding="utf-8")
     failures: list[str] = []
+
+    for requirement in DESIGN_SYSTEM_REQUIREMENTS:
+        if requirement not in html:
+            failures.append(f"Missing design-system contract: {requirement}")
+
+    system_layer = re.search(r"/\* Optima Fide design system \*/(.*?)/\* End Optima Fide design system \*/", html, re.DOTALL)
+    if not system_layer:
+        failures.append("Missing unified Optima Fide design-system CSS layer")
+    else:
+        layer = system_layer.group(1)
+        for declaration in (
+            "border-radius: 24px",
+            "box-shadow: var(--of-shadow-card)",
+            "padding-block: clamp(88px, 9vw, 128px)",
+            "transition-duration: .001ms",
+        ):
+            if declaration not in layer:
+                failures.append(f"Design-system CSS missing: {declaration}")
 
     if not GOOGLE_VERIFICATION_PATH.exists():
         failures.append("Missing Google verification file")

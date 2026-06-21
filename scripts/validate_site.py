@@ -204,6 +204,9 @@ DESIGN_SYSTEM_REQUIREMENTS = [
     'https://www.facebook.com/profile.php?id=100064660152285',
     'https://t.me/optimafide_bot',
     'viber://chat?number=%2B37379002064',
+    'class="intake-intro"',
+    'class="brand-emblem"',
+    'href="https://wa.me/37379002064"',
 ]
 
 
@@ -238,6 +241,21 @@ def main() -> int:
         ):
             if declaration not in layer:
                 failures.append(f"Design-system CSS missing: {declaration}")
+
+    v3_layer = re.search(r"/\* Premium visual redesign V3 \*/(.*?)/\* End premium visual redesign V3 \*/", html, re.DOTALL)
+    if not v3_layer:
+        failures.append("Missing premium visual redesign V3 CSS layer")
+    else:
+        v3_css = v3_layer.group(1)
+        for declaration in (
+            "width: min(1220px, 100%)",
+            "border-radius: 36px",
+            "linear-gradient(180deg, #dfbf72 0%, #c99a3d 58%, #b8872f 100%)",
+            "margin: -56px auto 0",
+            "linear-gradient(180deg, #06261f 0%, #041a16 100%)",
+        ):
+            if declaration not in v3_css:
+                failures.append(f"Premium visual redesign V3 CSS missing: {declaration}")
 
     if not GOOGLE_VERIFICATION_PATH.exists():
         failures.append("Missing Google verification file")

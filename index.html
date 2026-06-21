@@ -1421,13 +1421,261 @@
       }
     }
     /* End Optima Fide design system */
+    /* Premium visual redesign V3 */
+    :root {
+      --of-bg-deep: #efe5d4;
+      --of-surface-warm: #fff6e8;
+      --of-sage-700: #65785f;
+      --of-sage-600: #8fa086;
+      --of-sage-300: #dfe8dc;
+      --of-sage-200: #eef3ea;
+      --of-gold-700: #9d762b;
+      --of-gold-600: #b8872f;
+      --of-gold-500: #c99a3d;
+      --of-gold-300: #d9b86c;
+      --of-gold-200: #ead7a4;
+      --of-border-gold: rgba(201, 154, 61, .28);
+      --of-shadow-gold: 0 18px 48px rgba(157, 118, 43, .24);
+    }
+    body {
+      background:
+        radial-gradient(circle at 8% 6%, rgba(143, 160, 134, .17), transparent 30%),
+        radial-gradient(circle at 92% 14%, rgba(217, 184, 108, .14), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(143, 160, 134, .10), transparent 34%),
+        linear-gradient(180deg, #f5efe4 0%, #fbf8f0 46%, #f1eadc 100%);
+    }
+    .site-header {
+      min-height: 80px;
+      background: rgba(255, 250, 241, .93);
+      border-bottom: 1px solid rgba(16, 37, 31, .07);
+      box-shadow: 0 10px 34px rgba(18, 44, 36, .055);
+      backdrop-filter: blur(20px) saturate(1.12);
+      -webkit-backdrop-filter: blur(20px) saturate(1.12);
+    }
+    .nav { width: min(1220px, calc(100% - 40px)); height: 80px; gap: 24px; }
+    .brand { min-width: 225px; gap: 13px; }
+    .brand-emblem {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(201, 154, 61, .32);
+      border-radius: 15px;
+      background: linear-gradient(145deg, rgba(255,250,241,.98), rgba(238,243,234,.88));
+      color: var(--of-gold-700);
+      box-shadow: 0 10px 25px rgba(18,44,36,.09), inset 0 1px 0 rgba(255,255,255,.8);
+    }
+    .brand-emblem svg { width: 31px; height: 31px; }
+    .brand strong { font-size: clamp(1.5rem, 1.7vw, 1.82rem); letter-spacing: .005em; }
+    .nav-links { gap: clamp(17px, 1.8vw, 27px); }
+    .nav-links a { font-size: .93rem; font-weight: 700; }
+    .lang-switch { padding: 3px; border-color: rgba(16,37,31,.1); background: rgba(255,253,247,.72); box-shadow: inset 0 1px 0 rgba(255,255,255,.72); }
+    .lang-switch a { width: 32px; height: 30px; }
+    .lang-switch a.active { background: var(--of-green-900); box-shadow: 0 6px 14px rgba(18,44,36,.14); }
+    .nav-actions > .btn.gold,
+    .btn.primary,
+    .hero-primary {
+      min-height: 52px;
+      padding-inline: 28px;
+      border: 1px solid rgba(157, 118, 43, .30);
+      border-radius: 999px;
+      background: linear-gradient(180deg, #dfbf72 0%, #c99a3d 58%, #b8872f 100%);
+      color: #10251f;
+      box-shadow: 0 16px 38px rgba(157, 118, 43, .26), inset 0 1px 0 rgba(255,255,255,.35);
+    }
+    .btn.outline, .hero-secondary {
+      min-height: 52px;
+      padding-inline: 26px;
+      border: 1px solid rgba(16,37,31,.13);
+      border-radius: 999px;
+      background: rgba(255,253,247,.88);
+      box-shadow: 0 12px 30px rgba(18,44,36,.075);
+    }
+    .hero {
+      padding: 112px clamp(16px, 4vw, 48px) clamp(92px, 9vw, 128px);
+      background: transparent;
+    }
+    .hero-frame {
+      width: min(1220px, 100%);
+      min-height: clamp(640px, 72vh, 760px);
+      border-radius: 36px;
+      border: 1px solid rgba(16,37,31,.10);
+      background: rgba(255,250,241,.94);
+      box-shadow: 0 30px 96px rgba(18,44,36,.15), inset 0 1px 0 rgba(255,255,255,.58);
+    }
+    .hero-frame::before {
+      width: 600px;
+      height: 430px;
+      left: -150px;
+      bottom: -110px;
+      background: radial-gradient(circle, rgba(143,160,134,.42), rgba(143,160,134,.17) 45%, transparent 72%);
+      filter: blur(48px);
+    }
+    .hero-frame::after {
+      width: 680px;
+      height: 470px;
+      right: -170px;
+      top: -110px;
+      background: radial-gradient(circle, rgba(217,184,108,.26), rgba(143,160,134,.16) 44%, transparent 73%);
+      filter: blur(52px);
+    }
+    .hero-media { background: linear-gradient(135deg, var(--of-surface-warm), var(--of-sage-200)); }
+    .hero-media::before {
+      background:
+        radial-gradient(circle at 18% 82%, rgba(143,160,134,.36), transparent 38%),
+        radial-gradient(circle at 76% 16%, rgba(217,184,108,.20), transparent 34%),
+        linear-gradient(90deg, rgba(255,250,241,.99) 0%, rgba(255,250,241,.88) 34%, rgba(255,250,241,.54) 52%, rgba(223,232,220,.22) 100%);
+    }
+    .hero-media img {
+      width: 66%;
+      height: 100%;
+      max-height: none;
+      object-fit: cover;
+      object-position: 58% center;
+      filter: saturate(.82) contrast(1.05) brightness(1.08) sepia(.09) hue-rotate(-7deg);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.72) 13%, #000 31%);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.72) 13%, #000 31%);
+    }
+    .hero-layout { min-height: clamp(640px, 72vh, 760px); padding: clamp(48px, 6vw, 76px); padding-bottom: 88px; }
+    .hero-copy { max-width: 580px; }
+    .hero-title { max-width: 580px; font-size: clamp(4rem, 7vw, 6.1rem); line-height: .92; letter-spacing: -.045em; }
+    .hero-subtitle { max-width: 540px; margin-bottom: 0; font-size: clamp(1.05rem, 1.25vw, 1.24rem); line-height: 1.58; }
+    .hero-badges { max-width: 570px; gap: 10px; margin-bottom: clamp(28px, 4vw, 42px); }
+    .hero-badge { min-height: 34px; padding: 0 14px; background: rgba(255,253,247,.76); font-size: .78rem; font-weight: 800; }
+    .hero-actions { gap: 14px; margin-top: 34px; }
+    .hero-trust-line { bottom: 28px; font-size: .86rem; font-weight: 700; }
+    .intake { width: min(1080px, calc(100% - 40px)); margin: -56px auto 0; }
+    .intake-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      padding: clamp(30px, 4vw, 48px);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(143,160,134,.17), transparent 34%),
+        radial-gradient(circle at 88% 12%, rgba(217,184,108,.13), transparent 28%),
+        rgba(255,250,241,.96);
+      border: 1px solid rgba(16,37,31,.10);
+      box-shadow: 0 26px 82px rgba(18,44,36,.14), inset 0 1px 0 rgba(255,255,255,.7);
+    }
+    .intake-panel::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: linear-gradient(var(--of-gold-300), var(--of-sage-600)); }
+    .intake-intro { position: relative; z-index: 1; max-width: 840px; }
+    .intake-intro h2 { max-width: 740px; font-size: clamp(2.6rem, 4.4vw, 4rem); }
+    .intake-intro .intake-lead { max-width: 760px; margin-top: 16px; font-size: 1.08rem; }
+    .quick-actions { gap: 12px; margin-top: 24px; }
+    .intake-form {
+      position: relative;
+      z-index: 1;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+      padding-top: 30px;
+      border-top: 1px solid var(--of-border);
+    }
+    .intake-form > .btn { width: fit-content; min-width: 190px; grid-column: 1 / -1; }
+    input, textarea, select { min-height: 52px; border-radius: 17px; background: rgba(255,253,247,.93); box-shadow: inset 0 1px 0 rgba(255,255,255,.55); }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: rgba(201,154,61,.58); box-shadow: 0 0 0 4px rgba(201,154,61,.14), inset 0 1px 0 rgba(255,255,255,.55); }
+    .section, .story-section, .visual-story, .day-scene { position: relative; }
+    .section.soft, .visual-story.soft, .day-scene, .voices-section { background: linear-gradient(180deg, rgba(248,242,231,.62), rgba(238,243,234,.42)); }
+    .intake-panel, .package, .amenity, .included-card, .situation-card,
+    .activity-card, .service-card, .trust-card, .admission-card,
+    .notice-panel, .comparison-panel, .offer-card, .team-card,
+    .tourism-card, .tourism-note, .family-card, .soft-card,
+    .contact-card, .donation-card, .telegram-cta, .voice-card,
+    .voices-note, .accreditation-card, .faq-list details,
+    details.bank-details, .contact-modal-card {
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,250,241,.97), rgba(248,242,231,.90));
+      border-color: rgba(16,37,31,.10);
+      box-shadow: 0 16px 46px rgba(18,44,36,.09);
+    }
+    .included-card, .situation-card, .activity-card, .service-card,
+    .trust-card, .admission-card, .offer-card, .family-card,
+    .soft-card, .contact-card, .donation-card, .voice-card { padding: clamp(24px, 2.5vw, 34px); }
+    .offer-card { position: relative; min-height: 270px; padding-top: 78px; }
+    .offer-card::before { position: absolute; top: 26px; left: 28px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--of-border-gold); border-radius: 12px; background: var(--of-sage-200); color: var(--of-gold-700); content: "PDF"; font-size: .68rem; font-weight: 800; letter-spacing: .04em; }
+    .offer-card:nth-child(3)::before { content: "DOC"; }
+    .offer-card:nth-child(4)::before { content: "···"; font-size: 1.1rem; }
+    .offer-card h3, .team-info h3, .tourism-card h3 { font-size: clamp(1.55rem, 2.1vw, 2.15rem); letter-spacing: -.015em; }
+    .team-card { padding: 10px; }
+    .team-photo, .team-placeholder { border-radius: 20px; }
+    .team-info { padding: 22px 14px 18px; }
+    .team-photo img, .tourism-photo img, .gallery-tile img,
+    .story-photo img, .visual-story-photo img, .day-scene-photo img,
+    .recovery-shot img, .visual-program img {
+      filter: saturate(.90) contrast(1.04) brightness(1.035) sepia(.045);
+    }
+    .story-photo, .visual-story-photo, .day-scene-photo, .gallery-tile,
+    .visual-program, .recovery-shot { border: 1px solid rgba(16,37,31,.08); box-shadow: 0 20px 58px rgba(18,44,36,.12); }
+    .contact-modal { background: rgba(6,38,31,.70); backdrop-filter: blur(13px); -webkit-backdrop-filter: blur(13px); }
+    .contact-modal-card { width: min(100%, 620px); padding: clamp(30px, 4vw, 46px); border-radius: 30px; box-shadow: 0 30px 100px rgba(4,26,22,.34); }
+    .contact-modal-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .contact-modal-actions .btn { width: 100%; }
+    .site-footer {
+      margin-top: clamp(80px, 8vw, 120px);
+      padding: clamp(56px, 7vw, 86px) 0 30px;
+      border-radius: 34px 34px 0 0;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(143,160,134,.14), transparent 30%),
+        radial-gradient(circle at 82% 10%, rgba(201,154,61,.10), transparent 28%),
+        linear-gradient(180deg, #06261f 0%, #041a16 100%);
+      color: rgba(255,250,241,.88);
+    }
+    .footer-grid { grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr); align-items: start; gap: 34px 70px; }
+    .footer-brand { max-width: 560px; }
+    .footer-brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .footer-brand-row img { width: 42px; height: 42px; padding: 5px; border: 1px solid rgba(234,215,164,.32); border-radius: 13px; background: rgba(255,250,241,.92); filter: saturate(.45) sepia(.2); }
+    .footer-brand-row strong { margin: 0; font-size: 2rem; }
+    .footer-contact { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 18px; }
+    .footer-contact a { color: var(--of-gold-200); text-decoration: none; font-weight: 700; }
+    .footer-social { padding-top: 22px; border-top: 1px solid rgba(255,250,241,.12); }
+    .footer-social a { padding: 9px 14px; border: 1px solid rgba(255,250,241,.18); border-radius: 999px; color: rgba(255,250,241,.88); }
+    @media (hover: hover) and (pointer: fine) {
+      .nav-actions > .btn.gold:hover, .btn.primary:hover, .hero-primary:hover { background: linear-gradient(180deg, #e7ca85, #c99a3d 55%, #9d762b); box-shadow: 0 22px 54px rgba(157,118,43,.32), inset 0 1px 0 rgba(255,255,255,.38); }
+      .offer-card:hover, .team-card:hover, .tourism-card:hover { transform: translateY(-4px); border-color: var(--of-border-gold); box-shadow: 0 24px 76px rgba(18,44,36,.15); }
+      .footer-social a:hover { border-color: rgba(217,184,108,.62); color: var(--of-gold-200); transform: translateY(-2px); }
+    }
+    @media (max-width: 760px) {
+      .nav { width: calc(100% - 24px); height: 70px; }
+      .brand { min-width: 0; }
+      .brand-emblem { width: 40px; height: 40px; flex-basis: 40px; border-radius: 13px; }
+      .brand-emblem svg { width: 27px; height: 27px; }
+      .brand strong { font-size: 1.35rem; }
+      .hero { padding: 84px 12px 72px; }
+      .hero-frame { min-height: auto; border-radius: 28px; display: flex; flex-direction: column; }
+      .hero-media { position: relative; order: 1; height: 280px; min-height: 280px; padding: 0; margin: 0; border-radius: 0; }
+      .hero-media::before { background: linear-gradient(180deg, rgba(255,250,241,.04) 48%, rgba(255,250,241,.76) 100%); }
+      .hero-media img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: 56% center; -webkit-mask-image: none; mask-image: none; }
+      .hero-layout { order: 2; min-height: auto; padding: 26px 20px 28px; display: block; }
+      .hero-copy { max-width: none; }
+      .hero-title { max-width: 100%; font-size: clamp(3rem, 14vw, 4.15rem); line-height: .94; }
+      .hero-badges { flex-wrap: nowrap; margin: 0 -4px 24px; padding: 4px; overflow-x: auto; scrollbar-width: none; }
+      .hero-badge { flex: 0 0 auto; min-height: 32px; font-size: .7rem; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; gap: 11px; }
+      .hero-actions .btn { width: 100%; grid-column: auto !important; }
+      .hero-trust-line { position: static; margin-top: 28px; font-size: .78rem; }
+      .intake { width: calc(100% - 24px); margin: -28px auto 0; }
+      .intake-panel { padding: 26px 20px; border-radius: 26px; }
+      .intake-intro h2 { font-size: clamp(2.35rem, 11vw, 3.2rem); }
+      .quick-actions { display: grid; grid-template-columns: 1fr; }
+      .quick-actions .btn { width: 100%; }
+      .intake-form { grid-template-columns: 1fr; margin-top: 28px; padding-top: 24px; }
+      .intake-form > .btn { width: 100%; min-width: 0; grid-column: auto; }
+      .contact-modal-actions { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-social { gap: 9px; }
+      .footer-social a { padding: 8px 11px; font-size: .8rem; }
+      .offer-card { min-height: 0; padding: 72px 22px 24px; }
+      .mobile-cta { border-radius: 20px; background: rgba(255,250,241,.94); backdrop-filter: blur(18px); }
+    }
+    /* End premium visual redesign V3 */
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Optima Fide">
-        <img src="logo.jpg" alt="Logo Optima Fide">
+        <span class="brand-emblem" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 40V17M18 40h12" stroke="currentColor" stroke-width="2"/><path d="M24 24C15 23 10 17 10 9c9 0 15 5 14 15ZM24 31c9-1 14-7 14-15-9 0-15 6-14 15Z" stroke="currentColor" stroke-width="2"/></svg></span>
         <span><strong>Optima Fide</strong></span>
       </a>
       <nav class="nav-links" id="navLinks" aria-label="Navigare principală">
@@ -1484,11 +1732,15 @@
 
     <section class="container intake" id="consultatie" aria-labelledby="intake-title">
       <div class="intake-panel" data-reveal>
-        <h2 id="intake-title" data-i18n="intakeTitle">Începeți cu o consultație confidențială</h2>
-        <p class="intake-lead" data-i18n="intakeLead">Prima conversație nu vă obligă să intrați în centru. Ascultăm cu respect, explicăm pașii posibili și păstrăm confidențialitatea.</p>
-        <div class="quick-actions">
-          <a class="btn outline" href="tel:+37379002064" data-i18n="firstCall">Sună</a>
-          <a class="btn outline" href="#" data-contact-modal data-i18n="firstTelegram">Scrie pe Telegram</a>
+        <div class="intake-intro">
+          <div class="eyebrow" data-i18n="intakeEyebrow">Primul pas</div>
+          <h2 id="intake-title" data-i18n="intakeTitle">Începeți cu o consultație confidențială</h2>
+          <p class="intake-lead" data-i18n="intakeLead">Prima conversație nu vă obligă să intrați în centru. Ascultăm cu respect, explicăm pașii posibili și păstrăm confidențialitatea.</p>
+          <div class="quick-actions">
+            <a class="btn primary" href="tel:+37379002064" data-i18n="firstCall">Sună</a>
+            <a class="btn outline" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="firstTelegram">Scrie pe Telegram</a>
+            <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
         </div>
         <form class="intake-form" id="intakeForm">
           <div class="field">
@@ -2158,7 +2410,7 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div><strong>Optima Fide</strong><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p></div>
+      <div class="footer-brand"><div class="footer-brand-row"><img src="logo.jpg" alt="Logo Optima Fide"><strong>Optima Fide</strong></div><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p><div class="footer-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
       <div class="footer-links"><a href="#program" data-i18n="navProgram">Programul</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
       <div class="footer-social">
         <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -2384,6 +2636,7 @@
                 "footerText": "Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.",
                 "mobileCall": "Sună",
                 "mobileMore": "Mai mult",
+                "intakeEyebrow": "Primul pas",
                 "copied": "IBAN copiat"
           },
           "ru": {
@@ -2576,6 +2829,7 @@
                 "footerText": "Резиденциальная программа восстановления в Молдове. Адрес центра: ул. Глорией 4, с. Гоянул Ноу, г. Ставчены.",
                 "mobileCall": "Позвонить",
                 "mobileMore": "Ещё",
+                "intakeEyebrow": "Первый шаг",
                 "copied": "IBAN скопирован"
           },
           "en": {
@@ -2768,6 +3022,7 @@
                 "footerText": "Residential recovery program in Moldova. Center address: Gloriei St. 4, Goianul Nou, Stăuceni.",
                 "mobileCall": "Call",
                 "mobileMore": "More",
+                "intakeEyebrow": "First step",
                 "copied": "IBAN copied"
           }
     };

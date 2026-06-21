@@ -19,6 +19,7 @@ required = {
     ".hero::before": "full-width hero mist",
     "object-position: 56% center": "building shift",
     "aspect-ratio: 595 / 842": "upright certificate frame",
+    ".weekend-media img { position: absolute; inset: 0;": "full-height weekend image",
 }
 
 missing = [label for marker, label in required.items() if marker not in html]

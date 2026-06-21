@@ -60,7 +60,8 @@ REQUIRED = [
     "family-support.webp",
     "center-stairs.jpg",
     '<meta name="google-site-verification" content="xZ_T9EjYJ_9vJWXbHZWo5uzpubsGZZ5qbSsYukcCPgQ">',
-    '<link rel="canonical" href="https://recovery.optimafide.md/">',
+    '<link rel="canonical" href="https://optimafide.pages.dev/">',
+    '<meta property="og:url" content="https://optimafide.pages.dev/">',
     '<title>Optima Fide — centru rezidențial de recuperare în Moldova</title>',
     '<meta name="description" content="Cazare, masă, program rezidențial de recuperare, sprijin pentru familie și acreditare de stat la centrul Optima Fide din Moldova.">',
 ]
@@ -152,9 +153,9 @@ def main() -> int:
     elif GOOGLE_VERIFICATION_PATH.read_text(encoding="utf-8").strip() != GOOGLE_VERIFICATION_CONTENT:
         failures.append("Invalid Google verification file content")
 
-    if not ROBOTS_PATH.exists() or "Sitemap: https://recovery.optimafide.md/sitemap.xml" not in ROBOTS_PATH.read_text(encoding="utf-8"):
+    if not ROBOTS_PATH.exists() or "Sitemap: https://optimafide.pages.dev/sitemap.xml" not in ROBOTS_PATH.read_text(encoding="utf-8"):
         failures.append("Missing or invalid robots.txt")
-    if not SITEMAP_PATH.exists() or "<loc>https://recovery.optimafide.md/</loc>" not in SITEMAP_PATH.read_text(encoding="utf-8"):
+    if not SITEMAP_PATH.exists() or "<loc>https://optimafide.pages.dev/</loc>" not in SITEMAP_PATH.read_text(encoding="utf-8"):
         failures.append("Missing or invalid sitemap.xml")
 
     worker = TELEGRAM_WORKER_PATH.read_text(encoding="utf-8")

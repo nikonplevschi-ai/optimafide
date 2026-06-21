@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://recovery.optimafide.md/sitemap.xml
+Sitemap: https://optimafide.pages.dev/sitemap.xml

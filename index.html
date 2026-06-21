@@ -1512,8 +1512,23 @@
     .hero {
       padding: 112px clamp(16px, 4vw, 48px) clamp(92px, 9vw, 128px);
       background: transparent;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 42px 0 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 4% 54%, rgba(143,160,134,.30), transparent 42%),
+        radial-gradient(ellipse at 96% 30%, rgba(217,184,108,.16), transparent 38%),
+        linear-gradient(90deg, rgba(239,232,216,.72), rgba(255,250,241,.22) 25%, rgba(255,250,241,.22) 75%, rgba(239,232,216,.72));
+      filter: blur(22px);
     }
     .hero-frame {
+      z-index: 1;
       width: min(1220px, 100%);
       min-height: clamp(640px, 72vh, 760px);
       border-radius: 36px;
@@ -1541,7 +1556,7 @@
       height: 100%;
       max-height: none;
       object-fit: cover;
-      object-position: center;
+      object-position: 56% center;
       filter: saturate(1.02) contrast(1.06) brightness(1.02);
       -webkit-mask-image: none;
       mask-image: none;
@@ -1824,16 +1839,95 @@
     main > * { order: 20; }
     main > .hero { order: 1; }
     #consultatie { order: 2; }
-    #admission { order: 3; }
-    #trust, #acreditare { order: 4; }
+    #weekend-together { order: 3; }
+    #admission { order: 4; }
+    #trust, #acreditare { order: 5; }
     .section-anchor { display: block; height: 0; scroll-margin-top: 96px; }
-    #life-center, #recovery-spaces { order: 5; }
-    #visual-program, #program { order: 6; }
-    #familie { order: 7; }
-    #oferte-pdf { order: 8; }
-    #donatii { order: 9; }
-    #faq { order: 10; }
+    #life-center, #recovery-spaces { order: 6; }
+    #visual-program, #program { order: 7; }
+    #familie { order: 8; }
+    #oferte-pdf { order: 9; }
+    #donatii { order: 10; }
+    #faq { order: 11; }
     #contacte { order: 30; }
+    .weekend-offer {
+      overflow: hidden;
+      padding-block: clamp(72px, 8vw, 112px);
+      background:
+        radial-gradient(circle at 8% 18%, rgba(143,160,134,.22), transparent 30%),
+        radial-gradient(circle at 92% 86%, rgba(217,184,108,.14), transparent 28%),
+        linear-gradient(180deg, rgba(255,250,241,.92), rgba(238,243,234,.72));
+    }
+    .weekend-shell {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+      gap: clamp(38px, 6vw, 78px);
+      align-items: center;
+    }
+    .weekend-media {
+      position: relative;
+      min-height: 720px;
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: 0 26px 70px rgba(18,44,36,.15);
+    }
+    .weekend-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 58%, rgba(16,37,31,.18));
+      pointer-events: none;
+    }
+    .weekend-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .weekend-copy { min-width: 0; }
+    .weekend-copy h2 { max-width: 720px; font-size: clamp(3rem, 5.2vw, 5.3rem); line-height: .98; }
+    .weekend-subtitle { margin-top: 16px; color: var(--of-green-main); font-size: clamp(1.14rem, 1.7vw, 1.42rem); font-weight: 800; }
+    .weekend-copy > p:not(.weekend-subtitle, .weekend-continuation, .weekend-notice) { margin-top: 18px; color: var(--of-muted); font-size: 1.02rem; line-height: 1.72; }
+    .weekend-copy h3 { margin-top: 28px; font-size: clamp(1.7rem, 2.6vw, 2.35rem); }
+    .weekend-includes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 20px; margin-top: 16px; list-style: none; }
+    .weekend-includes li { position: relative; padding-left: 24px; color: var(--of-text); line-height: 1.48; }
+    .weekend-includes li::before { content: ""; position: absolute; left: 0; top: .57em; width: 9px; height: 9px; border: 2px solid var(--of-gold); transform: rotate(45deg); }
+    .weekend-pricing {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(157,118,43,.25);
+      border-radius: 24px;
+      background: rgba(157,118,43,.18);
+      box-shadow: 0 18px 48px rgba(18,44,36,.10);
+    }
+    .weekend-price-featured,
+    .weekend-price-row { display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-width: 0; padding: 22px; background: rgba(255,250,241,.94); }
+    .weekend-price-featured { grid-column: 1 / -1; flex-direction: row; align-items: end; padding: 26px; background: linear-gradient(135deg, rgba(18,65,52,.98), rgba(33,84,68,.94)); color: rgba(255,250,241,.86); }
+    .weekend-price-featured span { max-width: 330px; }
+    .weekend-price-featured strong { color: #fffaf1; font-size: clamp(2.15rem, 4vw, 3.35rem); white-space: nowrap; }
+    .weekend-price-row span { color: var(--of-muted); font-size: .88rem; line-height: 1.4; }
+    .weekend-price-row strong { color: var(--of-green-main); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.6rem, 2.4vw, 2.1rem); white-space: nowrap; }
+    .weekend-continuation { margin-top: 20px; color: var(--of-green-main); font-weight: 800; line-height: 1.55; }
+    .weekend-notice { margin-top: 16px; padding: 18px 20px; border-left: 3px solid var(--of-gold); background: rgba(255,250,241,.56); color: var(--of-muted); font-size: .9rem; line-height: 1.58; }
+    .weekend-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .certificate-button { display: grid; place-items: center; width: 100%; padding: clamp(12px, 2vw, 20px); }
+    .certificate-button picture { display: block; width: min(100%, 560px); aspect-ratio: 595 / 842; margin-inline: auto; }
+    .certificate-button img { display: block; width: 100%; height: 100%; max-height: none; object-fit: contain; border-radius: 12px; transform: none; }
+    @media (max-width: 900px) {
+      .weekend-shell { grid-template-columns: 1fr; }
+      .weekend-media { min-height: 0; aspect-ratio: 4 / 3; }
+      .weekend-copy h2 { font-size: clamp(2.75rem, 8vw, 4.4rem); }
+    }
+    @media (max-width: 620px) {
+      .weekend-offer { padding-block: 58px; }
+      .weekend-shell { width: calc(100% - 24px); gap: 28px; }
+      .weekend-media { aspect-ratio: 1 / .86; border-radius: 22px; }
+      .weekend-includes { grid-template-columns: 1fr; }
+      .weekend-pricing { grid-template-columns: 1fr; border-radius: 20px; }
+      .weekend-price-featured { flex-direction: column; align-items: flex-start; }
+      .weekend-price-featured strong { white-space: normal; }
+      .weekend-actions { display: grid; grid-template-columns: 1fr; }
+      .weekend-actions .btn { width: 100%; }
+      .certificate-button picture { width: 100%; }
+    }
     #program { display: block; }
     #program .container {
       padding: clamp(34px, 5vw, 60px);
@@ -1977,6 +2071,7 @@
               <option data-i18n="supportConsult">Consultație</option>
               <option data-i18n="supportResidential">Program rezidențial</option>
               <option data-i18n="supportFamily">Sprijin familie</option>
+              <option data-i18n="supportWeekend">Weekend împreună</option>
             </select>
           </div>
           <div class="field">
@@ -1992,6 +2087,43 @@
           </div>
           <button class="btn primary" type="submit" data-i18n="requestCall">Solicită apel</button>
         </form>
+      </div>
+    </section>
+
+    <section class="section weekend-offer" id="weekend-together" aria-labelledby="weekend-title">
+      <div class="container weekend-shell">
+        <figure class="weekend-media" data-reveal>
+          <img src="assets/images/visual/family-support.webp" alt="" loading="lazy" decoding="async">
+        </figure>
+        <div class="weekend-copy" data-reveal>
+          <div class="eyebrow" data-i18n="weekendEyebrow">Un prim pas împreună</div>
+          <h2 id="weekend-title" data-i18n="weekendTitle">Weekend împreună</h2>
+          <p class="weekend-subtitle" data-i18n="weekendSubtitle">3 zile pentru a înțelege calm următorul pas</p>
+          <p data-i18n="weekendText">Un format liniștit de cunoaștere a centrului pentru 3 zile și 2 nopți. Participantul vine împreună cu o rudă, un prieten sau o altă persoană apropiată pentru a vedea condițiile, a trăi câteva zile în ritmul centrului, a pune întrebări și a înțelege ce pas este posibil în continuare.</p>
+          <h3 data-i18n="weekendIncludesTitle">Ce include weekendul</h3>
+          <ul class="weekend-includes">
+            <li data-i18n="weekendInclude1">Cazare 3 zile / 2 nopți</li>
+            <li data-i18n="weekendInclude2">Alimentație</li>
+            <li data-i18n="weekendInclude3">Cunoașterea centrului și a regulilor</li>
+            <li data-i18n="weekendInclude4">Participare la ritmul liniștit al centrului</li>
+            <li data-i18n="weekendInclude5">Discuție de consultare</li>
+            <li data-i18n="weekendInclude6">Conversație cu persoana apropiată</li>
+            <li data-i18n="weekendInclude7">Orientare pentru următorul pas posibil</li>
+          </ul>
+          <div class="weekend-pricing" aria-label="Prețuri Weekend împreună">
+            <div class="weekend-price-featured"><span data-i18n="weekendPair">Participant + 1 persoană apropiată · 3 zile / 2 nopți</span><strong>4 900 MDL</strong></div>
+            <div class="weekend-price-row"><span data-i18n="weekendSingle">Participantul vine singur</span><strong>3 500 MDL</strong></div>
+            <div class="weekend-price-row"><span data-i18n="weekendExtra">Însoțitor suplimentar</span><strong>+1 400 MDL</strong></div>
+            <div class="weekend-price-row"><span data-i18n="weekendReservation">Rezervarea locului, inclusă în costul total</span><strong>1 000 MDL</strong></div>
+          </div>
+          <p class="weekend-continuation" data-i18n="weekendContinuation">Dacă după weekend participantul și familia doresc să discute o ședere mai lungă, variantele și condițiile sunt discutate individual după consultație.</p>
+          <p class="weekend-notice" data-i18n="weekendSafety">„Weekend împreună” nu este detoxifiere medicală și nu înlocuiește ajutorul medical de urgență. Înainte de sosire, avem o discuție preliminară pentru a înțelege situația și pentru a ne asigura că formatul este sigur pentru participant, însoțitor și centru.</p>
+          <div class="weekend-actions">
+            <a class="btn primary" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="weekendBook">Înscrie-te la „Weekend împreună”</a>
+            <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer" data-i18n="weekendWhatsapp">Scrie pe WhatsApp</a>
+            <a class="btn outline" href="tel:+37379002064" data-i18n="weekendCall">Sună</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2557,6 +2689,9 @@
           <details data-reveal><summary data-i18n="faq8Q">Există consultații medicale?</summary><p data-i18n="faq8A">La nevoie, ele se organizează separat prin specialiști și instituții de profil.</p></details>
           <details data-reveal><summary data-i18n="faq9Q">Se poate vizita persoana?</summary><p data-i18n="faq9A">Vizitele se discută individual, în funcție de etapa programului și regulile centrului.</p></details>
           <details data-reveal><summary data-i18n="faq10Q">Cum începem?</summary><p data-i18n="faq10A">Sunați sau scrieți pe Telegram. Vom asculta situația și vom explica pașii următori.</p></details>
+          <details data-reveal><summary data-i18n="faqWeekend1Q">Putem veni doar pentru „Weekend împreună” și apoi să plecăm?</summary><p data-i18n="faqWeekend1A">Da. Formatul este creat pentru o cunoaștere liniștită a centrului. După weekend puteți pleca acasă, pune întrebări suplimentare sau discuta o posibilă continuare.</p></details>
+          <details data-reveal><summary data-i18n="faqWeekend2Q">Poate persoana apropiată să rămână alături toate cele 3 zile?</summary><p data-i18n="faqWeekend2A">Da. Formatul este prevăzut pentru participant și o persoană apropiată. Un însoțitor suplimentar este posibil prin acord prealabil.</p></details>
+          <details data-reveal><summary data-i18n="faqWeekend3Q">Se poate rămâne mai mult după weekend?</summary><p data-i18n="faqWeekend3A">Da. Dacă participantul și familia doresc să ia în considerare o ședere mai lungă, variantele și condițiile sunt discutate individual după consultație.</p></details>
         </div>
       </div>
     </section>
@@ -3533,6 +3668,97 @@
       telegramCta: "Write on Telegram",
       heroTrustLine: "Accredited · 20 residential places · 500+ people supported · confidential",
       heroImageAlt: "Optima Fide residential center in Goianul Nou"
+    });
+
+    Object.assign(translations.ro, {
+      weekendEyebrow: "Un prim pas împreună",
+      weekendTitle: "Weekend împreună",
+      weekendSubtitle: "3 zile pentru a înțelege calm următorul pas",
+      weekendText: "Un format liniștit de cunoaștere a centrului pentru 3 zile și 2 nopți. Participantul vine împreună cu o rudă, un prieten sau o altă persoană apropiată pentru a vedea condițiile, a trăi câteva zile în ritmul centrului, a pune întrebări și a înțelege ce pas este posibil în continuare.",
+      weekendIncludesTitle: "Ce include weekendul",
+      weekendInclude1: "Cazare 3 zile / 2 nopți",
+      weekendInclude2: "Alimentație",
+      weekendInclude3: "Cunoașterea centrului și a regulilor",
+      weekendInclude4: "Participare la ritmul liniștit al centrului",
+      weekendInclude5: "Discuție de consultare",
+      weekendInclude6: "Conversație cu persoana apropiată",
+      weekendInclude7: "Orientare pentru următorul pas posibil",
+      weekendPair: "Participant + 1 persoană apropiată · 3 zile / 2 nopți",
+      weekendSingle: "Participantul vine singur",
+      weekendExtra: "Însoțitor suplimentar",
+      weekendReservation: "Rezervarea locului, inclusă în costul total",
+      weekendContinuation: "Dacă după weekend participantul și familia doresc să discute o ședere mai lungă, variantele și condițiile sunt discutate individual după consultație.",
+      weekendSafety: "„Weekend împreună” nu este detoxifiere medicală și nu înlocuiește ajutorul medical de urgență. Înainte de sosire, avem o discuție preliminară pentru a înțelege situația și pentru a ne asigura că formatul este sigur pentru participant, însoțitor și centru.",
+      weekendBook: "Înscrie-te la „Weekend împreună”",
+      weekendWhatsapp: "Scrie pe WhatsApp",
+      weekendCall: "Sună",
+      supportWeekend: "Weekend împreună",
+      faqWeekend1Q: "Putem veni doar pentru „Weekend împreună” și apoi să plecăm?",
+      faqWeekend1A: "Da. Formatul este creat pentru o cunoaștere liniștită a centrului. După weekend puteți pleca acasă, pune întrebări suplimentare sau discuta o posibilă continuare.",
+      faqWeekend2Q: "Poate persoana apropiată să rămână alături toate cele 3 zile?",
+      faqWeekend2A: "Da. Formatul este prevăzut pentru participant și o persoană apropiată. Un însoțitor suplimentar este posibil prin acord prealabil.",
+      faqWeekend3Q: "Se poate rămâne mai mult după weekend?",
+      faqWeekend3A: "Da. Dacă participantul și familia doresc să ia în considerare o ședere mai lungă, variantele și condițiile sunt discutate individual după consultație."
+    });
+    Object.assign(translations.ru, {
+      weekendEyebrow: "Первый шаг вместе",
+      weekendTitle: "Уикенд вместе",
+      weekendSubtitle: "3 дня, чтобы спокойно понять следующий шаг",
+      weekendText: "«Уикенд вместе» — это формат спокойного знакомства с центром на 3 дня / 2 ночи. Участник приезжает вместе с родственником, другом или другим близким человеком, чтобы увидеть условия, прожить несколько дней в ритме центра, задать вопросы и понять, какой следующий шаг возможен.",
+      weekendIncludesTitle: "Что входит в уикенд",
+      weekendInclude1: "Проживание 3 дня / 2 ночи",
+      weekendInclude2: "Питание",
+      weekendInclude3: "Знакомство с центром и правилами",
+      weekendInclude4: "Участие в спокойном ритме центра",
+      weekendInclude5: "Консультационная беседа",
+      weekendInclude6: "Разговор с близким человеком",
+      weekendInclude7: "Помощь в понимании возможного следующего шага",
+      weekendPair: "Участник + 1 близкий человек · 3 дня / 2 ночи",
+      weekendSingle: "Участник приезжает один",
+      weekendExtra: "Дополнительный сопровождающий",
+      weekendReservation: "Бронь места, входит в общую стоимость",
+      weekendContinuation: "Если после уикенда участник и семья захотят рассмотреть дальнейшее пребывание, возможные варианты и условия обсуждаются индивидуально после консультации.",
+      weekendSafety: "«Уикенд вместе» не является медицинской детоксикацией и не заменяет экстренную медицинскую помощь. Перед приездом мы проводим предварительный разговор, чтобы понять ситуацию и убедиться, что формат безопасен для участника, сопровождающего и центра.",
+      weekendBook: "Записаться на «Уикенд вместе»",
+      weekendWhatsapp: "Написать в WhatsApp",
+      weekendCall: "Позвонить",
+      supportWeekend: "Уикенд вместе",
+      faqWeekend1Q: "Можно ли приехать только на «Уикенд вместе» и не оставаться?",
+      faqWeekend1A: "Да. Этот формат создан для спокойного знакомства с центром. После уикенда можно уехать домой, задать дополнительные вопросы или обсудить возможность продолжения.",
+      faqWeekend2Q: "Может ли близкий человек быть рядом все 3 дня?",
+      faqWeekend2A: "Да. Формат рассчитан на участника и одного близкого человека. Дополнительный сопровождающий возможен по предварительному согласованию.",
+      faqWeekend3Q: "Можно ли после уикенда остаться дольше?",
+      faqWeekend3A: "Да. Если после уикенда участник и семья захотят рассмотреть дальнейшее пребывание, возможные варианты и условия обсуждаются индивидуально после консультации."
+    });
+    Object.assign(translations.en, {
+      weekendEyebrow: "A first step together",
+      weekendTitle: "Weekend Together",
+      weekendSubtitle: "3 days to calmly understand the next step",
+      weekendText: "Weekend Together is a calm three-day, two-night introduction to the center. The participant comes with a relative, friend or another loved one to see the conditions, spend several days in the center's rhythm, ask questions and understand what next step may be possible.",
+      weekendIncludesTitle: "What the weekend includes",
+      weekendInclude1: "Accommodation for 3 days / 2 nights",
+      weekendInclude2: "Meals",
+      weekendInclude3: "Introduction to the center and its rules",
+      weekendInclude4: "Participation in the center's calm daily rhythm",
+      weekendInclude5: "Consultation conversation",
+      weekendInclude6: "Conversation with the accompanying loved one",
+      weekendInclude7: "Help understanding a possible next step",
+      weekendPair: "Participant + 1 loved one · 3 days / 2 nights",
+      weekendSingle: "Participant arriving alone",
+      weekendExtra: "Additional accompanying person",
+      weekendReservation: "Place reservation, included in the total price",
+      weekendContinuation: "If after the weekend the participant and family would like to consider a longer stay, the options and conditions are discussed individually after the consultation.",
+      weekendSafety: "“Weekend Together” is not medical detoxification and does not replace emergency medical care. Before arrival, we have a preliminary conversation to understand the situation and make sure this format is safe for the participant, the accompanying person and the center.",
+      weekendBook: "Book “Weekend Together”",
+      weekendWhatsapp: "Write on WhatsApp",
+      weekendCall: "Call",
+      supportWeekend: "Weekend Together",
+      faqWeekend1Q: "Can we come only for Weekend Together and leave afterwards?",
+      faqWeekend1A: "Yes. This format is designed as a calm introduction to the center. After the weekend, you can return home, ask further questions or discuss a possible continuation.",
+      faqWeekend2Q: "Can a loved one stay nearby for all 3 days?",
+      faqWeekend2A: "Yes. The format is designed for the participant and one loved one. An additional accompanying person is possible by prior agreement.",
+      faqWeekend3Q: "Can the participant stay longer after the weekend?",
+      faqWeekend3A: "Yes. If the participant and family would like to consider a longer stay, the options and conditions are discussed individually after the consultation."
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

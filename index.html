@@ -2780,6 +2780,387 @@
         width: calc(100% - 24px);
       }
     }
+    #recovery-spaces .recovery-strip {
+      grid-auto-flow: row;
+      grid-auto-columns: initial;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      overflow: visible;
+      scroll-snap-type: none;
+    }
+    @media (max-width: 980px) {
+      #recovery-spaces .recovery-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 760px) {
+      #recovery-spaces .recovery-strip {
+        grid-auto-flow: column;
+        grid-auto-columns: 86%;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+      }
+    }
+    /* Final approved-mockup alignment: lighter, shorter, card-led homepage path. */
+    #first-step-editorial,
+    #weekend-together,
+    #life-center,
+    #group-support,
+    #personal-guidance,
+    #activity-movement,
+    #day-center,
+    #situations,
+    #include,
+    #for-whom,
+    #optional-services,
+    #voices {
+      display: none !important;
+    }
+    main > section.section:not([id]),
+    main > section.section.soft:not([id]) {
+      display: none !important;
+    }
+    main > .hero { order: 1; }
+    #consultatie { order: 2; }
+    #admission { order: 3; }
+    #trust { order: 4; }
+    #recovery-spaces { order: 5; }
+    #visual-program { order: 6; }
+    #program { order: 7; }
+    #familie { order: 8; }
+    #oferte-pdf { order: 9; }
+    #donatii { order: 10; }
+    #faq { order: 11; }
+    #acreditare { order: 12; }
+    #echipa { order: 13; }
+    #turism { order: 14; }
+    #conditii { order: 15; }
+    #centru { order: 16; }
+    #contacte { order: 30; }
+    body {
+      background:
+        radial-gradient(circle at 10% 5%, rgba(217,184,108,.10), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(143,160,134,.13), transparent 30%),
+        #f5efe3;
+    }
+    .section,
+    .story-section,
+    .visual-story,
+    .day-scene {
+      padding-block: clamp(54px, 6vw, 86px);
+    }
+    .hero {
+      padding-bottom: clamp(28px, 4vw, 48px);
+    }
+    .hero-frame {
+      width: min(1500px, calc(100% - 40px));
+      min-height: clamp(560px, 62vh, 690px);
+      background: rgba(255,250,241,.86);
+    }
+    .hero-media {
+      right: -2%;
+      width: min(66%, 900px);
+    }
+    .hero-media::before {
+      background:
+        linear-gradient(90deg, rgba(255,250,241,.98) 0%, rgba(255,250,241,.86) 33%, rgba(255,250,241,.28) 59%, transparent 76%),
+        radial-gradient(circle at 42% 46%, rgba(255,250,241,.46), transparent 42%);
+    }
+    .hero-layout {
+      min-height: clamp(560px, 62vh, 690px);
+      padding-block: clamp(44px, 5vw, 68px);
+      padding-bottom: 84px;
+    }
+    .hero-title {
+      font-size: clamp(3.4rem, 5.1vw, 5rem);
+      line-height: .98;
+    }
+    .hero-subtitle {
+      max-width: 535px;
+      font-size: clamp(1rem, 1.08vw, 1.15rem);
+      line-height: 1.56;
+    }
+    #consultatie.intake {
+      width: min(1480px, calc(100% - 40px));
+      margin-top: -34px;
+    }
+    #consultatie .intake-panel {
+      padding: clamp(30px, 3.6vw, 46px);
+      border-radius: 26px;
+      box-shadow: 0 18px 58px rgba(18,44,36,.10);
+    }
+    #consultatie .intake-intro h2 {
+      max-width: 660px;
+      font-size: clamp(2.25rem, 3.4vw, 3.45rem);
+    }
+    #consultatie .intake-lead {
+      max-width: 680px;
+      font-size: 1rem;
+    }
+    #consultatie .quick-actions {
+      max-width: 680px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    #consultatie .quick-actions .btn {
+      min-height: 66px;
+      border-radius: 16px;
+    }
+    #consultatie .intake-form {
+      align-items: end;
+      margin-top: 24px;
+      padding: 16px;
+      border: 1px solid var(--of-border);
+      border-radius: 20px;
+      background: rgba(255,253,247,.76);
+    }
+    #admission .container,
+    #trust .container,
+    #program .container,
+    #faq .container {
+      width: min(1320px, calc(100% - 72px));
+      border: 1px solid var(--of-border);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(143,160,134,.12), transparent 28%),
+        rgba(255,250,241,.88);
+      box-shadow: 0 18px 54px rgba(18,44,36,.08);
+      padding: clamp(30px, 4vw, 52px);
+    }
+    #admission .section-head,
+    #trust .section-head,
+    #program .section-head,
+    #faq .section-head {
+      margin-inline: auto;
+      text-align: center;
+    }
+    #admission .admission-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    #admission .admission-card:nth-child(n+4) {
+      display: none;
+    }
+    #admission .admission-card {
+      min-height: 210px;
+      background: rgba(255,253,247,.78);
+    }
+    #trust .container::before {
+      display: none;
+    }
+    #trust .section-head,
+    #trust .trust-grid {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #trust .trust-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    #trust .trust-card,
+    #trust .trust-card.featured {
+      grid-row: auto;
+      min-height: 190px;
+      color: var(--of-text);
+      background: rgba(255,253,247,.74);
+      border: 1px solid var(--of-border);
+      box-shadow: 0 12px 30px rgba(18,44,36,.06);
+    }
+    #trust .trust-card.featured h3,
+    #trust .trust-card h3 {
+      color: var(--of-green-950);
+      font-size: clamp(1.35rem, 1.9vw, 1.9rem);
+    }
+    #trust .trust-card.featured p,
+    #trust .trust-card p {
+      color: rgba(16,37,31,.72);
+    }
+    #trust .trust-meaning {
+      display: none;
+    }
+    #recovery-spaces {
+      padding-block: clamp(58px, 7vw, 92px);
+      background:
+        radial-gradient(circle at 12% 4%, rgba(217,184,108,.08), transparent 24%),
+        radial-gradient(circle at 88% 88%, rgba(143,160,134,.16), transparent 32%),
+        transparent;
+      color: var(--of-text);
+    }
+    #recovery-spaces .section-head {
+      max-width: 760px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    #recovery-spaces .recovery-canvas {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: none;
+      gap: 18px;
+    }
+    #recovery-spaces .recovery-canvas .recovery-shot {
+      min-height: 250px;
+    }
+    #recovery-spaces .recovery-shot:first-child {
+      grid-row: auto;
+    }
+    #recovery-spaces .recovery-strip {
+      margin-top: 18px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+    #recovery-spaces .recovery-strip .recovery-shot {
+      min-height: 210px;
+    }
+    #recovery-spaces .recovery-shot {
+      background: rgba(255,250,241,.94);
+      border-radius: 18px;
+      box-shadow: 0 14px 38px rgba(18,44,36,.08);
+    }
+    #recovery-spaces .recovery-shot span {
+      left: 12px;
+      bottom: 12px;
+      padding: 7px 10px;
+      font-size: .68rem;
+    }
+    #visual-program .visual-program-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    #visual-program .visual-program,
+    #visual-program .visual-program:nth-child(2),
+    #visual-program .visual-program:nth-child(3) {
+      min-height: 310px;
+      border-radius: 20px;
+      background: rgba(255,250,241,.9);
+    }
+    #visual-program .visual-program img {
+      opacity: .76;
+      filter: saturate(.88) contrast(1.02) brightness(.96) sepia(.05);
+    }
+    #visual-program .visual-program-copy h3 {
+      font-size: clamp(1.3rem, 1.8vw, 1.75rem);
+    }
+    #program .packages {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    #program .package:nth-child(5) {
+      display: none;
+    }
+    #program .package {
+      min-height: 250px;
+      padding: 24px;
+      border-radius: 20px;
+    }
+    #program .package-meta {
+      margin-block: 14px;
+    }
+    #program .package-meta .meta-line:nth-child(n+3) {
+      display: none;
+    }
+    #familie .family-layout {
+      width: min(1320px, calc(100% - 72px));
+      grid-template-columns: .92fr 1.08fr;
+      padding: 10px;
+      border-radius: 28px;
+      background: rgba(255,250,241,.9);
+    }
+    #oferte-pdf .offer-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    #oferte-pdf .offer-card {
+      min-height: 230px;
+      border-radius: 20px;
+    }
+    #faq .faq-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    #faq .faq-list details {
+      border-radius: 16px;
+      background: rgba(255,253,247,.72);
+      box-shadow: none;
+    }
+    #faq .faq-list summary {
+      min-height: 56px;
+      padding: 16px 20px;
+    }
+    #donatii .donation-layout,
+    .site-footer {
+      width: min(1320px, calc(100% - 72px));
+      margin-inline: auto;
+      border-radius: 28px;
+    }
+    .site-footer {
+      margin-bottom: 0;
+    }
+    #acreditare,
+    #echipa,
+    #turism,
+    #conditii,
+    #centru {
+      padding-block: clamp(48px, 5vw, 72px);
+    }
+    @media (max-width: 1024px) {
+      #trust .trust-grid,
+      #program .packages,
+      #oferte-pdf .offer-grid,
+      #recovery-spaces .recovery-canvas,
+      #recovery-spaces .recovery-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      #familie .family-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 760px) {
+      .hero {
+        padding-top: 82px;
+      }
+      .hero-frame,
+      #admission .container,
+      #trust .container,
+      #program .container,
+      #faq .container,
+      #familie .family-layout,
+      #donatii .donation-layout,
+      .site-footer {
+        width: calc(100% - 24px);
+      }
+      .hero-frame {
+        min-height: auto;
+      }
+      .hero-layout {
+        min-height: auto;
+        padding-bottom: 28px;
+      }
+      #consultatie .quick-actions,
+      #admission .admission-grid,
+      #trust .trust-grid,
+      #visual-program .visual-program-grid,
+      #program .packages,
+      #oferte-pdf .offer-grid,
+      #faq .faq-list {
+        grid-template-columns: 1fr;
+      }
+      #recovery-spaces .recovery-canvas {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      #recovery-spaces .recovery-strip {
+        grid-auto-flow: column;
+        grid-auto-columns: 86%;
+        grid-template-columns: none;
+        overflow-x: auto;
+      }
+      #consultatie.intake {
+        margin-top: -18px;
+      }
+      #consultatie .quick-actions .btn {
+        min-height: 58px;
+      }
+      #program .package,
+      #visual-program .visual-program,
+      #visual-program .visual-program:nth-child(2),
+      #visual-program .visual-program:nth-child(3) {
+        min-height: 0;
+      }
+    }
     /* End approved homepage V4 */
   </style>
 </head>
@@ -2887,6 +3268,22 @@
       </div>
     </section>
 
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="trustEyebrow">De ce Optima Fide</div>
+          <h2 data-i18n="trustTitle">Un centru acreditat cu o abordare deschisă și respectuoasă</h2>
+          <p data-i18n="trustLead">Arătăm ce există concret: acreditare, adresă, echipă, ritm zilnic și un prim dialog fără presiune.</p>
+        </div>
+        <div class="trust-grid">
+          <article class="trust-card" data-reveal><div class="amenity-icon">01</div><h3 data-i18n="trustMock1Title">Acreditare</h3><p data-i18n="trustMock1Text">Serviciul este confirmat prin certificat și poate fi verificat înainte de intrare.</p></article>
+          <article class="trust-card" data-reveal><div class="amenity-icon">02</div><h3 data-i18n="trustMock2Title">Experiență și rezultat</h3><p data-i18n="trustMock2Text">Un format rezidențial cu ritm zilnic, sprijin și orientare pentru familie.</p></article>
+          <article class="trust-card" data-reveal><div class="amenity-icon">03</div><h3 data-i18n="trustMock3Title">Mediu pentru schimbare</h3><p data-i18n="trustMock3Text">Spațiu liniștit, ordine și distanță de obiceiurile care trag înapoi.</p></article>
+          <article class="trust-card" data-reveal><div class="amenity-icon">04</div><h3 data-i18n="trustMock4Title">Familia alături</h3><p data-i18n="trustMock4Text">Familia primește claritate, pași concreți și sprijin fără presiune.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="agency-editorial" id="first-step-editorial" aria-labelledby="first-step-editorial-title" data-reveal>
       <p class="agency-editorial__kicker" data-i18n="agencyKicker">De unde începe recuperarea</p>
       <h2 class="agency-editorial__title section-title--modern" id="first-step-editorial-title" data-i18n="agencyTitle">De la neliniște la un prim pas clar</h2>
@@ -2970,6 +3367,7 @@
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/hallway.webp"><img src="assets/images/visual/hallway.webp" alt="" loading="lazy"><span data-i18n="hallwayCaption">Spațiu pentru liniște și concentrare</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-chapel.webp"><img src="assets/images/visual/spaces-chapel.webp" alt="" loading="lazy" decoding="async"><span data-i18n="amenity6Title">Mediu protejat</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-yard.webp"><img src="assets/images/visual/spaces-yard.webp" alt="" loading="lazy" decoding="async"><span data-i18n="act5Title">Curte și odihnă în natură</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/table-tennis-room.png"><img src="assets/images/visual/table-tennis-room.png" alt="" loading="lazy" decoding="async"><span data-i18n="act2Title">Tenis de masă</span></button>
         </div>
       </div>
     </section>
@@ -4630,6 +5028,36 @@
       pkg3Cta: "Write to us",
       pkg4Cta: "Plan the return",
       pkg5Cta: "Talk to us"
+    });
+    Object.assign(translations.ro, {
+      trustMock1Title: "Acreditare",
+      trustMock1Text: "Serviciul este confirmat prin certificat și poate fi verificat înainte de intrare.",
+      trustMock2Title: "Experiență și rezultat",
+      trustMock2Text: "Un format rezidențial cu ritm zilnic, sprijin și orientare pentru familie.",
+      trustMock3Title: "Mediu pentru schimbare",
+      trustMock3Text: "Spațiu liniștit, ordine și distanță de obiceiurile care trag înapoi.",
+      trustMock4Title: "Familia alături",
+      trustMock4Text: "Familia primește claritate, pași concreți și sprijin fără presiune."
+    });
+    Object.assign(translations.ru, {
+      trustMock1Title: "Аккредитация",
+      trustMock1Text: "Услуга подтверждена сертификатом, который можно проверить до поступления.",
+      trustMock2Title: "Опыт и результат",
+      trustMock2Text: "Резиденциальный формат с ежедневным ритмом, поддержкой и ориентацией семьи.",
+      trustMock3Title: "Среда для изменения",
+      trustMock3Text: "Спокойное пространство, порядок и дистанция от привычек, которые тянут назад.",
+      trustMock4Title: "Семья рядом",
+      trustMock4Text: "Семья получает ясность, конкретные шаги и поддержку без давления."
+    });
+    Object.assign(translations.en, {
+      trustMock1Title: "Accreditation",
+      trustMock1Text: "The service is confirmed by a certificate that can be checked before admission.",
+      trustMock2Title: "Experience and results",
+      trustMock2Text: "A residential format with daily rhythm, support and guidance for the family.",
+      trustMock3Title: "Environment for change",
+      trustMock3Text: "A calm space, order and distance from habits that pull a person back.",
+      trustMock4Title: "Family nearby",
+      trustMock4Text: "The family receives clarity, concrete steps and support without pressure."
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

@@ -701,9 +701,18 @@
       .terminal-step { min-height: 0; }
       .terminal-map-card .btn,
       .terminal-note-actions .btn { width: 100%; }
+      .qiwi-guide-step { grid-template-columns: 1fr; }
+      .qiwi-guide-step__content { order: -1; }
+      .qiwi-guide-actions { display: grid; grid-template-columns: 1fr 1fr; }
+      .qiwi-guide-actions .btn,
+      .qiwi-guide-extra .btn { width: 100%; }
     }
     @media (max-width: 430px) {
       .center-gallery-grid { grid-template-columns: 1fr; }
+      .qiwi-guide-modal { padding: 12px; }
+      .qiwi-guide-modal__dialog { border-radius: 26px; padding: 22px; }
+      .qiwi-guide-modal__header h2 { font-size: clamp(2rem, 12vw, 2.8rem); }
+      .qiwi-guide-actions { grid-template-columns: 1fr; }
     }
     .accreditation-card {
       display: grid;
@@ -971,6 +980,181 @@
     .terminal-map-card p,
     .terminal-note-card p { margin-top: 8px; color: var(--muted); }
     .terminal-note-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .donation-method-card--qiwi {
+      position: relative;
+      overflow: hidden;
+    }
+    .donation-method-card--qiwi::after {
+      content: "";
+      position: absolute;
+      right: -42px;
+      bottom: -54px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,184,108,.28), transparent 68%);
+      pointer-events: none;
+    }
+    .donation-method-card__icon {
+      display: inline-grid;
+      min-width: 62px;
+      height: 38px;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ead29a, #c99a3d);
+      color: var(--green);
+      font-weight: 900;
+      letter-spacing: .08em;
+      box-shadow: 0 10px 26px rgba(18,44,36,.14);
+    }
+    .qiwi-guide-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .qiwi-guide-modal.is-open { display: flex; }
+    .qiwi-guide-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 38, 31, .58);
+      backdrop-filter: blur(10px);
+    }
+    .qiwi-guide-modal__dialog {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow: auto;
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(201,154,61,.13), transparent 32%),
+        linear-gradient(180deg, rgba(255,250,241,.98), rgba(248,242,231,.96));
+      box-shadow: 0 34px 110px rgba(0,0,0,.28);
+      padding: clamp(24px, 4vw, 54px);
+    }
+    .qiwi-guide-modal__close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(16,37,31,.12);
+      border-radius: 999px;
+      background: rgba(255,250,241,.9);
+      color: var(--green);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .qiwi-guide-modal__header {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    .qiwi-guide-modal__header h2 {
+      color: var(--green);
+      font-size: clamp(2.35rem, 4.5vw, 4.1rem);
+      line-height: 1.02;
+      margin-bottom: 14px;
+    }
+    .qiwi-guide-step {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: clamp(24px, 4vw, 52px);
+      align-items: center;
+    }
+    .qiwi-guide-step__media {
+      overflow: hidden;
+      border: 1px solid rgba(16,37,31,.10);
+      border-radius: 28px;
+      background: rgba(255,255,255,.62);
+      box-shadow: 0 18px 56px rgba(18,44,36,.12);
+    }
+    .qiwi-guide-step__media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+    .qiwi-guide-step__content {
+      border: 1px solid rgba(16,37,31,.10);
+      border-radius: 26px;
+      background: rgba(255,250,241,.84);
+      box-shadow: 0 14px 42px rgba(18,44,36,.075);
+      padding: 26px;
+    }
+    .qiwi-guide-step__number {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ead29a, #c99a3d);
+      color: var(--green);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+    }
+    .qiwi-guide-step__content h3 {
+      color: var(--green);
+      font-size: clamp(1.9rem, 3vw, 2.75rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    .qiwi-guide-step__content p {
+      margin: 0;
+      color: rgba(16,37,31,.72);
+      font-size: 1.04rem;
+      line-height: 1.58;
+    }
+    .qiwi-guide-progress {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 28px 0 20px;
+    }
+    .qiwi-guide-progress button {
+      width: 11px;
+      height: 11px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(16,37,31,.18);
+      cursor: pointer;
+      transition: width .2s ease, background .2s ease;
+    }
+    .qiwi-guide-progress button.is-active {
+      width: 30px;
+      background: #c99a3d;
+    }
+    .qiwi-guide-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .qiwi-guide-actions .btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .qiwi-guide-extra {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+    }
+    .qiwi-guide-note {
+      max-width: 760px;
+      margin: 24px auto 0;
+      text-align: center;
+      color: rgba(16,37,31,.68);
+      font-size: .9rem;
+    }
+    body.qiwi-guide-open { overflow: hidden; }
     .telegram-cta {
       display: flex;
       align-items: center;
@@ -4278,11 +4462,11 @@
                 <p data-i18n="donationBankText">Pentru donații de la persoane fizice, organizații și parteneri.</p>
                 <a class="btn outline" href="#bank-details" data-i18n="donationBankCta">Arată rechizitele</a>
               </article>
-              <article class="donation-method-card">
-                <span class="fee-badge">QIWI</span>
-                <h3 data-i18n="donationTerminalTitle">Prin terminal QIWI</h3>
-                <p data-i18n="donationTerminalText">Puteți dona numerar prin terminal, alegând fondul Optima Fide.</p>
-                <a class="btn gold" href="#terminal-donation" data-i18n="donationTerminalCta">Cum donezi prin terminal</a>
+              <article class="donation-method-card donation-method-card--qiwi">
+                <div class="donation-method-card__icon">QIWI</div>
+                <h3 data-i18n="donationQiwiTitle">Prin terminal QIWI</h3>
+                <p data-i18n="donationQiwiText">Puteți sprijini centrul în numerar prin terminal, alegând fondul Optima Fide.</p>
+                <button class="btn gold" type="button" data-open-qiwi-guide data-i18n="donationQiwiButton">Arată instrucțiunea</button>
               </article>
             </div>
           </div>
@@ -4290,7 +4474,7 @@
             <a class="btn primary" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="paypalSoon">Donează prin PayPal</a>
             <button class="btn outline" type="button" data-copy-iban="MD63VI000000002224729306" data-i18n="copyIban">Copiază IBAN</button>
             <a class="btn outline" href="#bank-details" data-i18n="allDetails">Toate rechizitele</a>
-            <a class="btn outline" href="#terminal-donation" data-i18n="donationTerminalShortCta">Donează prin terminal</a>
+            <button class="btn outline" type="button" data-open-qiwi-guide data-i18n="donationQiwiButton">Arată instrucțiunea</button>
           </div>
           <p class="donation-telegram-note"><a href="#" data-contact-modal data-i18n="donationTelegramNote">Pentru întrebări despre donații, ne puteți scrie pe Telegram.</a></p>
           <div class="bank-list" id="bank-details">
@@ -4303,43 +4487,6 @@
             <details class="bank-details"><summary><span>USD</span><span class="iban">MD63VI000000002224729306</span></summary><div class="bank-body">
               <div class="bank-row"><span data-i18n="bankAccountName">Denumire cont</span><strong>Fundația Optima Fide</strong></div><div class="bank-row"><span>IBAN</span><strong>MD63VI000000002224729306</strong></div><div class="bank-row"><span data-i18n="bankName">Banca</span><strong>BC Victoriabank SA</strong></div><div class="bank-row"><span>SWIFT</span><strong>VICBMD2X</strong></div><div class="bank-row"><span data-i18n="correspondent">Bancă corespondentă</span><strong>Bank of New York Mellon, New York, N.Y.</strong></div><div class="bank-row"><span>SWIFT</span><strong>IRVTUS3N</strong></div>
             </div></details>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="terminal-donation" id="terminal-donation" aria-labelledby="terminal-donation-title">
-      <div class="container">
-        <div class="terminal-panel" data-reveal>
-          <div class="section-head">
-            <div class="eyebrow" data-i18n="terminalEyebrow">Donație în numerar</div>
-            <h2 id="terminal-donation-title" data-i18n="terminalTitle">Cum poți dona prin terminal QIWI</h2>
-            <p data-i18n="terminalText">Puteți sprijini Optima Fide printr-un terminal QIWI. Urmați pașii de pe ecranul terminalului și păstrați bonul după plată.</p>
-          </div>
-          <div class="terminal-steps">
-            <article class="terminal-step"><span class="terminal-step__number">01</span><h3 data-i18n="terminalStep1Title">Alegeți „Plata serviciilor”</h3><p data-i18n="terminalStep1Text">Pe ecranul principal al terminalului apăsați „Plata serviciilor”.</p></article>
-            <article class="terminal-step"><span class="terminal-step__number">02</span><h3 data-i18n="terminalStep2Title">Accesați „Alte servicii”</h3><p data-i18n="terminalStep2Text">Din lista de categorii, alegeți „Alte servicii”.</p></article>
-            <article class="terminal-step"><span class="terminal-step__number">03</span><h3 data-i18n="terminalStep3Title">Alegeți „Fonduri de ajutor”</h3><p data-i18n="terminalStep3Text">Găsiți secțiunea „Fonduri de ajutor”.</p></article>
-            <article class="terminal-step"><span class="terminal-step__number">04</span><h3 data-i18n="terminalStep4Title">Găsiți Optima Fide</h3><p data-i18n="terminalStep4Text">În lista fondurilor, găsiți și selectați Optima Fide.</p></article>
-            <article class="terminal-step"><span class="terminal-step__number">05</span><h3 data-i18n="terminalStep5Title">Introduceți numele și telefonul</h3><p data-i18n="terminalStep5Text">Introduceți datele dumneavoastră pentru ca plata să fie înregistrată corect.</p></article>
-            <article class="terminal-step"><span class="terminal-step__number">06</span><h3 data-i18n="terminalStep6Title">Introduceți suma</h3><p data-i18n="terminalStep6Text">Introduceți suma dorită în acceptorul de bancnote al terminalului.</p></article>
-            <article class="terminal-step terminal-step--final"><span class="terminal-step__number">07</span><h3 data-i18n="terminalStep7Title">Apăsați „Plătește”</h3><p data-i18n="terminalStep7Text">Verificați datele, apăsați „Plătește” și păstrați bonul.</p></article>
-          </div>
-          <div class="terminal-support-row">
-            <div class="terminal-map-card">
-              <h3 data-i18n="terminalMapTitle">Găsiți cel mai apropiat terminal</h3>
-              <p data-i18n="terminalMapText">Cel mai apropiat terminal poate fi găsit pe harta QIWI.</p>
-              <p style="margin-top:16px"><a class="btn primary" href="https://qiwi.md/harta-terminale-ru/" target="_blank" rel="noopener noreferrer" data-i18n="terminalMapCta">Găsește un terminal</a></p>
-            </div>
-            <div class="terminal-note-card">
-              <h3 data-i18n="terminalNoteTitle">Important</h3>
-              <p data-i18n="terminalNoteText">După plată, păstrați bonul. Dacă doriți să ne anunțați despre donație, scrieți-ne pe Viber, Telegram sau WhatsApp.</p>
-              <div class="terminal-note-actions">
-                <a class="btn outline" href="viber://chat?number=%2B37379002064">Viber</a>
-                <a class="btn outline" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
-                <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -4499,6 +4646,38 @@
     </div>
   </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotografie"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="Închide">×</button><img id="lightboxImage" src="assets/images/hero-center.webp" alt=""></div>
+  <div class="qiwi-guide-modal" id="qiwiGuideModal" aria-hidden="true">
+    <div class="qiwi-guide-modal__backdrop" data-close-qiwi-guide></div>
+    <div class="qiwi-guide-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="qiwiGuideTitle">
+      <button class="qiwi-guide-modal__close" type="button" data-close-qiwi-guide data-i18n-aria-label="qiwiGuideClose" aria-label="Închide">×</button>
+      <div class="qiwi-guide-modal__header">
+        <p class="eyebrow" data-i18n="qiwiGuideEyebrow">Donație prin terminal</p>
+        <h2 id="qiwiGuideTitle" data-i18n="qiwiGuideTitle">Cum poți plăti prin QIWI</h2>
+        <p data-i18n="qiwiGuideIntro">Urmați pașii de pe ecranul terminalului. După plată, păstrați bonul.</p>
+      </div>
+      <div class="qiwi-guide-step">
+        <div class="qiwi-guide-step__media">
+          <img id="qiwiGuideImage" src="assets/images/donation-terminal/terminal-step-01.webp" alt="Pasul 1 — Plata serviciilor" loading="lazy" decoding="async">
+        </div>
+        <div class="qiwi-guide-step__content">
+          <div class="qiwi-guide-step__number" id="qiwiGuideNumber">01</div>
+          <h3 id="qiwiGuideStepTitle">Plata serviciilor</h3>
+          <p id="qiwiGuideStepText">Pe ecranul principal al terminalului alegeți secțiunea „Plata serviciilor”.</p>
+        </div>
+      </div>
+      <div class="qiwi-guide-progress" id="qiwiGuideProgress" aria-label="Pașii instrucțiunii"></div>
+      <div class="qiwi-guide-actions">
+        <button class="btn outline" type="button" data-qiwi-prev data-i18n="qiwiGuidePrev">Înapoi</button>
+        <button class="btn primary" type="button" data-qiwi-next data-i18n="qiwiGuideNext">Mai departe</button>
+      </div>
+      <div class="qiwi-guide-extra">
+        <a class="btn gold" href="https://qiwi.md/harta-terminale-ru/" target="_blank" rel="noopener noreferrer" data-i18n="qiwiGuideFindTerminal">Găsește cel mai apropiat terminal</a>
+      </div>
+      <div class="qiwi-guide-note">
+        <p data-i18n="qiwiGuideNote">Interfața terminalului poate diferi ușor. Important este să alegeți „Fonduri de ajutor”, apoi „Optima Fide”.</p>
+      </div>
+    </div>
+  </div>
 
   <script>
     const translations = {
@@ -5635,6 +5814,18 @@
       donationTerminalText: "Puteți dona în numerar printr-un terminal QIWI, urmând pașii de pe ecran.",
       donationTerminalCta: "Cum donezi prin terminal",
       donationTerminalShortCta: "Donează prin terminal",
+      donationQiwiTitle: "Prin terminal QIWI",
+      donationQiwiText: "Puteți sprijini centrul în numerar prin terminal, alegând fondul Optima Fide.",
+      donationQiwiButton: "Arată instrucțiunea",
+      qiwiGuideEyebrow: "Donație prin terminal",
+      qiwiGuideTitle: "Cum poți plăti prin QIWI",
+      qiwiGuideIntro: "Urmați pașii de pe ecranul terminalului. După plată, păstrați bonul.",
+      qiwiGuidePrev: "Înapoi",
+      qiwiGuideNext: "Mai departe",
+      qiwiGuideClose: "Închide",
+      qiwiGuideStepLabel: "Pasul",
+      qiwiGuideFindTerminal: "Găsește cel mai apropiat terminal",
+      qiwiGuideNote: "Interfața terminalului poate diferi ușor. Important este să alegeți „Fonduri de ajutor”, apoi „Optima Fide”.",
       terminalEyebrow: "Donație prin terminal",
       terminalTitle: "Cum puteți dona prin terminal QIWI",
       terminalText: "Puteți sprijini Optima Fide printr-un terminal QIWI. Urmați pașii de pe ecranul terminalului și păstrați bonul după plată.",
@@ -5672,6 +5863,18 @@
       donationTerminalText: "Можно сделать пожертвование наличными через терминал QIWI, следуя шагам на экране.",
       donationTerminalCta: "Как пожертвовать через терминал",
       donationTerminalShortCta: "Пожертвовать через терминал",
+      donationQiwiTitle: "Через терминал QIWI",
+      donationQiwiText: "Можно поддержать центр наличными через терминал, выбрав фонд Optima Fide.",
+      donationQiwiButton: "Показать инструкцию",
+      qiwiGuideEyebrow: "Пожертвование через терминал",
+      qiwiGuideTitle: "Как оплатить через QIWI",
+      qiwiGuideIntro: "Следуйте шагам на экране терминала. После оплаты сохраните чек.",
+      qiwiGuidePrev: "Назад",
+      qiwiGuideNext: "Далее",
+      qiwiGuideClose: "Закрыть",
+      qiwiGuideStepLabel: "Шаг",
+      qiwiGuideFindTerminal: "Найти ближайший терминал",
+      qiwiGuideNote: "Интерфейс терминала может немного отличаться. Главное — выбрать «Фонды помощи», затем «Optima Fide».",
       terminalEyebrow: "Пожертвование через терминал",
       terminalTitle: "Как пожертвовать через терминал QIWI",
       terminalText: "Вы можете поддержать Optima Fide через терминал QIWI. Следуйте шагам на экране терминала и сохраните чек после оплаты.",
@@ -5709,6 +5912,18 @@
       donationTerminalText: "You can donate in cash through a QIWI terminal by following the steps on the screen.",
       donationTerminalCta: "How to donate via terminal",
       donationTerminalShortCta: "Donate via terminal",
+      donationQiwiTitle: "Via QIWI terminal",
+      donationQiwiText: "You can support the center in cash through a terminal by choosing the Optima Fide fund.",
+      donationQiwiButton: "Show instructions",
+      qiwiGuideEyebrow: "Donation through terminal",
+      qiwiGuideTitle: "How to pay through QIWI",
+      qiwiGuideIntro: "Follow the steps on the terminal screen. After payment, keep the receipt.",
+      qiwiGuidePrev: "Back",
+      qiwiGuideNext: "Next",
+      qiwiGuideClose: "Close",
+      qiwiGuideStepLabel: "Step",
+      qiwiGuideFindTerminal: "Find nearest terminal",
+      qiwiGuideNote: "The terminal interface may differ slightly. The main point is to choose “Aid funds” and then “Optima Fide”.",
       terminalEyebrow: "Terminal donation",
       terminalTitle: "How to donate through a QIWI terminal",
       terminalText: "You can support Optima Fide through a QIWI terminal. Follow the steps on the terminal screen and keep the receipt after payment.",
@@ -5744,6 +5959,80 @@
     const lightboxClose = document.getElementById("lightboxClose");
     const TELEGRAM_WORKER_URL = "https://optima-fide-telegram-requests.constractoptimafide.workers.dev";
     let currentLang = localStorage.getItem("optimaLang") || "ro";
+    let renderQiwiGuideStep = null;
+
+    const qiwiGuideSteps = [
+      {
+        image: "assets/images/donation-terminal/terminal-step-01.webp",
+        alt: { ru: "Шаг 1 — Оплата услуг", ro: "Pasul 1 — Plata serviciilor", en: "Step 1 — Service payment" },
+        title: { ru: "Оплата услуг", ro: "Plata serviciilor", en: "Service payment" },
+        text: {
+          ru: "На главном экране терминала выберите раздел «Оплата услуг».",
+          ro: "Pe ecranul principal al terminalului alegeți secțiunea „Plata serviciilor”.",
+          en: "On the main terminal screen, choose “Service payment”."
+        }
+      },
+      {
+        image: "assets/images/donation-terminal/terminal-step-02.webp",
+        alt: { ru: "Шаг 2 — Другие услуги", ro: "Pasul 2 — Alte servicii", en: "Step 2 — Other services" },
+        title: { ru: "Другие услуги", ro: "Alte servicii", en: "Other services" },
+        text: {
+          ru: "Перейдите в раздел «Другие услуги».",
+          ro: "Accesați secțiunea „Alte servicii”.",
+          en: "Go to the “Other services” section."
+        }
+      },
+      {
+        image: "assets/images/donation-terminal/terminal-step-03.webp",
+        alt: { ru: "Шаг 3 — Фонды помощи", ro: "Pasul 3 — Fonduri de ajutor", en: "Step 3 — Aid funds" },
+        title: { ru: "Фонды помощи", ro: "Fonduri de ajutor", en: "Aid funds" },
+        text: {
+          ru: "Выберите раздел «Фонды помощи».",
+          ro: "Alegeți secțiunea „Fonduri de ajutor”.",
+          en: "Choose the “Aid funds” section."
+        }
+      },
+      {
+        image: "assets/images/donation-terminal/terminal-step-04.webp",
+        alt: { ru: "Шаг 4 — Optima Fide", ro: "Pasul 4 — Optima Fide", en: "Step 4 — Optima Fide" },
+        title: { ru: "Optima Fide", ro: "Optima Fide", en: "Optima Fide" },
+        text: {
+          ru: "Найдите Optima Fide в списке и выберите его.",
+          ro: "Găsiți Optima Fide în listă și selectați-l.",
+          en: "Find Optima Fide in the list and select it."
+        }
+      },
+      {
+        image: "assets/images/donation-terminal/terminal-step-05.webp",
+        alt: { ru: "Шаг 5 — ФИО и телефон", ro: "Pasul 5 — Nume și telefon", en: "Step 5 — Name and phone number" },
+        title: { ru: "ФИО и телефон", ro: "Nume și telefon", en: "Name and phone number" },
+        text: {
+          ru: "Введите ФИО и номер телефона в формате +373.",
+          ro: "Introduceți numele și numărul de telefon în format +373.",
+          en: "Enter your name and phone number in +373 format."
+        }
+      },
+      {
+        image: "assets/images/donation-terminal/terminal-step-06.webp",
+        alt: { ru: "Шаг 6 — Сумма", ro: "Pasul 6 — Suma", en: "Step 6 — Amount" },
+        title: { ru: "Сумма", ro: "Suma", en: "Amount" },
+        text: {
+          ru: "Внесите нужную сумму в купюроприёмник терминала.",
+          ro: "Introduceți suma dorită în acceptorul de bancnote al terminalului.",
+          en: "Insert the desired amount into the terminal’s bill acceptor."
+        }
+      },
+      {
+        image: "assets/images/donation-terminal/terminal-step-07.webp",
+        alt: { ru: "Шаг 7 — Оплатить", ro: "Pasul 7 — Plătește", en: "Step 7 — Pay" },
+        title: { ru: "Оплатить", ro: "Plătește", en: "Pay" },
+        text: {
+          ru: "Проверьте данные, нажмите «Оплатить» и сохраните чек.",
+          ro: "Verificați datele, apăsați „Plătește” și păstrați bonul.",
+          en: "Check the details, press “Pay” and keep the receipt."
+        }
+      }
+    ];
 
     function setLanguage(lang) {
       const dictionary = translations[lang] || translations.ro;
@@ -5763,6 +6052,7 @@
       });
       languageLinks.forEach((link) => link.classList.toggle("active", link.dataset.lang === lang));
       localStorage.setItem("optimaLang", lang);
+      if (renderQiwiGuideStep) renderQiwiGuideStep();
     }
 
     languageLinks.forEach((link) => {
@@ -6001,6 +6291,103 @@
         button.textContent = translations[currentLang].telegramFormSubmit;
       }
     });
+
+    (function initQiwiGuide() {
+      const modal = document.getElementById("qiwiGuideModal");
+      if (!modal) return;
+
+      const openButtons = document.querySelectorAll("[data-open-qiwi-guide]");
+      const closeButtons = modal.querySelectorAll("[data-close-qiwi-guide]");
+      const prevButton = modal.querySelector("[data-qiwi-prev]");
+      const nextButton = modal.querySelector("[data-qiwi-next]");
+      const image = document.getElementById("qiwiGuideImage");
+      const number = document.getElementById("qiwiGuideNumber");
+      const title = document.getElementById("qiwiGuideStepTitle");
+      const text = document.getElementById("qiwiGuideStepText");
+      const progress = document.getElementById("qiwiGuideProgress");
+      let currentStep = 0;
+      let lastFocusedElement = null;
+
+      function t(key) {
+        return (translations[currentLang] && translations[currentLang][key]) || translations.ro[key] || key;
+      }
+
+      function renderProgress() {
+        progress.innerHTML = "";
+        qiwiGuideSteps.forEach((_, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = index === currentStep ? "is-active" : "";
+          dot.setAttribute("aria-label", `${t("qiwiGuideStepLabel")} ${index + 1}`);
+          dot.addEventListener("click", () => {
+            currentStep = index;
+            renderStep();
+          });
+          progress.appendChild(dot);
+        });
+      }
+
+      function renderStep() {
+        const lang = translations[currentLang] ? currentLang : "ro";
+        const step = qiwiGuideSteps[currentStep];
+        image.src = step.image;
+        image.alt = step.alt[lang] || step.alt.ro;
+        number.textContent = String(currentStep + 1).padStart(2, "0");
+        title.textContent = step.title[lang] || step.title.ro;
+        text.textContent = step.text[lang] || step.text.ro;
+        prevButton.disabled = currentStep === 0;
+        nextButton.textContent = currentStep === qiwiGuideSteps.length - 1 ? t("qiwiGuideClose") : t("qiwiGuideNext");
+        renderProgress();
+      }
+
+      renderQiwiGuideStep = renderStep;
+
+      function openModal() {
+        lastFocusedElement = document.activeElement;
+        currentStep = 0;
+        renderStep();
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("qiwi-guide-open");
+        nextButton.focus();
+      }
+
+      function closeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("qiwi-guide-open");
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") lastFocusedElement.focus();
+      }
+
+      openButtons.forEach((button) => button.addEventListener("click", openModal));
+      closeButtons.forEach((button) => button.addEventListener("click", closeModal));
+      prevButton.addEventListener("click", () => {
+        if (currentStep > 0) {
+          currentStep -= 1;
+          renderStep();
+        }
+      });
+      nextButton.addEventListener("click", () => {
+        if (currentStep < qiwiGuideSteps.length - 1) {
+          currentStep += 1;
+          renderStep();
+        } else {
+          closeModal();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (!modal.classList.contains("is-open")) return;
+        if (event.key === "Escape") closeModal();
+        if (event.key === "ArrowRight" && currentStep < qiwiGuideSteps.length - 1) {
+          currentStep += 1;
+          renderStep();
+        }
+        if (event.key === "ArrowLeft" && currentStep > 0) {
+          currentStep -= 1;
+          renderStep();
+        }
+      });
+    })();
 
     const revealItems = document.querySelectorAll("[data-reveal]");
     if ("IntersectionObserver" in window) {

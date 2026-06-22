@@ -610,6 +610,89 @@
       font-weight: 900;
       backdrop-filter: blur(10px);
     }
+    .center-gallery-section {
+      padding-block: clamp(72px, 9vw, 120px);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(217,184,108,.14), transparent 32%),
+        linear-gradient(180deg, rgba(255,250,241,.94), rgba(247,240,224,.88));
+    }
+    .center-gallery-section .section-head {
+      max-width: 760px;
+      margin-inline: auto;
+      text-align: center;
+      margin-bottom: clamp(34px, 5vw, 58px);
+    }
+    .center-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .center-gallery-card {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border: 1px solid rgba(16, 37, 31, .10);
+      border-radius: 24px;
+      background: var(--card);
+      box-shadow: 0 14px 42px rgba(18, 44, 36, .085);
+      cursor: zoom-in;
+    }
+    .center-gallery-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(1.02) contrast(1.02) saturate(.98);
+      transition: transform .45s ease, filter .45s ease;
+    }
+    .center-gallery-card:hover img {
+      transform: scale(1.035);
+      filter: brightness(1.045) contrast(1.035) saturate(.98);
+    }
+    .center-gallery-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 46%;
+      background: linear-gradient(180deg, transparent, rgba(6, 38, 31, .58));
+      pointer-events: none;
+    }
+    .center-gallery-caption {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 2;
+      display: inline-flex;
+      width: fit-content;
+      max-width: calc(100% - 28px);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 250, 241, .88);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.2;
+      box-shadow: 0 8px 22px rgba(18, 44, 36, .10);
+    }
+    .center-gallery-note {
+      max-width: 780px;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: .94rem;
+      text-align: center;
+    }
+    @media (max-width: 1100px) {
+      .center-gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .center-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .center-gallery-card { border-radius: 18px; }
+      .center-gallery-caption { left: 10px; right: 10px; bottom: 10px; max-width: calc(100% - 20px); font-size: 12px; }
+    }
+    @media (max-width: 430px) {
+      .center-gallery-grid { grid-template-columns: 1fr; }
+    }
     .accreditation-card {
       display: grid;
       grid-template-columns: minmax(420px, 1.05fr) .95fr;
@@ -3399,6 +3482,7 @@
         <a href="#program" data-i18n="navProgram">Programul</a>
         <a href="#conditii" data-i18n="navStay">Condiții de ședere</a>
         <a class="nav-secondary" href="#echipa" data-i18n="navTeam">Echipa</a>
+        <a class="nav-secondary" href="#gallery" data-i18n="navGallery">Galerie</a>
         <a class="nav-secondary" href="#turism" data-i18n="navTourism">Turism</a>
         <a href="#familie" data-i18n="navFamily">Pentru familie</a>
         <a href="#donatii" data-i18n="navDonate">Donații</a>
@@ -3593,6 +3677,29 @@
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-yard.webp"><img src="assets/images/visual/spaces-yard.webp" alt="" loading="lazy" decoding="async"><span data-i18n="act5Title">Curte și odihnă în natură</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/table-tennis-room.png"><img src="assets/images/visual/table-tennis-room.png" alt="" loading="lazy" decoding="async"><span data-i18n="act2Title">Tenis de masă</span></button>
         </div>
+      </div>
+    </section>
+
+    <section class="center-gallery-section" id="gallery" aria-labelledby="gallery-section-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="eyebrow" data-i18n="gallerySectionEyebrow">Viața centrului</div>
+          <h2 id="gallery-section-title" data-i18n="gallerySectionTitle">Galeria Optima Fide</h2>
+          <p data-i18n="gallerySectionText">Momente reale din viața de zi cu zi a centrului: întâlniri, lucru în grup, spații comune, activitate și sprijin aproape.</p>
+        </div>
+        <div class="center-gallery-grid" data-reveal>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-community-photo.webp"><img src="assets/images/gallery/gallery-community-photo.webp" alt="Întâlnire în centru Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionCommunityPhoto">Viața centrului</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-support-circle.webp"><img src="assets/images/gallery/gallery-support-circle.webp" alt="Cerc de sprijin la Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSupportCircle">Cerc de sprijin</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-group-session.webp"><img src="assets/images/gallery/gallery-group-session.webp" alt="Lucru în grup în centru" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionGroupSession">Lucru în grup</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-center-meeting.webp"><img src="assets/images/gallery/gallery-center-meeting.webp" alt="Întâlnire la Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionCenterMeeting">Întâlnire în centru</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-working-meeting.webp"><img src="assets/images/gallery/gallery-working-meeting.webp" alt="Întâlnire de lucru în spațiul comun" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionWorkingMeeting">Întâlnire de lucru</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-students-visit.webp"><img src="assets/images/gallery/gallery-students-visit.webp" alt="Vizită educațională la Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionStudentsVisit">Vizită educațională</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-group-work.webp"><img src="assets/images/gallery/gallery-group-work.webp" alt="Spațiu de comunicare în centru" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionGroupWork">Spațiu de comunicare</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-shared-meal.webp"><img src="assets/images/gallery/gallery-shared-meal.webp" alt="Masă comună în centru" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSharedMeal">Masă comună</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-sports-court.webp"><img src="assets/images/gallery/gallery-sports-court.webp" alt="Teren sportiv la Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSportsCourt">Teren sportiv</span></button>
+          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-spiritual-space.webp"><img src="assets/images/gallery/gallery-spiritual-space.webp" alt="Spațiu de liniște și reflecție" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSpiritualSpace">Spațiu de reflecție</span></button>
+        </div>
+        <p class="center-gallery-note" data-i18n="galleryPrivacyNote">Fotografiile sunt publicate cu respect pentru confidențialitatea și demnitatea persoanelor.</p>
       </div>
     </section>
 
@@ -4180,7 +4287,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand"><div class="footer-brand-row"><img src="logo.jpg" alt="Logo Optima Fide"><strong>Optima Fide</strong></div><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p><div class="footer-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
-      <div class="footer-links"><a href="#program" data-i18n="navProgram">Programul</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
+      <div class="footer-links"><a href="#program" data-i18n="navProgram">Programul</a><a href="#gallery" data-i18n="navGallery">Galerie</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
       <div class="footer-social">
         <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
@@ -5282,6 +5389,57 @@
       trustMock3Text: "A calm space, order and distance from habits that pull a person back.",
       trustMock4Title: "Family nearby",
       trustMock4Text: "The family receives clarity, concrete steps and support without pressure."
+    });
+    Object.assign(translations.ro, {
+      navGallery: "Galerie",
+      gallerySectionEyebrow: "Via\u021ba centrului",
+      gallerySectionTitle: "Galeria Optima Fide",
+      gallerySectionText: "Momente reale din via\u021ba de zi cu zi a centrului: \u00eent\u00e2lniri, lucru \u00een grup, spa\u021bii comune, activitate \u0219i sprijin aproape.",
+      galleryCaptionCommunityPhoto: "Via\u021ba centrului",
+      galleryCaptionSupportCircle: "Cerc de sprijin",
+      galleryCaptionGroupSession: "Lucru \u00een grup",
+      galleryCaptionCenterMeeting: "\u00cent\u00e2lnire \u00een centru",
+      galleryCaptionWorkingMeeting: "\u00cent\u00e2lnire de lucru",
+      galleryCaptionStudentsVisit: "Vizit\u0103 educa\u021bional\u0103",
+      galleryCaptionGroupWork: "Spa\u021biu de comunicare",
+      galleryCaptionSharedMeal: "Mas\u0103 comun\u0103",
+      galleryCaptionSportsCourt: "Teren sportiv",
+      galleryCaptionSpiritualSpace: "Spa\u021biu de reflec\u021bie",
+      galleryPrivacyNote: "Fotografiile sunt publicate cu respect pentru confiden\u021bialitatea \u0219i demnitatea persoanelor."
+    });
+    Object.assign(translations.ru, {
+      navGallery: "\u0413\u0430\u043b\u0435\u0440\u0435\u044f",
+      gallerySectionEyebrow: "\u0416\u0438\u0437\u043d\u044c \u0446\u0435\u043d\u0442\u0440\u0430",
+      gallerySectionTitle: "\u0413\u0430\u043b\u0435\u0440\u0435\u044f Optima Fide",
+      gallerySectionText: "\u0420\u0435\u0430\u043b\u044c\u043d\u044b\u0435 \u043c\u043e\u043c\u0435\u043d\u0442\u044b \u0438\u0437 \u043f\u043e\u0432\u0441\u0435\u0434\u043d\u0435\u0432\u043d\u043e\u0439 \u0436\u0438\u0437\u043d\u0438 \u0446\u0435\u043d\u0442\u0440\u0430: \u0432\u0441\u0442\u0440\u0435\u0447\u0438, \u0440\u0430\u0431\u043e\u0442\u0430 \u0432 \u0433\u0440\u0443\u043f\u043f\u0435, \u043e\u0431\u0449\u0438\u0435 \u043f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u0430, \u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0441\u0442\u044c \u0438 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430 \u0440\u044f\u0434\u043e\u043c.",
+      galleryCaptionCommunityPhoto: "\u0416\u0438\u0437\u043d\u044c \u0446\u0435\u043d\u0442\u0440\u0430",
+      galleryCaptionSupportCircle: "\u041a\u0440\u0443\u0433 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438",
+      galleryCaptionGroupSession: "\u0413\u0440\u0443\u043f\u043f\u043e\u0432\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430",
+      galleryCaptionCenterMeeting: "\u0412\u0441\u0442\u0440\u0435\u0447\u0430 \u0432 \u0446\u0435\u043d\u0442\u0440\u0435",
+      galleryCaptionWorkingMeeting: "\u0420\u0430\u0431\u043e\u0447\u0430\u044f \u0432\u0441\u0442\u0440\u0435\u0447\u0430",
+      galleryCaptionStudentsVisit: "\u041e\u0431\u0443\u0447\u0430\u044e\u0449\u0438\u0439 \u0432\u0438\u0437\u0438\u0442",
+      galleryCaptionGroupWork: "\u041f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e \u043e\u0431\u0449\u0435\u043d\u0438\u044f",
+      galleryCaptionSharedMeal: "\u041e\u0431\u0449\u0430\u044f \u0442\u0440\u0430\u043f\u0435\u0437\u0430",
+      galleryCaptionSportsCourt: "\u0421\u043f\u043e\u0440\u0442\u0438\u0432\u043d\u0430\u044f \u043f\u043b\u043e\u0449\u0430\u0434\u043a\u0430",
+      galleryCaptionSpiritualSpace: "\u041f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e \u0440\u0430\u0437\u043c\u044b\u0448\u043b\u0435\u043d\u0438\u044f",
+      galleryPrivacyNote: "\u0424\u043e\u0442\u043e\u0433\u0440\u0430\u0444\u0438\u0438 \u043f\u0443\u0431\u043b\u0438\u043a\u0443\u044e\u0442\u0441\u044f \u0441 \u0443\u0432\u0430\u0436\u0435\u043d\u0438\u0435\u043c \u043a \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u0438 \u0434\u043e\u0441\u0442\u043e\u0438\u043d\u0441\u0442\u0432\u0443 \u043b\u044e\u0434\u0435\u0439."
+    });
+    Object.assign(translations.en, {
+      navGallery: "Gallery",
+      gallerySectionEyebrow: "Life at the center",
+      gallerySectionTitle: "Optima Fide Gallery",
+      gallerySectionText: "Real moments from everyday life at the center: meetings, group work, shared spaces, activity and support nearby.",
+      galleryCaptionCommunityPhoto: "Life at the center",
+      galleryCaptionSupportCircle: "Support circle",
+      galleryCaptionGroupSession: "Group work",
+      galleryCaptionCenterMeeting: "Meeting at the center",
+      galleryCaptionWorkingMeeting: "Working meeting",
+      galleryCaptionStudentsVisit: "Educational visit",
+      galleryCaptionGroupWork: "Space for communication",
+      galleryCaptionSharedMeal: "Shared meal",
+      galleryCaptionSportsCourt: "Sports court",
+      galleryCaptionSpiritualSpace: "Space for reflection",
+      galleryPrivacyNote: "Photos are published with respect for people's confidentiality and dignity."
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

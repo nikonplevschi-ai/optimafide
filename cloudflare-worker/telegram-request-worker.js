@@ -5,7 +5,13 @@ const ALLOWED_ORIGINS = new Set([
 ]);
 
 function isAllowedOrigin(origin) {
-  return ALLOWED_ORIGINS.has(origin);
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  try {
+    const { hostname, protocol } = new URL(origin);
+    return protocol === "https:" && hostname.endsWith(".optimafide.pages.dev");
+  } catch {
+    return false;
+  }
 }
 
 function corsHeaders(origin) {
@@ -69,15 +75,15 @@ export default {
       return json(origin, { ok: true });
     }
 
-    const name = clean(data.name, 120) || "Не указано";
-    const contact = clean(data.contact, 160) || "Не указан";
+    const name = clean(data.name, 120) || "\u041d\u0435 \u0443\u043a\u0430\u0437\u0430\u043d\u043e";
+    const contact = clean(data.contact, 160) || "\u041d\u0435 \u0443\u043a\u0430\u0437\u0430\u043d";
     const message = clean(data.message, 1500);
     const lang = clean(data.lang, 10) || "unknown";
     const page = clean(data.page, 300);
     const userAgent = clean(data.userAgent, 300);
     const createdAt = clean(data.createdAt, 80) || new Date().toISOString();
 
-    if (message.length < 5) {
+    if (message.length < 2) {
       return json(origin, { ok: false, error: "Message too short" }, 400);
     }
 
@@ -86,17 +92,17 @@ export default {
     }
 
     const text =
-`Новая заявка с сайта Optima Fide
+`\u041d\u043e\u0432\u0430\u044f \u0437\u0430\u044f\u0432\u043a\u0430 \u0441 \u0441\u0430\u0439\u0442\u0430 Optima Fide
 
-Имя: ${name}
-Контакт: ${contact}
-Язык: ${lang}
-Время: ${createdAt}
+\u0418\u043c\u044f: ${name}
+\u041a\u043e\u043d\u0442\u0430\u043a\u0442: ${contact}
+\u042f\u0437\u044b\u043a: ${lang}
+\u0412\u0440\u0435\u043c\u044f: ${createdAt}
 
-Сообщение:
+\u0421\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435:
 ${message}
 
-Страница: ${page}
+\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430: ${page}
 Browser: ${userAgent}`;
 
     const telegramUrl = `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`;

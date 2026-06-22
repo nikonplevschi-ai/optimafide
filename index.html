@@ -3487,6 +3487,7 @@
             <input id="intakeContact" name="contact" autocomplete="tel" inputmode="tel" placeholder="+373 79 002 064" required>
           </div>
           <button class="btn primary" type="submit" data-i18n="requestCall">Solicită apel</button>
+          <div class="form-note telegram-request-note" id="intakeNote" aria-live="polite"></div>
         </form>
       </div>
     </section>
@@ -4137,7 +4138,7 @@
           <form class="telegram-request-form" id="telegramRequestForm">
             <div class="field"><label for="telegramRequestName" data-i18n="telegramFormName">Nume — opțional</label><input id="telegramRequestName" name="name" autocomplete="name" maxlength="120"></div>
             <div class="field"><label for="telegramRequestContact" data-i18n="telegramFormContact">Telefon sau Telegram — opțional, dar recomandat</label><input id="telegramRequestContact" name="contact" autocomplete="tel" maxlength="160"></div>
-            <div class="field"><label for="telegramRequestMessage" data-i18n="telegramFormMessage">Întrebare / situație — obligatoriu</label><textarea id="telegramRequestMessage" name="message" minlength="5" maxlength="1500" required></textarea></div>
+            <div class="field"><label for="telegramRequestMessage" data-i18n="telegramFormMessage">Întrebare / situație — obligatoriu</label><textarea id="telegramRequestMessage" name="message" minlength="2" maxlength="1500" required></textarea></div>
             <div class="honeypot-field" aria-hidden="true"><label for="telegramRequestWebsite">Website</label><input id="telegramRequestWebsite" name="website" tabindex="-1" autocomplete="off"></div>
             <label class="consent"><input type="checkbox" name="consent" required><span data-i18n="telegramFormConsent">Sunt de acord să fiu contactat pentru răspuns la întrebarea mea.</span></label>
             <button class="btn primary" type="submit" data-i18n="telegramFormSubmit">Trimite pe Telegram</button>
@@ -5371,10 +5372,59 @@
       const data = new FormData(form);
       return `${prefix}%0A${[...data.entries()].map(([k, v]) => `${k}: ${v}`).join("%0A")}`;
     }
-    document.getElementById("intakeForm").addEventListener("submit", (event) => {
+
+    async function sendTelegramRequest(payload) {
+      const response = await fetch(TELEGRAM_WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...payload,
+          lang: currentLang,
+          page: window.location.href,
+          userAgent: navigator.userAgent,
+          createdAt: new Date().toISOString()
+        })
+      });
+      const result = await response.json().catch(() => ({ ok: false }));
+      if (!response.ok || !result.ok) throw new Error(result.error || "Request failed");
+      return result;
+    }
+
+    document.getElementById("intakeForm").addEventListener("submit", async (event) => {
       event.preventDefault();
-      const message = buildMessage("Solicitare consultație Optima Fide", event.currentTarget);
-      window.location.href = `mailto:optimafide.info@gmail.com?subject=Solicitare consultație&body=${message}`;
+      const form = event.currentTarget;
+      const button = form.querySelector('button[type="submit"]');
+      const note = document.getElementById("intakeNote");
+      if (button.disabled) return;
+      const data = new FormData(form);
+      const need = String(data.get("need") || "").trim();
+      const support = String(data.get("support") || "").trim();
+      const contactType = String(data.get("contactType") || "").trim();
+      const contact = String(data.get("contact") || "").trim();
+      button.disabled = true;
+      button.textContent = translations[currentLang].telegramFormSending;
+      note.textContent = "";
+      try {
+        await sendTelegramRequest({
+          name: translations[currentLang].formDefaultMessage,
+          contact: `${contactType}: ${contact}`,
+          message: [
+            translations[currentLang].formDefaultMessage,
+            `${document.querySelector('[for="need"]').textContent}: ${need}`,
+            `${document.querySelector('[for="support"]').textContent}: ${support}`,
+            `${document.querySelector('[for="contactType"]').textContent}: ${contactType}`,
+            `${document.querySelector('[for="intakeContact"]').textContent}: ${contact}`
+          ].join("\n"),
+          website: ""
+        });
+        note.textContent = translations[currentLang].formSuccess;
+        form.reset();
+      } catch {
+        note.innerHTML = translations[currentLang].telegramFormError;
+      } finally {
+        button.disabled = false;
+        button.textContent = translations[currentLang].requestCall;
+      }
     });
     const contactForm = document.getElementById("contactForm");
     const formNote = document.getElementById("formNote");
@@ -5387,22 +5437,12 @@
       button.textContent = translations[currentLang].telegramFormSending;
       formNote.textContent = "";
       try {
-        const response = await fetch(TELEGRAM_WORKER_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: String(data.get("name") || "").trim(),
-            contact: String(data.get("phone") || "").trim(),
-            message: String(data.get("message") || "").trim() || translations[currentLang].formDefaultMessage,
-            website: "",
-            lang: currentLang,
-            page: window.location.href,
-            userAgent: navigator.userAgent,
-            createdAt: new Date().toISOString()
-          })
+        await sendTelegramRequest({
+          name: String(data.get("name") || "").trim(),
+          contact: String(data.get("phone") || "").trim(),
+          message: String(data.get("message") || "").trim() || translations[currentLang].formDefaultMessage,
+          website: ""
         });
-        const result = await response.json().catch(() => ({ ok: false }));
-        if (!response.ok || !result.ok) throw new Error("Request failed");
         formNote.textContent = translations[currentLang].formSuccess;
         contactForm.reset();
       } catch {
@@ -5483,7 +5523,7 @@
       const data = new FormData(form);
       const website = String(data.get("website") || "").trim();
       const message = String(data.get("message") || "").trim();
-      if (message.length < 5) {
+      if (message.length < 2) {
         form.querySelector('[name="message"]').focus();
         return;
       }
@@ -5497,22 +5537,12 @@
       button.textContent = translations[currentLang].telegramFormSending;
       telegramRequestNote.textContent = "";
       try {
-        const response = await fetch(TELEGRAM_WORKER_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: String(data.get("name") || "").trim(),
-            contact: String(data.get("contact") || "").trim(),
-            message,
-            website,
-            lang: currentLang,
-            page: window.location.href,
-            userAgent: navigator.userAgent,
-            createdAt: new Date().toISOString()
-          })
+        await sendTelegramRequest({
+          name: String(data.get("name") || "").trim(),
+          contact: String(data.get("contact") || "").trim(),
+          message,
+          website
         });
-        const result = await response.json().catch(() => ({ ok: false }));
-        if (!response.ok || !result.ok) throw new Error("Request failed");
         telegramRequestNote.textContent = translations[currentLang].telegramFormSuccess;
         form.reset();
       } catch {

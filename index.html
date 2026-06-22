@@ -684,11 +684,23 @@
     }
     @media (max-width: 1100px) {
       .center-gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .donation-method-grid,
+      .terminal-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .terminal-step--final { grid-column: span 2; }
+      .terminal-support-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
       .center-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
       .center-gallery-card { border-radius: 18px; }
       .center-gallery-caption { left: 10px; right: 10px; bottom: 10px; max-width: calc(100% - 20px); font-size: 12px; }
+      .donation-method-grid,
+      .terminal-steps { grid-template-columns: 1fr; }
+      .terminal-step--final { grid-column: auto; }
+      .donation-method-card { min-height: 0; }
+      .terminal-panel { padding: 22px; border-radius: 26px; }
+      .terminal-step { min-height: 0; }
+      .terminal-map-card .btn,
+      .terminal-note-actions .btn { width: 100%; }
     }
     @media (max-width: 430px) {
       .center-gallery-grid { grid-template-columns: 1fr; }
@@ -852,6 +864,113 @@
     .donation-note { margin-top: 12px; color: var(--green); font-weight: 800; }
     .donation-telegram-note { margin-top: 15px; color: var(--muted); font-size: .92rem; }
     .donation-telegram-note a { color: var(--green); font-weight: 900; }
+    .donation-methods {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .donation-methods-title {
+      color: inherit;
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+    }
+    .donation-method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .donation-method-card {
+      display: flex;
+      min-height: 230px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 22px;
+      border: 1px solid rgba(255,250,241,.16);
+      border-radius: 24px;
+      background: rgba(255,250,241,.08);
+      box-shadow: 0 16px 46px rgba(4,26,22,.16);
+    }
+    .donation-method-card h3 { color: inherit; font-size: 1.25rem; }
+    .donation-method-card p { color: inherit; opacity: .78; }
+    .donation-method-card .btn { margin-top: auto; }
+    .terminal-donation {
+      padding-block: clamp(72px, 9vw, 120px);
+      background:
+        radial-gradient(circle at 14% 6%, rgba(217,184,108,.16), transparent 28%),
+        linear-gradient(180deg, rgba(255,250,241,.94), rgba(247,240,224,.92));
+    }
+    .terminal-panel {
+      border: 1px solid rgba(16, 37, 31, .10);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(143,160,134,.14), transparent 30%),
+        linear-gradient(180deg, rgba(255,250,241,.96), rgba(248,242,231,.92));
+      box-shadow: 0 22px 70px rgba(18, 44, 36, .10);
+      padding: clamp(28px, 5vw, 64px);
+    }
+    .terminal-panel .section-head {
+      max-width: 820px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .terminal-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .terminal-step {
+      display: flex;
+      min-height: 242px;
+      flex-direction: column;
+      border: 1px solid rgba(16,37,31,.10);
+      border-radius: 24px;
+      background: rgba(255,250,241,.92);
+      box-shadow: 0 14px 42px rgba(18,44,36,.075);
+      padding: 22px;
+    }
+    .terminal-step--final { grid-column: span 3; min-height: 0; }
+    .terminal-step__number {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ead29a, #c99a3d);
+      color: var(--green);
+      font-weight: 900;
+    }
+    .terminal-step h3 {
+      color: var(--green);
+      font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+      line-height: 1.1;
+    }
+    .terminal-step p {
+      margin-top: 10px;
+      color: rgba(16,37,31,.72);
+      font-size: .96rem;
+      line-height: 1.55;
+    }
+    .terminal-support-row {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .terminal-map-card,
+    .terminal-note-card {
+      border: 1px solid rgba(16,37,31,.10);
+      border-radius: 24px;
+      background: rgba(255,250,241,.84);
+      padding: 24px;
+      box-shadow: 0 14px 42px rgba(18,44,36,.075);
+    }
+    .terminal-map-card h3,
+    .terminal-note-card h3 { font-size: 1.3rem; }
+    .terminal-map-card p,
+    .terminal-note-card p { margin-top: 8px; color: var(--muted); }
+    .terminal-note-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
     .telegram-cta {
       display: flex;
       align-items: center;
@@ -4144,10 +4263,34 @@
           <div class="donation-impact" aria-label="Direcțiile sprijinului"><span data-i18n="donateImpact1">Cazare</span><span data-i18n="donateImpact2">Masă</span><span data-i18n="donateImpact3">Consultații</span></div>
           <p class="donation-note" data-i18n="donateNote">Fiecare donație ajută la susținerea unui spațiu sigur de recuperare pentru persoane și familii.</p>
           <p style="margin-top:12px" data-i18n="partnerText">Suntem deschiși colaborării cu comunități bisericești, servicii sociale, fundații, specialiști și donatori.</p>
+          <div class="donation-methods" data-reveal>
+            <h3 class="donation-methods-title" data-i18n="donationMethodsTitle">Modalități de donație</h3>
+            <div class="donation-method-grid">
+              <article class="donation-method-card">
+                <span class="fee-badge">PayPal</span>
+                <h3 data-i18n="donationPaypalTitle">Online prin PayPal</h3>
+                <p data-i18n="donationPaypalText">O modalitate rapidă de a susține centrul online.</p>
+                <a class="btn primary" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="donationPaypalCta">Donează prin PayPal</a>
+              </article>
+              <article class="donation-method-card">
+                <span class="fee-badge">IBAN</span>
+                <h3 data-i18n="donationBankTitle">Transfer bancar</h3>
+                <p data-i18n="donationBankText">Pentru donații de la persoane fizice, organizații și parteneri.</p>
+                <a class="btn outline" href="#bank-details" data-i18n="donationBankCta">Arată rechizitele</a>
+              </article>
+              <article class="donation-method-card">
+                <span class="fee-badge">QIWI</span>
+                <h3 data-i18n="donationTerminalTitle">Prin terminal QIWI</h3>
+                <p data-i18n="donationTerminalText">Puteți dona numerar prin terminal, alegând fondul Optima Fide.</p>
+                <a class="btn gold" href="#terminal-donation" data-i18n="donationTerminalCta">Cum donezi prin terminal</a>
+              </article>
+            </div>
+          </div>
           <div class="hero-actions">
             <a class="btn primary" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="paypalSoon">Donează prin PayPal</a>
             <button class="btn outline" type="button" data-copy-iban="MD63VI000000002224729306" data-i18n="copyIban">Copiază IBAN</button>
             <a class="btn outline" href="#bank-details" data-i18n="allDetails">Toate rechizitele</a>
+            <a class="btn outline" href="#terminal-donation" data-i18n="donationTerminalShortCta">Donează prin terminal</a>
           </div>
           <p class="donation-telegram-note"><a href="#" data-contact-modal data-i18n="donationTelegramNote">Pentru întrebări despre donații, ne puteți scrie pe Telegram.</a></p>
           <div class="bank-list" id="bank-details">
@@ -4160,6 +4303,43 @@
             <details class="bank-details"><summary><span>USD</span><span class="iban">MD63VI000000002224729306</span></summary><div class="bank-body">
               <div class="bank-row"><span data-i18n="bankAccountName">Denumire cont</span><strong>Fundația Optima Fide</strong></div><div class="bank-row"><span>IBAN</span><strong>MD63VI000000002224729306</strong></div><div class="bank-row"><span data-i18n="bankName">Banca</span><strong>BC Victoriabank SA</strong></div><div class="bank-row"><span>SWIFT</span><strong>VICBMD2X</strong></div><div class="bank-row"><span data-i18n="correspondent">Bancă corespondentă</span><strong>Bank of New York Mellon, New York, N.Y.</strong></div><div class="bank-row"><span>SWIFT</span><strong>IRVTUS3N</strong></div>
             </div></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="terminal-donation" id="terminal-donation" aria-labelledby="terminal-donation-title">
+      <div class="container">
+        <div class="terminal-panel" data-reveal>
+          <div class="section-head">
+            <div class="eyebrow" data-i18n="terminalEyebrow">Donație în numerar</div>
+            <h2 id="terminal-donation-title" data-i18n="terminalTitle">Cum poți dona prin terminal QIWI</h2>
+            <p data-i18n="terminalText">Puteți sprijini Optima Fide printr-un terminal QIWI. Urmați pașii de pe ecranul terminalului și păstrați bonul după plată.</p>
+          </div>
+          <div class="terminal-steps">
+            <article class="terminal-step"><span class="terminal-step__number">01</span><h3 data-i18n="terminalStep1Title">Alegeți „Plata serviciilor”</h3><p data-i18n="terminalStep1Text">Pe ecranul principal al terminalului apăsați „Plata serviciilor”.</p></article>
+            <article class="terminal-step"><span class="terminal-step__number">02</span><h3 data-i18n="terminalStep2Title">Accesați „Alte servicii”</h3><p data-i18n="terminalStep2Text">Din lista de categorii, alegeți „Alte servicii”.</p></article>
+            <article class="terminal-step"><span class="terminal-step__number">03</span><h3 data-i18n="terminalStep3Title">Alegeți „Fonduri de ajutor”</h3><p data-i18n="terminalStep3Text">Găsiți secțiunea „Fonduri de ajutor”.</p></article>
+            <article class="terminal-step"><span class="terminal-step__number">04</span><h3 data-i18n="terminalStep4Title">Găsiți Optima Fide</h3><p data-i18n="terminalStep4Text">În lista fondurilor, găsiți și selectați Optima Fide.</p></article>
+            <article class="terminal-step"><span class="terminal-step__number">05</span><h3 data-i18n="terminalStep5Title">Introduceți numele și telefonul</h3><p data-i18n="terminalStep5Text">Introduceți datele dumneavoastră pentru ca plata să fie înregistrată corect.</p></article>
+            <article class="terminal-step"><span class="terminal-step__number">06</span><h3 data-i18n="terminalStep6Title">Introduceți suma</h3><p data-i18n="terminalStep6Text">Introduceți suma dorită în acceptorul de bancnote al terminalului.</p></article>
+            <article class="terminal-step terminal-step--final"><span class="terminal-step__number">07</span><h3 data-i18n="terminalStep7Title">Apăsați „Plătește”</h3><p data-i18n="terminalStep7Text">Verificați datele, apăsați „Plătește” și păstrați bonul.</p></article>
+          </div>
+          <div class="terminal-support-row">
+            <div class="terminal-map-card">
+              <h3 data-i18n="terminalMapTitle">Găsiți cel mai apropiat terminal</h3>
+              <p data-i18n="terminalMapText">Cel mai apropiat terminal poate fi găsit pe harta QIWI.</p>
+              <p style="margin-top:16px"><a class="btn primary" href="https://qiwi.md/harta-terminale-ru/" target="_blank" rel="noopener noreferrer" data-i18n="terminalMapCta">Găsește un terminal</a></p>
+            </div>
+            <div class="terminal-note-card">
+              <h3 data-i18n="terminalNoteTitle">Important</h3>
+              <p data-i18n="terminalNoteText">După plată, păstrați bonul. Dacă doriți să ne anunțați despre donație, scrieți-ne pe Viber, Telegram sau WhatsApp.</p>
+              <div class="terminal-note-actions">
+                <a class="btn outline" href="viber://chat?number=%2B37379002064">Viber</a>
+                <a class="btn outline" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -5440,6 +5620,117 @@
       galleryCaptionSportsCourt: "Sports court",
       galleryCaptionSpiritualSpace: "Space for reflection",
       galleryPrivacyNote: "Photos are published with respect for people's confidentiality and dignity."
+    });
+    Object.assign(translations.ro, {
+      donateTitle: "Sprijină recuperarea unei vieți",
+      donateText: "Donația dumneavoastră ajută la cazare, hrană, consultații, activități terapeutice și dezvoltarea centrului.",
+      donationMethodsTitle: "Alegeți o modalitate comodă de donație",
+      donationPaypalTitle: "PayPal",
+      donationPaypalText: "O modalitate rapidă pentru donații online cu cardul sau prin cont PayPal.",
+      donationPaypalCta: "Donează prin PayPal",
+      donationBankTitle: "Transfer bancar",
+      donationBankText: "Pentru organizații și persoane care au nevoie de rechizite bancare clare.",
+      donationBankCta: "Arată rechizitele",
+      donationTerminalTitle: "Terminal QIWI",
+      donationTerminalText: "Puteți dona în numerar printr-un terminal QIWI, urmând pașii de pe ecran.",
+      donationTerminalCta: "Cum donezi prin terminal",
+      donationTerminalShortCta: "Donează prin terminal",
+      terminalEyebrow: "Donație prin terminal",
+      terminalTitle: "Cum puteți dona prin terminal QIWI",
+      terminalText: "Puteți sprijini Optima Fide printr-un terminal QIWI. Urmați pașii de pe ecranul terminalului și păstrați bonul după plată.",
+      terminalStep1Title: "Găsiți un terminal",
+      terminalStep1Text: "Alegeți un terminal QIWI apropiat sau folosiți harta oficială.",
+      terminalStep2Title: "Deschideți plăți",
+      terminalStep2Text: "Pe ecranul terminalului alegeți secțiunea de plăți și căutați organizația sau serviciul indicat.",
+      terminalStep3Title: "Introduceți datele",
+      terminalStep3Text: "Completați atent datele cerute de terminal. Dacă ceva nu este clar, scrieți-ne înainte de plată.",
+      terminalStep4Title: "Verificați suma",
+      terminalStep4Text: "Verificați suma donației și informațiile afișate pe ecran.",
+      terminalStep5Title: "Achitați în numerar",
+      terminalStep5Text: "Introduceți banii în terminal și confirmați operațiunea.",
+      terminalStep6Title: "Păstrați bonul",
+      terminalStep6Text: "Luați bonul și păstrați-l până când donația este confirmată.",
+      terminalStep7Title: "Trimiteți confirmarea",
+      terminalStep7Text: "Dacă doriți, trimiteți-ne fotografia bonului prin Viber, Telegram sau WhatsApp.",
+      terminalMapTitle: "Harta terminalelor QIWI",
+      terminalMapText: "Cel mai apropiat terminal poate fi găsit pe harta oficială QIWI.",
+      terminalMapCta: "Găsește un terminal",
+      terminalNoteTitle: "Important",
+      terminalNoteText: "Vă rugăm să păstrați bonul după plată. Pentru întrebări despre donație, ne puteți contacta prin Viber, Telegram sau WhatsApp."
+    });
+    Object.assign(translations.ru, {
+      donateTitle: "Поддержать восстановление одной жизни",
+      donateText: "Ваше пожертвование помогает с проживанием, питанием, консультациями, терапевтическими активностями и развитием центра.",
+      donationMethodsTitle: "Выберите удобный способ пожертвования",
+      donationPaypalTitle: "PayPal",
+      donationPaypalText: "Быстрый способ поддержать онлайн банковской картой или через аккаунт PayPal.",
+      donationPaypalCta: "Поддержать через PayPal",
+      donationBankTitle: "Банковский перевод",
+      donationBankText: "Для организаций и людей, которым нужны понятные банковские реквизиты.",
+      donationBankCta: "Показать реквизиты",
+      donationTerminalTitle: "Терминал QIWI",
+      donationTerminalText: "Можно сделать пожертвование наличными через терминал QIWI, следуя шагам на экране.",
+      donationTerminalCta: "Как пожертвовать через терминал",
+      donationTerminalShortCta: "Пожертвовать через терминал",
+      terminalEyebrow: "Пожертвование через терминал",
+      terminalTitle: "Как пожертвовать через терминал QIWI",
+      terminalText: "Вы можете поддержать Optima Fide через терминал QIWI. Следуйте шагам на экране терминала и сохраните чек после оплаты.",
+      terminalStep1Title: "Найдите терминал",
+      terminalStep1Text: "Выберите ближайший терминал QIWI или воспользуйтесь официальной картой.",
+      terminalStep2Title: "Откройте платежи",
+      terminalStep2Text: "На экране терминала выберите раздел платежей и найдите указанную организацию или услугу.",
+      terminalStep3Title: "Введите данные",
+      terminalStep3Text: "Внимательно заполните данные, которые запросит терминал. Если что-то непонятно, напишите нам до оплаты.",
+      terminalStep4Title: "Проверьте сумму",
+      terminalStep4Text: "Проверьте сумму пожертвования и информацию, показанную на экране.",
+      terminalStep5Title: "Оплатите наличными",
+      terminalStep5Text: "Внесите деньги в терминал и подтвердите операцию.",
+      terminalStep6Title: "Сохраните чек",
+      terminalStep6Text: "Возьмите чек и сохраните его до подтверждения пожертвования.",
+      terminalStep7Title: "Отправьте подтверждение",
+      terminalStep7Text: "При желании отправьте нам фото чека через Viber, Telegram или WhatsApp.",
+      terminalMapTitle: "Карта терминалов QIWI",
+      terminalMapText: "Ближайший терминал можно найти на официальной карте QIWI.",
+      terminalMapCta: "Найти терминал",
+      terminalNoteTitle: "Важно",
+      terminalNoteText: "Пожалуйста, сохраните чек после оплаты. По вопросам пожертвования можно связаться с нами через Viber, Telegram или WhatsApp."
+    });
+    Object.assign(translations.en, {
+      donateTitle: "Support one person’s recovery",
+      donateText: "Your donation helps with accommodation, meals, consultations, therapeutic activities and the development of the center.",
+      donationMethodsTitle: "Choose a convenient donation method",
+      donationPaypalTitle: "PayPal",
+      donationPaypalText: "A quick way to support online by card or through a PayPal account.",
+      donationPaypalCta: "Donate via PayPal",
+      donationBankTitle: "Bank transfer",
+      donationBankText: "For organizations and people who need clear bank details.",
+      donationBankCta: "Show bank details",
+      donationTerminalTitle: "QIWI terminal",
+      donationTerminalText: "You can donate in cash through a QIWI terminal by following the steps on the screen.",
+      donationTerminalCta: "How to donate via terminal",
+      donationTerminalShortCta: "Donate via terminal",
+      terminalEyebrow: "Terminal donation",
+      terminalTitle: "How to donate through a QIWI terminal",
+      terminalText: "You can support Optima Fide through a QIWI terminal. Follow the steps on the terminal screen and keep the receipt after payment.",
+      terminalStep1Title: "Find a terminal",
+      terminalStep1Text: "Choose a nearby QIWI terminal or use the official map.",
+      terminalStep2Title: "Open payments",
+      terminalStep2Text: "On the terminal screen, choose the payments section and find the indicated organization or service.",
+      terminalStep3Title: "Enter the details",
+      terminalStep3Text: "Carefully fill in the details requested by the terminal. If anything is unclear, write to us before paying.",
+      terminalStep4Title: "Check the amount",
+      terminalStep4Text: "Check the donation amount and the information shown on the screen.",
+      terminalStep5Title: "Pay in cash",
+      terminalStep5Text: "Insert the money into the terminal and confirm the operation.",
+      terminalStep6Title: "Keep the receipt",
+      terminalStep6Text: "Take the receipt and keep it until the donation is confirmed.",
+      terminalStep7Title: "Send confirmation",
+      terminalStep7Text: "If you wish, send us a photo of the receipt via Viber, Telegram or WhatsApp.",
+      terminalMapTitle: "QIWI terminal map",
+      terminalMapText: "The nearest terminal can be found on the official QIWI map.",
+      terminalMapCta: "Find a terminal",
+      terminalNoteTitle: "Important",
+      terminalNoteText: "Please keep the receipt after payment. For donation questions, you can contact us via Viber, Telegram or WhatsApp."
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

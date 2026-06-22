@@ -2766,6 +2766,20 @@
         gap: 4px;
       }
     }
+    /* Stretch the first consultation card while keeping its typography intact. */
+    #consultatie.intake {
+      width: min(1480px, calc(100% - 40px));
+    }
+    #consultatie .intake-panel {
+      background:
+        radial-gradient(circle at 78% 24%, rgba(143,160,134,.20), transparent 34%),
+        linear-gradient(115deg, rgba(255,253,247,.98) 0%, rgba(255,250,241,.95) 52%, rgba(238,243,234,.9) 100%);
+    }
+    @media (max-width: 760px) {
+      #consultatie.intake {
+        width: calc(100% - 24px);
+      }
+    }
     /* End approved homepage V4 */
   </style>
 </head>

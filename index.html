@@ -636,6 +636,10 @@
       background: var(--card);
       box-shadow: 0 14px 42px rgba(18, 44, 36, .085);
       cursor: zoom-in;
+      transition:
+        transform 420ms cubic-bezier(.2,.8,.2,1),
+        box-shadow 420ms cubic-bezier(.2,.8,.2,1),
+        border-color 420ms cubic-bezier(.2,.8,.2,1);
     }
     .center-gallery-card img {
       display: block;
@@ -643,11 +647,15 @@
       height: 100%;
       object-fit: cover;
       filter: brightness(1.02) contrast(1.02) saturate(.98);
-      transition: transform .45s ease, filter .45s ease;
+      transition:
+        transform 850ms cubic-bezier(.2,.8,.2,1),
+        filter 850ms cubic-bezier(.2,.8,.2,1);
     }
-    .center-gallery-card:hover img {
-      transform: scale(1.035);
-      filter: brightness(1.045) contrast(1.035) saturate(.98);
+    @media (hover: hover) and (pointer: fine) {
+      .center-gallery-card:hover img {
+        transform: scale(1.035);
+        filter: brightness(1.045) contrast(1.035) saturate(.96);
+      }
     }
     .center-gallery-card::after {
       content: "";
@@ -1011,17 +1019,33 @@
       position: fixed;
       inset: 0;
       z-index: 9999;
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
       padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 260ms ease,
+        visibility 0s linear 260ms;
     }
-    .qiwi-guide-modal.is-open { display: flex; }
+    .qiwi-guide-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition-delay: 0s;
+    }
     .qiwi-guide-modal__backdrop {
       position: absolute;
       inset: 0;
       background: rgba(6, 38, 31, .58);
       backdrop-filter: blur(10px);
+      opacity: 0;
+      transition: opacity 320ms ease;
+    }
+    .qiwi-guide-modal.is-open .qiwi-guide-modal__backdrop {
+      opacity: 1;
     }
     .qiwi-guide-modal__dialog {
       position: relative;
@@ -1036,6 +1060,15 @@
         linear-gradient(180deg, rgba(255,250,241,.98), rgba(248,242,231,.96));
       box-shadow: 0 34px 110px rgba(0,0,0,.28);
       padding: clamp(24px, 4vw, 54px);
+      opacity: 0;
+      transform: translateY(16px) scale(.965);
+      transition:
+        opacity 360ms cubic-bezier(.2,.8,.2,1),
+        transform 360ms cubic-bezier(.2,.8,.2,1);
+    }
+    .qiwi-guide-modal.is-open .qiwi-guide-modal__dialog {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
     .qiwi-guide-modal__close {
       position: absolute;
@@ -1079,6 +1112,9 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
+      transition:
+        opacity 240ms ease,
+        transform 360ms cubic-bezier(.2,.8,.2,1);
     }
     .qiwi-guide-step__content {
       border: 1px solid rgba(16,37,31,.10);
@@ -1446,15 +1482,122 @@
     .family-questions summary { padding: 18px 4px; color: var(--green); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.35rem; font-weight: 700; cursor: pointer; }
     .family-questions p { max-width: 620px; padding: 0 4px 20px; color: var(--muted); }
     #situations, #include, #for-whom, #program, #conditii, #centru { display: none; }
-    [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--delay, 0ms); }
-    [data-reveal].visible { opacity: 1; transform: translateY(0); }
+    [data-reveal],
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 760ms cubic-bezier(.2,.8,.2,1),
+        transform 760ms cubic-bezier(.2,.8,.2,1);
+      transition-delay: var(--delay, 0ms);
+      will-change: opacity, transform;
+    }
+    [data-reveal].visible,
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-on-scroll[data-reveal-delay="1"] { transition-delay: 90ms; }
+    .reveal-on-scroll[data-reveal-delay="2"] { transition-delay: 160ms; }
+    .reveal-on-scroll[data-reveal-delay="3"] { transition-delay: 230ms; }
+    .premium-card-hover,
+    .situation-card,
+    .activity-card,
+    .service-card,
+    .trust-card,
+    .admission-card,
+    .program-card,
+    .donation-method-card,
+    .terminal-step,
+    .terminal-map-card,
+    .terminal-note-card,
+    .material-card,
+    .voice-card,
+    .tourism-card,
+    .team-card,
+    .faq-list details {
+      transition:
+        transform 420ms cubic-bezier(.2,.8,.2,1),
+        box-shadow 420ms cubic-bezier(.2,.8,.2,1),
+        border-color 420ms cubic-bezier(.2,.8,.2,1);
+    }
+    .story-photo img,
+    .day-scene-photo img,
+    .visual-story-photo img,
+    .weekend-media img,
+    .tourism-card img,
+    .team-photo img {
+      transition:
+        transform 850ms cubic-bezier(.2,.8,.2,1),
+        filter 850ms cubic-bezier(.2,.8,.2,1);
+    }
+    .btn {
+      transition:
+        transform 320ms cubic-bezier(.2,.8,.2,1),
+        box-shadow 320ms cubic-bezier(.2,.8,.2,1),
+        background-color 320ms cubic-bezier(.2,.8,.2,1),
+        border-color 320ms cubic-bezier(.2,.8,.2,1);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .premium-card-hover:hover,
+      .situation-card:hover,
+      .activity-card:hover,
+      .service-card:hover,
+      .trust-card:hover,
+      .admission-card:hover,
+      .program-card:hover,
+      .donation-method-card:hover,
+      .terminal-step:hover,
+      .terminal-map-card:hover,
+      .terminal-note-card:hover,
+      .material-card:hover,
+      .voice-card:hover,
+      .tourism-card:hover,
+      .team-card:hover,
+      .faq-list details:hover {
+        transform: translateY(-6px);
+        border-color: rgba(201, 154, 61, .24);
+        box-shadow: 0 24px 70px rgba(18, 44, 36, .14);
+      }
+      .story-photo:hover img,
+      .day-scene-photo:hover img,
+      .visual-story-photo:hover img,
+      .weekend-media:hover img,
+      .tourism-card:hover img,
+      .team-photo:hover img {
+        transform: scale(1.035);
+        filter: brightness(1.045) contrast(1.035) saturate(.96);
+      }
+      .btn.primary:hover,
+      .btn.gold:hover,
+      .btn.hero-primary:hover,
+      .nav-actions > .btn.gold:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 16px 38px rgba(201, 154, 61, .24),
+          0 8px 22px rgba(18, 44, 36, .10);
+      }
+      .btn.outline:hover,
+      .btn.light:hover,
+      .btn.hero-secondary:hover {
+        transform: translateY(-2px);
+        border-color: rgba(201, 154, 61, .30);
+        box-shadow: 0 14px 34px rgba(18, 44, 36, .10);
+      }
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
         scroll-behavior: auto !important;
       }
-      [data-reveal] { opacity: 1; transform: none; }
+      [data-reveal],
+      .reveal-on-scroll,
+      .qiwi-guide-modal__dialog {
+        opacity: 1 !important;
+        transform: none !important;
+      }
     }
     @media (max-width: 1120px) {
       .nav-links {
@@ -4098,10 +4241,10 @@
     <section class="section">
       <div class="container">
         <div class="stats-row" data-reveal>
-          <div class="stat"><strong>19 000+</strong><span data-i18n="statConsult">consultații acordate</span></div>
-          <div class="stat"><strong>500+</strong><span data-i18n="statPeople">persoane au primit ajutor</span></div>
+          <div class="stat"><strong><span class="count-up" data-count-to="19000" data-count-format="space" data-count-suffix="+">19 000+</span></strong><span data-i18n="statConsult">consultații acordate</span></div>
+          <div class="stat"><strong><span class="count-up" data-count-to="500" data-count-suffix="+">500+</span></strong><span data-i18n="statPeople">persoane au primit ajutor</span></div>
           <div class="stat"><strong>10+</strong><span data-i18n="statYears">ani de experiență</span></div>
-          <div class="stat"><strong>20</strong><span data-i18n="statPlaces">locuri rezidențiale</span></div>
+          <div class="stat"><strong><span class="count-up" data-count-to="20">20</span></strong><span data-i18n="statPlaces">locuri rezidențiale</span></div>
         </div>
       </div>
     </section>
@@ -4613,9 +4756,9 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div class="footer-brand"><div class="footer-brand-row"><img src="logo.jpg" alt="Logo Optima Fide"><strong>Optima Fide</strong></div><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p><div class="footer-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
-      <div class="footer-links"><a href="#program" data-i18n="navProgram">Programul</a><a href="#gallery" data-i18n="navGallery">Galerie</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
-      <div class="footer-social">
+      <div class="footer-brand" data-reveal><div class="footer-brand-row"><img src="logo.jpg" alt="Logo Optima Fide"><strong>Optima Fide</strong></div><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p><div class="footer-contact"><a href="tel:+37379002064">+373 79 002 064</a><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
+      <div class="footer-links" data-reveal style="--delay: 90ms;"><a href="#program" data-i18n="navProgram">Programul</a><a href="#gallery" data-i18n="navGallery">Galerie</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
+      <div class="footer-social" data-reveal style="--delay: 160ms;">
         <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
         <a href="viber://chat?number=%2B37379002064">Viber</a>
@@ -5960,6 +6103,7 @@
     const TELEGRAM_WORKER_URL = "https://optima-fide-telegram-requests.constractoptimafide.workers.dev";
     let currentLang = localStorage.getItem("optimaLang") || "ro";
     let renderQiwiGuideStep = null;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const qiwiGuideSteps = [
       {
@@ -6307,6 +6451,7 @@
       const progress = document.getElementById("qiwiGuideProgress");
       let currentStep = 0;
       let lastFocusedElement = null;
+      let renderStepTimer = null;
 
       function t(key) {
         return (translations[currentLang] && translations[currentLang][key]) || translations.ro[key] || key;
@@ -6329,12 +6474,33 @@
 
       function renderStep() {
         const lang = translations[currentLang] ? currentLang : "ro";
+        const stepIndex = currentStep;
         const step = qiwiGuideSteps[currentStep];
-        image.src = step.image;
-        image.alt = step.alt[lang] || step.alt.ro;
-        number.textContent = String(currentStep + 1).padStart(2, "0");
-        title.textContent = step.title[lang] || step.title.ro;
-        text.textContent = step.text[lang] || step.text.ro;
+        const applyStep = () => {
+          image.onload = () => {
+            image.style.opacity = "1";
+            image.style.transform = "scale(1)";
+          };
+          image.src = step.image;
+          image.alt = step.alt[lang] || step.alt.ro;
+          number.textContent = String(stepIndex + 1).padStart(2, "0");
+          title.textContent = step.title[lang] || step.title.ro;
+          text.textContent = step.text[lang] || step.text.ro;
+          if (image.complete) {
+            window.requestAnimationFrame(() => {
+              image.style.opacity = "1";
+              image.style.transform = "scale(1)";
+            });
+          }
+        };
+        window.clearTimeout(renderStepTimer);
+        if (prefersReducedMotion) {
+          applyStep();
+        } else {
+          image.style.opacity = "0";
+          image.style.transform = "scale(.985)";
+          renderStepTimer = window.setTimeout(applyStep, 120);
+        }
         prevButton.disabled = currentStep === 0;
         nextButton.textContent = currentStep === qiwiGuideSteps.length - 1 ? t("qiwiGuideClose") : t("qiwiGuideNext");
         renderProgress();
@@ -6390,7 +6556,9 @@
     })();
 
     const revealItems = document.querySelectorAll("[data-reveal]");
-    if ("IntersectionObserver" in window) {
+    if (prefersReducedMotion) {
+      revealItems.forEach((item) => item.classList.add("visible"));
+    } else if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -6398,11 +6566,64 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: .12 });
+      }, { threshold: .14, rootMargin: "0px 0px -8% 0px" });
       revealItems.forEach((item) => observer.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add("visible"));
     }
+
+    (function initCountUp() {
+      const counters = document.querySelectorAll(".count-up");
+      if (!counters.length) return;
+
+      const formatNumber = (value, format) => {
+        const rounded = Math.round(value).toString();
+        return format === "space" ? rounded.replace(/\B(?=(\d{3})+(?!\d))/g, " ") : rounded;
+      };
+
+      const animateCounter = (counter) => {
+        if (counter.dataset.counted === "true") return;
+        counter.dataset.counted = "true";
+        const target = Number(counter.dataset.countTo || 0);
+        const suffix = counter.dataset.countSuffix || "";
+        const format = counter.dataset.countFormat || "";
+        const finalValue = formatNumber(target, format) + suffix;
+        if (!target || prefersReducedMotion) {
+          counter.textContent = finalValue;
+          return;
+        }
+        const duration = 1200;
+        const start = performance.now();
+
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          counter.textContent = formatNumber(target * eased, format) + suffix;
+          if (progress < 1) {
+            window.requestAnimationFrame(tick);
+          } else {
+            counter.textContent = finalValue;
+          }
+        };
+
+        window.requestAnimationFrame(tick);
+      };
+
+      if (!("IntersectionObserver" in window)) {
+        counters.forEach(animateCounter);
+        return;
+      }
+
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        });
+      }, { threshold: .5 });
+
+      counters.forEach((counter) => counterObserver.observe(counter));
+    })();
 
     const heroSection = document.querySelector(".hero");
     if (heroSection && "IntersectionObserver" in window) {

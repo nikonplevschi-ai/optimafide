@@ -2632,6 +2632,140 @@
         padding: 22px;
       }
     }
+    /* Production repair: keep program content and accreditation readable after typography layers */
+    #visual-program .section-head {
+      max-width: 760px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    #visual-program .visual-program-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(16px, 2vw, 24px);
+    }
+    #visual-program .visual-program,
+    #visual-program .visual-program:nth-child(2),
+    #visual-program .visual-program:nth-child(3) {
+      min-height: clamp(330px, 29vw, 460px);
+      border-radius: 28px;
+      background: var(--of-green-950);
+      box-shadow: var(--of-shadow-card);
+    }
+    #visual-program .visual-program img {
+      opacity: .72;
+      filter: saturate(.9) contrast(1.03) brightness(.92) sepia(.04);
+    }
+    #visual-program .visual-program::after {
+      background:
+        linear-gradient(180deg, rgba(6,31,25,.08) 0%, rgba(6,31,25,.22) 38%, rgba(6,31,25,.9) 100%),
+        radial-gradient(circle at 20% 10%, rgba(255,250,241,.18), transparent 35%);
+    }
+    #visual-program .visual-program-copy {
+      left: clamp(20px, 2.2vw, 30px);
+      right: clamp(20px, 2.2vw, 30px);
+      bottom: clamp(22px, 2.4vw, 32px);
+      color: rgba(255,250,241,.82);
+    }
+    #visual-program .visual-program-copy h3 {
+      max-width: 12ch;
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -.018em;
+    }
+    #visual-program .visual-program-copy p {
+      max-width: 30ch;
+      line-height: 1.52;
+      color: rgba(255,250,241,.78);
+    }
+    #program .packages {
+      align-items: stretch;
+    }
+    #program .package {
+      min-height: clamp(330px, 30vw, 420px);
+      padding: clamp(24px, 2.6vw, 34px);
+      justify-content: space-between;
+    }
+    #program .package-meta {
+      display: grid;
+      gap: 12px;
+      margin-block: 22px;
+    }
+    #program .meta-line {
+      min-width: 0;
+      line-height: 1.42;
+    }
+    #program .package .btn {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+    #acreditare .accreditation-card {
+      grid-template-columns: minmax(360px, .92fr) minmax(0, 1fr);
+      gap: clamp(30px, 4vw, 58px);
+      align-items: center;
+    }
+    #acreditare .certificate-button {
+      min-height: clamp(520px, 58vw, 760px);
+      padding: clamp(14px, 2vw, 22px);
+      background: linear-gradient(180deg, rgba(255,253,247,.96), rgba(248,242,231,.82));
+    }
+    #acreditare .certificate-button picture {
+      width: min(100%, 520px);
+      aspect-ratio: 595 / 842;
+    }
+    #acreditare .certificate-facts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+    #acreditare .certificate-facts div {
+      min-width: 0;
+      grid-template-columns: minmax(82px, .65fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      border: 1px solid var(--of-border);
+      border-radius: 18px;
+      background: rgba(255,253,247,.76);
+    }
+    #acreditare .certificate-facts strong {
+      min-width: 0;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    @media (max-width: 1120px) {
+      #visual-program .visual-program-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 980px) {
+      #acreditare .accreditation-card {
+        grid-template-columns: 1fr;
+      }
+      #acreditare .certificate-button {
+        min-height: auto;
+      }
+    }
+    @media (max-width: 760px) {
+      #visual-program .visual-program-grid {
+        grid-template-columns: 1fr;
+      }
+      #visual-program .visual-program,
+      #visual-program .visual-program:nth-child(2),
+      #visual-program .visual-program:nth-child(3) {
+        min-height: 390px;
+      }
+      #program .package {
+        min-height: 300px;
+      }
+      #acreditare .certificate-facts {
+        grid-template-columns: 1fr;
+      }
+      #acreditare .certificate-facts div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
     /* End approved homepage V4 */
   </style>
 </head>
@@ -4460,6 +4594,28 @@
       agencyKicker: "Where recovery begins",
       agencyTitle: "From uncertainty to a clear first step",
       agencyText: "Sometimes a family does not need a rushed answer, but a <span class=\"agency-editorial__accent\">calm conversation</span>, clear conditions and a place where a person is not judged, but helped to see the next step."
+    });
+    Object.assign(translations.ro, {
+      galleryTitle: "Via\u021ba \u00een centru",
+      includeTitle: "Ce include programul de recuperare",
+      programTitle: "Programul de recuperare",
+      programLead: "Etapele programului sunt explicate calm, f\u0103r\u0103 promisiuni false: primul pas r\u0103m\u00e2ne o consulta\u021bie confiden\u021bial\u0103 pentru persoan\u0103 \u0219i familie.",
+      pkg1Cta: "Solicit\u0103 consulta\u021bie",
+      pkg2Cta: "Afl\u0103 condi\u021biile",
+      pkg3Cta: "Scrie-ne",
+      pkg4Cta: "Planific\u0103 revenirea",
+      pkg5Cta: "Discut\u0103 cu noi"
+    });
+    Object.assign(translations.en, {
+      galleryTitle: "Life at the center",
+      includeTitle: "What the recovery program includes",
+      programTitle: "Recovery program",
+      programLead: "The stages of the program are explained calmly, without false promises: the first step remains a confidential consultation for the person and family.",
+      pkg1Cta: "Request consultation",
+      pkg2Cta: "View conditions",
+      pkg3Cta: "Write to us",
+      pkg4Cta: "Plan the return",
+      pkg5Cta: "Talk to us"
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

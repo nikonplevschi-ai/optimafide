@@ -3573,7 +3573,8 @@
       gap: 18px;
     }
     #recovery-spaces .recovery-canvas .recovery-shot {
-      min-height: 250px;
+      aspect-ratio: 4 / 3;
+      min-height: 0;
     }
     #recovery-spaces .recovery-shot:first-child {
       grid-row: auto;
@@ -3584,7 +3585,8 @@
       gap: 18px;
     }
     #recovery-spaces .recovery-strip .recovery-shot {
-      min-height: 210px;
+      aspect-ratio: 4 / 3;
+      min-height: 0;
     }
     #recovery-spaces .recovery-shot {
       background: rgba(255,250,241,.94);
@@ -4164,6 +4166,7 @@
           <button class="recovery-shot" type="button" data-lightbox="assets/images/hero-center.webp"><img src="assets/images/hero-center.webp" alt="" loading="lazy" decoding="async"><span data-i18n="gal1">Clădirea centrului</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-group-room.webp"><img src="assets/images/visual/spaces-group-room.webp" alt="" loading="lazy" decoding="async"><span data-i18n="gal2">Sală de grupuri</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/bedroom.webp"><img src="assets/images/visual/bedroom.webp" alt="" loading="lazy"><span data-i18n="gal4">Camere</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/gallery/center-support-embrace.webp"><img src="assets/images/gallery/center-support-embrace.webp" alt="Sprijin și o întâlnire caldă în centrul Optima Fide" data-i18n-alt="supportNearbyAlt" loading="lazy" decoding="async"><span data-i18n="supportNearbyTitle">Sprijin aproape</span></button>
         </div>
         <div class="recovery-strip" data-reveal>
           <button class="recovery-shot" type="button" data-lightbox="center-dining.jpg"><img src="center-dining.jpg" alt="" loading="lazy" decoding="async"><span data-i18n="gal5">Sala de mese</span></button>
@@ -6210,19 +6213,25 @@
     Object.assign(translations.ro, {
       act6Title: "Pescuit",
       act6Text: "O activitate linistita pentru rabdare, atentie si odihna in natura.",
-      sharedHolidaysTitle: "Sarbatori petrecute impreuna"
+      sharedHolidaysTitle: "Sarbatori petrecute impreuna",
+      supportNearbyTitle: "Sprijin aproape",
+      supportNearbyAlt: "Sprijin si o intalnire calda in centrul Optima Fide"
     });
 
     Object.assign(translations.ru, {
       act6Title: "Рыбалка",
       act6Text: "Спокойная активность для терпения, внимания и отдыха на природе.",
-      sharedHolidaysTitle: "Совместное проведение праздников"
+      sharedHolidaysTitle: "Совместное проведение праздников",
+      supportNearbyTitle: "Поддержка рядом",
+      supportNearbyAlt: "Поддержка и теплая встреча в центре Optima Fide"
     });
 
     Object.assign(translations.en, {
       act6Title: "Fishing",
       act6Text: "A calm activity for patience, attention and rest in nature.",
-      sharedHolidaysTitle: "Shared holiday gatherings"
+      sharedHolidaysTitle: "Shared holiday gatherings",
+      supportNearbyTitle: "Support nearby",
+      supportNearbyAlt: "Support and a warm meeting at the Optima Fide center"
     });
 
     Object.assign(translations.ro, {

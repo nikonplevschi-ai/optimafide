@@ -1314,6 +1314,57 @@
       box-shadow: var(--soft-shadow);
     }
     .contact-form { display: grid; gap: 14px; }
+    .contact-side { display: grid; gap: 18px; min-width: 0; }
+    .contact-help-stack { display: grid; gap: 16px; }
+    .contact-help-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(201,154,61,.10), transparent 34%),
+        rgba(255,250,241,.84);
+      border: 1px solid rgba(16,37,31,.10);
+      box-shadow: 0 14px 42px rgba(18,44,36,.07);
+    }
+    .contact-help-card__icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: rgba(201,154,61,.15);
+      color: var(--of-green-950);
+      font-weight: 900;
+    }
+    .contact-help-card h3 {
+      margin: 0 0 10px;
+      color: var(--of-green-950);
+      font-family: var(--font-heading);
+      font-size: clamp(1.55rem, 2.2vw, 2.1rem);
+      line-height: 1.08;
+    }
+    .contact-help-card p {
+      margin: 0 0 16px;
+      color: rgba(16,37,31,.72);
+      font-size: .96rem;
+      line-height: 1.6;
+    }
+    .contact-help-links { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-top: 12px; }
+    .contact-help-links a { color: var(--green); font-size: .88rem; font-weight: 900; text-decoration: none; }
+    .contact-message-example {
+      margin: 14px 0 16px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--of-gold-600);
+      border-radius: 16px;
+      background: rgba(255,255,255,.54);
+      color: var(--of-green-950);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+    .contact-message-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .contact-message-note { color: rgba(16,37,31,.62); font-size: .84rem; font-weight: 800; }
     .consent { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: .9rem; font-weight: 700; }
     .consent input { width: auto; margin-top: 4px; }
     .form-note { min-height: 24px; color: var(--green); font-weight: 800; }
@@ -1657,6 +1708,9 @@
       .container { width: min(100% - 28px, 1180px); }
       .section { padding: 68px 0; }
       .btn { max-width: 100%; white-space: normal; }
+      .contact-help-card { padding: 20px; border-radius: 22px; }
+      .contact-message-actions { display: grid; grid-template-columns: 1fr; }
+      .contact-message-actions .btn { width: 100%; }
       .nav { height: 68px; }
       .nav-links { top: 68px; }
       .brand { min-width: auto; }
@@ -4115,7 +4169,7 @@
           <button class="recovery-shot" type="button" data-lightbox="center-dining.jpg"><img src="center-dining.jpg" alt="" loading="lazy" decoding="async"><span data-i18n="gal5">Sala de mese</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/hallway.webp"><img src="assets/images/visual/hallway.webp" alt="" loading="lazy"><span data-i18n="hallwayCaption">Spațiu pentru liniște și concentrare</span></button>
           <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-chapel.webp"><img src="assets/images/visual/spaces-chapel.webp" alt="" loading="lazy" decoding="async"><span data-i18n="amenity6Title">Mediu protejat</span></button>
-          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/table-tennis-room.png"><img src="assets/images/visual/table-tennis-room.png" alt="" loading="lazy" decoding="async"><span data-i18n="act2Title">Tenis de masă</span></button>
+          <button class="recovery-shot" type="button" data-lightbox="assets/images/visual/spaces-shared-holidays.webp"><img src="assets/images/visual/spaces-shared-holidays.webp" alt="" loading="lazy" decoding="async"><span data-i18n="sharedHolidaysTitle">Sărbători petrecute împreună</span></button>
         </div>
       </div>
     </section>
@@ -4385,6 +4439,7 @@
           <article class="activity-card" data-reveal><div class="card-mark">03</div><h3 data-i18n="act3Title">Teren de fotbal</h3><p data-i18n="act3Text">Jocul în echipă susține disciplina, cooperarea și mișcarea sănătoasă.</p></article>
           <article class="activity-card" data-reveal><div class="card-mark">04</div><h3 data-i18n="act4Title">Grătar și mese în aer liber</h3><p data-i18n="act4Text">Mese comune care creează atmosferă de casă și comunicare.</p></article>
           <article class="activity-card" data-reveal><div class="card-mark">05</div><h3 data-i18n="act5Title">Curte și odihnă în natură</h3><p data-i18n="act5Text">Spațiu pentru plimbări, liniște și un ritm sănătos.</p></article>
+          <article class="activity-card" data-reveal><div class="card-mark">06</div><h3 data-i18n="act6Title">Pescuit</h3><p data-i18n="act6Text">O activitate liniștită pentru răbdare, atenție și odihnă în natură.</p></article>
         </div>
       </div>
     </section>
@@ -4744,6 +4799,7 @@
             <a href="https://www.facebook.com/profile.php?id=100064660152285" target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
         </div>
+        <div class="contact-side">
         <form class="contact-card contact-form" id="contactForm" data-reveal>
           <div class="field"><label for="name" data-i18n="formName">Nume</label><input id="name" name="name" autocomplete="name" required></div>
           <div class="field"><label for="phone" data-i18n="formPhone">Telefon</label><input id="phone" name="phone" autocomplete="tel" required></div>
@@ -4752,7 +4808,29 @@
           <button class="btn primary" type="submit" data-i18n="formSubmit">Trimite cererea</button>
           <div class="form-note" id="formNote" aria-live="polite"></div>
         </form>
-      </div>
+          <div class="contact-help-stack">
+            <article class="contact-help-card contact-help-card--visit" data-reveal>
+              <div class="contact-help-card__icon" aria-hidden="true">↗</div>
+              <h3 data-i18n="contactVisitTitle">Înainte de vizită</h3>
+              <p data-i18n="contactVisitText">Vă rugăm să ne contactați mai întâi. Vă vom sugera un moment potrivit, vă vom explica cum să ajungeți și vom răspunde calm la primele întrebări.</p>
+              <a class="btn outline" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="contactVisitButton">Stabilește o vizită</a>
+              <div class="contact-help-links" aria-label="Contact rapid">
+                <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="viber://chat?number=%2B37379002064">Viber</a>
+              </div>
+            </article>
+            <article class="contact-help-card contact-help-card--message" data-reveal>
+              <div class="contact-help-card__icon" aria-hidden="true">“</div>
+              <h3 data-i18n="contactMessageTitle">Nu știți ce să scrieți?</h3>
+              <p data-i18n="contactMessageText">Puteți începe cu o frază simplă:</p>
+              <blockquote class="contact-message-example" data-i18n="contactMessageQuote">Bună ziua. Aș dori să aflu cum ne puteți ajuta în situația noastră.</blockquote>
+              <div class="contact-message-actions">
+                <button class="btn outline" type="button" data-copy-first-message data-i18n="contactMessageCopyButton">Copiază textul</button>
+                <span class="contact-message-note" data-i18n="contactMessageNote">Primul mesaj nu vă obligă la nimic.</span>
+              </div>
+            </article>
+          </div>
+        </div>
     </section>
   </main>
 
@@ -6129,6 +6207,60 @@
       tourismChapelText: "A quiet place for prayer, reflection and recollection."
     });
 
+    Object.assign(translations.ro, {
+      act6Title: "Pescuit",
+      act6Text: "O activitate linistita pentru rabdare, atentie si odihna in natura.",
+      sharedHolidaysTitle: "Sarbatori petrecute impreuna"
+    });
+
+    Object.assign(translations.ru, {
+      act6Title: "Рыбалка",
+      act6Text: "Спокойная активность для терпения, внимания и отдыха на природе.",
+      sharedHolidaysTitle: "Совместное проведение праздников"
+    });
+
+    Object.assign(translations.en, {
+      act6Title: "Fishing",
+      act6Text: "A calm activity for patience, attention and rest in nature.",
+      sharedHolidaysTitle: "Shared holiday gatherings"
+    });
+
+    Object.assign(translations.ro, {
+      contactVisitTitle: "Înainte de vizită",
+      contactVisitText: "Vă rugăm să ne contactați mai întâi. Vă vom sugera un moment potrivit, vă vom explica cum să ajungeți și vom răspunde calm la primele întrebări.",
+      contactVisitButton: "Stabilește o vizită",
+      contactMessageTitle: "Nu știți ce să scrieți?",
+      contactMessageText: "Puteți începe cu o frază simplă:",
+      contactMessageQuote: "Bună ziua. Aș dori să aflu cum ne puteți ajuta în situația noastră.",
+      contactMessageCopyButton: "Copiază textul",
+      contactMessageCopiedButton: "Copiat",
+      contactMessageNote: "Primul mesaj nu vă obligă la nimic."
+    });
+
+    Object.assign(translations.ru, {
+      contactVisitTitle: "Перед приездом",
+      contactVisitText: "Пожалуйста, сначала свяжитесь с нами. Мы подскажем удобное время, объясним, как лучше добраться, и спокойно ответим на первые вопросы.",
+      contactVisitButton: "Согласовать визит",
+      contactMessageTitle: "Не знаете, что написать?",
+      contactMessageText: "Можно начать с простой фразы:",
+      contactMessageQuote: "Здравствуйте. Хочу узнать, как вы можете помочь в нашей ситуации.",
+      contactMessageCopyButton: "Скопировать текст",
+      contactMessageCopiedButton: "Скопировано",
+      contactMessageNote: "Первое сообщение ни к чему не обязывает."
+    });
+
+    Object.assign(translations.en, {
+      contactVisitTitle: "Before you visit",
+      contactVisitText: "Please contact us first. We will suggest a suitable time, explain how to get here and calmly answer your first questions.",
+      contactVisitButton: "Arrange a visit",
+      contactMessageTitle: "Not sure what to write?",
+      contactMessageText: "You can begin with a simple phrase:",
+      contactMessageQuote: "Hello. I would like to know how you can help in our situation.",
+      contactMessageCopyButton: "Copy text",
+      contactMessageCopiedButton: "Copied",
+      contactMessageNote: "The first message does not commit you to anything."
+    });
+
     const languageLinks = document.querySelectorAll("[data-lang]");
     const translatable = document.querySelectorAll("[data-i18n]");
     const translatableAlt = document.querySelectorAll("[data-i18n-alt]");
@@ -6372,6 +6504,36 @@
         button.disabled = false;
         button.textContent = translations[currentLang].formSubmit;
       }
+    });
+
+    document.querySelectorAll("[data-copy-first-message]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const dictionary = translations[currentLang] || translations.ro;
+        const message = dictionary.contactMessageQuote || translations.ro.contactMessageQuote;
+        const copyLabel = dictionary.contactMessageCopyButton || translations.ro.contactMessageCopyButton;
+        const copiedLabel = dictionary.contactMessageCopiedButton || translations.ro.contactMessageCopiedButton;
+
+        try {
+          if (navigator.clipboard?.writeText) {
+            await navigator.clipboard.writeText(message);
+          } else {
+            const selection = window.getSelection();
+            const quote = button.closest(".contact-help-card")?.querySelector(".contact-message-example");
+            if (quote && selection) {
+              const range = document.createRange();
+              range.selectNodeContents(quote);
+              selection.removeAllRanges();
+              selection.addRange(range);
+            }
+          }
+          button.textContent = copiedLabel;
+          window.setTimeout(() => {
+            button.textContent = copyLabel;
+          }, 2000);
+        } catch {
+          button.textContent = copyLabel;
+        }
+      });
     });
 
     const contactModal = document.getElementById("contactModal");

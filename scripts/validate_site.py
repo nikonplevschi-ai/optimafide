@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import re
 import sys
@@ -10,9 +10,9 @@ INDEX = ROOT / "index.html"
 PRICE_LIST_PATH = "assets/docs/optima-fide-price-list-2026.docx"
 
 QIWI_EXPLANATIONS = (
-    "În terminal, secțiunea poate apărea ca „Plata serviciilor”, dar donația pentru Optima Fide este un sprijin voluntar al centrului, nu plata unui serviciu.",
-    "В терминале этот раздел может называться «Оплата услуг», но пожертвование для Optima Fide является добровольной поддержкой центра, а не оплатой услуги.",
-    "In the terminal, the section may appear as “Service payment”, but a donation to Optima Fide is voluntary support for the center, not payment for a service.",
+    "Pentru terminalul QIWI, continuați către fondurile de ajutor. Donația pentru Optima Fide este sprijin voluntar pentru centru.",
+    "В терминале QIWI перейдите к фондам помощи. Пожертвование для Optima Fide является добровольной поддержкой центра.",
+    "In the QIWI terminal, continue to Aid funds. A donation to Optima Fide is voluntary support for the center.",
 )
 
 
@@ -47,8 +47,8 @@ def main() -> int:
 
         for required in (
             "https://t.me/optimafide_bot",
-            "https://wa.me/37379002064",
-            "viber://chat?number=%2B37379002064",
+            "https://wa.me/37378377337",
+            "viber://chat?number=%2B37378377337",
             "https://www.facebook.com/profile.php?id=100064660152285",
             "https://www.paypal.com/ncp/payment/LP4324XXE6824",
             "assets/pdfs/optima-fide-family-offer-ru.pdf",
@@ -69,13 +69,6 @@ def main() -> int:
         )
         for explanation in QIWI_EXPLANATIONS:
             searchable = searchable.replace(explanation, "")
-        for allowed_terminal_label in (
-            "„Plata serviciilor”",
-            "«Оплата услуг»",
-            "“Service payment”",
-        ):
-            searchable = searchable.replace(allowed_terminal_label, "")
-
         forbidden_patterns = (
             r"\bprice(?:s|list|d)?\b",
             r"\bpricing\b",

@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 
 from PIL import Image as PILImage
 from reportlab.lib import colors
@@ -138,7 +138,7 @@ def footer(canvas, doc):
     canvas.saveState()
     canvas.setFont("Arial", 7.5)
     canvas.setFillColor(MUTED)
-    canvas.drawCentredString(A4[0] / 2, 10 * mm, "Optima Fide  |  Goianul Nou, Stăuceni  |  +373 79 002 064  |  optimafide.info@gmail.com")
+    canvas.drawCentredString(A4[0] / 2, 10 * mm, "Optima Fide  |  Goianul Nou, Stăuceni  |  078377337  |  optimafide.info@gmail.com")
     canvas.restoreState()
 
 
@@ -183,7 +183,7 @@ for n, text in enumerate(["Позвонить или написать в Telegra
 story += [p("Частые вопросы", "H")]
 for q, a in [("Можно ли сначала просто поговорить?", "Да. Первый разговор конфиденциален и не обязывает к поступлению."), ("Есть ли проживание и питание?", "Да, они входят в резиденциальную программу."), ("Можно ли семье обратиться без самого человека?", "Да. Семья может получить ориентирование по возможным следующим шагам."), ("Есть ли медицинские консультации?", "При необходимости они организуются через профильных специалистов и учреждения.")]:
     story += [p(f"<b>{q}</b>"), p(a)]
-story += [p("Контакты", "H"), p("<b>+373 79 002 064</b>"), p("optimafide.info@gmail.com  |  Telegram: @optimafide"), p("Goianul Nou, Stăuceni, Republica Moldova", "Small")]
+story += [p("Контакты", "H"), p("<b>078377337</b>"), p("optimafide.info@gmail.com  |  Telegram: @optimafide"), p("Goianul Nou, Stăuceni, Republica Moldova", "Small")]
 
 SimpleDocTemplate(str(OUT / "optima-fide-family-offer-ru.pdf"), pagesize=A4, rightMargin=20 * mm, leftMargin=20 * mm, topMargin=17 * mm, bottomMargin=18 * mm, title="Optima Fide — программа восстановления с проживанием", author="Optima Fide").build(story, onFirstPage=footer, onLaterPages=footer)
 print(OUT / "optima-fide-family-offer-ru.pdf")

@@ -9,10 +9,9 @@ required = {
     'data-i18n="weekendTitle"': "localized title",
     'data-i18n="supportWeekend"': "form option",
     'href="https://t.me/optimafide_bot"': "Telegram CTA",
-    "4 900 MDL": "pair price",
-    "3 500 MDL": "single price",
-    "+1 400 MDL": "extra companion price",
-    "1 000 MDL": "reservation price",
+    'weekendBook: "Discută formatul"': "Romanian discuss-format CTA",
+    'weekendBook: "Обсудить формат"': "Russian discuss-format CTA",
+    'weekendBook: "Discuss the format"': "English discuss-format CTA",
     'data-i18n="faqWeekend1Q"': "weekend FAQ 1",
     'data-i18n="faqWeekend2Q"': "weekend FAQ 2",
     'data-i18n="faqWeekend3Q"': "weekend FAQ 3",
@@ -45,9 +44,16 @@ for language in ("ro", "ru", "en"):
 section_start = html.index('id="weekend-together"')
 section_end = html.find("</section>", section_start)
 section = html[section_start:section_end]
-for forbidden in ("1 week", "2 weeks", "1 month", "3 months", "6 months"):
+for forbidden in (
+    "4 900 MDL",
+    "3 500 MDL",
+    "+1 400 MDL",
+    "1 000 MDL",
+    "weekend-pricing",
+    "weekend-price",
+):
     assert forbidden not in section
 
-assert section.count("MDL") == 4, "Weekend section must display exactly four MDL prices"
+assert "MDL" not in section, "Weekend section must not display service amounts"
 
 print("Weekend Together contract: OK")

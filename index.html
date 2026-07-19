@@ -540,7 +540,7 @@
       color: var(--green);
       font-weight: 900;
     }
-    .fee-badge {
+    .context-badge {
       display: inline-flex;
       align-items: center;
       min-height: 28px;
@@ -573,7 +573,7 @@
     .tourism-feature-copy { position: absolute; left: 34px; bottom: 34px; max-width: 620px; color: var(--white); }
     .tourism-feature-copy h2 { color: var(--white); font-size: clamp(2.1rem, 4vw, 3.8rem); }
     .tourism-feature-copy p { margin-top: 14px; color: rgba(255,255,255,.88); }
-    .tourism-feature .fee-badge { background: var(--gold); }
+    .tourism-feature .context-badge { background: var(--gold); }
     .faq-list { display: grid; gap: 10px; }
     .faq-list details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); box-shadow: var(--soft-shadow); }
     .faq-list summary { padding: 18px 20px; color: var(--green); font-weight: 900; cursor: pointer; }
@@ -766,7 +766,7 @@
     .family-card, .soft-card, .contact-card, .donation-card { padding: 26px; }
     .offer-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
     .offer-card {
@@ -1927,7 +1927,7 @@
       color: var(--of-green-main);
       box-shadow: inset 0 0 0 1px var(--of-border);
     }
-    .fee-badge { background: rgba(217, 184, 108, .22); color: var(--of-green-main); }
+    .context-badge { background: rgba(217, 184, 108, .22); color: var(--of-green-main); }
     input, select, textarea {
       min-height: 50px;
       border-color: var(--of-border-strong);
@@ -2470,24 +2470,6 @@
     .weekend-includes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 20px; margin-top: 16px; list-style: none; }
     .weekend-includes li { position: relative; padding-left: 24px; color: var(--of-text); line-height: 1.48; }
     .weekend-includes li::before { content: ""; position: absolute; left: 0; top: .57em; width: 9px; height: 9px; border: 2px solid var(--of-gold); transform: rotate(45deg); }
-    .weekend-pricing {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      margin-top: 30px;
-      overflow: hidden;
-      border: 1px solid rgba(157,118,43,.25);
-      border-radius: 24px;
-      background: rgba(157,118,43,.18);
-      box-shadow: 0 18px 48px rgba(18,44,36,.10);
-    }
-    .weekend-price-featured,
-    .weekend-price-row { display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-width: 0; padding: 22px; background: rgba(255,250,241,.94); }
-    .weekend-price-featured { grid-column: 1 / -1; flex-direction: row; align-items: end; padding: 26px; background: linear-gradient(135deg, rgba(18,65,52,.98), rgba(33,84,68,.94)); color: rgba(255,250,241,.86); }
-    .weekend-price-featured span { max-width: 330px; }
-    .weekend-price-featured strong { color: #fffaf1; font-size: clamp(2.15rem, 4vw, 3.35rem); white-space: nowrap; }
-    .weekend-price-row span { color: var(--of-muted); font-size: .88rem; line-height: 1.4; }
-    .weekend-price-row strong { color: var(--of-green-main); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.6rem, 2.4vw, 2.1rem); white-space: nowrap; }
     .weekend-continuation { margin-top: 20px; color: var(--of-green-main); font-weight: 800; line-height: 1.55; }
     .weekend-notice { margin-top: 16px; padding: 18px 20px; border-left: 3px solid var(--of-gold); background: rgba(255,250,241,.56); color: var(--of-muted); font-size: .9rem; line-height: 1.58; }
     .weekend-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
@@ -2508,9 +2490,6 @@
       .weekend-shell { width: calc(100% - 24px); gap: 28px; }
       .weekend-media { aspect-ratio: 1 / .86; border-radius: 22px; }
       .weekend-includes { grid-template-columns: 1fr; }
-      .weekend-pricing { grid-template-columns: 1fr; border-radius: 20px; }
-      .weekend-price-featured { flex-direction: column; align-items: flex-start; }
-      .weekend-price-featured strong { white-space: normal; }
       .weekend-actions { display: grid; grid-template-columns: 1fr; }
       .weekend-actions .btn { width: 100%; }
       .certificate-button picture { width: 100%; }
@@ -3219,7 +3198,7 @@
       text-align: center;
     }
     #visual-program .visual-program-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(16px, 2vw, 24px);
     }
     #visual-program .visual-program,
@@ -4104,7 +4083,7 @@
           <div class="eyebrow" data-i18n="weekendEyebrow">Un prim pas împreună</div>
           <h2 id="weekend-title" data-i18n="weekendTitle">Weekend împreună</h2>
           <p class="weekend-subtitle text-accent-gold" data-i18n="weekendSubtitle">3 zile pentru a înțelege calm următorul pas</p>
-          <p data-i18n="weekendText">Un format liniștit de cunoaștere a centrului pentru 3 zile și 2 nopți. Participantul vine împreună cu o rudă, un prieten sau o altă persoană apropiată pentru a vedea condițiile, a trăi câteva zile în ritmul centrului, a pune întrebări și a înțelege ce pas este posibil în continuare.</p>
+          <p data-i18n="weekendText">Weekend împreună este un format scurt de cunoaștere a centrului, în care persoana și cineva apropiat pot vedea spațiul, discuta cu specialiștii și înțelege următorul pas posibil.</p>
           <h3 data-i18n="weekendIncludesTitle">Ce include weekendul</h3>
           <ul class="weekend-includes">
             <li data-i18n="weekendInclude1">Cazare 3 zile / 2 nopți</li>
@@ -4115,16 +4094,10 @@
             <li data-i18n="weekendInclude6">Conversație cu persoana apropiată</li>
             <li data-i18n="weekendInclude7">Orientare pentru următorul pas posibil</li>
           </ul>
-          <div class="weekend-pricing" aria-label="Prețuri Weekend împreună">
-            <div class="weekend-price-featured"><span data-i18n="weekendPair">Participant + 1 persoană apropiată · 3 zile / 2 nopți</span><strong>4 900 MDL</strong></div>
-            <div class="weekend-price-row"><span data-i18n="weekendSingle">Participantul vine singur</span><strong>3 500 MDL</strong></div>
-            <div class="weekend-price-row"><span data-i18n="weekendExtra">Însoțitor suplimentar</span><strong>+1 400 MDL</strong></div>
-            <div class="weekend-price-row"><span data-i18n="weekendReservation">Rezervarea locului, inclusă în costul total</span><strong>1 000 MDL</strong></div>
-          </div>
           <p class="weekend-continuation" data-i18n="weekendContinuation">Dacă după weekend participantul și familia doresc să discute o ședere mai lungă, variantele și condițiile sunt discutate individual după consultație.</p>
           <p class="weekend-notice" data-i18n="weekendSafety">„Weekend împreună” nu este detoxifiere medicală și nu înlocuiește ajutorul medical de urgență. Înainte de sosire, avem o discuție preliminară pentru a înțelege situația și pentru a ne asigura că formatul este sigur pentru participant, însoțitor și centru.</p>
           <div class="weekend-actions">
-            <a class="btn primary" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/telegram.svg" alt="" aria-hidden="true"><span data-i18n="weekendBook">Înscrie-te la „Weekend împreună”</span></a>
+            <a class="btn primary" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/telegram.svg" alt="" aria-hidden="true"><span data-i18n="weekendBook">Discută formatul</span></a>
             <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/whatsapp.svg" alt="" aria-hidden="true"><span data-i18n="weekendWhatsapp">Scrie pe WhatsApp</span></a>
             <a class="btn outline" href="viber://chat?number=%2B37379002064"><img class="app-icon" src="assets/icons/viber.svg" alt="" aria-hidden="true"><span>Viber</span></a>
           </div>
@@ -4341,7 +4314,7 @@
         <div class="section-head" data-reveal>
           <div class="eyebrow" data-i18n="programEyebrow">Pachete de recuperare</div>
           <h2 data-i18n="programTitle">Programe clare, fără promisiuni false.</h2>
-          <p data-i18n="programLead">Nu vorbim despre prețuri sau rezervări comerciale. Primul pas este o discuție confidențială și orientarea potrivită pentru persoană și familie.</p>
+          <p data-i18n="programLead">Etapele programului sunt explicate calm și transparent. Primul pas este o discuție confidențială și orientarea potrivită pentru persoană și familie.</p>
         </div>
         <div class="packages">
           <article class="package" data-reveal>
@@ -4457,7 +4430,6 @@
         <div class="offer-grid">
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerFamilyTitle">PDF pentru familie</h3><p data-i18n="offerFamilyText">Programul, condițiile, primele zile, ce este inclus și cum începeți.</p></div><a class="btn primary" href="assets/pdfs/optima-fide-family-offer-ru.pdf" target="_blank" rel="noopener" data-i18n="familyPdfCta">Descarcă PDF</a></article>
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerPartnerTitle">PDF pentru parteneri</h3><p data-i18n="offerPartnerText">Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.</p></div><a class="btn outline" href="assets/pdfs/optima-fide-partner-offer-en.pdf" target="_blank" rel="noopener" data-i18n="partnerPdfCta">Descarcă PDF</a></article>
-          <article class="offer-card" data-reveal><div><h3 data-i18n="offerPriceTitle">Listă de prețuri Word</h3><p data-i18n="offerPriceText">Prețuri recomandate, reducere socială până la 50% și servicii achitate separat.</p></div><a class="btn outline" href="assets/docs/optima-fide-price-list-2026.docx" download data-i18n="priceDocxCta">Descarcă Word</a></article>
           <article class="offer-card" data-reveal><div><h3 data-i18n="offerConsultTitle">Consultație</h3><p data-i18n="offerConsultText">Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.</p></div><a class="btn gold" href="#contacte" data-i18n="consultCta">Contactează-ne</a></article>
         </div>
       </div>
@@ -4580,10 +4552,10 @@
       <div class="container">
         <div class="tourism-feature" data-reveal>
           <div class="tourism-feature-copy">
-            <span class="fee-badge" data-i18n="additionalFee">Contra cost</span>
+            <span class="context-badge" data-i18n="individualLabel">Discutat individual</span>
             <div class="eyebrow" data-i18n="tourismEyebrow">Ieșiri de recuperare</div>
             <h2 data-i18n="tourismTitle">Ieșiri de recuperare prin Moldova</h2>
-            <p data-i18n="tourismLead">La cerere și contra cost, pot fi organizate ieșiri liniștite spre mănăstiri, natură, Nistru și locuri culturale.</p>
+            <p data-i18n="tourismLead">La cerere, pot fi discutate individual ieșiri liniștite spre mănăstiri, natură, Nistru și locuri culturale.</p>
           </div>
         </div>
         <div class="tourism-grid">
@@ -4612,7 +4584,7 @@
           <article class="tourism-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/excursion-horse-riding.webp"><img src="assets/images/tourism/excursion-horse-riding.webp" alt="" loading="lazy" decoding="async"></button><div><h3 data-i18n="tourism7Title">Echitație și mișcare</h3><p data-i18n="tourism7Text">O ieșire activă în aer liber, organizată prin acord prealabil și cu însoțire.</p></div></article>
           <article class="tourism-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-center-chapel.webp"><img src="assets/images/tourism/tourism-center-chapel.webp" alt="Spațiu spiritual în centru" loading="lazy" decoding="async"></button><div><h3 data-i18n="tourismChapelTitle">Spațiu spiritual</h3><p data-i18n="tourismChapelText">Un loc liniștit pentru rugăciune, reflecție și reculegere.</p></div></article>
         </div>
-        <p class="tourism-note" data-reveal><strong data-i18n="tourismNoteTitle">Prin acord prealabil și contra cost</strong><span data-i18n="tourismNoteText">Ieșirile se organizează în funcție de starea participantului, regulile programului, condițiile meteo și acordul prealabil. Costul se discută separat.</span></p>
+        <p class="tourism-note" data-reveal><strong data-i18n="tourismNoteTitle">Prin acord prealabil</strong><span data-i18n="tourismNoteText">Ieșirile se discută individual în timpul consultației, ținând cont de starea participantului, regulile programului și condițiile meteo.</span></p>
       </div>
     </section>
 
@@ -4625,18 +4597,18 @@
         </div>
         <div class="comparison-grid">
           <article class="comparison-panel" data-reveal><h3 data-i18n="baseTitle">Programul de bază include</h3><ul class="check-list"><li data-i18n="base1">Cazare și masă</li><li data-i18n="base2">Ritm zilnic și grupuri</li><li data-i18n="base3">Însoțire individuală</li><li data-i18n="base4">Sprijin spiritual opțional și sprijin pentru familie</li><li data-i18n="base5">Activități în centru și pregătire pentru reintegrare</li></ul></article>
-          <article class="comparison-panel" data-reveal><h3 data-i18n="paidTitle">Se coordonează și se achită separat</h3><ul class="check-list"><li data-i18n="paid1">Ieșiri de recuperare prin Moldova</li><li data-i18n="paid2">Masaj și frizer</li><li data-i18n="paid3">Consultații prin specialiști de profil</li><li data-i18n="paid4">Analize și investigații</li><li data-i18n="paid5">Transport și servicii individuale</li></ul></article>
+          <article class="comparison-panel" data-reveal><h3 data-i18n="individualTitle">Aspecte discutate individual</h3><ul class="check-list"><li data-i18n="individual1">Ieșiri de recuperare prin Moldova</li><li data-i18n="individual2">Masaj și frizer</li><li data-i18n="individual3">Consultații prin specialiști de profil</li><li data-i18n="individual4">Analize și investigații</li><li data-i18n="individual5">Transport și servicii individuale</li></ul></article>
         </div>
         <div class="service-grid">
-          <article class="service-card" data-reveal><span class="fee-badge" data-i18n="additionalFee">Contra cost</span><h3 data-i18n="service1Title">Masaj</h3><p data-i18n="service1Text">Poate ajuta la relaxare și reducerea tensiunii. Disponibil cu programare prealabilă.</p></article>
-          <article class="service-card" data-reveal><span class="fee-badge" data-i18n="additionalFee">Contra cost</span><h3 data-i18n="service2Title">Frizer / coafor</h3><p data-i18n="service2Text">Sprijină îngrijirea personală, demnitatea și sentimentul de ordine.</p></article>
-          <article class="service-card" data-reveal><span class="fee-badge" data-i18n="additionalFee">Contra cost</span><h3 data-i18n="service3Title">Consultație la medic chirurg</h3><p data-i18n="service3Text">La nevoie, consultația poate fi organizată printr-un specialist de profil.</p></article>
-          <article class="service-card" data-reveal><span class="fee-badge" data-i18n="additionalFee">Contra cost</span><h3 data-i18n="service4Title">Consultanți în narcologie</h3><p data-i18n="service4Text">Consultațiile pot fi organizate prin specialiști pentru evaluare și recomandări.</p></article>
-          <article class="service-card" data-reveal><span class="fee-badge" data-i18n="additionalFee">Contra cost</span><h3 data-i18n="service5Title">Analize și investigații</h3><p data-i18n="service5Text">Se organizează prin instituții medicale și laboratoare de profil.</p></article>
-          <article class="service-card" data-reveal><span class="fee-badge" data-i18n="additionalFee">Contra cost</span><h3 data-i18n="service6Title">Servicii individuale</h3><p data-i18n="service6Text">Transport, însoțire, programări la specialiști și alte nevoi practice.</p></article>
+          <article class="service-card" data-reveal><span class="context-badge" data-i18n="individualLabel">Discutat individual</span><h3 data-i18n="service1Title">Masaj</h3><p data-i18n="service1Text">Poate ajuta la relaxare și reducerea tensiunii. Disponibil cu programare prealabilă.</p></article>
+          <article class="service-card" data-reveal><span class="context-badge" data-i18n="individualLabel">Discutat individual</span><h3 data-i18n="service2Title">Frizer / coafor</h3><p data-i18n="service2Text">Sprijină îngrijirea personală, demnitatea și sentimentul de ordine.</p></article>
+          <article class="service-card" data-reveal><span class="context-badge" data-i18n="individualLabel">Discutat individual</span><h3 data-i18n="service3Title">Consultație la medic chirurg</h3><p data-i18n="service3Text">La nevoie, consultația poate fi organizată printr-un specialist de profil.</p></article>
+          <article class="service-card" data-reveal><span class="context-badge" data-i18n="individualLabel">Discutat individual</span><h3 data-i18n="service4Title">Consultanți în narcologie</h3><p data-i18n="service4Text">Consultațiile pot fi organizate prin specialiști pentru evaluare și recomandări.</p></article>
+          <article class="service-card" data-reveal><span class="context-badge" data-i18n="individualLabel">Discutat individual</span><h3 data-i18n="service5Title">Analize și investigații</h3><p data-i18n="service5Text">Se organizează prin instituții medicale și laboratoare de profil.</p></article>
+          <article class="service-card" data-reveal><span class="context-badge" data-i18n="individualLabel">Discutat individual</span><h3 data-i18n="service6Title">Servicii individuale</h3><p data-i18n="service6Text">Transport, însoțire, programări la specialiști și alte nevoi practice.</p></article>
         </div>
         <div class="notice-panel" style="margin-top:22px" data-reveal><strong data-i18n="legalTitle">Important de înțeles</strong><span data-i18n="legalText">Consultațiile medicale, analizele și investigațiile sunt organizate prin specialiști și instituții de profil. Optima Fide nu înlocuiește ajutorul medical de urgență, psihiatria staționară sau detoxifierea de urgență.</span></div>
-        <div class="notice-panel" style="margin-top:14px" data-reveal><strong data-i18n="optionalNoticeTitle">Important</strong><span data-i18n="optionalNoticeText">Ieșirile de recuperare și serviciile suplimentare nu sunt obligatorii. Sunt disponibile prin acord prealabil, ținând cont de starea participantului și regulile centrului, și se achită separat.</span></div>
+        <div class="notice-panel" style="margin-top:14px" data-reveal><strong data-i18n="optionalNoticeTitle">Important</strong><span data-i18n="optionalNoticeText">Unele aspecte suplimentare se discută individual în timpul consultației.</span></div>
       </div>
     </section>
 
@@ -4645,8 +4617,8 @@
         <div class="donation-photo" data-reveal aria-hidden="true"></div>
         <div class="donation-card" data-reveal>
           <div class="eyebrow" data-i18n="donateEyebrow">Donații</div>
-          <h2 data-i18n="donateTitle">Susțineți recuperarea unei vieți</h2>
-          <p data-i18n="donateText">Donația dvs. ajută la cazare, hrană, consultații, activități terapeutice și dezvoltarea centrului.</p>
+          <h2 data-i18n="donateTitle">Susține activitatea centrului</h2>
+          <p data-i18n="donateText">Sprijinul voluntar ajută la menținerea unui spațiu în care oamenii primesc acompaniere, cazare, hrană, sprijin pentru familie și șansa de a începe din nou.</p>
           <div class="donation-impact" aria-label="Direcțiile sprijinului"><span data-i18n="donateImpact1">Cazare</span><span data-i18n="donateImpact2">Masă</span><span data-i18n="donateImpact3">Consultații</span></div>
           <p class="donation-note" data-i18n="donateNote">Fiecare donație ajută la susținerea unui spațiu sigur de recuperare pentru persoane și familii.</p>
           <p style="margin-top:12px" data-i18n="partnerText">Suntem deschiși colaborării cu comunități bisericești, servicii sociale, fundații, specialiști și donatori.</p>
@@ -4654,13 +4626,13 @@
             <h3 class="donation-methods-title" data-i18n="donationMethodsTitle">Modalități de donație</h3>
             <div class="donation-method-grid">
               <article class="donation-method-card">
-                <span class="fee-badge">PayPal</span>
+                <span class="context-badge">PayPal</span>
                 <h3 data-i18n="donationPaypalTitle">Online prin PayPal</h3>
                 <p data-i18n="donationPaypalText">O modalitate rapidă de a susține centrul online.</p>
-                <a class="btn primary" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="donationPaypalCta">Donează prin PayPal</a>
+                <a class="btn primary" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="donationPaypalCta">Susține prin PayPal</a>
               </article>
               <article class="donation-method-card">
-                <span class="fee-badge">IBAN</span>
+                <span class="context-badge">IBAN</span>
                 <h3 data-i18n="donationBankTitle">Transfer bancar</h3>
                 <p data-i18n="donationBankText">Pentru donații de la persoane fizice, organizații și parteneri.</p>
                 <a class="btn outline" href="#bank-details" data-i18n="donationBankCta">Arată rechizitele</a>
@@ -4674,7 +4646,7 @@
             </div>
           </div>
           <div class="hero-actions">
-            <a class="btn primary" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="paypalSoon">Donează prin PayPal</a>
+            <a class="btn primary" href="https://www.paypal.com/ncp/payment/LP4324XXE6824" target="_blank" rel="noopener noreferrer" data-i18n="paypalSoon">Susține prin PayPal</a>
             <button class="btn outline" type="button" data-copy-iban="MD63VI000000002224729306" data-i18n="copyIban">Copiază IBAN</button>
             <a class="btn outline" href="#bank-details" data-i18n="allDetails">Toate rechizitele</a>
             <button class="btn outline" type="button" data-open-qiwi-guide data-i18n="donationQiwiButton">Arată instrucțiunea</button>
@@ -4748,7 +4720,7 @@
           <details data-reveal><summary data-i18n="faq4Q">Poate familia să contacteze centrul fără persoana în cauză?</summary><p data-i18n="faq4A">Da. Familia poate primi orientare despre cum să discute și ce pași sunt posibili.</p></details>
           <details data-reveal><summary data-i18n="faq5Q">Putem veni din alt oraș sau din altă țară?</summary><p data-i18n="faq5A">Da. Sosirea și detaliile practice se coordonează înainte.</p></details>
           <details data-reveal><summary data-i18n="faq6Q">Ce trebuie să luăm cu noi?</summary><p data-i18n="faq6A">Documente, haine comode, igienă personală și lucrurile necesare. Lista se clarifică la consultație.</p></details>
-          <details data-reveal><summary data-i18n="faq7Q">Ce servicii se achită separat?</summary><p data-i18n="faq7A">Ieșirile, serviciile personale, consultațiile externe, analizele, transportul și alte nevoi individuale.</p></details>
+          <details data-reveal><summary data-i18n="faq7Q">Cum sunt discutate nevoile suplimentare?</summary><p data-i18n="faq7A">Ieșirile, serviciile personale, consultațiile externe, analizele, transportul și alte nevoi individuale se discută în timpul consultației.</p></details>
           <details data-reveal><summary data-i18n="faq8Q">Există consultații medicale?</summary><p data-i18n="faq8A">La nevoie, ele se organizează separat prin specialiști și instituții de profil.</p></details>
           <details data-reveal><summary data-i18n="faq9Q">Se poate vizita persoana?</summary><p data-i18n="faq9A">Vizitele se discută individual, în funcție de etapa programului și regulile centrului.</p></details>
           <details data-reveal><summary data-i18n="faq10Q">Cum începem?</summary><p data-i18n="faq10A">Sunați sau scrieți pe Telegram. Vom asculta situația și vom explica pașii următori.</p></details>
@@ -4878,17 +4850,17 @@
       <button class="qiwi-guide-modal__close" type="button" data-close-qiwi-guide data-i18n-aria-label="qiwiGuideClose" aria-label="Închide">×</button>
       <div class="qiwi-guide-modal__header">
         <p class="eyebrow" data-i18n="qiwiGuideEyebrow">Donație prin terminal</p>
-        <h2 id="qiwiGuideTitle" data-i18n="qiwiGuideTitle">Cum poți plăti prin QIWI</h2>
-        <p data-i18n="qiwiGuideIntro">Urmați pașii de pe ecranul terminalului. După plată, păstrați bonul.</p>
+        <h2 id="qiwiGuideTitle" data-i18n="qiwiGuideTitle">Cum poți susține centrul prin QIWI</h2>
+        <p data-i18n="qiwiGuideIntro">În terminal, secțiunea poate apărea ca „Plata serviciilor”, dar donația pentru Optima Fide este un sprijin voluntar al centrului, nu plata unui serviciu.</p>
       </div>
       <div class="qiwi-guide-step">
         <div class="qiwi-guide-step__media">
-          <img id="qiwiGuideImage" src="assets/images/donation-terminal/terminal-step-01.webp" alt="Pasul 1 — Plata serviciilor" loading="lazy" decoding="async">
+          <img id="qiwiGuideImage" src="assets/images/donation-terminal/terminal-step-01.webp" alt="Pasul 1 — ecranul principal al terminalului" loading="lazy" decoding="async">
         </div>
         <div class="qiwi-guide-step__content">
           <div class="qiwi-guide-step__number" id="qiwiGuideNumber">01</div>
-          <h3 id="qiwiGuideStepTitle">Plata serviciilor</h3>
-          <p id="qiwiGuideStepText">Pe ecranul principal al terminalului alegeți secțiunea „Plata serviciilor”.</p>
+          <h3 id="qiwiGuideStepTitle">Deschideți secțiunea indicată</h3>
+          <p id="qiwiGuideStepText">Pe ecranul terminalului, secțiunea indicată poate fi numită „Plata serviciilor”; continuați către fondurile de ajutor.</p>
         </div>
       </div>
       <div class="qiwi-guide-progress" id="qiwiGuideProgress" aria-label="Pașii instrucțiunii"></div>
@@ -4972,7 +4944,7 @@
                 "inc8Text": "Pregătire pentru revenirea în familie, responsabilități, muncă și viață socială.",
                 "programEyebrow": "Pachete de recuperare",
                 "programTitle": "Programe clare, fără promisiuni false.",
-                "programLead": "Nu vorbim despre prețuri sau rezervări comerciale. Primul pas este o discuție confidențială și orientarea potrivită pentru persoană și familie.",
+                "programLead": "Etapele programului sunt explicate calm și transparent. Primul pas este o discuție confidențială și orientarea potrivită pentru persoană și familie.",
                 "pkg1Title": "Consultație inițială",
                 "durationLabel": "Durată",
                 "pkg1Duration": "30-60 min",
@@ -5077,7 +5049,7 @@
                 "donateNote": "Fiecare donație ajută la susținerea unui spațiu sigur de recuperare pentru persoane și familii.",
                 "copyIban": "Copiază IBAN",
                 "allDetails": "Toate rechizitele",
-                "paypalSoon": "Donează prin PayPal",
+                "paypalSoon": "Susține prin PayPal",
                 "bankAccountName": "Denumire cont",
                 "bankName": "Banca",
                 "correspondent": "Bancă corespondentă",
@@ -5165,7 +5137,7 @@
                 "inc8Text": "Подготовка к возвращению в семью, ответственность, работу и социальную жизнь.",
                 "programEyebrow": "Пакеты восстановления",
                 "programTitle": "Понятные программы без ложных обещаний.",
-                "programLead": "Это не коммерческое бронирование и не обещание гарантированного результата. Первый шаг — конфиденциальный разговор и правильная ориентация для человека и семьи.",
+                "programLead": "Этапы программы объясняются спокойно и прозрачно. Первый шаг — конфиденциальный разговор и правильная ориентация для человека и семьи.",
                 "pkg1Title": "Первичная консультация",
                 "durationLabel": "Длительность",
                 "pkg1Duration": "30-60 минут",
@@ -5505,10 +5477,10 @@
       tourism3Title: "Lac și parc", tourism3Text: "Odihnă lângă apă, contemplare și schimbare liniștită de atmosferă.",
       tourism4Title: "Natură și apă", tourism4Text: "Contactul cu natura poate susține reîmprospătarea emoțională.",
       tourism5Title: "Parc și bănci", tourism5Text: "Plimbări, calm și odihnă simplă într-un spațiu verde.",
-      tourism6Title: "Ieșiri individuale", tourism6Text: "Numai prin acord prealabil și contra cost, ținând cont de starea participantului și regulile programului.",
-      optionalNoticeTitle: "Important", optionalNoticeText: "Ieșirile de recuperare și serviciile suplimentare nu sunt obligatorii. Sunt disponibile prin acord prealabil, ținând cont de starea participantului și regulile centrului, și se achită separat.",
+      tourism6Title: "Ieșiri individuale", tourism6Text: "Prin acord prealabil, ținând cont de starea participantului și regulile programului.",
+      optionalNoticeTitle: "Important", optionalNoticeText: "Unele aspecte suplimentare se discută individual în timpul consultației.",
       familyPdfCta: "Descarcă PDF",
-      offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Materiale scurte pentru familie, parteneri, donatori și lista de prețuri.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerPriceTitle: "Listă de prețuri Word", offerPriceText: "Prețuri recomandate, reducere socială până la 50% și servicii achitate separat.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", priceDocxCta: "Descarcă Word", consultCta: "Contactează-ne",
+      offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Materiale scurte pentru familie, parteneri și donatori.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", consultCta: "Contactează-ne",
       teamFunctionTudor: "Oferă sprijin de la egal la egal bazat pe experiență și înțelegere.",
       voicesEyebrow: "Voci anonime",
       voicesTitle: "Oamenii vorbesc despre liniște, ordine și sprijin",
@@ -5542,11 +5514,11 @@
       admissionEyebrow: "Intrarea în program", admissionTitle: "Cum începe șederea în centru", admissionLead: "Fiecare pas este discutat înainte, astfel încât persoana și familia să știe ce urmează.", adm1Title: "Apel și consultație", adm1Text: "Discutăm situația, nevoile, motivația și condițiile posibile.", adm2Title: "Pregătire și sosire", adm2Text: "Stabilim data, documentele, lucrurile necesare și sosirea în centru.", firstDaysTitle: "Primele trei zile", firstDaysText: "Cunoașterea centrului și a regulilor, adaptare calmă și primul plan de însoțire.",
       bringTitle: "Ce să luați cu dvs.", bring1: "Act de identitate", bring2: "Haine comode și încălțăminte de sezon", bring3: "Produse de igienă personală", bring4: "Lucruri personale necesare, fără exces", bring5: "Medicamente numai după coordonare", bringNote: "Lista completă poate fi precizată în timpul consultației.", rulesTitle: "Reguli care sprijină recuperarea", rule1: "Respect pentru ceilalți participanți", rule2: "Participare la ritmul zilnic", rule3: "Fără alcool și substanțe narcotice", rule4: "Responsabilități comune", rule5: "Grijă față de casă și oameni",
       trustEyebrow: "De ce Optima Fide", trustTitle: "Centru acreditat, cu un început clar și respectuos", trustLead: "Nu promitem miracole și nu împingem familia spre decizii rapide. Arătăm ce există concret: acreditare, adresă, echipă, ritm zilnic și un prim dialog fără presiune.", trust1: "Acreditare de stat", trust2: "20 de locuri rezidențiale", trust5: "Sprijin pentru familie și însoțire", trust6: "Dimensiune spirituală fără presiune", trustCta: "Vezi acreditarea", trustMeaning3: "Familia primește claritate fără presiune sau rușinare.", trustMeaning2: "Puteți discuta înainte de orice decizie.", trustMeaning1: "Aveți un loc concret, nu o promisiune abstractă.", trustMeaningTitle: "Ce înseamnă asta pentru primul pas", trustProof3: "consultații și orientări oferite persoanelor și familiilor.", trustProof2: "Un format mic, cu cazare, masă și ritm zilnic urmărit de echipă.", trustProof1: "Serviciul de reabilitare este confirmat prin certificat și poate fi verificat înainte de intrarea în program.",
-      tourismEyebrow: "Ieșiri de recuperare", tourismTitle: "Ieșiri de recuperare prin Moldova", tourismLead: "La cerere și contra cost, pot fi organizate ieșiri liniștite spre mănăstiri, natură, Nistru și locuri culturale.", additionalFee: "Contra cost", tourism1Alt: "Mănăstire din Moldova", tourism1Title: "Mănăstiri din Moldova", tourism1Text: "Locuri spirituale liniștite pentru rugăciune, reflecție și recuperare interioară.", tourism2Title: "Peisaje și natură", tourism2Text: "Dealuri, sate și trasee naturale pentru o schimbare calmă de atmosferă.", tourism3Title: "Nistru și trasee naturale", tourism3Text: "Apă, spațiu, plimbări și conversații într-un cadru liniștit.", tourism4Title: "Pescuit și odihnă în natură", tourism4Text: "Odihnă simplă și calmă lângă apă, organizată prin acord prealabil.", tourism5Title: "Locuri culturale și spirituale", tourism5Text: "Cunoașterea Moldovei prin locuri istorice, culturale și spirituale.", tourism6Title: "Ieșiri individuale", tourism6Text: "Traseele se discută individual, după starea participantului și regulile programului.", tourismNoteTitle: "Prin acord prealabil și contra cost", tourismNoteText: "Ieșirile se organizează în funcție de starea participantului, regulile programului, condițiile meteo și acordul prealabil. Costul se discută separat.",
-      optionalEyebrow: "Ofertă clară", optionalTitle: "Ce intră în program și ce se coordonează separat", optionalLead: "Separăm clar programul de bază de serviciile suplimentare, pentru ca familia să poată lua o decizie informată.", baseTitle: "Programul de bază include", base1: "Cazare și masă", base2: "Ritm zilnic și grupuri", base3: "Însoțire individuală", base4: "Sprijin spiritual opțional și sprijin pentru familie", base5: "Activități în centru și pregătire pentru reintegrare", paidTitle: "Se coordonează și se achită separat", paid1: "Ieșiri de recuperare prin Moldova", paid2: "Masaj și frizer", paid3: "Consultații prin specialiști de profil", paid4: "Analize și investigații", paid5: "Transport și servicii individuale",
+      tourismEyebrow: "Ieșiri de recuperare", tourismTitle: "Ieșiri de recuperare prin Moldova", tourismLead: "La cerere, pot fi discutate individual ieșiri liniștite spre mănăstiri, natură, Nistru și locuri culturale.", individualLabel: "Discutat individual", tourism1Alt: "Mănăstire din Moldova", tourism1Title: "Mănăstiri din Moldova", tourism1Text: "Locuri spirituale liniștite pentru rugăciune, reflecție și recuperare interioară.", tourism2Title: "Peisaje și natură", tourism2Text: "Dealuri, sate și trasee naturale pentru o schimbare calmă de atmosferă.", tourism3Title: "Nistru și trasee naturale", tourism3Text: "Apă, spațiu, plimbări și conversații într-un cadru liniștit.", tourism4Title: "Pescuit și odihnă în natură", tourism4Text: "Odihnă simplă și calmă lângă apă, organizată prin acord prealabil.", tourism5Title: "Locuri culturale și spirituale", tourism5Text: "Cunoașterea Moldovei prin locuri istorice, culturale și spirituale.", tourism6Title: "Ieșiri individuale", tourism6Text: "Traseele se discută individual, după starea participantului și regulile programului.", tourismNoteTitle: "Prin acord prealabil", tourismNoteText: "Ieșirile se discută individual în timpul consultației, ținând cont de starea participantului, regulile programului și condițiile meteo.",
+      optionalEyebrow: "Informații clare", optionalTitle: "Ce intră în program și ce se discută individual", optionalLead: "Prezentăm programul de bază și aspectele suplimentare, pentru ca familia să poată lua o decizie informată.", baseTitle: "Programul de bază include", base1: "Cazare și masă", base2: "Ritm zilnic și grupuri", base3: "Însoțire individuală", base4: "Sprijin spiritual opțional și sprijin pentru familie", base5: "Activități în centru și pregătire pentru reintegrare", individualTitle: "Aspecte discutate individual", individual1: "Ieșiri de recuperare prin Moldova", individual2: "Masaj și frizer", individual3: "Consultații prin specialiști de profil", individual4: "Analize și investigații", individual5: "Transport și servicii individuale",
       service1Title: "Masaj", service1Text: "Poate ajuta la relaxare și reducerea tensiunii. Disponibil cu programare prealabilă.", service2Title: "Frizer / coafor", service2Text: "Sprijină îngrijirea personală, demnitatea și sentimentul de ordine.", service3Title: "Consultație la medic chirurg", service3Text: "La nevoie, consultația poate fi organizată printr-un specialist de profil.", service4Title: "Consultanți în narcologie", service4Text: "Consultațiile pot fi organizate prin specialiști pentru evaluare și recomandări.", service5Title: "Analize și investigații", service5Text: "Se organizează prin instituții medicale și laboratoare de profil.", service6Title: "Servicii individuale", service6Text: "Transport, însoțire, programări la specialiști și alte nevoi practice.", legalTitle: "Important de înțeles", legalText: "Consultațiile medicale, analizele și investigațiile sunt organizate prin specialiști și instituții de profil. Optima Fide nu înlocuiește ajutorul medical de urgență, psihiatria staționară sau detoxifierea de urgență.",
       familyTitle: "Dacă sunteți în căutarea ajutorului pentru cineva apropiat", familyLead: "Adesea familia este prima care înțelege că este nevoie de ajutor. Vă ajutăm să clarificați situația, să vorbiți fără presiune și să pregătiți un posibil început al programului.", partnerText: "Suntem deschiși colaborării cu comunități bisericești, servicii sociale, fundații, specialiști și donatori.",
-      faqTitle: "Întrebări frecvente", faqLead: "Răspunsuri scurte la întrebările care apar înainte de primul apel.", faq1Q: "Putem mai întâi doar să discutăm?", faq1A: "Da. Prima conversație este confidențială și nu obligă la intrarea în program.", faq2Q: "Cât durează programul?", faq2A: "Durata se discută individual după consultație, în funcție de situație și nevoi.", faq3Q: "Sunt incluse cazarea și masa?", faq3A: "Da, programul rezidențial include cazare, masă și ritm zilnic.", faq4Q: "Poate familia să contacteze centrul fără persoana în cauză?", faq4A: "Da. Familia poate primi orientare despre cum să discute și ce pași sunt posibili.", faq5Q: "Putem veni din alt oraș sau din altă țară?", faq5A: "Da. Sosirea și detaliile practice se coordonează înainte.", faq6Q: "Ce trebuie să luăm cu noi?", faq6A: "Documente, haine comode, igienă personală și lucrurile necesare. Lista se clarifică la consultație.", faq7Q: "Ce servicii se achită separat?", faq7A: "Ieșirile, serviciile personale, consultațiile externe, analizele, transportul și alte nevoi individuale.", faq8Q: "Există consultații medicale?", faq8A: "La nevoie, ele se organizează separat prin specialiști și instituții de profil.", faq9Q: "Se poate vizita persoana?", faq9A: "Vizitele se discută individual, în funcție de etapa programului și regulile centrului.", faq10Q: "Cum începem?", faq10A: "Sunați sau scrieți pe Telegram. Vom asculta situația și vom explica pașii următori."
+      faqTitle: "Întrebări frecvente", faqLead: "Răspunsuri scurte la întrebările care apar înainte de primul apel.", faq1Q: "Putem mai întâi doar să discutăm?", faq1A: "Da. Prima conversație este confidențială și nu obligă la intrarea în program.", faq2Q: "Cât durează programul?", faq2A: "Durata se discută individual după consultație, în funcție de situație și nevoi.", faq3Q: "Sunt incluse cazarea și masa?", faq3A: "Da, programul rezidențial include cazare, masă și ritm zilnic.", faq4Q: "Poate familia să contacteze centrul fără persoana în cauză?", faq4A: "Da. Familia poate primi orientare despre cum să discute și ce pași sunt posibili.", faq5Q: "Putem veni din alt oraș sau din altă țară?", faq5A: "Da. Sosirea și detaliile practice se coordonează înainte.", faq6Q: "Ce trebuie să luăm cu noi?", faq6A: "Documente, haine comode, igienă personală și lucrurile necesare. Lista se clarifică la consultație.", faq7Q: "Cum sunt discutate nevoile suplimentare?", faq7A: "Ieșirile, serviciile personale, consultațiile externe, analizele, transportul și alte nevoi individuale se discută în timpul consultației.", faq8Q: "Există consultații medicale?", faq8A: "La nevoie, ele se organizează separat prin specialiști și instituții de profil.", faq9Q: "Se poate vizita persoana?", faq9A: "Vizitele se discută individual, în funcție de etapa programului și regulile centrului.", faq10Q: "Cum începem?", faq10A: "Sunați sau scrieți pe Telegram. Vom asculta situația și vom explica pașii următori."
     });
 
     Object.assign(translations.ru, {
@@ -5569,7 +5541,7 @@
       tourism6Title: "Индивидуальные выезды", tourism6Text: "Только по согласованию и за отдельную плату, с учётом состояния участника и правил программы.",
       optionalNoticeTitle: "Важно", optionalNoticeText: "Восстановительные поездки и дополнительные услуги не являются обязательной частью программы. Они доступны по согласованию, с учётом состояния участника, правил центра и оплачиваются отдельно.",
       familyPdfCta: "Скачать PDF",
-      offersEyebrow: "PDF-материалы", offersTitle: "Скачать предложение", offersLead: "Короткие материалы для семьи, партнёров, доноров и прайс-лист услуг.", offerFamilyTitle: "PDF для семьи", offerFamilyText: "Программа, условия, первые дни, что входит и как начать.", offerPartnerTitle: "PDF для партнёров", offerPartnerText: "Миссия, аккредитация, инфраструктура, результаты, партнёрство и реквизиты.", offerPriceTitle: "Прайс-лист Word", offerPriceText: "Рекомендованные цены, социальная скидка до 50% и услуги за отдельную плату.", offerConsultTitle: "Консультация", offerConsultText: "Если ситуация срочная или непонятная, начните со спокойного разговора.", partnerPdfCta: "Скачать PDF", priceDocxCta: "Скачать Word", consultCta: "Связаться",
+      offersEyebrow: "PDF-материалы", offersTitle: "Скачать подходящий материал", offersLead: "Короткие материалы для семьи, партнёров и доноров.", offerFamilyTitle: "PDF для семьи", offerFamilyText: "Программа, условия, первые дни, что входит и как начать.", offerPartnerTitle: "PDF для партнёров", offerPartnerText: "Миссия, аккредитация, инфраструктура, результаты, партнёрство и реквизиты.", offerConsultTitle: "Консультация", offerConsultText: "Если ситуация срочная или непонятная, начните со спокойного разговора.", partnerPdfCta: "Скачать PDF", consultCta: "Связаться",
       teamFunctionTudor: "Оказывает поддержку «равный равному», основанную на опыте и понимании.",
       voicesEyebrow: "Анонимные истории",
       voicesTitle: "Люди говорят о спокойствии, порядке и поддержке",
@@ -5598,11 +5570,11 @@
       timelineEyebrow: "Один день в центре", timelineTitle: "Спокойный, ясный и предсказуемый ритм.", timelineLead: "Точное расписание может меняться, но каждый день сохраняет порядок, общение, ответственность и время для отдыха.", tl1: "Порядок, гигиена, завтрак и настрой на день", tl2: "Группы, обязанности и индивидуальная работа", tl3: "Активность, спорт, двор и обучение", tl4: "Общение, тишина, молитва по желанию и итоги дня", tl5: "Отдых и восстановление сна",
       admissionEyebrow: "Поступление в программу", admissionTitle: "Как начинается пребывание в центре", admissionLead: "Каждый шаг обсуждается заранее, чтобы человек и семья знали, что будет дальше.", adm1Title: "Звонок и консультация", adm1Text: "Обсуждаем ситуацию, потребности, мотивацию и возможные условия.", adm2Title: "Подготовка и приезд", adm2Text: "Согласовываем дату, документы, необходимые вещи и приезд.", firstDaysTitle: "Первые три дня", firstDaysText: "Знакомство с центром и правилами, спокойная адаптация и первый план сопровождения.", bringTitle: "Что взять с собой", bring1: "Документ, удостоверяющий личность", bring2: "Удобную одежду и сезонную обувь", bring3: "Средства личной гигиены", bring4: "Необходимые личные вещи без излишков", bring5: "Лекарства только после согласования", bringNote: "Полный список можно уточнить во время консультации.", rulesTitle: "Правила, которые помогают восстановлению", rule1: "Уважение к другим участникам", rule2: "Участие в ежедневном ритме", rule3: "Отсутствие алкоголя и наркотических веществ", rule4: "Участие в общих обязанностях", rule5: "Бережное отношение к дому и людям",
       trustEyebrow: "Почему Optima Fide", trustTitle: "Аккредитованный центр с открытым и уважительным подходом", trustLead: "Здесь не обещают чудес и не давят на семью быстрыми решениями. Мы показываем конкретные опоры: аккредитацию, адрес, команду, ежедневный ритм и первый разговор без давления.", trust1: "Государственная аккредитация", trust2: "20 резиденциальных мест", trust5: "Поддержка семьи и сопровождение", trust6: "Духовное измерение без давления", trustCta: "Смотреть аккредитацию", trustMeaning3: "Семья получает ясность без давления и стыда.", trustMeaning2: "Можно спокойно поговорить до любого решения.", trustMeaning1: "Есть конкретное место, а не абстрактное обещание.", trustMeaningTitle: "Что это значит для первого шага", trustProof3: "консультаций и ориентирующих разговоров для людей и семей.", trustProof2: "Небольшой формат с проживанием, питанием и ежедневным ритмом под сопровождением команды.", trustProof1: "Услуга реабилитации подтверждена сертификатом, который можно проверить до входа в программу.",
-      tourismEyebrow: "Восстановительные поездки", tourismTitle: "Восстановительные поездки по Молдове", tourismLead: "По согласованию и за отдельную плату возможны спокойные поездки к монастырям, природе, Днестру и культурным местам.", additionalFee: "За отдельную плату", tourism1Alt: "Монастырь в Молдове", tourism1Title: "Монастыри Молдовы", tourism1Text: "Спокойные духовные места для молитвы, размышления и внутреннего восстановления.", tourism2Title: "Пейзажи и природа", tourism2Text: "Холмы, сёла и природные маршруты для спокойной смены обстановки.", tourism3Title: "Днестр и природные маршруты", tourism3Text: "Вода, простор, прогулки и разговоры в спокойной обстановке.", tourism4Title: "Рыбалка и отдых на природе", tourism4Text: "Простой спокойный отдых у воды по предварительному согласованию.", tourism5Title: "Культурные и духовные места", tourism5Text: "Знакомство с Молдовой через исторические, культурные и духовные места.", tourism6Title: "Индивидуальные выезды", tourism6Text: "Маршруты обсуждаются индивидуально с учётом состояния и правил программы.", tourismNoteTitle: "По согласованию и за отдельную плату", tourismNoteText: "Поездки организуются с учётом состояния участника, правил программы, погоды и предварительного согласования. Стоимость обсуждается отдельно.",
-      optionalEyebrow: "Честное предложение", optionalTitle: "Что входит в программу и что согласуется отдельно", optionalLead: "Мы чётко отделяем базовую программу от дополнительных услуг, чтобы семья могла принять информированное решение.", baseTitle: "В базовую программу входит", base1: "Проживание и питание", base2: "Ежедневный ритм и группы", base3: "Индивидуальное сопровождение", base4: "Духовная поддержка по желанию и поддержка семьи", base5: "Активности в центре и подготовка к реинтеграции", paidTitle: "Согласуется и оплачивается отдельно", paid1: "Восстановительные поездки по Молдове", paid2: "Массаж и парикмахер", paid3: "Консультации профильных специалистов", paid4: "Анализы и обследования", paid5: "Транспорт и индивидуальные услуги",
+      tourismEyebrow: "Восстановительные поездки", tourismTitle: "Восстановительные поездки по Молдове", tourismLead: "По запросу спокойные поездки к монастырям, природе, Днестру и культурным местам обсуждаются индивидуально.", individualLabel: "Обсуждается индивидуально", tourism1Alt: "Монастырь в Молдове", tourism1Title: "Монастыри Молдовы", tourism1Text: "Спокойные духовные места для молитвы, размышления и внутреннего восстановления.", tourism2Title: "Пейзажи и природа", tourism2Text: "Холмы, сёла и природные маршруты для спокойной смены обстановки.", tourism3Title: "Днестр и природные маршруты", tourism3Text: "Вода, простор, прогулки и разговоры в спокойной обстановке.", tourism4Title: "Рыбалка и отдых на природе", tourism4Text: "Простой спокойный отдых у воды по предварительному согласованию.", tourism5Title: "Культурные и духовные места", tourism5Text: "Знакомство с Молдовой через исторические, культурные и духовные места.", tourism6Title: "Индивидуальные выезды", tourism6Text: "Маршруты обсуждаются индивидуально с учётом состояния и правил программы.", tourismNoteTitle: "По предварительному согласованию", tourismNoteText: "Поездки обсуждаются индивидуально во время консультации с учётом состояния участника, правил программы и погоды.",
+      optionalEyebrow: "Понятная информация", optionalTitle: "Что входит в программу и что обсуждается индивидуально", optionalLead: "Мы описываем базовую программу и дополнительные вопросы, чтобы семья могла принять информированное решение.", baseTitle: "В базовую программу входит", base1: "Проживание и питание", base2: "Ежедневный ритм и группы", base3: "Индивидуальное сопровождение", base4: "Духовная поддержка по желанию и поддержка семьи", base5: "Активности в центре и подготовка к реинтеграции", individualTitle: "Вопросы, обсуждаемые индивидуально", individual1: "Восстановительные поездки по Молдове", individual2: "Массаж и парикмахер", individual3: "Консультации профильных специалистов", individual4: "Анализы и обследования", individual5: "Транспорт и индивидуальные услуги",
       service1Title: "Массаж", service1Text: "Может помочь расслабиться и снять напряжение. Доступен по предварительной записи.", service2Title: "Парикмахер", service2Text: "Поддерживает уход за собой, достоинство и чувство порядка.", service3Title: "Консультация врача-хирурга", service3Text: "При необходимости консультация может быть организована через профильного специалиста.", service4Title: "Консультанты из наркологии", service4Text: "Консультации могут быть организованы через специалистов для оценки и рекомендаций.", service5Title: "Анализы и обследования", service5Text: "Организуются через профильные медицинские учреждения и лаборатории.", service6Title: "Индивидуальные услуги", service6Text: "Транспорт, сопровождение, запись к специалистам и другие практические потребности.", legalTitle: "Важно понимать", legalText: "Медицинские консультации, анализы и обследования организуются через профильных специалистов и учреждения. Optima Fide не заменяет неотложную медицинскую помощь, стационарную психиатрию или экстренную детоксикацию.",
       familyTitle: "Если вы ищете помощь для близкого человека", familyLead: "Часто именно семья первой понимает, что человеку нужна помощь. Мы помогаем спокойно разобраться, говорить без давления и подготовить возможный вход в программу.", partnerText: "Мы открыты к сотрудничеству с церковными общинами, социальными службами, фондами, специалистами и донорами.",
-      faqTitle: "Частые вопросы", faqLead: "Короткие ответы на вопросы, которые возникают до первого звонка.", faq1Q: "Можно ли сначала просто поговорить?", faq1A: "Да. Первый разговор конфиденциален и не обязывает к поступлению.", faq2Q: "Сколько длится программа?", faq2A: "Длительность обсуждается индивидуально после консультации.", faq3Q: "Есть ли проживание и питание?", faq3A: "Да, резиденциальная программа включает проживание, питание и ежедневный ритм.", faq4Q: "Можно ли семье обратиться без самого человека?", faq4A: "Да. Семья может получить ориентирование о разговоре и возможных шагах.", faq5Q: "Можно ли приехать из другого города или страны?", faq5A: "Да. Приезд и практические детали согласуются заранее.", faq6Q: "Что нужно взять с собой?", faq6A: "Документы, удобную одежду, средства гигиены и необходимые вещи. Список уточняется на консультации.", faq7Q: "Что оплачивается отдельно?", faq7A: "Поездки, личные услуги, внешние консультации, анализы, транспорт и индивидуальные потребности.", faq8Q: "Есть ли медицинские консультации?", faq8A: "При необходимости они организуются отдельно через профильных специалистов и учреждения.", faq9Q: "Можно ли посещать человека?", faq9A: "Посещения обсуждаются индивидуально с учётом этапа программы и правил центра.", faq10Q: "Как начать?", faq10A: "Позвоните или напишите в Telegram. Мы выслушаем ситуацию и объясним следующие шаги."
+      faqTitle: "Частые вопросы", faqLead: "Короткие ответы на вопросы, которые возникают до первого звонка.", faq1Q: "Можно ли сначала просто поговорить?", faq1A: "Да. Первый разговор конфиденциален и не обязывает к поступлению.", faq2Q: "Сколько длится программа?", faq2A: "Длительность обсуждается индивидуально после консультации.", faq3Q: "Есть ли проживание и питание?", faq3A: "Да, резиденциальная программа включает проживание, питание и ежедневный ритм.", faq4Q: "Можно ли семье обратиться без самого человека?", faq4A: "Да. Семья может получить ориентирование о разговоре и возможных шагах.", faq5Q: "Можно ли приехать из другого города или страны?", faq5A: "Да. Приезд и практические детали согласуются заранее.", faq6Q: "Что нужно взять с собой?", faq6A: "Документы, удобную одежду, средства гигиены и необходимые вещи. Список уточняется на консультации.", faq7Q: "Как обсуждаются дополнительные вопросы?", faq7A: "Поездки, личные услуги, внешние консультации, анализы, транспорт и индивидуальные потребности обсуждаются во время консультации.", faq8Q: "Есть ли медицинские консультации?", faq8A: "При необходимости они организуются через профильных специалистов и учреждения.", faq9Q: "Можно ли посещать человека?", faq9A: "Посещения обсуждаются индивидуально с учётом этапа программы и правил центра.", faq10Q: "Как начать?", faq10A: "Позвоните или напишите в Telegram. Мы выслушаем ситуацию и объясним следующие шаги."
     });
 
     Object.assign(translations.en, {
@@ -5622,10 +5594,10 @@
       tourism3Title: "Lake and park", tourism3Text: "Rest by the water, reflection and a calm change of environment.",
       tourism4Title: "Nature and water", tourism4Text: "Contact with nature can support emotional renewal.",
       tourism5Title: "Park and benches", tourism5Text: "Walks, calm and simple rest in a green space.",
-      tourism6Title: "Individual outings", tourism6Text: "Only by prior agreement and for an additional fee, considering participant condition and program rules.",
-      optionalNoticeTitle: "Important", optionalNoticeText: "Recovery outings and optional services are not mandatory parts of the program. They are available by prior agreement, considering participant condition and center rules, and are paid separately.",
+      tourism6Title: "Individual outings", tourism6Text: "By prior agreement, considering participant condition and program rules.",
+      optionalNoticeTitle: "Important", optionalNoticeText: "Some additional matters are discussed individually during consultation.",
       familyPdfCta: "Download PDF",
-      offersEyebrow: "PDF materials", offersTitle: "Download the right offer", offersLead: "Short materials for families, partners, donors and the service price list.", offerFamilyTitle: "Family PDF", offerFamilyText: "Program, conditions, first days, what is included and how to begin.", offerPartnerTitle: "Partner PDF", offerPartnerText: "Mission, accreditation, infrastructure, results, partnership and bank details.", offerPriceTitle: "Word price list", offerPriceText: "Recommended prices, social discount up to 50% and separately paid services.", offerConsultTitle: "Consultation", offerConsultText: "If the situation is urgent or unclear, begin with a calm conversation.", partnerPdfCta: "Download PDF", priceDocxCta: "Download Word", consultCta: "Contact us",
+      offersEyebrow: "PDF materials", offersTitle: "Download the right material", offersLead: "Short materials for families, partners and donors.", offerFamilyTitle: "Family PDF", offerFamilyText: "Program, conditions, first days, what is included and how to begin.", offerPartnerTitle: "Partner PDF", offerPartnerText: "Mission, accreditation, infrastructure, results, partnership and bank details.", offerConsultTitle: "Consultation", offerConsultText: "If the situation is urgent or unclear, begin with a calm conversation.", partnerPdfCta: "Download PDF", consultCta: "Contact us",
       teamFunctionTudor: "Provides peer-to-peer support grounded in experience and understanding.",
       voicesEyebrow: "Anonymous stories",
       voicesTitle: "People speak about calm, order and support",
@@ -5654,11 +5626,11 @@
       timelineEyebrow: "A day at the center", timelineTitle: "A calm, clear and predictable rhythm.", timelineLead: "The exact schedule may vary, but each day keeps order, communication, responsibility and time for rest.", tl1: "Order, hygiene, breakfast and preparing for the day", tl2: "Groups, responsibilities and individual work", tl3: "Activity, sport, courtyard and learning", tl4: "Communication, quiet, optional prayer and reflection", tl5: "Rest and rebuilding sleep",
       admissionEyebrow: "Entering the program", admissionTitle: "How the stay at the center begins", admissionLead: "Each step is discussed in advance so the person and family know what comes next.", adm1Title: "Call and consultation", adm1Text: "We discuss the situation, needs, motivation and possible conditions.", adm2Title: "Preparation and arrival", adm2Text: "We agree on timing, documents, necessary belongings and arrival.", firstDaysTitle: "The first three days", firstDaysText: "Getting to know the center and rules, calm adaptation and an initial support plan.", bringTitle: "What to bring", bring1: "Identity document", bring2: "Comfortable clothes and seasonal footwear", bring3: "Personal hygiene items", bring4: "Necessary personal belongings without excess", bring5: "Medicines only after prior agreement", bringNote: "The full list can be clarified during consultation.", rulesTitle: "Rules that support recovery", rule1: "Respect for other participants", rule2: "Participation in the daily rhythm", rule3: "No alcohol or narcotic substances", rule4: "Shared responsibilities", rule5: "Care for the home and people",
       trustEyebrow: "Why Optima Fide", trustTitle: "An accredited center with an open, respectful approach", trustLead: "We do not promise miracles or push families toward rushed decisions. We show concrete anchors: accreditation, address, team, daily rhythm and a first conversation without pressure.", trust1: "State accreditation", trust2: "20 residential places", trust5: "Family support and accompaniment", trust6: "Spiritual dimension without pressure", trustCta: "View accreditation", trustMeaning3: "Family receives clarity without pressure or shame.", trustMeaning2: "You can talk calmly before making any decision.", trustMeaning1: "There is a concrete place, not an abstract promise.", trustMeaningTitle: "What this means for the first step", trustProof3: "consultations and orientation conversations for people and families.", trustProof2: "A small residential format with accommodation, meals and a daily rhythm followed by the team.", trustProof1: "The rehabilitation service is confirmed by certificate and can be checked before admission.",
-      tourismEyebrow: "Recovery outings", tourismTitle: "Recovery outings across Moldova", tourismLead: "Upon request and for an additional fee, calm outings may be arranged to monasteries, nature, the Dniester and cultural places.", additionalFee: "Additional fee", tourism1Alt: "Monastery in Moldova", tourism1Title: "Monasteries of Moldova", tourism1Text: "Peaceful spiritual places for prayer, reflection and inner recovery.", tourism2Title: "Landscapes and nature", tourism2Text: "Hills, villages and natural routes for a calm change of environment.", tourism3Title: "Dniester and nature routes", tourism3Text: "Water, space, walks and conversation in a peaceful setting.", tourism4Title: "Fishing and outdoor rest", tourism4Text: "Simple calm rest near water arranged by prior agreement.", tourism5Title: "Cultural and spiritual places", tourism5Text: "Discovering Moldova through historical, cultural and spiritual places.", tourism6Title: "Individual outings", tourism6Text: "Routes are discussed individually according to condition and program rules.", tourismNoteTitle: "By prior agreement and for an additional fee", tourismNoteText: "Outings depend on participant condition, program rules, weather and prior agreement. Cost is discussed separately.",
-      optionalEyebrow: "A clear offer", optionalTitle: "What is included and what is arranged separately", optionalLead: "We clearly separate the base program from optional services so families can make an informed decision.", baseTitle: "The base program includes", base1: "Accommodation and meals", base2: "Daily rhythm and groups", base3: "Individual accompaniment", base4: "Optional spiritual support and family support", base5: "Center activities and reintegration preparation", paidTitle: "Arranged and paid separately", paid1: "Recovery outings across Moldova", paid2: "Massage and hairdresser", paid3: "Consultations through specialized professionals", paid4: "Tests and examinations", paid5: "Transport and individual services",
+      tourismEyebrow: "Recovery outings", tourismTitle: "Recovery outings across Moldova", tourismLead: "Upon request, calm outings to monasteries, nature, the Dniester and cultural places can be discussed individually.", individualLabel: "Discussed individually", tourism1Alt: "Monastery in Moldova", tourism1Title: "Monasteries of Moldova", tourism1Text: "Peaceful spiritual places for prayer, reflection and inner recovery.", tourism2Title: "Landscapes and nature", tourism2Text: "Hills, villages and natural routes for a calm change of environment.", tourism3Title: "Dniester and nature routes", tourism3Text: "Water, space, walks and conversation in a peaceful setting.", tourism4Title: "Fishing and outdoor rest", tourism4Text: "Simple calm rest near water arranged by prior agreement.", tourism5Title: "Cultural and spiritual places", tourism5Text: "Discovering Moldova through historical, cultural and spiritual places.", tourism6Title: "Individual outings", tourism6Text: "Routes are discussed individually according to condition and program rules.", tourismNoteTitle: "By prior agreement", tourismNoteText: "Outings are discussed individually during consultation, considering participant condition, program rules and weather.",
+      optionalEyebrow: "Clear information", optionalTitle: "What is included and what is discussed individually", optionalLead: "We describe the base program and additional matters so families can make an informed decision.", baseTitle: "The base program includes", base1: "Accommodation and meals", base2: "Daily rhythm and groups", base3: "Individual accompaniment", base4: "Optional spiritual support and family support", base5: "Center activities and reintegration preparation", individualTitle: "Matters discussed individually", individual1: "Recovery outings across Moldova", individual2: "Massage and hairdresser", individual3: "Consultations through specialized professionals", individual4: "Tests and examinations", individual5: "Transport and individual services",
       service1Title: "Massage", service1Text: "May help relaxation and reduce tension. Available by prior appointment.", service2Title: "Hairdresser", service2Text: "Supports personal care, dignity and a sense of order.", service3Title: "Surgical doctor consultation", service3Text: "If needed, a consultation may be arranged through a specialized doctor.", service4Title: "Addiction medicine consultants", service4Text: "Consultations may be arranged through specialists for assessment and recommendations.", service5Title: "Tests and examinations", service5Text: "Arranged through specialized medical institutions and laboratories.", service6Title: "Individual services", service6Text: "Transport, accompaniment, specialist appointments and other practical needs.", legalTitle: "Important to understand", legalText: "Medical consultations, tests and examinations are arranged through specialized professionals and institutions. Optima Fide does not replace emergency medical care, inpatient psychiatry or emergency detoxification.",
       familyTitle: "If you are seeking help for a loved one", familyLead: "Often the family is first to understand that help is needed. We help you calmly understand the situation, speak without pressure and prepare a possible entry into the program.", partnerText: "We welcome cooperation with church communities, social services, foundations, specialists and donors.",
-      faqTitle: "Frequently asked questions", faqLead: "Short answers to questions that arise before the first call.", faq1Q: "Can we simply talk first?", faq1A: "Yes. The first conversation is confidential and does not oblige entry into the program.", faq2Q: "How long is the program?", faq2A: "Duration is discussed individually after consultation.", faq3Q: "Are accommodation and meals included?", faq3A: "Yes, the residential program includes accommodation, meals and daily rhythm.", faq4Q: "Can family contact the center without the person?", faq4A: "Yes. Families can receive guidance on how to talk and possible next steps.", faq5Q: "Can someone come from another city or country?", faq5A: "Yes. Arrival and practical details are coordinated in advance.", faq6Q: "What should we bring?", faq6A: "Documents, comfortable clothes, hygiene items and necessary belongings. The list is clarified during consultation.", faq7Q: "What is paid separately?", faq7A: "Outings, personal services, external consultations, tests, transport and individual needs.", faq8Q: "Are medical consultations available?", faq8A: "When needed, they are arranged separately through specialized professionals and institutions.", faq9Q: "Can the person be visited?", faq9A: "Visits are discussed individually according to the program stage and center rules.", faq10Q: "How do we begin?", faq10A: "Call or write on Telegram. We will listen and explain the next steps."
+      faqTitle: "Frequently asked questions", faqLead: "Short answers to questions that arise before the first call.", faq1Q: "Can we simply talk first?", faq1A: "Yes. The first conversation is confidential and does not oblige entry into the program.", faq2Q: "How long is the program?", faq2A: "Duration is discussed individually after consultation.", faq3Q: "Are accommodation and meals included?", faq3A: "Yes, the residential program includes accommodation, meals and daily rhythm.", faq4Q: "Can family contact the center without the person?", faq4A: "Yes. Families can receive guidance on how to talk and possible next steps.", faq5Q: "Can someone come from another city or country?", faq5A: "Yes. Arrival and practical details are coordinated in advance.", faq6Q: "What should we bring?", faq6A: "Documents, comfortable clothes, hygiene items and necessary belongings. The list is clarified during consultation.", faq7Q: "How are additional matters discussed?", faq7A: "Outings, personal services, external consultations, tests, transport and individual needs are discussed during consultation.", faq8Q: "Are medical consultations available?", faq8A: "When needed, they are arranged through specialized professionals and institutions.", faq9Q: "Can the person be visited?", faq9A: "Visits are discussed individually according to the program stage and center rules.", faq10Q: "How do we begin?", faq10A: "Call or write on Telegram. We will listen and explain the next steps."
     });
 
     Object.assign(translations.ro, {
@@ -5792,7 +5764,7 @@
       weekendEyebrow: "Un prim pas împreună",
       weekendTitle: "Weekend împreună",
       weekendSubtitle: "3 zile pentru a înțelege calm următorul pas",
-      weekendText: "Un format liniștit de cunoaștere a centrului pentru 3 zile și 2 nopți. Participantul vine împreună cu o rudă, un prieten sau o altă persoană apropiată pentru a vedea condițiile, a trăi câteva zile în ritmul centrului, a pune întrebări și a înțelege ce pas este posibil în continuare.",
+      weekendText: "Weekend împreună este un format scurt de cunoaștere a centrului, în care persoana și cineva apropiat pot vedea spațiul, discuta cu specialiștii și înțelege următorul pas posibil.",
       weekendIncludesTitle: "Ce include weekendul",
       weekendInclude1: "Cazare 3 zile / 2 nopți",
       weekendInclude2: "Alimentație",
@@ -5801,13 +5773,9 @@
       weekendInclude5: "Discuție de consultare",
       weekendInclude6: "Conversație cu persoana apropiată",
       weekendInclude7: "Orientare pentru următorul pas posibil",
-      weekendPair: "Participant + 1 persoană apropiată · 3 zile / 2 nopți",
-      weekendSingle: "Participantul vine singur",
-      weekendExtra: "Însoțitor suplimentar",
-      weekendReservation: "Rezervarea locului, inclusă în costul total",
       weekendContinuation: "Dacă după weekend participantul și familia doresc să discute o ședere mai lungă, variantele și condițiile sunt discutate individual după consultație.",
       weekendSafety: "„Weekend împreună” nu este detoxifiere medicală și nu înlocuiește ajutorul medical de urgență. Înainte de sosire, avem o discuție preliminară pentru a înțelege situația și pentru a ne asigura că formatul este sigur pentru participant, însoțitor și centru.",
-      weekendBook: "Înscrie-te la „Weekend împreună”",
+      weekendBook: "Discută formatul",
       weekendWhatsapp: "Scrie pe WhatsApp",
       weekendCall: "Sună",
       supportWeekend: "Weekend împreună",
@@ -5822,7 +5790,7 @@
       weekendEyebrow: "Первый шаг вместе",
       weekendTitle: "Уикенд вместе",
       weekendSubtitle: "3 дня, чтобы спокойно понять следующий шаг",
-      weekendText: "«Уикенд вместе» — это формат спокойного знакомства с центром на 3 дня / 2 ночи. Участник приезжает вместе с родственником, другом или другим близким человеком, чтобы увидеть условия, прожить несколько дней в ритме центра, задать вопросы и понять, какой следующий шаг возможен.",
+      weekendText: "Уикенд вместе — это короткий формат знакомства с центром, где участник и близкий человек могут спокойно увидеть пространство, поговорить со специалистами и понять возможный следующий шаг.",
       weekendIncludesTitle: "Что входит в уикенд",
       weekendInclude1: "Проживание 3 дня / 2 ночи",
       weekendInclude2: "Питание",
@@ -5831,13 +5799,9 @@
       weekendInclude5: "Консультационная беседа",
       weekendInclude6: "Разговор с близким человеком",
       weekendInclude7: "Помощь в понимании возможного следующего шага",
-      weekendPair: "Участник + 1 близкий человек · 3 дня / 2 ночи",
-      weekendSingle: "Участник приезжает один",
-      weekendExtra: "Дополнительный сопровождающий",
-      weekendReservation: "Бронь места, входит в общую стоимость",
       weekendContinuation: "Если после уикенда участник и семья захотят рассмотреть дальнейшее пребывание, возможные варианты и условия обсуждаются индивидуально после консультации.",
       weekendSafety: "«Уикенд вместе» не является медицинской детоксикацией и не заменяет экстренную медицинскую помощь. Перед приездом мы проводим предварительный разговор, чтобы понять ситуацию и убедиться, что формат безопасен для участника, сопровождающего и центра.",
-      weekendBook: "Записаться на «Уикенд вместе»",
+      weekendBook: "Обсудить формат",
       weekendWhatsapp: "Написать в WhatsApp",
       weekendCall: "Позвонить",
       supportWeekend: "Уикенд вместе",
@@ -5852,7 +5816,7 @@
       weekendEyebrow: "A first step together",
       weekendTitle: "Weekend Together",
       weekendSubtitle: "3 days to calmly understand the next step",
-      weekendText: "Weekend Together is a calm three-day, two-night introduction to the center. The participant comes with a relative, friend or another loved one to see the conditions, spend several days in the center's rhythm, ask questions and understand what next step may be possible.",
+      weekendText: "Weekend Together is a short introductory format where a person and someone close to them can see the center, speak with specialists and understand a possible next step.",
       weekendIncludesTitle: "What the weekend includes",
       weekendInclude1: "Accommodation for 3 days / 2 nights",
       weekendInclude2: "Meals",
@@ -5861,13 +5825,9 @@
       weekendInclude5: "Consultation conversation",
       weekendInclude6: "Conversation with the accompanying loved one",
       weekendInclude7: "Help understanding a possible next step",
-      weekendPair: "Participant + 1 loved one · 3 days / 2 nights",
-      weekendSingle: "Participant arriving alone",
-      weekendExtra: "Additional accompanying person",
-      weekendReservation: "Place reservation, included in the total price",
       weekendContinuation: "If after the weekend the participant and family would like to consider a longer stay, the options and conditions are discussed individually after the consultation.",
       weekendSafety: "“Weekend Together” is not medical detoxification and does not replace emergency medical care. Before arrival, we have a preliminary conversation to understand the situation and make sure this format is safe for the participant, the accompanying person and the center.",
-      weekendBook: "Book “Weekend Together”",
+      weekendBook: "Discuss the format",
       weekendWhatsapp: "Write on WhatsApp",
       weekendCall: "Call",
       supportWeekend: "Weekend Together",
@@ -6033,25 +5993,25 @@
       galleryPrivacyNote: "Photos are published with respect for people's confidentiality and dignity."
     });
     Object.assign(translations.ro, {
-      donateTitle: "Sprijină recuperarea unei vieți",
-      donateText: "Donația dumneavoastră ajută la cazare, hrană, consultații, activități terapeutice și dezvoltarea centrului.",
+      donateTitle: "Susține activitatea centrului",
+      donateText: "Sprijinul voluntar ajută la menținerea unui spațiu în care oamenii primesc acompaniere, cazare, hrană, sprijin pentru familie și șansa de a începe din nou.",
       donationMethodsTitle: "Alegeți o modalitate comodă de donație",
       donationPaypalTitle: "PayPal",
       donationPaypalText: "O modalitate rapidă pentru donații online cu cardul sau prin cont PayPal.",
-      donationPaypalCta: "Donează prin PayPal",
+      donationPaypalCta: "Susține prin PayPal",
       donationBankTitle: "Transfer bancar",
       donationBankText: "Pentru organizații și persoane care au nevoie de rechizite bancare clare.",
       donationBankCta: "Arată rechizitele",
       donationTerminalTitle: "Terminal QIWI",
       donationTerminalText: "Puteți dona în numerar printr-un terminal QIWI, urmând pașii de pe ecran.",
       donationTerminalCta: "Cum donezi prin terminal",
-      donationTerminalShortCta: "Donează prin terminal",
+      donationTerminalShortCta: "Susține prin terminal",
       donationQiwiTitle: "Prin terminal QIWI",
       donationQiwiText: "Puteți sprijini centrul în numerar prin terminal, alegând fondul Optima Fide.",
       donationQiwiButton: "Arată instrucțiunea",
       qiwiGuideEyebrow: "Donație prin terminal",
-      qiwiGuideTitle: "Cum poți plăti prin QIWI",
-      qiwiGuideIntro: "Urmați pașii de pe ecranul terminalului. După plată, păstrați bonul.",
+      qiwiGuideTitle: "Cum poți susține centrul prin QIWI",
+      qiwiGuideIntro: "În terminal, secțiunea poate apărea ca „Plata serviciilor”, dar donația pentru Optima Fide este un sprijin voluntar al centrului, nu plata unui serviciu.",
       qiwiGuidePrev: "Înapoi",
       qiwiGuideNext: "Mai departe",
       qiwiGuideClose: "Închide",
@@ -6060,16 +6020,16 @@
       qiwiGuideNote: "Interfața terminalului poate diferi ușor. Important este să alegeți „Fonduri de ajutor”, apoi „Optima Fide”.",
       terminalEyebrow: "Donație prin terminal",
       terminalTitle: "Cum puteți dona prin terminal QIWI",
-      terminalText: "Puteți sprijini Optima Fide printr-un terminal QIWI. Urmați pașii de pe ecranul terminalului și păstrați bonul după plată.",
+      terminalText: "Puteți oferi sprijin voluntar centrului printr-un terminal QIWI. Urmați pașii de pe ecran și păstrați bonul după donație.",
       terminalStep1Title: "Găsiți un terminal",
       terminalStep1Text: "Alegeți un terminal QIWI apropiat sau folosiți harta oficială.",
-      terminalStep2Title: "Deschideți plăți",
-      terminalStep2Text: "Pe ecranul terminalului alegeți secțiunea de plăți și căutați organizația sau serviciul indicat.",
+      terminalStep2Title: "Găsiți organizația",
+      terminalStep2Text: "Urmați meniul terminalului și găsiți fondul Optima Fide.",
       terminalStep3Title: "Introduceți datele",
-      terminalStep3Text: "Completați atent datele cerute de terminal. Dacă ceva nu este clar, scrieți-ne înainte de plată.",
+      terminalStep3Text: "Completați atent datele cerute de terminal. Dacă ceva nu este clar, scrieți-ne înainte de a continua.",
       terminalStep4Title: "Verificați suma",
       terminalStep4Text: "Verificați suma donației și informațiile afișate pe ecran.",
-      terminalStep5Title: "Achitați în numerar",
+      terminalStep5Title: "Introduceți numerarul",
       terminalStep5Text: "Introduceți banii în terminal și confirmați operațiunea.",
       terminalStep6Title: "Păstrați bonul",
       terminalStep6Text: "Luați bonul și păstrați-l până când donația este confirmată.",
@@ -6079,11 +6039,11 @@
       terminalMapText: "Cel mai apropiat terminal poate fi găsit pe harta oficială QIWI.",
       terminalMapCta: "Găsește un terminal",
       terminalNoteTitle: "Important",
-      terminalNoteText: "Vă rugăm să păstrați bonul după plată. Pentru întrebări despre donație, ne puteți contacta prin Viber, Telegram sau WhatsApp."
+      terminalNoteText: "Vă rugăm să păstrați bonul după donație. Pentru întrebări, ne puteți contacta prin Viber, Telegram sau WhatsApp."
     });
     Object.assign(translations.ru, {
-      donateTitle: "Поддержать восстановление одной жизни",
-      donateText: "Ваше пожертвование помогает с проживанием, питанием, консультациями, терапевтическими активностями и развитием центра.",
+      donateTitle: "Поддержать работу центра",
+      donateText: "Добровольная поддержка помогает сохранять пространство, где люди получают сопровождение, проживание, питание, семейную поддержку и возможность начать заново.",
       donationMethodsTitle: "Выберите удобный способ пожертвования",
       donationPaypalTitle: "PayPal",
       donationPaypalText: "Быстрый способ поддержать онлайн банковской картой или через аккаунт PayPal.",
@@ -6094,13 +6054,13 @@
       donationTerminalTitle: "Терминал QIWI",
       donationTerminalText: "Можно сделать пожертвование наличными через терминал QIWI, следуя шагам на экране.",
       donationTerminalCta: "Как пожертвовать через терминал",
-      donationTerminalShortCta: "Пожертвовать через терминал",
+      donationTerminalShortCta: "Поддержать через терминал",
       donationQiwiTitle: "Через терминал QIWI",
       donationQiwiText: "Можно поддержать центр наличными через терминал, выбрав фонд Optima Fide.",
       donationQiwiButton: "Показать инструкцию",
       qiwiGuideEyebrow: "Пожертвование через терминал",
-      qiwiGuideTitle: "Как оплатить через QIWI",
-      qiwiGuideIntro: "Следуйте шагам на экране терминала. После оплаты сохраните чек.",
+      qiwiGuideTitle: "Как поддержать центр через QIWI",
+      qiwiGuideIntro: "В терминале этот раздел может называться «Оплата услуг», но пожертвование для Optima Fide является добровольной поддержкой центра, а не оплатой услуги.",
       qiwiGuidePrev: "Назад",
       qiwiGuideNext: "Далее",
       qiwiGuideClose: "Закрыть",
@@ -6109,16 +6069,16 @@
       qiwiGuideNote: "Интерфейс терминала может немного отличаться. Главное — выбрать «Фонды помощи», затем «Optima Fide».",
       terminalEyebrow: "Пожертвование через терминал",
       terminalTitle: "Как пожертвовать через терминал QIWI",
-      terminalText: "Вы можете поддержать Optima Fide через терминал QIWI. Следуйте шагам на экране терминала и сохраните чек после оплаты.",
+      terminalText: "Вы можете добровольно поддержать центр через терминал QIWI. Следуйте шагам на экране и сохраните чек после пожертвования.",
       terminalStep1Title: "Найдите терминал",
       terminalStep1Text: "Выберите ближайший терминал QIWI или воспользуйтесь официальной картой.",
-      terminalStep2Title: "Откройте платежи",
-      terminalStep2Text: "На экране терминала выберите раздел платежей и найдите указанную организацию или услугу.",
+      terminalStep2Title: "Найдите организацию",
+      terminalStep2Text: "Следуйте меню терминала и найдите фонд Optima Fide.",
       terminalStep3Title: "Введите данные",
-      terminalStep3Text: "Внимательно заполните данные, которые запросит терминал. Если что-то непонятно, напишите нам до оплаты.",
+      terminalStep3Text: "Внимательно заполните данные, которые запросит терминал. Если что-то непонятно, напишите нам до продолжения.",
       terminalStep4Title: "Проверьте сумму",
       terminalStep4Text: "Проверьте сумму пожертвования и информацию, показанную на экране.",
-      terminalStep5Title: "Оплатите наличными",
+      terminalStep5Title: "Внесите наличные",
       terminalStep5Text: "Внесите деньги в терминал и подтвердите операцию.",
       terminalStep6Title: "Сохраните чек",
       terminalStep6Text: "Возьмите чек и сохраните его до подтверждения пожертвования.",
@@ -6128,28 +6088,28 @@
       terminalMapText: "Ближайший терминал можно найти на официальной карте QIWI.",
       terminalMapCta: "Найти терминал",
       terminalNoteTitle: "Важно",
-      terminalNoteText: "Пожалуйста, сохраните чек после оплаты. По вопросам пожертвования можно связаться с нами через Viber, Telegram или WhatsApp."
+      terminalNoteText: "Пожалуйста, сохраните чек после пожертвования. По вопросам поддержки можно связаться с нами через Viber, Telegram или WhatsApp."
     });
     Object.assign(translations.en, {
-      donateTitle: "Support one person’s recovery",
-      donateText: "Your donation helps with accommodation, meals, consultations, therapeutic activities and the development of the center.",
+      donateTitle: "Support the work of the center",
+      donateText: "Voluntary support helps preserve a space where people receive accompaniment, accommodation, meals, family support and the chance to begin again.",
       donationMethodsTitle: "Choose a convenient donation method",
       donationPaypalTitle: "PayPal",
       donationPaypalText: "A quick way to support online by card or through a PayPal account.",
-      donationPaypalCta: "Donate via PayPal",
+      donationPaypalCta: "Support via PayPal",
       donationBankTitle: "Bank transfer",
       donationBankText: "For organizations and people who need clear bank details.",
       donationBankCta: "Show bank details",
       donationTerminalTitle: "QIWI terminal",
       donationTerminalText: "You can donate in cash through a QIWI terminal by following the steps on the screen.",
       donationTerminalCta: "How to donate via terminal",
-      donationTerminalShortCta: "Donate via terminal",
+      donationTerminalShortCta: "Support via terminal",
       donationQiwiTitle: "Via QIWI terminal",
       donationQiwiText: "You can support the center in cash through a terminal by choosing the Optima Fide fund.",
       donationQiwiButton: "Show instructions",
       qiwiGuideEyebrow: "Donation through terminal",
-      qiwiGuideTitle: "How to pay through QIWI",
-      qiwiGuideIntro: "Follow the steps on the terminal screen. After payment, keep the receipt.",
+      qiwiGuideTitle: "How to support the center through QIWI",
+      qiwiGuideIntro: "In the terminal, the section may appear as “Service payment”, but a donation to Optima Fide is voluntary support for the center, not payment for a service.",
       qiwiGuidePrev: "Back",
       qiwiGuideNext: "Next",
       qiwiGuideClose: "Close",
@@ -6158,16 +6118,16 @@
       qiwiGuideNote: "The terminal interface may differ slightly. The main point is to choose “Aid funds” and then “Optima Fide”.",
       terminalEyebrow: "Terminal donation",
       terminalTitle: "How to donate through a QIWI terminal",
-      terminalText: "You can support Optima Fide through a QIWI terminal. Follow the steps on the terminal screen and keep the receipt after payment.",
+      terminalText: "You can offer voluntary support through a QIWI terminal. Follow the steps on the screen and keep the receipt after the donation.",
       terminalStep1Title: "Find a terminal",
       terminalStep1Text: "Choose a nearby QIWI terminal or use the official map.",
-      terminalStep2Title: "Open payments",
-      terminalStep2Text: "On the terminal screen, choose the payments section and find the indicated organization or service.",
+      terminalStep2Title: "Find the organization",
+      terminalStep2Text: "Follow the terminal menu and find the Optima Fide fund.",
       terminalStep3Title: "Enter the details",
-      terminalStep3Text: "Carefully fill in the details requested by the terminal. If anything is unclear, write to us before paying.",
+      terminalStep3Text: "Carefully fill in the details requested by the terminal. If anything is unclear, write to us before continuing.",
       terminalStep4Title: "Check the amount",
       terminalStep4Text: "Check the donation amount and the information shown on the screen.",
-      terminalStep5Title: "Pay in cash",
+      terminalStep5Title: "Insert cash",
       terminalStep5Text: "Insert the money into the terminal and confirm the operation.",
       terminalStep6Title: "Keep the receipt",
       terminalStep6Text: "Take the receipt and keep it until the donation is confirmed.",
@@ -6177,7 +6137,7 @@
       terminalMapText: "The nearest terminal can be found on the official QIWI map.",
       terminalMapCta: "Find a terminal",
       terminalNoteTitle: "Important",
-      terminalNoteText: "Please keep the receipt after payment. For donation questions, you can contact us via Viber, Telegram or WhatsApp."
+      terminalNoteText: "Please keep the receipt after the donation. For support questions, contact us via Viber, Telegram or WhatsApp."
     });
 
     Object.assign(translations.ro, {
@@ -6287,12 +6247,12 @@
     const qiwiGuideSteps = [
       {
         image: "assets/images/donation-terminal/terminal-step-01.webp",
-        alt: { ru: "Шаг 1 — Оплата услуг", ro: "Pasul 1 — Plata serviciilor", en: "Step 1 — Service payment" },
-        title: { ru: "Оплата услуг", ro: "Plata serviciilor", en: "Service payment" },
+        alt: { ru: "Шаг 1 — главный экран терминала", ro: "Pasul 1 — ecranul principal al terminalului", en: "Step 1 — terminal home screen" },
+        title: { ru: "Откройте нужный раздел", ro: "Deschideți secțiunea indicată", en: "Open the indicated section" },
         text: {
-          ru: "На главном экране терминала выберите раздел «Оплата услуг».",
-          ro: "Pe ecranul principal al terminalului alegeți secțiunea „Plata serviciilor”.",
-          en: "On the main terminal screen, choose “Service payment”."
+          ru: "Раздел может называться «Оплата услуг»; продолжите к фондам помощи. Пожертвование для Optima Fide — это добровольная поддержка центра.",
+          ro: "Secțiunea poate fi numită „Plata serviciilor”; continuați către fondurile de ajutor. Donația pentru Optima Fide este sprijin voluntar pentru centru.",
+          en: "The section may be called “Service payment”; continue to Aid funds. A donation to Optima Fide is voluntary support for the center."
         }
       },
       {
@@ -6347,12 +6307,12 @@
       },
       {
         image: "assets/images/donation-terminal/terminal-step-07.webp",
-        alt: { ru: "Шаг 7 — Оплатить", ro: "Pasul 7 — Plătește", en: "Step 7 — Pay" },
-        title: { ru: "Оплатить", ro: "Plătește", en: "Pay" },
+        alt: { ru: "Шаг 7 — подтверждение операции", ro: "Pasul 7 — confirmarea operațiunii", en: "Step 7 — confirm the operation" },
+        title: { ru: "Подтвердите пожертвование", ro: "Confirmați donația", en: "Confirm the donation" },
         text: {
-          ru: "Проверьте данные, нажмите «Оплатить» и сохраните чек.",
-          ro: "Verificați datele, apăsați „Plătește” și păstrați bonul.",
-          en: "Check the details, press “Pay” and keep the receipt."
+          ru: "Проверьте данные, подтвердите операцию и сохраните чек.",
+          ro: "Verificați datele, confirmați operațiunea și păstrați bonul.",
+          en: "Check the details, confirm the operation and keep the receipt."
         }
       }
     ];

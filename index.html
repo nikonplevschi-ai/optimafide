@@ -793,6 +793,81 @@
       line-height: 1.2;
       white-space: normal;
     }
+    .impact-section {
+      position: relative;
+      overflow: hidden;
+      padding-block: clamp(72px, 9vw, 126px);
+      background:
+        linear-gradient(135deg, rgba(255,250,241,.96), rgba(244,238,224,.9)),
+        var(--soft);
+    }
+    .impact-shell {
+      position: relative;
+      z-index: 1;
+    }
+    .impact-head {
+      max-width: 840px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .impact-head .eyebrow,
+    .impact-number {
+      color: var(--gold);
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: clamp(30px, 4vw, 44px);
+    }
+    .impact-card {
+      display: flex;
+      min-width: 0;
+      min-height: 290px;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: clamp(24px, 3vw, 34px);
+      border: 1px solid rgba(36, 58, 48, .11);
+      border-radius: 20px;
+      background: rgba(255, 253, 247, .88);
+      box-shadow: 0 18px 54px rgba(18, 44, 36, .08);
+    }
+    .impact-number {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 5.4vw, 4.8rem);
+      line-height: .94;
+    }
+    .impact-card:nth-child(3) .impact-number {
+      font-size: clamp(2.35rem, 3.8vw, 3.75rem);
+      white-space: nowrap;
+    }
+    .impact-card h3 {
+      margin-top: 20px;
+      max-width: 13ch;
+      font-size: clamp(1.35rem, 2vw, 1.85rem);
+      line-height: 1.12;
+      color: var(--ink);
+    }
+    .impact-card p {
+      margin-top: 14px;
+      color: var(--muted);
+    }
+    .impact-note {
+      max-width: 760px;
+      margin: 24px auto 0;
+      text-align: center;
+      font-size: .92rem;
+      line-height: 1.65;
+      color: rgba(36, 58, 48, .62);
+    }
+    @media (max-width: 860px) {
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+      .impact-card {
+        min-height: 0;
+      }
+    }
     .team-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1891,19 +1966,19 @@
       color: var(--of-text);
     }
     .included-card, .situation-card, .activity-card, .service-card,
-    .trust-card, .admission-card, .offer-card, .family-card,
+    .trust-card, .admission-card, .family-card,
     .soft-card, .contact-card, .donation-card, .voice-card {
       padding: clamp(20px, 2.2vw, 30px);
     }
     .included-grid, .situation-grid, .activity-grid, .service-grid,
-    .trust-grid, .admission-grid, .offer-grid, .team-grid,
+    .trust-grid, .admission-grid, .team-grid,
     .tourism-grid, .voices-grid, .family-cards, .conditions-grid,
     .packages { gap: clamp(18px, 2vw, 28px); }
     .included-grid, .situation-grid, .activity-grid, .service-grid,
-    .trust-grid, .admission-grid, .offer-grid, .team-grid,
+    .trust-grid, .admission-grid, .team-grid,
     .tourism-grid, .voices-grid { grid-auto-rows: 1fr; }
     .included-card, .situation-card, .activity-card, .service-card,
-    .trust-card, .admission-card, .offer-card, .team-card,
+    .trust-card, .admission-card, .team-card,
     .tourism-card, .voice-card { height: 100%; }
     .included-card:hover, .package:hover, .amenity:hover,
     .family-card:hover, .soft-card:hover, .voice-card:hover { transform: none; box-shadow: var(--of-shadow-card); }
@@ -1920,8 +1995,7 @@
     .team-info { padding: 24px; }
     .team-role, .team-function, .tourism-card p, .voice-note { color: var(--of-muted); }
     .tourism-card div:last-child { padding: 22px; }
-    .offer-card { min-height: 240px; }
-    .offer-card .btn { margin-top: 22px; }
+    .impact-card { min-height: 290px; }
     .card-mark, .included-card span, .amenity-icon {
       background: var(--of-sage-light);
       color: var(--of-green-main);
@@ -2188,7 +2262,7 @@
     .section.soft, .visual-story.soft, .day-scene, .voices-section { background: linear-gradient(180deg, rgba(248,242,231,.62), rgba(238,243,234,.42)); }
     .intake-panel, .package, .amenity, .included-card, .situation-card,
     .activity-card, .service-card, .trust-card, .admission-card,
-    .notice-panel, .comparison-panel, .offer-card, .team-card,
+    .notice-panel, .comparison-panel, .team-card,
     .tourism-card, .tourism-note, .family-card, .soft-card,
     .contact-card, .donation-card, .telegram-cta, .voice-card,
     .voices-note, .accreditation-card, .faq-list details,
@@ -2199,13 +2273,9 @@
       box-shadow: 0 16px 46px rgba(18,44,36,.09);
     }
     .included-card, .situation-card, .activity-card, .service-card,
-    .trust-card, .admission-card, .offer-card, .family-card,
+    .trust-card, .admission-card, .family-card,
     .soft-card, .contact-card, .donation-card, .voice-card { padding: clamp(24px, 2.5vw, 34px); }
-    .offer-card { position: relative; min-height: 270px; padding-top: 34px; padding-right: 82px; }
-    .offer-card::before { position: absolute; top: 22px; right: 24px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--of-border-gold); border-radius: 12px; background: var(--of-sage-200); color: var(--of-gold-700); content: "PDF"; font-size: .68rem; font-weight: 800; letter-spacing: .04em; }
-    .offer-card:nth-child(3)::before { content: "DOC"; }
-    .offer-card:nth-child(4)::before { content: "···"; font-size: 1.1rem; }
-    .offer-card h3, .team-info h3, .tourism-card h3 { font-size: clamp(1.55rem, 2.1vw, 2.15rem); letter-spacing: -.015em; }
+    .team-info h3, .tourism-card h3 { font-size: clamp(1.55rem, 2.1vw, 2.15rem); letter-spacing: -.015em; }
     .team-card { padding: 10px; }
     .team-photo, .team-placeholder { border-radius: 20px; }
     .team-info { padding: 22px 14px 18px; }
@@ -3619,11 +3689,10 @@
       border-radius: 28px;
       background: rgba(255,250,241,.9);
     }
-    #oferte-pdf .offer-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    #oferte-pdf .impact-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    #oferte-pdf .offer-card {
-      min-height: 230px;
+    #oferte-pdf .impact-card {
       border-radius: 20px;
     }
     #faq .faq-list {
@@ -3658,7 +3727,7 @@
     @media (max-width: 1024px) {
       #trust .trust-grid,
       #program .packages,
-      #oferte-pdf .offer-grid,
+      #oferte-pdf .impact-grid,
       #recovery-spaces .recovery-canvas,
       #recovery-spaces .recovery-strip {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3693,7 +3762,7 @@
       #trust .trust-grid,
       #visual-program .visual-program-grid,
       #program .packages,
-      #oferte-pdf .offer-grid,
+      #oferte-pdf .impact-grid,
       #faq .faq-list {
         grid-template-columns: 1fr;
       }
@@ -4420,18 +4489,31 @@
       </div>
     </section>
 
-    <section class="section" id="oferte-pdf">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <div class="eyebrow" data-i18n="offersEyebrow">Materiale PDF</div>
-          <h2 data-i18n="offersTitle">Descărcați propunerea potrivită</h2>
-          <p data-i18n="offersLead">Două materiale scurte: unul pentru familie, altul pentru parteneri și donatori.</p>
+    <section class="section impact-section" id="oferte-pdf" aria-labelledby="impact-title">
+      <div class="container impact-shell">
+        <div class="section-head impact-head" data-reveal>
+          <div class="eyebrow" data-i18n="impactEyebrow">Din 2014</div>
+          <h2 id="impact-title" data-i18n="impactTitle">Experiență care ajută oamenii să înceapă din nou</h2>
+          <p data-i18n="impactLead">De-a lungul anilor, centrul Optima Fide a însoțit oameni și familii în situații dificile, ajutându-i să parcurgă un drum de recuperare, responsabilitate și revenire la viață.</p>
         </div>
-        <div class="offer-grid">
-          <article class="offer-card" data-reveal><div><h3 data-i18n="offerFamilyTitle">PDF pentru familie</h3><p data-i18n="offerFamilyText">Programul, condițiile, primele zile, ce este inclus și cum începeți.</p></div><a class="btn primary" href="assets/pdfs/optima-fide-family-offer-ru.pdf" target="_blank" rel="noopener" data-i18n="familyPdfCta">Descarcă PDF</a></article>
-          <article class="offer-card" data-reveal><div><h3 data-i18n="offerPartnerTitle">PDF pentru parteneri</h3><p data-i18n="offerPartnerText">Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.</p></div><a class="btn outline" href="assets/pdfs/optima-fide-partner-offer-en.pdf" target="_blank" rel="noopener" data-i18n="partnerPdfCta">Descarcă PDF</a></article>
-          <article class="offer-card" data-reveal><div><h3 data-i18n="offerConsultTitle">Consultație</h3><p data-i18n="offerConsultText">Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.</p></div><a class="btn gold" href="#contacte" data-i18n="consultCta">Contactează-ne</a></article>
+        <div class="impact-grid">
+          <article class="impact-card" data-reveal>
+            <div class="impact-number" data-i18n="impact1Number">600+</div>
+            <h3 data-i18n="impact1Title">cazuri de sprijin în reabilitare</h3>
+            <p data-i18n="impact1Text">Oameni care au parcurs un drum de recuperare, cazare, acompaniere și revenire treptată la responsabilitate.</p>
+          </article>
+          <article class="impact-card" data-reveal>
+            <div class="impact-number" data-i18n="impact2Number">19 000+</div>
+            <h3 data-i18n="impact2Title">consultații</h3>
+            <p data-i18n="impact2Text">Consultații individuale, familiale și inițiale pe întreaga perioadă de activitate a centrului.</p>
+          </article>
+          <article class="impact-card" data-reveal>
+            <div class="impact-number" data-i18n="impact3Number">din 2014</div>
+            <h3 data-i18n="impact3Title">activitate continuă</h3>
+            <p data-i18n="impact3Text">Experiența echipei, ritmul zilnic al centrului, sprijinul pentru familie și acompanierea participanților la program.</p>
+          </article>
         </div>
+        <p class="impact-note" data-i18n="impactNote">Aceste cifre reflectă experiența generală a centrului și nu reprezintă o promisiune a unui rezultat individual.</p>
       </div>
     </section>
 
@@ -5479,8 +5561,19 @@
       tourism5Title: "Parc și bănci", tourism5Text: "Plimbări, calm și odihnă simplă într-un spațiu verde.",
       tourism6Title: "Ieșiri individuale", tourism6Text: "Prin acord prealabil, ținând cont de starea participantului și regulile programului.",
       optionalNoticeTitle: "Important", optionalNoticeText: "Unele aspecte suplimentare se discută individual în timpul consultației.",
-      familyPdfCta: "Descarcă PDF",
-      offersEyebrow: "Materiale PDF", offersTitle: "Descărcați propunerea potrivită", offersLead: "Materiale scurte pentru familie, parteneri și donatori.", offerFamilyTitle: "PDF pentru familie", offerFamilyText: "Programul, condițiile, primele zile, ce este inclus și cum începeți.", offerPartnerTitle: "PDF pentru parteneri", offerPartnerText: "Misiune, acreditare, infrastructură, rezultate, parteneriat și rechizite.", offerConsultTitle: "Consultație", offerConsultText: "Dacă situația este urgentă sau neclară, începeți cu o conversație calmă.", partnerPdfCta: "Descarcă PDF", consultCta: "Contactează-ne",
+      impactEyebrow: "Din 2014",
+      impactTitle: "Experiență care ajută oamenii să înceapă din nou",
+      impactLead: "De-a lungul anilor, centrul Optima Fide a însoțit oameni și familii în situații dificile, ajutându-i să parcurgă un drum de recuperare, responsabilitate și revenire la viață.",
+      impact1Number: "600+",
+      impact1Title: "cazuri de sprijin în reabilitare",
+      impact1Text: "Oameni care au parcurs un drum de recuperare, cazare, acompaniere și revenire treptată la responsabilitate.",
+      impact2Number: "19 000+",
+      impact2Title: "consultații",
+      impact2Text: "Consultații individuale, familiale și inițiale pe întreaga perioadă de activitate a centrului.",
+      impact3Number: "din 2014",
+      impact3Title: "activitate continuă",
+      impact3Text: "Experiența echipei, ritmul zilnic al centrului, sprijinul pentru familie și acompanierea participanților la program.",
+      impactNote: "Aceste cifre reflectă experiența generală a centrului și nu reprezintă o promisiune a unui rezultat individual.",
       teamFunctionTudor: "Oferă sprijin de la egal la egal bazat pe experiență și înțelegere.",
       voicesEyebrow: "Voci anonime",
       voicesTitle: "Oamenii vorbesc despre liniște, ordine și sprijin",
@@ -5540,8 +5633,19 @@
       tourism5Title: "Парк и лавочки", tourism5Text: "Прогулки, спокойствие и простой отдых в зелёном пространстве.",
       tourism6Title: "Индивидуальные выезды", tourism6Text: "Маршруты обсуждаются индивидуально с учётом состояния участника и правил программы.",
       optionalNoticeTitle: "Важно", optionalNoticeText: "Некоторые дополнительные вопросы обсуждаются индивидуально во время консультации.",
-      familyPdfCta: "Скачать PDF",
-      offersEyebrow: "PDF-материалы", offersTitle: "Скачать подходящий материал", offersLead: "Короткие материалы для семьи, партнёров и доноров.", offerFamilyTitle: "PDF для семьи", offerFamilyText: "Программа, условия, первые дни, что входит и как начать.", offerPartnerTitle: "PDF для партнёров", offerPartnerText: "Миссия, аккредитация, инфраструктура, результаты, партнёрство и реквизиты.", offerConsultTitle: "Консультация", offerConsultText: "Если ситуация срочная или непонятная, начните со спокойного разговора.", partnerPdfCta: "Скачать PDF", consultCta: "Связаться",
+      impactEyebrow: "С 2014 года",
+      impactTitle: "Опыт, который помогает людям начинать заново",
+      impactLead: "За годы работы центр Optima Fide сопровождал людей и семьи в сложных жизненных ситуациях, помогая пройти путь восстановления, ответственности и возвращения к жизни.",
+      impact1Number: "600+",
+      impact1Title: "случаев реабилитационной помощи",
+      impact1Text: "Люди проходили путь восстановления, проживания, сопровождения и постепенного возвращения к ответственности.",
+      impact2Number: "19 000+",
+      impact2Title: "консультаций",
+      impact2Text: "Индивидуальные, семейные и первичные консультации за весь период работы центра.",
+      impact3Number: "с 2014 года",
+      impact3Title: "постоянной работы",
+      impact3Text: "Опыт команды, ежедневный ритм центра, поддержка семьи и сопровождение участников программы.",
+      impactNote: "Эти цифры отражают общий опыт работы центра и не являются обещанием индивидуального результата.",
       teamFunctionTudor: "Оказывает поддержку «равный равному», основанную на опыте и понимании.",
       voicesEyebrow: "Анонимные истории",
       voicesTitle: "Люди говорят о спокойствии, порядке и поддержке",
@@ -5596,8 +5700,19 @@
       tourism5Title: "Park and benches", tourism5Text: "Walks, calm and simple rest in a green space.",
       tourism6Title: "Individual outings", tourism6Text: "By prior agreement, considering participant condition and program rules.",
       optionalNoticeTitle: "Important", optionalNoticeText: "Some additional matters are discussed individually during consultation.",
-      familyPdfCta: "Download PDF",
-      offersEyebrow: "PDF materials", offersTitle: "Download the right material", offersLead: "Short materials for families, partners and donors.", offerFamilyTitle: "Family PDF", offerFamilyText: "Program, conditions, first days, what is included and how to begin.", offerPartnerTitle: "Partner PDF", offerPartnerText: "Mission, accreditation, infrastructure, results, partnership and bank details.", offerConsultTitle: "Consultation", offerConsultText: "If the situation is urgent or unclear, begin with a calm conversation.", partnerPdfCta: "Download PDF", consultCta: "Contact us",
+      impactEyebrow: "Since 2014",
+      impactTitle: "Experience that helps people begin again",
+      impactLead: "Over the years, Optima Fide has accompanied people and families through difficult life situations, helping them move toward recovery, responsibility and a return to life.",
+      impact1Number: "600+",
+      impact1Title: "rehabilitation support cases",
+      impact1Text: "People have gone through recovery, residential support, accompaniment and a gradual return to responsibility.",
+      impact2Number: "19,000+",
+      impact2Title: "consultations",
+      impact2Text: "Individual, family and first-step consultations throughout the center’s years of work.",
+      impact3Number: "since 2014",
+      impact3Title: "continuous work",
+      impact3Text: "The experience of the team, the daily rhythm of the center, family support and accompaniment of program participants.",
+      impactNote: "These figures reflect the center’s overall experience and are not a promise of an individual result.",
       teamFunctionTudor: "Provides peer-to-peer support grounded in experience and understanding.",
       voicesEyebrow: "Anonymous stories",
       voicesTitle: "People speak about calm, order and support",

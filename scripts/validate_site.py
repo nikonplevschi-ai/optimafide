@@ -51,11 +51,36 @@ def main() -> int:
             "viber://chat?number=%2B37378377337",
             "https://www.facebook.com/profile.php?id=100064660152285",
             "https://www.paypal.com/ncp/payment/LP4324XXE6824",
+            'class="section impact-section"',
+            'data-i18n="impactTitle"',
+            'data-i18n="impact1Number"',
+            'data-i18n="impact2Number"',
+            'data-i18n="impactNote"',
+            "600+",
+            "19 000+",
+        ):
+            if required not in html:
+                errors.append(f"missing required site marker: {required}")
+
+        for removed_marker in (
+            "PDF materials",
+            "Download the right material",
+            "Family PDF",
+            "Partner PDF",
+            "Download PDF",
+            "offersEyebrow",
+            "offersTitle",
+            "offersLead",
+            "offerFamilyTitle",
+            "offerPartnerTitle",
+            "offerConsultTitle",
+            "familyPdfCta",
+            "partnerPdfCta",
             "assets/pdfs/optima-fide-family-offer-ru.pdf",
             "assets/pdfs/optima-fide-partner-offer-en.pdf",
         ):
-            if required not in html:
-                errors.append(f"missing required link: {required}")
+            if removed_marker in html:
+                errors.append(f"old PDF materials block marker remains: {removed_marker}")
 
         if PRICE_LIST_PATH in html or (ROOT / PRICE_LIST_PATH).exists():
             errors.append("service price list must not be published")

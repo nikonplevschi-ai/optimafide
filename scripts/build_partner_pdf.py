@@ -185,7 +185,7 @@ story += [
     p("<b>SWIFT:</b> VICBMD2X"),
     p("<b>Fiscal code:</b> 1012620008338"),
     Spacer(1, 4 * mm),
-    p("<b>Phone:</b> 078377337"),
+    p("<b>Phone:</b> +37379002064"),
     p("<b>Email:</b> optimafide.info@gmail.com"),
     p("<b>Website:</b> https://recovery.optimafide.md/"),
     p("<b>Address:</b> str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni, Republic of Moldova", "Small"),

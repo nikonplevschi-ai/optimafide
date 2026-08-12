@@ -11,8 +11,8 @@ required_markup = (
     'class="app-icon" src="assets/icons/telegram.svg"',
     'class="app-icon" src="assets/icons/whatsapp.svg"',
     'class="app-icon" src="assets/icons/viber.svg"',
-    'href="viber://chat?number=%2B37378377337"><img class="app-icon" src="assets/icons/viber.svg"',
-    'href="tel:+37378377337"><img class="app-icon"',
+    'href="viber://chat?number=%2B37379002064"><img class="app-icon" src="assets/icons/viber.svg"',
+    'href="tel:+37379002064"><img class="app-icon"',
     ".nav-actions > .btn.gold { white-space: nowrap; min-width: 132px;",
     ".mobile-cta-label { font-size: .68rem; line-height: 1.1; white-space: nowrap;",
 )

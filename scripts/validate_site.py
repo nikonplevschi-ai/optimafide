@@ -47,8 +47,8 @@ def main() -> int:
 
         for required in (
             "https://t.me/optimafide_bot",
-            "https://wa.me/37378377337",
-            "viber://chat?number=%2B37378377337",
+            "https://wa.me/37379002064",
+            "viber://chat?number=%2B37379002064",
             "https://www.facebook.com/profile.php?id=100064660152285",
             "https://www.paypal.com/ncp/payment/LP4324XXE6824",
             'class="section impact-section"',

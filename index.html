@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
@@ -29,7 +29,7 @@
       "streetAddress": "str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni",
       "addressCountry": "MD"
     },
-    "telephone": "+37378377337",
+    "telephone": "+37379002064",
     "email": "optimafide.info@gmail.com",
     "url": "https://optimafide.pages.dev/",
     "sameAs": [
@@ -3920,22 +3920,164 @@
     #visual-program .visual-program-copy h3 {
       font-size: clamp(1.3rem, 1.8vw, 1.75rem);
     }
-    #program .packages {
+    #program {
+      position: relative;
+      overflow: hidden;
+    }
+    #program .program-shell {
+      position: relative;
+      padding: clamp(44px, 5.6vw, 76px) clamp(28px, 4.2vw, 64px);
+      border: 1px solid rgba(30, 58, 49, .12);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 7% 24%, rgba(143,160,134,.22), transparent 24%),
+        radial-gradient(circle at 93% 72%, rgba(212,158,43,.14), transparent 24%),
+        linear-gradient(180deg, rgba(255,253,247,.96), rgba(249,244,234,.92));
+      box-shadow: 0 26px 90px rgba(18,44,36,.10);
+    }
+    #program .program-shell::before,
+    #program .program-shell::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      width: 190px;
+      height: 130px;
+      border: 1px solid rgba(255,255,255,.58);
+      border-radius: 26px;
+      background: rgba(255,253,247,.26);
+      box-shadow: 0 24px 62px rgba(18,44,36,.08);
+      transform: rotate(7deg);
+      pointer-events: none;
+    }
+    #program .program-shell::before {
+      left: clamp(14px, 3vw, 42px);
+      top: clamp(24px, 4vw, 58px);
+    }
+    #program .program-shell::after {
+      right: clamp(6px, 2vw, 34px);
+      bottom: clamp(24px, 4vw, 58px);
+      transform: rotate(-8deg);
+    }
+    #program .program-head,
+    #program .program-steps {
+      position: relative;
+      z-index: 1;
+    }
+    #program .program-head {
+      max-width: 820px;
+      margin-inline: auto;
+      margin-bottom: clamp(28px, 4vw, 48px);
+      text-align: center;
+    }
+    #program .program-head .eyebrow {
+      color: var(--of-gold-700);
+      letter-spacing: .34em;
+    }
+    #program .program-head h2 {
+      font-size: clamp(3.1rem, 5.7vw, 5.8rem);
+      line-height: .94;
+    }
+    #program .program-head p {
+      max-width: 720px;
+      margin-inline: auto;
+      line-height: 1.7;
+    }
+    #program .program-steps {
+      display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(16px, 2vw, 28px);
+      align-items: stretch;
     }
-    #program .package:nth-child(5) {
-      display: none;
+    #program .program-step {
+      min-height: clamp(410px, 31vw, 500px);
+      padding: clamp(24px, 2.3vw, 34px);
+      border-radius: 26px;
+      border-color: rgba(30,58,49,.13);
+      background: linear-gradient(180deg, rgba(255,253,247,.90), rgba(250,246,238,.78));
+      box-shadow: 0 20px 58px rgba(18,44,36,.09), inset 0 1px 0 rgba(255,255,255,.76);
+      transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
     }
-    #program .package {
-      min-height: 250px;
-      padding: 24px;
-      border-radius: 20px;
+    #program .program-step:hover {
+      transform: translateY(-4px);
+      border-color: rgba(194,139,28,.26);
+      box-shadow: 0 28px 76px rgba(18,44,36,.13), inset 0 1px 0 rgba(255,255,255,.82);
+    }
+    #program .program-step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: clamp(34px, 4vw, 52px);
+    }
+    #program .program-step-number {
+      color: var(--of-gold-700);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.7rem, 2.4vw, 2.35rem);
+      line-height: 1;
+    }
+    #program .program-step:nth-child(1) .program-step-number,
+    #program .program-step:nth-child(3) .program-step-number {
+      color: var(--of-sage);
+    }
+    #program .program-step-icon {
+      width: 62px;
+      height: 62px;
+      flex: 0 0 62px;
+      border-radius: 50%;
+      border: 1px solid rgba(30,58,49,.10);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(143,160,134,.36), transparent 18px),
+        rgba(255,253,247,.72);
+      box-shadow: 0 16px 34px rgba(18,44,36,.08);
+    }
+    #program .program-step:nth-child(even) .program-step-icon {
+      background:
+        radial-gradient(circle at 50% 38%, rgba(212,158,43,.28), transparent 18px),
+        rgba(255,253,247,.72);
+    }
+    #program .program-step h3 {
+      max-width: 13ch;
+      font-size: clamp(1.8rem, 2.45vw, 2.55rem);
+      font-weight: 500;
+      line-height: 1.02;
+      letter-spacing: 0;
     }
     #program .package-meta {
-      margin-block: 14px;
+      display: grid;
+      gap: 14px;
+      margin-block: clamp(24px, 3vw, 32px);
     }
-    #program .package-meta .meta-line:nth-child(n+3) {
-      display: none;
+    #program .meta-line {
+      min-width: 0;
+      padding-top: 14px;
+      border-top: 1px solid rgba(194,139,28,.34);
+      color: var(--of-muted);
+      font-size: .96rem;
+      line-height: 1.6;
+    }
+    #program .meta-line strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--of-green-main);
+      font-size: .92rem;
+      font-weight: 850;
+    }
+    #program .meta-line span {
+      display: block;
+    }
+    #program .program-step .btn {
+      width: 100%;
+      min-height: 54px;
+      justify-content: center;
+      margin-top: auto;
+      padding-inline: 20px;
+      white-space: normal;
+      text-align: center;
+    }
+    #program .program-step.is-featured .btn.primary {
+      background: linear-gradient(180deg, #1b5949, #0c3d31);
+      color: #fffaf1;
+      box-shadow: 0 16px 32px rgba(12,61,49,.20);
     }
     #familie .family-layout {
       width: min(1320px, calc(100% - 72px));
@@ -3981,7 +4123,7 @@
     }
     @media (max-width: 1024px) {
       #trust .trust-grid,
-      #program .packages,
+      #program .program-steps,
       #oferte-pdf .impact-grid,
       #recovery-spaces .recovery-canvas,
       #recovery-spaces .recovery-strip {
@@ -4016,7 +4158,7 @@
       #admission .admission-grid,
       #trust .trust-grid,
       #visual-program .visual-program-grid,
-      #program .packages,
+      #program .program-steps,
       #oferte-pdf .impact-grid,
       #faq .faq-list {
         grid-template-columns: 1fr;
@@ -4289,7 +4431,7 @@
         <a href="#contacte" data-i18n="navContact">Contacte</a>
       </nav>
       <div class="nav-actions">
-        <a class="header-phone" href="tel:+37378377337">078377337</a>
+        <a class="header-phone" href="tel:+37379002064">+37379002064</a>
         <div class="lang-switch" aria-label="Schimbare limbă">
           <a href="#" data-lang="ro" class="active">RO</a>
           <a href="#" data-lang="ru">RU</a>
@@ -4337,9 +4479,9 @@
           <h2 id="intake-title" data-i18n="intakeTitle">Începeți cu o consultație confidențială</h2>
           <p class="intake-lead" data-i18n="intakeLead">Prima conversație nu vă obligă să intrați în centru. Ascultăm cu respect, explicăm pașii posibili și păstrăm confidențialitatea.</p>
           <div class="quick-actions">
-            <a class="btn primary" href="viber://chat?number=%2B37378377337"><img class="app-icon" src="assets/icons/viber.svg" alt="" aria-hidden="true"><span>Viber</span></a>
+            <a class="btn primary" href="viber://chat?number=%2B37379002064"><img class="app-icon" src="assets/icons/viber.svg" alt="" aria-hidden="true"><span>Viber</span></a>
             <a class="btn outline" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/telegram.svg" alt="" aria-hidden="true"><span data-i18n="firstTelegram">Scrie pe Telegram</span></a>
-            <a class="btn outline" href="https://wa.me/37378377337" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/whatsapp.svg" alt="" aria-hidden="true"><span>WhatsApp</span></a>
+            <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/whatsapp.svg" alt="" aria-hidden="true"><span>WhatsApp</span></a>
           </div>
         </div>
         <form class="intake-form" id="intakeForm">
@@ -4368,7 +4510,7 @@
           </div>
           <div class="field">
             <label for="intakeContact" data-i18n="fieldContactValue">Telefon sau Telegram</label>
-            <input id="intakeContact" name="contact" autocomplete="tel" inputmode="tel" placeholder="078377337" required>
+            <input id="intakeContact" name="contact" autocomplete="tel" inputmode="tel" placeholder="+37379002064" required>
           </div>
           <button class="btn primary" type="submit" data-i18n="requestCall">Solicită apel</button>
           <div class="form-note telegram-request-note" id="intakeNote" aria-live="polite"></div>
@@ -4422,8 +4564,8 @@
           <p class="weekend-notice" data-i18n="weekendSafety">„Weekend împreună” nu este detoxifiere medicală și nu înlocuiește ajutorul medical de urgență. Înainte de sosire, avem o discuție preliminară pentru a înțelege situația și pentru a ne asigura că formatul este sigur pentru participant, însoțitor și centru.</p>
           <div class="weekend-actions">
             <a class="btn primary" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/telegram.svg" alt="" aria-hidden="true"><span data-i18n="weekendBook">Discută formatul</span></a>
-            <a class="btn outline" href="https://wa.me/37378377337" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/whatsapp.svg" alt="" aria-hidden="true"><span data-i18n="weekendWhatsapp">Scrie pe WhatsApp</span></a>
-            <a class="btn outline" href="viber://chat?number=%2B37378377337"><img class="app-icon" src="assets/icons/viber.svg" alt="" aria-hidden="true"><span>Viber</span></a>
+            <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/whatsapp.svg" alt="" aria-hidden="true"><span data-i18n="weekendWhatsapp">Scrie pe WhatsApp</span></a>
+            <a class="btn outline" href="viber://chat?number=%2B37379002064"><img class="app-icon" src="assets/icons/viber.svg" alt="" aria-hidden="true"><span>Viber</span></a>
           </div>
         </div>
       </div>
@@ -4634,63 +4776,56 @@
     </section>
 
     <section class="section" id="program">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <div class="eyebrow" data-i18n="programEyebrow">Pachete de recuperare</div>
-          <h2 data-i18n="programTitle">Programe clare, fără promisiuni false.</h2>
-          <p data-i18n="programLead">Etapele programului sunt explicate calm și transparent. Primul pas este o discuție confidențială și orientarea potrivită pentru persoană și familie.</p>
+      <div class="container program-shell">
+        <div class="section-head program-head" data-reveal>
+          <div class="eyebrow" data-i18n="programEyebrow">PROGRAM DE RECUPERARE</div>
+          <h2 data-i18n="programTitle">Programul de recuperare</h2>
+          <p data-i18n="programLead">Etapele programului sunt explicate clar și calm. Primul pas este o consultație confidențială pentru persoană și familie.</p>
         </div>
-        <div class="packages">
-          <article class="package" data-reveal>
+        <div class="program-steps">
+          <article class="package program-step" data-reveal>
             <div>
+              <div class="program-step-top"><span class="program-step-number">01</span><span class="program-step-icon" aria-hidden="true"></span></div>
               <h3 data-i18n="pkg1Title">Consultație inițială</h3>
               <div class="package-meta">
-                <p class="meta-line"><strong data-i18n="durationLabel">Durată</strong><span data-i18n="pkg1Duration">30-60 min</span></p>
-                <p class="meta-line"><strong data-i18n="forLabel">Pentru</strong><span data-i18n="pkg1For">persoană sau familie</span></p>
-                <p class="meta-line"><strong data-i18n="goalLabel">Scop</strong><span data-i18n="pkg1Goal">evaluare, orientare, următorul pas</span></p>
+                <p class="meta-line"><strong data-i18n="durationLabel">Durată</strong><span data-i18n="pkg1Duration">30-60 minute</span></p>
+                <p class="meta-line"><strong data-i18n="forLabel">Pentru cine</strong><span data-i18n="pkg1For">pentru persoană sau familie</span></p>
               </div>
             </div>
             <a href="#consultatie" class="btn outline" data-i18n="pkg1Cta">Solicită consultație</a>
           </article>
-          <article class="package" data-reveal style="--delay:90ms">
+          <article class="package program-step is-featured" data-reveal style="--delay:90ms">
             <div>
-              <h3 data-i18n="pkg2Title">Program rezidențial flexibil</h3>
+              <div class="program-step-top"><span class="program-step-number">02</span><span class="program-step-icon" aria-hidden="true"></span></div>
+              <h3 data-i18n="pkg2Title">Program rezidențial</h3>
               <div class="package-meta">
-                <p class="meta-line"><strong data-i18n="includeLabel">Include</strong><span data-i18n="pkg2Include">cazare, masă, program zilnic, grupuri, consiliere, sprijin spiritual; durată posibilă: 3 zile, 7 zile, 2 săptămâni, 1 lună, 3 luni, 6 luni sau 1 an</span></p>
-                <p class="meta-line"><strong data-i18n="forLabel">Pentru</strong><span data-i18n="pkg2For">persoane motivate să înceapă recuperarea</span></p>
+                <p class="meta-line"><strong data-i18n="includeLabel">Include</strong><span data-i18n="pkg2Include">cazare, alimentație, ritm zilnic, sprijin de grup, însoțire spirituală și mediu liniștit</span></p>
+                <p class="meta-line"><strong data-i18n="formatLabel">Format</strong><span data-i18n="pkg2For">durată flexibilă, în funcție de situație și etapa recuperării</span></p>
               </div>
             </div>
-            <a href="#conditii" class="btn outline" data-i18n="pkg2Cta">Află condițiile</a>
+            <a href="#conditii" class="btn primary" data-i18n="pkg2Cta">Vezi condițiile</a>
           </article>
-          <article class="package" data-reveal style="--delay:180ms">
+          <article class="package program-step" data-reveal style="--delay:180ms">
             <div>
-              <h3 data-i18n="pkg3Title">Suport pentru familie și reintegrare</h3>
+              <div class="program-step-top"><span class="program-step-number">03</span><span class="program-step-icon" aria-hidden="true"></span></div>
+              <h3 data-i18n="pkg3Title">Sprijin pentru familie</h3>
               <div class="package-meta">
-                <p class="meta-line"><strong data-i18n="includeLabel">Include</strong><span data-i18n="pkg3Include">discuții, înțelegerea procesului, revenire treptată la responsabilități</span></p>
-                <p class="meta-line"><strong data-i18n="forLabel">Pentru</strong><span data-i18n="pkg3For">familie și persoane după program</span></p>
+                <p class="meta-line"><strong data-i18n="includeLabel">Include</strong><span data-i18n="pkg3Include">discuții cu familia, înțelegerea procesului și sprijin fără presiune</span></p>
+                <p class="meta-line"><strong data-i18n="forLabel">Pentru cine</strong><span data-i18n="pkg3For">pentru rudele și apropiații care vor să acționeze corect</span></p>
               </div>
             </div>
             <a href="#contacte" class="btn outline" data-i18n="pkg3Cta">Scrie-ne</a>
           </article>
-          <article class="package" data-reveal>
+          <article class="package program-step is-featured" data-reveal style="--delay:270ms">
             <div>
-              <h3 data-i18n="pkg4Title">Reintegrare după program</h3>
+              <div class="program-step-top"><span class="program-step-number">04</span><span class="program-step-icon" aria-hidden="true"></span></div>
+              <h3 data-i18n="pkg4Title">Reintegrare</h3>
               <div class="package-meta">
-                <p class="meta-line"><strong data-i18n="includeLabel">Include</strong><span data-i18n="pkg4Include">revenire treptată la familie, responsabilități, muncă și viață socială</span></p>
-                <p class="meta-line"><strong data-i18n="forLabel">Pentru</strong><span data-i18n="pkg4For">persoane care încheie programul și au nevoie de susținere</span></p>
+                <p class="meta-line"><strong data-i18n="includeLabel">Include</strong><span data-i18n="pkg4Include">sprijin pentru revenirea la responsabilitate, comunicare, relații de familie și ritm zilnic</span></p>
+                <p class="meta-line"><strong data-i18n="forLabel">Pentru cine</strong><span data-i18n="pkg4For">pentru cei care au nevoie de sprijin după etapa principală</span></p>
               </div>
             </div>
-            <a href="#contacte" class="btn outline" data-i18n="pkg4Cta">Planifică revenirea</a>
-          </article>
-          <article class="package" data-reveal style="--delay:90ms">
-            <div>
-              <h3 data-i18n="pkg5Title">Sprijin spiritual</h3>
-              <div class="package-meta">
-                <p class="meta-line"><strong data-i18n="includeLabel">Include</strong><span data-i18n="pkg5Include">liniște, rugăciune, reflecție și însoțire pentru cei deschiși dimensiunii spirituale</span></p>
-                <p class="meta-line"><strong data-i18n="forLabel">Pentru</strong><span data-i18n="pkg5For">persoane care caută sens, speranță și sprijin interior</span></p>
-              </div>
-            </div>
-            <a href="#contacte" class="btn outline" data-i18n="pkg5Cta">Discută cu noi</a>
+            <a href="#contacte" class="btn primary" data-i18n="pkg4Cta">Află mai mult</a>
           </article>
         </div>
       </div>
@@ -4808,27 +4943,27 @@
           <div class="carousel-stage">
           <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-igor-owner.webp" alt="Pr. Igor Plevschi" loading="lazy" decoding="async"></picture>
-            <div class="team-info"><h3 data-i18n="teamIgorName">Pr. Igor Plevschi</h3><p class="team-role" data-i18n="teamRoleIgor">Președinte și membru al Consiliului Fundației</p><p class="team-function" data-i18n="teamFunctionIgor"></p><div class="team-contact"><a href="tel:+37378377337">078377337</a><a href="mailto:general.optimafide@gmail.com">general.optimafide@gmail.com</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamIgorName">Pr. Igor Plevschi</h3><p class="team-role" data-i18n="teamRoleIgor">Președinte și membru al Consiliului Fundației</p><p class="team-function" data-i18n="teamFunctionIgor"></p><div class="team-contact"><a href="tel:+37379002064">+37379002064</a><a href="mailto:general.optimafide@gmail.com">general.optimafide@gmail.com</a></div></div>
           </article>
           <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-anastasia-owner.webp" alt="Anastasia Plevscaia" loading="lazy" decoding="async"></picture>
-            <div class="team-info"><h3 data-i18n="teamAnastasiaName">Anastasia Plevscaia</h3><p class="team-role" data-i18n="teamRoleAnastasia">Psiholog / sprijin pentru participanți</p><p class="team-function" data-i18n="teamFunctionAnastasia"></p><div class="team-contact"><a href="tel:+37360679547">060679547</a><a href="mailto:optimafide.psiholog@gmail.com">optimafide.psiholog@gmail.com</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamAnastasiaName">Anastasia Plevscaia</h3><p class="team-role" data-i18n="teamRoleAnastasia">Psiholog / sprijin pentru participanți</p><p class="team-function" data-i18n="teamFunctionAnastasia"></p><div class="team-contact"><a href="tel:+37379002064">+37379002064</a><a href="mailto:optimafide.psiholog@gmail.com">optimafide.psiholog@gmail.com</a></div></div>
           </article>
           <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-ruslan-owner-2026.png" alt="Ruslan Magari" loading="lazy" decoding="async"></picture>
-            <div class="team-info"><h3 data-i18n="teamRuslanName">Ruslan Magari</h3><p class="team-role" data-i18n="teamRoleRuslan">Director executiv</p><p class="team-function" data-i18n="teamFunctionRuslan"></p><div class="team-contact"><a href="tel:+37379002064">079002064</a><a href="mailto:ruslanmagari@gmail.com">ruslanmagari@gmail.com</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamRuslanName">Ruslan Magari</h3><p class="team-role" data-i18n="teamRoleRuslan">Director executiv</p><p class="team-function" data-i18n="teamFunctionRuslan"></p><div class="team-contact"><a href="tel:+37379002064">+37379002064</a><a href="mailto:ruslanmagari@gmail.com">ruslanmagari@gmail.com</a></div></div>
           </article>
           <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-oksana-owner-2026.png" alt="Oksana Harbolinscaia" loading="lazy" decoding="async"></picture>
-            <div class="team-info"><h3 data-i18n="teamOksanaName">Oksana Harbolinscaia</h3><p class="team-role" data-i18n="teamRoleOksana">Psiholog</p><p class="team-function" data-i18n="teamFunctionOksana"></p><div class="team-contact"><a href="tel:+37378601352">078601352</a><a href="mailto:psyneverlie@gmail.com">psyneverlie@gmail.com</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamOksanaName">Oksana Harbolinscaia</h3><p class="team-role" data-i18n="teamRoleOksana">Psiholog</p><p class="team-function" data-i18n="teamFunctionOksana"></p><div class="team-contact"><a href="tel:+37379002064">+37379002064</a><a href="mailto:psyneverlie@gmail.com">psyneverlie@gmail.com</a></div></div>
           </article>
           <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-tudor-owner.webp" alt="Tudor Rotaru" loading="lazy" decoding="async"></picture>
-            <div class="team-info"><h3 data-i18n="teamTudorName">Tudor Rotaru</h3><p class="team-role" data-i18n="teamRoleTudor">Consultant de la egal la egal</p><p class="team-function" data-i18n="teamFunctionTudor"></p><div class="team-contact"><a href="tel:+37362139361">062139361</a><a href="mailto:sofos82@mail.ru">sofos82@mail.ru</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamTudorName">Tudor Rotaru</h3><p class="team-role" data-i18n="teamRoleTudor">Consultant de la egal la egal</p><p class="team-function" data-i18n="teamFunctionTudor"></p><div class="team-contact"><a href="tel:+37379002064">+37379002064</a><a href="mailto:sofos82@mail.ru">sofos82@mail.ru</a></div></div>
           </article>
           <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-irina-shevchuk.webp" alt="Irina Șevciuc" loading="lazy" decoding="async"></picture>
-            <div class="team-info"><h3 data-i18n="teamIrinaName">Irina Șevciuc</h3><p class="team-role" data-i18n="teamRoleIrina">Contabilă</p><p class="team-function" data-i18n="teamFunctionIrina"></p><div class="team-contact"><a href="tel:+37379161531">079161531</a></div></div>
+            <div class="team-info"><h3 data-i18n="teamIrinaName">Irina Șevciuc</h3><p class="team-role" data-i18n="teamRoleIrina">Contabilă</p><p class="team-function" data-i18n="teamFunctionIrina"></p><div class="team-contact"><a href="tel:+37379002064">+37379002064</a></div></div>
           </article>
           </div>
           <button class="carousel-arrow carousel-arrow--next" type="button" data-i18n-aria-label="carouselNext" aria-label="Următor"></button>
@@ -5086,10 +5221,10 @@
             <div class="eyebrow">Telegram</div>
             <h2 data-i18n="quickTelegramTitle">Aveți nevoie de un prim răspuns?</h2>
             <p data-i18n="contactModalText">Ne puteți scrie pe Telegram sau suna. Răspundem cu discreție și respect.</p>
-            <a class="telegram-contact-number" href="tel:+37378377337">078377337</a>
+            <a class="telegram-contact-number" href="tel:+37379002064">+37379002064</a>
             <div class="telegram-cta-actions">
               <a class="btn gold" href="#" data-contact-modal data-i18n="firstTelegram">Scrie pe Telegram</a>
-              <a class="btn outline" href="tel:+37378377337" data-i18n="firstCall">Sună</a>
+              <a class="btn outline" href="tel:+37379002064" data-i18n="firstCall">Sună</a>
             </div>
           </div>
           <form class="telegram-request-form" id="telegramRequestForm">
@@ -5110,15 +5245,15 @@
         <div class="contact-card" data-reveal>
           <div class="eyebrow" data-i18n="contactEyebrow">Contacte</div>
           <h2 data-i18n="contactTitle">Răspundem cu discreție și respect.</h2>
-          <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2z"/></svg><div><strong data-i18n="phoneLabel">Telefon</strong><a href="tel:+37378377337">078377337</a></div></div>
+          <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2z"/></svg><div><strong data-i18n="phoneLabel">Telefon</strong><a href="tel:+37379002064">+37379002064</a></div></div>
           <div class="contact-item telegram-contact"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21.5 4.5 2.5 12l7 2.5m12-10-6.5 16-5.5-6m12-10-12 10"/></svg><div><strong>Telegram</strong><a href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">@optimafide_bot</a></div></div>
           <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg><div><strong>Email</strong><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
           <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-4.7 7-11a7 7 0 0 0-14 0c0 6.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong data-i18n="addressLabel">Adresa centrului</strong><span data-i18n="addressText">str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni</span></div></div>
           <div class="map-embed"><iframe title="Harta centrului Optima Fide" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=str.%20Gloriei%204%2C%20Goianul%20Nou%2C%20Stauceni%2C%20Moldova&output=embed"></iframe><a class="map-pin-label" href="https://www.google.com/maps/search/?api=1&query=str.%20Gloriei%204%2C%20Goianul%20Nou%2C%20Stauceni%2C%20Moldova" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.8A2.8 2.8 0 1 1 12 6a2.8 2.8 0 0 1 0 5.8Z"/></svg><span data-i18n="mapLabel">Vezi centrul pe hartă</span></a></div>
           <div class="confirmed-contact-links">
-            <a href="https://wa.me/37378377337" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             <a href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
-            <a href="viber://chat?number=%2B37378377337">Viber</a>
+            <a href="viber://chat?number=%2B37379002064">Viber</a>
             <a href="https://www.facebook.com/profile.php?id=100064660152285" target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
         </div>
@@ -5138,8 +5273,8 @@
               <p data-i18n="contactVisitText">Vă rugăm să ne contactați mai întâi. Vă vom sugera un moment potrivit, vă vom explica cum să ajungeți și vom răspunde calm la primele întrebări.</p>
               <a class="btn outline" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="contactVisitButton">Stabilește o vizită</a>
               <div class="contact-help-links" aria-label="Contact rapid">
-                <a href="https://wa.me/37378377337" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <a href="viber://chat?number=%2B37378377337">Viber</a>
+                <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="viber://chat?number=%2B37379002064">Viber</a>
               </div>
             </article>
             <article class="contact-help-card contact-help-card--message" data-reveal>
@@ -5159,18 +5294,18 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div class="footer-brand" data-reveal><div class="footer-brand-row"><img src="logo.jpg" alt="Logo Optima Fide"><strong>Optima Fide</strong></div><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p><div class="footer-contact"><a href="tel:+37378377337">078377337</a><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
+      <div class="footer-brand" data-reveal><div class="footer-brand-row"><img src="logo.jpg" alt="Logo Optima Fide"><strong>Optima Fide</strong></div><p data-i18n="footerText">Centru rezidențial de recuperare în Moldova. Adresa centrului: str. Gloriei nr. 4, s. Goianul Nou, or. Stăuceni.</p><div class="footer-contact"><a href="tel:+37379002064">+37379002064</a><a href="mailto:optimafide.info@gmail.com">optimafide.info@gmail.com</a></div></div>
       <div class="footer-links" data-reveal style="--delay: 90ms;"><a href="#program" data-i18n="navProgram">Programul</a><a href="#gallery" data-i18n="navGallery">Galerie</a><a href="#turism" data-i18n="navTourism">Turism</a><a href="#donatii" data-i18n="navDonate">Donații</a><a href="#contacte" data-i18n="navContact">Contacte</a></div>
       <div class="footer-social" data-reveal style="--delay: 160ms;">
-        <a href="https://wa.me/37378377337" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
-        <a href="viber://chat?number=%2B37378377337">Viber</a>
+        <a href="viber://chat?number=%2B37379002064">Viber</a>
         <a href="https://www.facebook.com/profile.php?id=100064660152285" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
   </footer>
   <div class="mobile-cta">
-    <a class="btn primary" href="tel:+37378377337"><img class="app-icon" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span class="mobile-cta-label" data-i18n="mobileCall">Sună</span></a>
+    <a class="btn primary" href="tel:+37379002064"><img class="app-icon" src="assets/icons/phone.svg" alt="" aria-hidden="true"><span class="mobile-cta-label" data-i18n="mobileCall">Sună</span></a>
     <a class="btn light" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="assets/icons/telegram.svg" alt="" aria-hidden="true"><span class="mobile-cta-label">Telegram</span></a>
     <a class="btn outline" href="#" data-contact-modal><span class="mobile-cta-icon" aria-hidden="true">•••</span><span class="mobile-cta-label" data-i18n="mobileMore">Mai mult</span></a>
   </div>
@@ -5179,13 +5314,13 @@
       <button class="contact-modal-close" id="contactModalClose" type="button" data-i18n-aria-label="contactModalClose" aria-label="Închide">×</button>
       <h2 id="contactModalTitle" data-i18n="contactModalTitle">Contactați Optima Fide</h2>
       <p data-i18n="contactModalText">Ne puteți scrie pe Telegram sau suna. Răspundem cu discreție și respect.</p>
-      <a class="contact-modal-number" href="tel:+37378377337">078377337</a>
+      <a class="contact-modal-number" href="tel:+37379002064">+37379002064</a>
       <div class="contact-modal-actions">
-        <a class="btn primary" href="tel:+37378377337" data-i18n="contactModalCall">Sună</a>
+        <a class="btn primary" href="tel:+37379002064" data-i18n="contactModalCall">Sună</a>
         <a class="btn gold" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="contactModalTelegram">Scrie pe Telegram</a>
         <button class="btn outline" id="contactModalCopy" type="button" data-i18n="contactModalCopy">Copiază numărul</button>
-        <a class="btn outline" href="https://wa.me/37378377337" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        <a class="btn outline" href="viber://chat?number=%2B37378377337">Viber</a>
+        <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a class="btn outline" href="viber://chat?number=%2B37379002064">Viber</a>
         <a class="btn outline" href="https://www.facebook.com/profile.php?id=100064660152285" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
       <div class="contact-modal-status" id="contactModalStatus" aria-live="polite"></div>
@@ -5290,30 +5425,31 @@
                 "inc7Text": "Ajutăm familia să înțeleagă procesul de recuperare și să ofere sprijin sănătos.",
                 "inc8Title": "Reintegrare",
                 "inc8Text": "Pregătire pentru revenirea în familie, responsabilități, muncă și viață socială.",
-                "programEyebrow": "Pachete de recuperare",
-                "programTitle": "Programe clare, fără promisiuni false.",
-                "programLead": "Etapele programului sunt explicate calm și transparent. Primul pas este o discuție confidențială și orientarea potrivită pentru persoană și familie.",
+                "programEyebrow": "PROGRAM DE RECUPERARE",
+                "programTitle": "Programul de recuperare",
+                "programLead": "Etapele programului sunt explicate clar și calm. Primul pas este o consultație confidențială pentru persoană și familie.",
                 "pkg1Title": "Consultație inițială",
                 "durationLabel": "Durată",
-                "pkg1Duration": "30-60 min",
-                "forLabel": "Pentru",
-                "pkg1For": "persoană sau familie",
+                "pkg1Duration": "30-60 minute",
+                "forLabel": "Pentru cine",
+                "pkg1For": "pentru persoană sau familie",
                 "goalLabel": "Scop",
                 "pkg1Goal": "evaluare, orientare, următorul pas",
                 "pkg1Cta": "Solicită consultație",
-                "pkg2Title": "Program rezidențial flexibil",
+                "pkg2Title": "Program rezidențial",
                 "includeLabel": "Include",
-                "pkg2Include": "cazare, masă, program zilnic, grupuri, consiliere, sprijin spiritual; durată posibilă: 3 zile, 7 zile, 2 săptămâni, 1 lună, 3 luni, 6 luni sau 1 an",
-                "pkg2For": "persoane motivate să înceapă recuperarea",
-                "pkg2Cta": "Află condițiile",
-                "pkg3Title": "Suport pentru familie și reintegrare",
-                "pkg3Include": "discuții, înțelegerea procesului, revenire treptată la responsabilități",
-                "pkg3For": "familie și persoane după program",
+                "pkg2Include": "cazare, alimentație, ritm zilnic, sprijin de grup, însoțire spirituală și mediu liniștit",
+                "formatLabel": "Format",
+                "pkg2For": "durată flexibilă, în funcție de situație și etapa recuperării",
+                "pkg2Cta": "Vezi condițiile",
+                "pkg3Title": "Sprijin pentru familie",
+                "pkg3Include": "discuții cu familia, înțelegerea procesului și sprijin fără presiune",
+                "pkg3For": "pentru rudele și apropiații care vor să acționeze corect",
                 "pkg3Cta": "Scrie-ne",
-                "pkg4Title": "Reintegrare după program",
-                "pkg4Include": "revenire treptată la familie, responsabilități, muncă și viață socială",
-                "pkg4For": "persoane care încheie programul și au nevoie de susținere",
-                "pkg4Cta": "Planifică revenirea",
+                "pkg4Title": "Reintegrare",
+                "pkg4Include": "sprijin pentru revenirea la responsabilitate, comunicare, relații de familie și ritm zilnic",
+                "pkg4For": "pentru cei care au nevoie de sprijin după etapa principală",
+                "pkg4Cta": "Află mai mult",
                 "pkg5Title": "Sprijin spiritual",
                 "pkg5Include": "liniște, rugăciune, reflecție și însoțire pentru cei deschiși dimensiunii spirituale",
                 "pkg5For": "persoane care caută sens, speranță și sprijin interior",
@@ -5483,30 +5619,31 @@
                 "inc7Text": "Помогаем семье понимать процесс восстановления и поддерживать здоровым образом.",
                 "inc8Title": "Реинтеграция",
                 "inc8Text": "Подготовка к возвращению в семью, ответственность, работу и социальную жизнь.",
-                "programEyebrow": "Пакеты восстановления",
-                "programTitle": "Понятные программы без ложных обещаний.",
-                "programLead": "Этапы программы объясняются спокойно и прозрачно. Первый шаг — конфиденциальный разговор и правильная ориентация для человека и семьи.",
+                "programEyebrow": "ПРОГРАММА ВОССТАНОВЛЕНИЯ",
+                "programTitle": "Программа восстановления",
+                "programLead": "Этапы программы объясняются спокойно и понятно. Первый шаг — конфиденциальная консультация для человека и его близких.",
                 "pkg1Title": "Первичная консультация",
                 "durationLabel": "Длительность",
                 "pkg1Duration": "30-60 минут",
-                "forLabel": "Для",
-                "pkg1For": "человека или семьи",
+                "forLabel": "Для кого",
+                "pkg1For": "для самого человека или для семьи",
                 "goalLabel": "Цель",
                 "pkg1Goal": "оценка, ориентация, следующий шаг",
                 "pkg1Cta": "Запросить консультацию",
-                "pkg2Title": "Гибкая резиденциальная программа",
+                "pkg2Title": "Резидентная программа",
                 "includeLabel": "Включает",
-                "pkg2Include": "проживание, питание, распорядок дня, группы, консультирование, духовную поддержку; возможная длительность: 3 дня, 7 дней, 2 недели, 1 месяц, 3 месяца, 6 месяцев или 1 год",
-                "pkg2For": "людей, мотивированных начать восстановление",
-                "pkg2Cta": "Узнать условия",
-                "pkg3Title": "Поддержка семьи и реинтеграция",
-                "pkg3Include": "беседы, понимание процесса, постепенное возвращение к ответственности",
-                "pkg3For": "семьи и людей после программы",
+                "pkg2Include": "проживание, питание, ежедневный ритм, групповую поддержку, духовное сопровождение и спокойную среду",
+                "formatLabel": "Формат",
+                "pkg2For": "гибкая длительность в зависимости от ситуации и этапа восстановления",
+                "pkg2Cta": "Посмотреть условия",
+                "pkg3Title": "Поддержка семьи",
+                "pkg3Include": "разговоры с близкими, помощь в понимании процесса и поддержке без давления",
+                "pkg3For": "для родственников и близких, которые хотят действовать правильно",
                 "pkg3Cta": "Напишите нам",
-                "pkg4Title": "Реинтеграция после программы",
-                "pkg4Include": "постепенное возвращение в семью, к ответственности, работе и социальной жизни",
-                "pkg4For": "людей, которые завершают программу и нуждаются в поддержке",
-                "pkg4Cta": "Спланировать возвращение",
+                "pkg4Title": "Возвращение к обычной жизни",
+                "pkg4Include": "помощь в восстановлении ответственности, общения, семейных отношений и повседневного ритма",
+                "pkg4For": "для тех, кому нужна поддержка после основного этапа",
+                "pkg4Cta": "Узнать больше",
                 "pkg5Title": "Духовная поддержка",
                 "pkg5Include": "тишина, молитва, размышление и сопровождение для тех, кто открыт духовной стороне",
                 "pkg5For": "людей, которые ищут смысл, надежду и внутреннюю опору",
@@ -5676,30 +5813,31 @@
                 "inc7Text": "We help families understand recovery and offer healthy support.",
                 "inc8Title": "Reintegration",
                 "inc8Text": "Preparation for returning to family, responsibilities, work and social life.",
-                "programEyebrow": "Recovery packages",
-                "programTitle": "Clear programs without false promises.",
-                "programLead": "This is not commercial booking and not a guaranteed outcome. The first step is a confidential conversation and the right orientation for the person and family.",
+                "programEyebrow": "RECOVERY PROGRAM",
+                "programTitle": "Recovery program",
+                "programLead": "The stages of the program are explained calmly and clearly. The first step is a confidential consultation for the person and family.",
                 "pkg1Title": "Initial consultation",
                 "durationLabel": "Duration",
                 "pkg1Duration": "30-60 min",
                 "forLabel": "For",
-                "pkg1For": "person or family",
+                "pkg1For": "for the person or family",
                 "goalLabel": "Goal",
                 "pkg1Goal": "assessment, orientation, next step",
                 "pkg1Cta": "Request consultation",
-                "pkg2Title": "Flexible residential program",
+                "pkg2Title": "Residential program",
                 "includeLabel": "Includes",
-                "pkg2Include": "accommodation, meals, daily program, groups, counseling, spiritual support; possible duration: 3 days, 7 days, 2 weeks, 1 month, 3 months, 6 months or 1 year",
-                "pkg2For": "people motivated to start recovery",
+                "pkg2Include": "accommodation, meals, daily rhythm, group support, spiritual guidance and a calm environment",
+                "formatLabel": "Format",
+                "pkg2For": "flexible duration depending on the person's situation and recovery stage",
                 "pkg2Cta": "View conditions",
-                "pkg3Title": "Family support and reintegration",
-                "pkg3Include": "conversations, understanding the process, gradual return to responsibilities",
-                "pkg3For": "family and people after the program",
+                "pkg3Title": "Family support",
+                "pkg3Include": "conversations with relatives, understanding the process and support without pressure",
+                "pkg3For": "for family members and loved ones who want to help wisely",
                 "pkg3Cta": "Write to us",
-                "pkg4Title": "Post-program reintegration",
-                "pkg4Include": "gradual return to family, responsibilities, work and social life",
-                "pkg4For": "people completing the program who need support",
-                "pkg4Cta": "Plan the return",
+                "pkg4Title": "Reintegration",
+                "pkg4Include": "support for returning to responsibility, communication, family relationships and daily rhythm",
+                "pkg4For": "for people who need support after the main stage",
+                "pkg4Cta": "Learn more",
                 "pkg5Title": "Spiritual support",
                 "pkg5Include": "quiet, prayer, reflection and accompaniment for those open to spiritual support",
                 "pkg5For": "people looking for meaning, hope and inner support",
@@ -6221,7 +6359,9 @@
     });
     Object.assign(translations.ro, {
       certTitle: "Acreditarea de stat a serviciului de reabilitare",
-      programTitle: "Un program onest de recuperare, fără promisiuni goale",
+      programEyebrow: "PROGRAM DE RECUPERARE",
+      programTitle: "Programul de recuperare",
+      programLead: "Etapele programului sunt explicate clar și calm. Primul pas este o consultație confidențială pentru persoană și familie.",
       optionalTitle: "Ce este inclus în program și ce se discută separat",
       trustTitle: "Un centru acreditat cu o abordare deschisă și respectuoasă",
       donateText: "Sprijinul dumneavoastră ajută la păstrarea unui loc în care omul poate începe din nou.",
@@ -6231,7 +6371,9 @@
     });
     Object.assign(translations.ru, {
       certTitle: "Государственная аккредитация услуги реабилитации",
-      programTitle: "Честная программа восстановления без пустых обещаний",
+      programEyebrow: "ПРОГРАММА ВОССТАНОВЛЕНИЯ",
+      programTitle: "Программа восстановления",
+      programLead: "Этапы программы объясняются спокойно и понятно. Первый шаг — конфиденциальная консультация для человека и его близких.",
       optionalTitle: "Что входит в программу, а что обсуждается отдельно",
       trustTitle: "Аккредитованный центр с открытым и уважительным подходом",
       donateText: "Ваша поддержка помогает сохранять место, где человек может начать заново.",
@@ -6241,7 +6383,9 @@
     });
     Object.assign(translations.en, {
       certTitle: "State accreditation of the rehabilitation service",
-      programTitle: "An honest recovery program without empty promises",
+      programEyebrow: "RECOVERY PROGRAM",
+      programTitle: "Recovery program",
+      programLead: "The stages of the program are explained calmly and clearly. The first step is a confidential consultation for the person and family.",
       optionalTitle: "What is included in the program and what is discussed separately",
       trustTitle: "An accredited center with an open and respectful approach",
       donateText: "Your support helps preserve a place where a person can begin again.",
@@ -6267,23 +6411,25 @@
     Object.assign(translations.ro, {
       galleryTitle: "Via\u021ba \u00een centru",
       includeTitle: "Ce include programul de recuperare",
+      programEyebrow: "PROGRAM DE RECUPERARE",
       programTitle: "Programul de recuperare",
-      programLead: "Etapele programului sunt explicate calm, f\u0103r\u0103 promisiuni false: primul pas r\u0103m\u00e2ne o consulta\u021bie confiden\u021bial\u0103 pentru persoan\u0103 \u0219i familie.",
+      programLead: "Etapele programului sunt explicate clar \u0219i calm. Primul pas este o consulta\u021bie confiden\u021bial\u0103 pentru persoan\u0103 \u0219i familie.",
       pkg1Cta: "Solicit\u0103 consulta\u021bie",
-      pkg2Cta: "Afl\u0103 condi\u021biile",
+      pkg2Cta: "Vezi condi\u021biile",
       pkg3Cta: "Scrie-ne",
-      pkg4Cta: "Planific\u0103 revenirea",
+      pkg4Cta: "Afl\u0103 mai mult",
       pkg5Cta: "Discut\u0103 cu noi"
     });
     Object.assign(translations.en, {
       galleryTitle: "Life at the center",
       includeTitle: "What the recovery program includes",
+      programEyebrow: "RECOVERY PROGRAM",
       programTitle: "Recovery program",
-      programLead: "The stages of the program are explained calmly, without false promises: the first step remains a confidential consultation for the person and family.",
+      programLead: "The stages of the program are explained calmly and clearly. The first step is a confidential consultation for the person and family.",
       pkg1Cta: "Request consultation",
       pkg2Cta: "View conditions",
       pkg3Cta: "Write to us",
-      pkg4Cta: "Plan the return",
+      pkg4Cta: "Learn more",
       pkg5Cta: "Talk to us"
     });
     Object.assign(translations.ro, {
@@ -7063,10 +7209,10 @@
     contactModal.addEventListener("click", (event) => { if (event.target === contactModal) closeContactModal(); });
     contactModalCopy.addEventListener("click", async () => {
       try {
-        await navigator.clipboard.writeText("078377337");
+        await navigator.clipboard.writeText("+37379002064");
         contactModalStatus.textContent = translations[currentLang].contactModalCopied;
       } catch {
-        contactModalStatus.textContent = "078377337";
+        contactModalStatus.textContent = "+37379002064";
       }
     });
     contactModal.addEventListener("keydown", (event) => {

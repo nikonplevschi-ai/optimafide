@@ -106,8 +106,8 @@ Add `.weekend-offer`, `.weekend-layout`, `.weekend-media`, `.weekend-copy`, `.we
       <p class="weekend-notice" data-i18n="weekendSafety"></p>
       <div class="weekend-actions">
         <a class="btn primary" href="https://t.me/optimafide_bot" target="_blank" rel="noopener noreferrer" data-i18n="weekendBook"></a>
-        <a class="btn outline" href="https://wa.me/37378377337" target="_blank" rel="noopener noreferrer" data-i18n="weekendWhatsapp"></a>
-        <a class="btn outline" href="tel:+37378377337" data-i18n="weekendCall"></a>
+        <a class="btn outline" href="https://wa.me/37379002064" target="_blank" rel="noopener noreferrer" data-i18n="weekendWhatsapp"></a>
+        <a class="btn outline" href="tel:+37379002064" data-i18n="weekendCall"></a>
       </div>
     </div>
   </div>

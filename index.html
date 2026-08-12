@@ -186,12 +186,48 @@
     }
     .brand strong { display: block; font-family: var(--font-heading); font-size: clamp(1.35rem, 1.6vw, 1.75rem); font-weight: 700; letter-spacing: .01em; line-height: 1; color: var(--of-green-950); }
     .brand span span { display: block; color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .nav-links { display: flex; align-items: center; gap: 18px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px;
+      border: 1px solid rgba(16,37,31,.10);
+      border-radius: 999px;
+      background:
+        linear-gradient(135deg, rgba(255,250,241,.84), rgba(238,246,239,.62));
+      box-shadow:
+        0 18px 45px rgba(18,44,36,.08),
+        inset 0 1px 0 rgba(255,255,255,.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
     .nav-links .nav-secondary { display: none; }
-    .nav-links a { position: relative; color: rgba(16,37,31,.84); font-family: var(--font-body); font-size: .92rem; font-weight: 600; line-height: 1; letter-spacing: .01em; text-decoration: none; transition: color .22s ease, transform .22s ease; }
-    .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: center; transition: transform .2s ease; }
-    .nav-links a:hover { color: var(--of-gold-dark); transform: translateY(-1px); }
-    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: rgba(16,37,31,.72);
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 750;
+      line-height: 1;
+      letter-spacing: 0;
+      text-decoration: none;
+      transition: color .18s ease, background .18s ease, transform .18s ease, box-shadow .18s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.is-active {
+      color: var(--of-green-950);
+      background: rgba(255,255,255,.72);
+      box-shadow:
+        0 10px 26px rgba(18,44,36,.12),
+        inset 0 1px 0 rgba(255,255,255,.92);
+    }
+    .nav-links a:hover { transform: translateY(-1px); }
     .nav-actions { display: flex; align-items: center; gap: 10px; }
     .header-phone { color: var(--of-green-950); font-size: .92rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
     .nav-actions > .btn.gold { min-height: 44px; padding-inline: 20px; background: #d1ad66; box-shadow: 0 8px 22px rgba(186,145,72,.18); }
@@ -917,6 +953,143 @@
       font-weight: 800;
     }
     .team-contact a { text-decoration: none; overflow-wrap: anywhere; }
+    .premium-carousel {
+      position: relative;
+      max-width: 1040px;
+      margin: 42px auto 0;
+      padding: clamp(26px, 5vw, 52px);
+      overflow: hidden;
+      border: 1px solid rgba(16,37,31,.10);
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(201,154,61,.13), transparent 36%),
+        radial-gradient(circle at 10% 100%, rgba(143,160,134,.15), transparent 32%),
+        rgba(255,250,241,.86);
+      box-shadow: 0 24px 70px rgba(18,44,36,.10);
+    }
+    .carousel-stage {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+    .team-carousel .carousel-stage { min-height: 660px; }
+    .premium-carousel .carousel-card {
+      position: absolute;
+      width: min(330px, 72vw);
+      margin: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(0) scale(.82);
+      transition:
+        transform 420ms cubic-bezier(.2,.8,.2,1),
+        opacity 320ms ease,
+        filter 320ms ease,
+        box-shadow 320ms ease;
+    }
+    .premium-carousel .carousel-card.is-active {
+      z-index: 4;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0) scale(1);
+      background: rgba(255,250,241,.98);
+      box-shadow: 0 24px 68px rgba(18,44,36,.15);
+    }
+    .premium-carousel .carousel-card.is-prev {
+      z-index: 3;
+      opacity: .44;
+      transform: translateX(-66%) scale(.84);
+      filter: grayscale(.65) saturate(.82);
+    }
+    .premium-carousel .carousel-card.is-next {
+      z-index: 3;
+      opacity: .44;
+      transform: translateX(66%) scale(.84);
+      filter: grayscale(.65) saturate(.82);
+    }
+    .premium-carousel .carousel-card.is-far-prev {
+      z-index: 2;
+      opacity: .16;
+      transform: translateX(-106%) scale(.74);
+      filter: grayscale(1) saturate(.7);
+    }
+    .premium-carousel .carousel-card.is-far-next {
+      z-index: 2;
+      opacity: .16;
+      transform: translateX(106%) scale(.74);
+      filter: grayscale(1) saturate(.7);
+    }
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 6;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(16,37,31,.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,.76);
+      color: var(--of-green-950);
+      box-shadow: 0 12px 30px rgba(18,44,36,.12);
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+    .carousel-arrow:hover {
+      transform: translateY(-1px);
+      background: rgba(255,250,241,.94);
+      box-shadow: 0 16px 36px rgba(18,44,36,.16);
+    }
+    .carousel-arrow:focus-visible,
+    .carousel-dot:focus-visible,
+    .nav-links a:focus-visible {
+      outline: 2px solid rgba(201,154,61,.58);
+      outline-offset: 3px;
+    }
+    .carousel-arrow::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid currentColor;
+      border-left: 2px solid currentColor;
+    }
+    .carousel-arrow--prev { left: 20px; }
+    .carousel-arrow--next { right: 20px; }
+    .carousel-arrow--prev::before { transform: translate(-35%, -50%) rotate(-45deg); }
+    .carousel-arrow--next::before { transform: translate(-65%, -50%) rotate(135deg); }
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 22px;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(16,37,31,.18);
+      cursor: pointer;
+      transition: width .2s ease, background .2s ease;
+    }
+    .carousel-dot.is-active {
+      width: 22px;
+      background: var(--of-gold);
+    }
+    .premium-carousel .carousel-card:not(.is-active) .team-info,
+    .premium-carousel .tourism-card.carousel-card:not(.is-active) > div:last-child {
+      opacity: .18;
+    }
+    .premium-carousel .team-photo {
+      position: relative;
+      aspect-ratio: 4 / 4.5;
+    }
+    .premium-carousel .team-photo img {
+      position: absolute;
+      inset: 0;
+    }
     .tourism-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -936,6 +1109,9 @@
     .tourism-card div:last-child { padding: 18px; }
     .tourism-card h3 { font-size: 1.1rem; }
     .tourism-card p { margin-top: 8px; color: var(--muted); font-size: .92rem; }
+    .tourism-carousel .carousel-stage { min-height: 430px; }
+    .tourism-carousel .carousel-card { width: min(360px, 74vw); }
+    .tourism-carousel .tourism-card { height: auto; }
     .tourism-note {
       margin-top: 18px;
       border: 1px solid var(--line);
@@ -1729,22 +1905,30 @@
       .nav-links {
         position: fixed;
         top: 78px;
-        left: 0;
-        right: 0;
+        left: 16px;
+        right: 16px;
         display: none;
         flex-direction: column;
         align-items: stretch;
-        gap: 0;
-        padding: 12px 22px 24px;
-        background: var(--card);
-        border-bottom: 1px solid var(--line);
+        gap: 4px;
+        padding: 10px;
+        border: 1px solid rgba(16,37,31,.10);
+        border-radius: 24px;
+        background:
+          linear-gradient(135deg, rgba(255,250,241,.995), rgba(238,246,239,.985));
         box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
       }
       .nav-links.open { display: flex; }
       .nav-links.open { animation: navMenuIn .22s ease both; }
-      .nav-links a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+      .nav-links a {
+        justify-content: flex-start;
+        min-height: 46px;
+        padding: 0 16px;
+        border-bottom: 0;
+      }
       .nav-links .nav-secondary { display: block; }
-      .nav-links a::after { display: none; }
       .menu-toggle { display: inline-flex; }
       .nav-actions .btn { display: none; }
       .header-phone { display: none; }
@@ -1820,6 +2004,44 @@
       .hero-badge { font-size: .68rem; min-height: 30px; }
       .intake { margin-top: -28px; }
       .stats-row, .packages, .conditions-grid, .included-grid, .timeline, .family-cards, .gallery-grid, .team-grid, .tourism-grid, .situation-grid, .activity-grid, .service-grid, .trust-grid, .admission-grid, .comparison-grid, .offer-grid { grid-template-columns: 1fr; }
+      .premium-carousel {
+        width: calc(100% - 4px);
+        margin-top: 28px;
+        padding: 20px 14px 22px;
+        border-radius: 26px;
+      }
+      .carousel-stage,
+      .tourism-carousel .carousel-stage {
+        min-height: 510px;
+      }
+      .team-carousel .carousel-stage {
+        min-height: 660px;
+      }
+      .premium-carousel .carousel-card,
+      .premium-carousel .carousel-card.is-prev,
+      .premium-carousel .carousel-card.is-next,
+      .premium-carousel .carousel-card.is-far-prev,
+      .premium-carousel .carousel-card.is-far-next {
+        opacity: 0;
+        transform: translateX(0) scale(.94);
+      }
+      .premium-carousel .carousel-card.is-active {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+      .premium-carousel .team-card,
+      .premium-carousel .tourism-card {
+        width: min(100%, 330px);
+      }
+      .carousel-arrow {
+        top: 50%;
+        bottom: auto;
+        width: 40px;
+        height: 40px;
+      }
+      .carousel-arrow--prev { left: 18px; }
+      .carousel-arrow--next { right: 18px; }
+      .carousel-dots { margin-top: 16px; padding-inline: 54px; }
       .story-section, .day-scene { padding: 72px 0; }
       .story-photo, .story-photo img, .day-scene-photo, .day-scene-photo img, .visual-story-photo, .visual-story-photo img { min-height: 0; aspect-ratio: 4 / 3; }
       .story-copy h2, .day-scene h2 { font-size: clamp(2.3rem, 12vw, 3.7rem); }
@@ -2771,9 +2993,42 @@
     #program .container { background: rgba(255,250,241,.94); }
     #program .package { min-height: 0; background: rgba(255,253,247,.82); }
     #acreditare .certificate-button {
+      position: relative;
+      isolation: isolate;
       background: rgba(255,253,247,.84);
       border: 1px solid var(--of-border-gold);
       box-shadow: inset 0 0 0 8px rgba(217,184,108,.055);
+    }
+    #acreditare .certificate-button::before,
+    #acreditare .certificate-button::after {
+      content: "";
+      position: absolute;
+      inset: 18px 18px auto;
+      z-index: -1;
+      height: 74px;
+      border-radius: 22px;
+      pointer-events: none;
+    }
+    #acreditare .certificate-button::before {
+      transform: translateY(-12px) rotate(-3deg);
+      background: rgba(201,154,61,.18);
+    }
+    #acreditare .certificate-button::after {
+      transform: translateY(-4px) rotate(2deg);
+      background: rgba(112,139,118,.16);
+    }
+    .file-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 2;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(201,154,61,.18);
+      color: var(--of-green-950);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .06em;
     }
     #acreditare .certificate-button img { object-fit: contain; transform: none; }
     .team-grid, .voices-grid { gap: 22px; }
@@ -4521,6 +4776,7 @@
     <section class="section soft" id="acreditare">
       <div class="container accreditation-card" data-reveal>
         <button class="certificate-button" type="button" data-lightbox="assets/images/accreditation-certificate-from-pdf.webp" aria-label="Deschide certificatul de acreditare">
+          <span class="file-badge">CERT</span>
           <picture>
             <source srcset="assets/images/accreditation-certificate-from-pdf.webp" type="image/webp">
             <img src="assets/images/accreditation-certificate-from-pdf.jpg" alt="Certificat de acreditare Optima Fide" loading="lazy" decoding="async">
@@ -4547,31 +4803,36 @@
           <h2 data-i18n="teamTitle">Oameni care însoțesc procesul cu grijă și responsabilitate.</h2>
           <p data-i18n="teamLead">Echipa combină experiența administrativă, consilierea, psihologia și sprijinul de la egal la egal.</p>
         </div>
-        <div class="team-grid">
-          <article class="team-card" data-reveal>
+        <div class="premium-carousel team-carousel" data-carousel="team" data-initial-slide="1">
+          <button class="carousel-arrow carousel-arrow--prev" type="button" data-i18n-aria-label="carouselPrev" aria-label="Anterior"></button>
+          <div class="carousel-stage">
+          <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-igor-owner.webp" alt="Pr. Igor Plevschi" loading="lazy" decoding="async"></picture>
             <div class="team-info"><h3 data-i18n="teamIgorName">Pr. Igor Plevschi</h3><p class="team-role" data-i18n="teamRoleIgor">Președinte și membru al Consiliului Fundației</p><p class="team-function" data-i18n="teamFunctionIgor"></p><div class="team-contact"><a href="tel:+37378377337">078377337</a><a href="mailto:general.optimafide@gmail.com">general.optimafide@gmail.com</a></div></div>
           </article>
-          <article class="team-card" data-reveal>
+          <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-anastasia-owner.webp" alt="Anastasia Plevscaia" loading="lazy" decoding="async"></picture>
             <div class="team-info"><h3 data-i18n="teamAnastasiaName">Anastasia Plevscaia</h3><p class="team-role" data-i18n="teamRoleAnastasia">Psiholog / sprijin pentru participanți</p><p class="team-function" data-i18n="teamFunctionAnastasia"></p><div class="team-contact"><a href="tel:+37360679547">060679547</a><a href="mailto:optimafide.psiholog@gmail.com">optimafide.psiholog@gmail.com</a></div></div>
           </article>
-          <article class="team-card" data-reveal>
+          <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-ruslan-owner-2026.png" alt="Ruslan Magari" loading="lazy" decoding="async"></picture>
             <div class="team-info"><h3 data-i18n="teamRuslanName">Ruslan Magari</h3><p class="team-role" data-i18n="teamRoleRuslan">Director executiv</p><p class="team-function" data-i18n="teamFunctionRuslan"></p><div class="team-contact"><a href="tel:+37379002064">079002064</a><a href="mailto:ruslanmagari@gmail.com">ruslanmagari@gmail.com</a></div></div>
           </article>
-          <article class="team-card" data-reveal>
+          <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-oksana-owner-2026.png" alt="Oksana Harbolinscaia" loading="lazy" decoding="async"></picture>
             <div class="team-info"><h3 data-i18n="teamOksanaName">Oksana Harbolinscaia</h3><p class="team-role" data-i18n="teamRoleOksana">Psiholog</p><p class="team-function" data-i18n="teamFunctionOksana"></p><div class="team-contact"><a href="tel:+37378601352">078601352</a><a href="mailto:psyneverlie@gmail.com">psyneverlie@gmail.com</a></div></div>
           </article>
-          <article class="team-card" data-reveal>
+          <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-tudor-owner.webp" alt="Tudor Rotaru" loading="lazy" decoding="async"></picture>
             <div class="team-info"><h3 data-i18n="teamTudorName">Tudor Rotaru</h3><p class="team-role" data-i18n="teamRoleTudor">Consultant de la egal la egal</p><p class="team-function" data-i18n="teamFunctionTudor"></p><div class="team-contact"><a href="tel:+37362139361">062139361</a><a href="mailto:sofos82@mail.ru">sofos82@mail.ru</a></div></div>
           </article>
-          <article class="team-card" data-reveal>
+          <article class="team-card carousel-card" data-reveal>
             <picture class="team-photo"><img src="assets/images/team/team-irina-shevchuk.webp" alt="Irina Șevciuc" loading="lazy" decoding="async"></picture>
             <div class="team-info"><h3 data-i18n="teamIrinaName">Irina Șevciuc</h3><p class="team-role" data-i18n="teamRoleIrina">Contabilă</p><p class="team-function" data-i18n="teamFunctionIrina"></p><div class="team-contact"><a href="tel:+37379161531">079161531</a></div></div>
           </article>
+          </div>
+          <button class="carousel-arrow carousel-arrow--next" type="button" data-i18n-aria-label="carouselNext" aria-label="Următor"></button>
+          <div class="carousel-dots" aria-label="Team carousel"></div>
         </div>
       </div>
     </section>
@@ -4640,31 +4901,36 @@
             <p data-i18n="tourismLead">La cerere, pot fi discutate individual ieșiri liniștite spre mănăstiri, natură, Nistru și locuri culturale.</p>
           </div>
         </div>
-        <div class="tourism-grid">
-          <article class="tourism-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-bonjour-cafe.webp"><img src="assets/images/tourism/tourism-bonjour-cafe.webp" alt="Pauză la Bonjour Cafe" loading="lazy" decoding="async"></button><div><h3 data-i18n="tourismCafeTitle">Pauză la Bonjour Cafe</h3><p data-i18n="tourismCafeText">O ieșire calmă pentru conversație, cafea și o schimbare de atmosferă.</p></div></article>
-          <article class="tourism-card" data-reveal>
+        <div class="premium-carousel tourism-carousel" data-carousel="tourism">
+          <button class="carousel-arrow carousel-arrow--prev" type="button" data-i18n-aria-label="carouselPrev" aria-label="Anterior"></button>
+          <div class="carousel-stage">
+          <article class="tourism-card carousel-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-bonjour-cafe.webp"><img src="assets/images/tourism/tourism-bonjour-cafe.webp" alt="Pauză la Bonjour Cafe" loading="lazy" decoding="async"></button><div><h3 data-i18n="tourismCafeTitle">Pauză la Bonjour Cafe</h3><p data-i18n="tourismCafeText">O ieșire calmă pentru conversație, cafea și o schimbare de atmosferă.</p></div></article>
+          <article class="tourism-card carousel-card" data-reveal>
             <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/excursion-dendrarium.webp"><img src="assets/images/tourism/excursion-dendrarium.webp" alt="" loading="lazy"></button>
             <div><h3 data-i18n="tourism1Title">Dendrariul</h3><p data-i18n="tourism1Text">Plimbări calme printre alei, arbori și grădini amenajate.</p></div>
           </article>
-          <article class="tourism-card" data-reveal>
+          <article class="tourism-card carousel-card" data-reveal>
             <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/excursion-cascade-park.webp"><img src="assets/images/tourism/excursion-cascade-park.webp" alt="" loading="lazy"></button>
             <div><h3 data-i18n="tourism2Title">Parcul Valea Morilor și Scara Cascadelor</h3><p data-i18n="tourism2Text">Spațiu pentru plimbare, aer liber și o schimbare liniștită de atmosferă.</p></div>
           </article>
-          <article class="tourism-card" data-reveal>
+          <article class="tourism-card carousel-card" data-reveal>
             <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/excursion-history-museum.webp"><img src="assets/images/tourism/excursion-history-museum.webp" alt="" loading="lazy"></button>
             <div><h3 data-i18n="tourism3Title">Muzeul Național de Istorie</h3><p data-i18n="tourism3Text">O ieșire culturală pentru curiozitate, dialog și cunoașterea Moldovei.</p></div>
           </article>
-          <article class="tourism-card" data-reveal>
+          <article class="tourism-card carousel-card" data-reveal>
             <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/excursion-ethnography-museum.webp"><img src="assets/images/tourism/excursion-ethnography-museum.webp" alt="" loading="lazy"></button>
             <div><h3 data-i18n="tourism4Title">Muzeul de Etnografie și Istorie Naturală</h3><p data-i18n="tourism4Text">Patrimoniu, natură și tradiții într-un spațiu cultural deosebit.</p></div>
           </article>
-          <article class="tourism-card" data-reveal>
+          <article class="tourism-card carousel-card" data-reveal>
             <button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/excursion-water-tower.webp"><img src="assets/images/tourism/excursion-water-tower.webp" alt="" loading="lazy"></button>
             <div><h3 data-i18n="tourism5Title">Turnul de Apă</h3><p data-i18n="tourism5Text">Istoria orașului și o perspectivă panoramică asupra Chișinăului.</p></div>
           </article>
-          <article class="tourism-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-rocks-owner.webp"><img src="assets/images/tourism/tourism-rocks-owner.webp" alt="Natură liniștită"></button><div><h3 data-i18n="tourism6Title">Ieșiri individuale</h3><p data-i18n="tourism6Text">Traseele se discută individual, după starea participantului și regulile programului.</p></div></article>
-          <article class="tourism-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/excursion-horse-riding.webp"><img src="assets/images/tourism/excursion-horse-riding.webp" alt="" loading="lazy" decoding="async"></button><div><h3 data-i18n="tourism7Title">Echitație și mișcare</h3><p data-i18n="tourism7Text">O ieșire activă în aer liber, organizată prin acord prealabil și cu însoțire.</p></div></article>
-          <article class="tourism-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-center-chapel.webp"><img src="assets/images/tourism/tourism-center-chapel.webp" alt="Spațiu spiritual în centru" loading="lazy" decoding="async"></button><div><h3 data-i18n="tourismChapelTitle">Spațiu spiritual</h3><p data-i18n="tourismChapelText">Un loc liniștit pentru rugăciune, reflecție și reculegere.</p></div></article>
+          <article class="tourism-card carousel-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-rocks-owner.webp"><img src="assets/images/tourism/tourism-rocks-owner.webp" alt="Natură liniștită"></button><div><h3 data-i18n="tourism6Title">Ieșiri individuale</h3><p data-i18n="tourism6Text">Traseele se discută individual, după starea participantului și regulile programului.</p></div></article>
+          <article class="tourism-card carousel-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/excursion-horse-riding.webp"><img src="assets/images/tourism/excursion-horse-riding.webp" alt="" loading="lazy" decoding="async"></button><div><h3 data-i18n="tourism7Title">Echitație și mișcare</h3><p data-i18n="tourism7Text">O ieșire activă în aer liber, organizată prin acord prealabil și cu însoțire.</p></div></article>
+          <article class="tourism-card carousel-card" data-reveal><button class="tourism-photo" type="button" data-lightbox="assets/images/tourism/tourism-center-chapel.webp"><img src="assets/images/tourism/tourism-center-chapel.webp" alt="Spațiu spiritual în centru" loading="lazy" decoding="async"></button><div><h3 data-i18n="tourismChapelTitle">Spațiu spiritual</h3><p data-i18n="tourismChapelText">Un loc liniștit pentru rugăciune, reflecție și reculegere.</p></div></article>
+          </div>
+          <button class="carousel-arrow carousel-arrow--next" type="button" data-i18n-aria-label="carouselNext" aria-label="Următor"></button>
+          <div class="carousel-dots" aria-label="Tourism carousel"></div>
         </div>
         <p class="tourism-note" data-reveal><strong data-i18n="tourismNoteTitle">Prin acord prealabil</strong><span data-i18n="tourismNoteText">Ieșirile se discută individual în timpul consultației, ținând cont de starea participantului, regulile programului și condițiile meteo.</span></p>
       </div>
@@ -6310,6 +6576,24 @@
     });
 
     Object.assign(translations.ro, {
+      carouselPrev: "Anterior",
+      carouselNext: "Următor",
+      carouselSlide: "Mergi la cardul"
+    });
+
+    Object.assign(translations.ru, {
+      carouselPrev: "Назад",
+      carouselNext: "Далее",
+      carouselSlide: "Перейти к карточке"
+    });
+
+    Object.assign(translations.en, {
+      carouselPrev: "Previous",
+      carouselNext: "Next",
+      carouselSlide: "Go to card"
+    });
+
+    Object.assign(translations.ro, {
       contactVisitTitle: "Înainte de vizită",
       contactVisitText: "Vă rugăm să ne contactați mai întâi. Vă vom sugera un moment potrivit, vă vom explica cum să ajungeți și vom răspunde calm la primele întrebări.",
       contactVisitButton: "Stabilește o vizită",
@@ -6450,6 +6734,7 @@
       });
       languageLinks.forEach((link) => link.classList.toggle("active", link.dataset.lang === lang));
       localStorage.setItem("optimaLang", lang);
+      if (typeof refreshCarouselLabels === "function") refreshCarouselLabels();
       if (renderQiwiGuideStep) renderQiwiGuideStep();
     }
 
@@ -6476,6 +6761,126 @@
         menuToggle.setAttribute("aria-expanded", "false");
       });
     });
+
+    function refreshCarouselLabels() {
+      document.querySelectorAll(".premium-carousel").forEach((carousel) => {
+        carousel.querySelectorAll(".carousel-dot").forEach((dot, index) => {
+          dot.setAttribute("aria-label", `${translations[currentLang].carouselSlide} ${index + 1}`);
+        });
+      });
+    }
+
+    (function initActiveNavPill() {
+      const navItems = Array.from(navLinks.querySelectorAll("a[href^='#']")).filter((link) => !link.classList.contains("nav-secondary"));
+      if (!navItems.length) return;
+
+      const sections = navItems
+        .map((link) => {
+          const id = link.getAttribute("href");
+          if (!id || id === "#") return null;
+          const section = document.querySelector(id);
+          return section ? { link, section } : null;
+        })
+        .filter(Boolean);
+
+      if (!sections.length) return;
+
+      const setActive = (activeLink) => {
+        navItems.forEach((link) => {
+          const active = link === activeLink;
+          link.classList.toggle("is-active", active);
+          if (active) link.setAttribute("aria-current", "page");
+          else link.removeAttribute("aria-current");
+        });
+      };
+
+      navItems.forEach((link) => link.addEventListener("click", () => setActive(link)));
+      setActive(sections[0].link);
+
+      if (!("IntersectionObserver" in window)) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visible) return;
+          const item = sections.find(({ section }) => section === visible.target);
+          if (item) setActive(item.link);
+        },
+        {
+          root: null,
+          threshold: [.18, .28, .42],
+          rootMargin: "-22% 0px -58% 0px"
+        }
+      );
+
+      sections.forEach(({ section }) => observer.observe(section));
+    })();
+
+    (function initPremiumCarousels() {
+      const carousels = document.querySelectorAll("[data-carousel]");
+      if (!carousels.length) return;
+
+      carousels.forEach((carousel) => {
+        const cards = Array.from(carousel.querySelectorAll(".carousel-card"));
+        const prev = carousel.querySelector(".carousel-arrow--prev");
+        const next = carousel.querySelector(".carousel-arrow--next");
+        const dotsWrap = carousel.querySelector(".carousel-dots");
+        if (!cards.length) return;
+
+        const normalize = (index) => (index + cards.length) % cards.length;
+        let activeIndex = normalize(Number.parseInt(carousel.dataset.initialSlide || "0", 10) || 0);
+
+        const dots = cards.map((_, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "carousel-dot";
+          dot.setAttribute("aria-label", `${translations[currentLang].carouselSlide} ${index + 1}`);
+          dot.addEventListener("click", () => {
+            activeIndex = index;
+            render();
+          });
+          dotsWrap?.appendChild(dot);
+          return dot;
+        });
+
+        function render() {
+          cards.forEach((card) => {
+            card.classList.remove("is-active", "is-prev", "is-next", "is-far-prev", "is-far-next");
+            card.setAttribute("aria-hidden", "true");
+          });
+
+          cards[activeIndex]?.classList.add("is-active");
+          cards[activeIndex]?.removeAttribute("aria-hidden");
+          cards[normalize(activeIndex - 1)]?.classList.add("is-prev");
+          cards[normalize(activeIndex + 1)]?.classList.add("is-next");
+
+          if (cards.length > 3) {
+            cards[normalize(activeIndex - 2)]?.classList.add("is-far-prev");
+            cards[normalize(activeIndex + 2)]?.classList.add("is-far-next");
+          }
+
+          dots.forEach((dot, index) => {
+            const active = index === activeIndex;
+            dot.classList.toggle("is-active", active);
+            dot.setAttribute("aria-current", active ? "true" : "false");
+          });
+        }
+
+        prev?.addEventListener("click", () => {
+          activeIndex = normalize(activeIndex - 1);
+          render();
+        });
+
+        next?.addEventListener("click", () => {
+          activeIndex = normalize(activeIndex + 1);
+          render();
+        });
+
+        render();
+      });
+    })();
 
     document.querySelectorAll("[data-lightbox]").forEach((button) => {
       button.addEventListener("click", () => {

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title">
+  <title id="title">Roman Catholic Diocese of Chisinau</title>
+  <rect width="320" height="160" rx="24" fill="#fffaf1"/>
+  <path d="M82 120V56l35-22 35 22v64M117 34V18M104 18h26M96 120V84h42v36" fill="none" stroke="#153d33" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="229" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#153d33">Roman Catholic</text>
+  <text x="229" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#153d33">Diocese</text>
+  <text x="229" y="106" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#153d33">of Chisinau</text>
+</svg>
+

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title">
+  <title id="title">Local Partners Moldova</title>
+  <rect width="320" height="160" rx="24" fill="#fffaf1"/>
+  <path d="M89 35c29 18 46 43 50 75-32 2-57-9-74-34 18-9 25-22 24-41Z" fill="none" stroke="#153d33" stroke-width="7" stroke-linejoin="round"/>
+  <text x="213" y="67" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#153d33">Local Partners</text>
+  <text x="213" y="94" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#153d33">Moldova</text>
+</svg>
+

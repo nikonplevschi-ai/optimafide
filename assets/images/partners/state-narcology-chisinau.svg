@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title">
+  <title id="title">State Narcology Service of Chisinau</title>
+  <rect width="320" height="160" rx="24" fill="#fffaf1"/>
+  <path d="M104 36v88M72 80h64M63 124h82" stroke="#153d33" stroke-width="7" stroke-linecap="round"/>
+  <path d="M66 57h76l-12-21H78L66 57Z" fill="none" stroke="#153d33" stroke-width="7" stroke-linejoin="round"/>
+  <text x="225" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#153d33">State Narcology</text>
+  <text x="225" y="81" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#153d33">Service</text>
+  <text x="225" y="106" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#153d33">of Chisinau</text>
+</svg>
+

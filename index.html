@@ -2724,6 +2724,7 @@
     #donatii { order: 10; }
     #faq { order: 11; }
     #contacte { order: 30; }
+    #partners { order: 31; }
     .nav-actions > .btn.gold { white-space: nowrap; min-width: 132px; padding-inline: 18px; }
     .weekend-offer {
       overflow: hidden;
@@ -4114,6 +4115,135 @@
     .site-footer {
       margin-bottom: 0;
     }
+    #partners {
+      padding-block: clamp(34px, 4vw, 58px);
+    }
+    #partners .partners-shell {
+      width: min(1200px, calc(100% - 72px));
+      margin-inline: auto;
+      padding: clamp(22px, 3.2vw, 38px);
+      border: 1px solid rgba(30,58,49,.11);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 8% 18%, rgba(143,160,134,.1), transparent 28%),
+        radial-gradient(circle at 92% 86%, rgba(217,184,108,.1), transparent 26%),
+        rgba(255,250,241,.9);
+      box-shadow: 0 18px 48px rgba(18,44,36,.075);
+    }
+    #partners .partners-head {
+      max-width: 700px;
+      margin-inline: auto;
+      margin-bottom: clamp(18px, 2.8vw, 30px);
+      text-align: center;
+    }
+    #partners .partners-head .eyebrow {
+      color: var(--of-gold-700);
+      letter-spacing: .22em;
+    }
+    #partners .partners-head h2 {
+      margin-top: 8px;
+      font-size: clamp(2.2rem, 3.4vw, 3.65rem);
+      line-height: 1;
+    }
+    #partners .partners-head p {
+      max-width: 660px;
+      margin: 10px auto 0;
+      color: var(--of-muted);
+      line-height: 1.58;
+      font-size: clamp(.9rem, .98vw, 1rem);
+    }
+    #partners .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: clamp(10px, 1.15vw, 14px);
+      align-items: stretch;
+    }
+    #partners .partner-card {
+      min-width: 0;
+      min-height: 118px;
+      height: 100%;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 9px;
+      align-items: center;
+      padding: clamp(12px, 1.2vw, 16px);
+      border: 1px solid rgba(30,58,49,.11);
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,253,247,.88), rgba(250,246,238,.78));
+      box-shadow: 0 10px 24px rgba(18,44,36,.045), inset 0 1px 0 rgba(255,255,255,.72);
+      color: var(--of-green-deep);
+      text-align: center;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    #partners .partner-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(194,139,28,.24);
+      box-shadow: 0 16px 36px rgba(18,44,36,.08), inset 0 1px 0 rgba(255,255,255,.78);
+    }
+    #partners .partner-card img {
+      width: min(100%, 172px);
+      height: 54px;
+      margin-inline: auto;
+      object-fit: contain;
+      filter: grayscale(1) saturate(.15) contrast(1.04);
+      opacity: .82;
+    }
+    #partners .partner-card span {
+      min-width: 0;
+      color: rgba(16,37,31,.78);
+      font-size: clamp(.74rem, .78vw, .84rem);
+      font-weight: 760;
+      line-height: 1.28;
+      overflow-wrap: anywhere;
+    }
+    @media (min-width: 1025px) {
+      #partners .partner-card:nth-last-child(2) {
+        grid-column: 2;
+      }
+    }
+    @media (max-width: 1024px) {
+      #partners .partners-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 760px) {
+      #partners .partners-shell {
+        width: calc(100% - 24px);
+        padding: 22px 14px;
+      }
+      #partners .partners-head {
+        margin-bottom: 18px;
+      }
+      #partners .partners-head h2 {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+      }
+      #partners .partners-head p {
+        font-size: .92rem;
+        line-height: 1.52;
+      }
+      #partners .partners-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+      #partners .partner-card {
+        min-height: 118px;
+        padding: 12px 8px;
+        border-radius: 12px;
+      }
+      #partners .partner-card img {
+        width: min(100%, 128px);
+        height: 46px;
+      }
+      #partners .partner-card span {
+        font-size: .78rem;
+      }
+    }
+    @media (max-width: 340px) {
+      #partners .partners-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     #acreditare,
     #echipa,
     #turism,
@@ -4142,6 +4272,7 @@
       #trust .container,
       #program .container,
       #faq .container,
+      #partners .partners-shell,
       #familie .family-layout,
       #donatii .donation-layout,
       .site-footer {
@@ -5289,6 +5420,32 @@
             </article>
           </div>
         </div>
+    </section>
+
+    <section class="section" id="partners" aria-labelledby="partners-title">
+      <div class="partners-shell">
+        <div class="partners-head" data-reveal>
+          <div class="eyebrow" data-i18n="partnersEyebrow">PARTENERII NOȘTRI</div>
+          <h2 id="partners-title" data-i18n="partnersTitle">Partenerii noștri</h2>
+          <p data-i18n="partnersLead">Fundația mulțumește organizațiilor și partenerilor bisericești care susțin activitatea centrului și dezvoltarea programului de reabilitare.</p>
+        </div>
+        <div class="partners-grid" aria-label="Optima Fide partners">
+          <article class="partner-card" data-reveal><img src="assets/images/partners/renovabis.svg" alt="Renovabis" loading="lazy" decoding="async"><span data-i18n="partnerRenovabis">Renovabis</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><img src="assets/images/partners/missio-austria.svg" alt="Missio Austria" loading="lazy" decoding="async"><span data-i18n="partnerMissioAustria">Missio Austria</span></article>
+          <article class="partner-card" data-reveal style="--delay:80ms"><img src="assets/images/partners/acn.svg" alt="Aid to the Church in Need" loading="lazy" decoding="async"><span data-i18n="partnerAidChurchNeed">Aid to the Church in Need</span></article>
+          <article class="partner-card" data-reveal style="--delay:120ms"><img src="assets/images/partners/usccb.svg" alt="USCCB" loading="lazy" decoding="async"><span data-i18n="partnerUsccb">USCCB</span></article>
+          <article class="partner-card" data-reveal><img src="assets/images/partners/archdiocese-vienna.svg" alt="Archdiocese of Vienna" loading="lazy" decoding="async"><span data-i18n="partnerArchdioceseVienna">Archdiocese of Vienna</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><img src="assets/images/partners/archdiocese-cologne.svg" alt="Archdiocese of Cologne" loading="lazy" decoding="async"><span data-i18n="partnerArchdioceseCologne">Archdiocese of Cologne</span></article>
+          <article class="partner-card" data-reveal style="--delay:80ms"><img src="assets/images/partners/archdiocese-munich-freising.svg" alt="Archdiocese of Munich and Freising" loading="lazy" decoding="async"><span data-i18n="partnerArchdioceseMunichFreising">Archdiocese of Munich and Freising</span></article>
+          <article class="partner-card" data-reveal style="--delay:120ms"><img src="assets/images/partners/local-partners-moldova.svg" alt="Local partners Moldova" loading="lazy" decoding="async"><span data-i18n="partnerLocalPartnersMoldova">Local partners Moldova</span></article>
+          <article class="partner-card" data-reveal><img src="assets/images/partners/diocese-chisinau.svg" alt="Roman Catholic Diocese of Chisinau" loading="lazy" decoding="async"><span data-i18n="partnerDioceseChisinau">Dieceza Romano-Catolică de Chișinău</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><img src="assets/images/partners/caritas-moldova.svg" alt="Caritas Moldova" loading="lazy" decoding="async"><span data-i18n="partnerCaritasMoldova">Caritas Moldova</span></article>
+          <article class="partner-card" data-reveal style="--delay:80ms"><img src="assets/images/partners/regina-pacis-moldova.svg" alt="Regina Pacis Moldova" loading="lazy" decoding="async"><span data-i18n="partnerReginaPacisMoldova">Regina Pacis Moldova</span></article>
+          <article class="partner-card" data-reveal style="--delay:120ms"><img src="assets/images/partners/initiativa-pozitiva.svg" alt="AO Initiativa Pozitiva" loading="lazy" decoding="async"><span data-i18n="partnerInitiativaPozitiva">AO Inițiativa Pozitivă</span></article>
+          <article class="partner-card" data-reveal><img src="assets/images/partners/ao-eliberare.svg" alt="A.O. Eliberare" loading="lazy" decoding="async"><span data-i18n="partnerAoEliberare">A.O. Eliberare</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><img src="assets/images/partners/state-narcology-chisinau.svg" alt="State Narcology Service of Chisinau" loading="lazy" decoding="async"><span data-i18n="partnerStateNarcologyChisinau">Instituția Narcologică de Stat Chișinău</span></article>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -6773,6 +6930,66 @@
       contactMessageCopyButton: "Copy text",
       contactMessageCopiedButton: "Copied",
       contactMessageNote: "The first message does not commit you to anything."
+    });
+
+    Object.assign(translations.ro, {
+      partnersEyebrow: "PARTENERII NOȘTRI",
+      partnersTitle: "Partenerii noștri",
+      partnersLead: "Fundația mulțumește organizațiilor și partenerilor bisericești care susțin activitatea centrului și dezvoltarea programului de reabilitare.",
+      partnerRenovabis: "Renovabis",
+      partnerMissioAustria: "Missio Austria",
+      partnerAidChurchNeed: "Aid to the Church in Need",
+      partnerUsccb: "USCCB",
+      partnerArchdioceseVienna: "Arhidieceza de Viena",
+      partnerArchdioceseCologne: "Arhidieceza de Köln",
+      partnerArchdioceseMunichFreising: "Arhidieceza de München și Freising",
+      partnerLocalPartnersMoldova: "Parteneri locali Moldova",
+      partnerDioceseChisinau: "Dieceza Romano-Catolică de Chișinău",
+      partnerCaritasMoldova: "Caritas Moldova",
+      partnerReginaPacisMoldova: "Regina Pacis Moldova",
+      partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
+      partnerAoEliberare: "A.O. Eliberare",
+      partnerStateNarcologyChisinau: "Instituția Narcologică de Stat Chișinău"
+    });
+
+    Object.assign(translations.ru, {
+      partnersEyebrow: "НАШИ ПАРТНЁРЫ",
+      partnersTitle: "Наши партнёры",
+      partnersLead: "Фонд благодарит организации и церковных партнёров, которые поддерживают служение центра и развитие реабилитационной программы.",
+      partnerRenovabis: "Renovabis",
+      partnerMissioAustria: "Missio Austria",
+      partnerAidChurchNeed: "Aid to the Church in Need",
+      partnerUsccb: "USCCB",
+      partnerArchdioceseVienna: "Архиепархия Вены",
+      partnerArchdioceseCologne: "Архиепархия Кёльна",
+      partnerArchdioceseMunichFreising: "Архиепархия Мюнхена и Фрайзинга",
+      partnerLocalPartnersMoldova: "Местные партнёры Молдовы",
+      partnerDioceseChisinau: "Кишинёвская римско-католическая епархия",
+      partnerCaritasMoldova: "Caritas Moldova",
+      partnerReginaPacisMoldova: "Regina Pacis Moldova",
+      partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
+      partnerAoEliberare: "A.O. Eliberare",
+      partnerStateNarcologyChisinau: "Государственная наркология Кишинёва"
+    });
+
+    Object.assign(translations.en, {
+      partnersEyebrow: "OUR PARTNERS",
+      partnersTitle: "Our partners",
+      partnersLead: "The foundation is grateful to the organizations and church partners who support the center’s mission and the development of the recovery program.",
+      partnerRenovabis: "Renovabis",
+      partnerMissioAustria: "Missio Austria",
+      partnerAidChurchNeed: "Aid to the Church in Need",
+      partnerUsccb: "USCCB",
+      partnerArchdioceseVienna: "Archdiocese of Vienna",
+      partnerArchdioceseCologne: "Archdiocese of Cologne",
+      partnerArchdioceseMunichFreising: "Archdiocese of Munich and Freising",
+      partnerLocalPartnersMoldova: "Local partners Moldova",
+      partnerDioceseChisinau: "Roman Catholic Diocese of Chișinău",
+      partnerCaritasMoldova: "Caritas Moldova",
+      partnerReginaPacisMoldova: "Regina Pacis Moldova",
+      partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
+      partnerAoEliberare: "A.O. Eliberare",
+      partnerStateNarcologyChisinau: "State Narcology Service of Chișinău"
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

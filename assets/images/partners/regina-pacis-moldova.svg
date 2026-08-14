@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title">
+  <title id="title">Regina Pacis Moldova</title>
+  <rect width="320" height="160" rx="24" fill="#fffaf1"/>
+  <path d="M69 88c18-21 44-21 62 0M77 70c7-16 15-24 28-34 13 10 21 18 28 34M105 36v84M80 120h50" fill="none" stroke="#153d33" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="220" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="#153d33">Regina Pacis</text>
+  <text x="220" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#6e7d73">Moldova</text>
+</svg>
+

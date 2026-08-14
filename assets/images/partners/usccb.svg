@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title">
+  <title id="title">USCCB</title>
+  <rect width="320" height="160" rx="24" fill="#fffaf1"/>
+  <path d="M78 42v76M51 70h54M52 118h52" stroke="#153d33" stroke-width="8" stroke-linecap="round"/>
+  <text x="192" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#153d33">USCCB</text>
+  <text x="192" y="101" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#6e7d73">Catholic Bishops</text>
+</svg>
+

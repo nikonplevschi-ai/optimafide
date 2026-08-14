@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title">
+  <title id="title">AO Initiativa Pozitiva</title>
+  <rect width="320" height="160" rx="24" fill="#fffaf1"/>
+  <circle cx="96" cy="80" r="43" fill="none" stroke="#153d33" stroke-width="7"/>
+  <path d="M74 82l16 15 30-37" fill="none" stroke="#153d33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="219" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#153d33">AO Initiativa</text>
+  <text x="219" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#153d33">Pozitiva</text>
+</svg>
+

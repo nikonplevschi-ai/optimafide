@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title">
+  <title id="title">Archdiocese of Munich and Freising</title>
+  <rect width="320" height="160" rx="24" fill="#fffaf1"/>
+  <path d="M62 119V62l38-24 38 24v57M82 119V84h36v35M100 38V24M87 24h26" fill="none" stroke="#153d33" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="219" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="800" fill="#153d33">Archdiocese</text>
+  <text x="219" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="800" fill="#153d33">of Munich</text>
+  <text x="219" y="109" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="800" fill="#153d33">and Freising</text>
+</svg>
+

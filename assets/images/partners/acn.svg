@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title">
+  <title id="title">Aid to the Church in Need</title>
+  <rect width="320" height="160" rx="24" fill="#fffaf1"/>
+  <circle cx="76" cy="80" r="34" fill="#153d33"/>
+  <path d="M76 50v60M50 80h52" stroke="#fffaf1" stroke-width="7" stroke-linecap="round"/>
+  <text x="178" y="67" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#153d33">Aid to the</text>
+  <text x="178" y="94" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#153d33">Church in Need</text>
+</svg>
+

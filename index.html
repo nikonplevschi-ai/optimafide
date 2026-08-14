@@ -4181,6 +4181,11 @@
       border-color: rgba(194,139,28,.24);
       box-shadow: 0 16px 36px rgba(18,44,36,.08), inset 0 1px 0 rgba(255,255,255,.78);
     }
+    #partners .partner-card--misereor {
+      grid-column: 2 / span 2;
+      justify-self: center;
+      width: min(100%, 280px);
+    }
     #partners .partner-logo-wrap {
       width: 100%;
       height: 88px;
@@ -4206,6 +4211,11 @@
     }
     #partners .partner-card:hover .partner-logo--source-card {
       transform: scale(1.72) translateY(-1px);
+    }
+    #partners .partner-logo--misereor {
+      width: min(100%, 230px);
+      height: 72px;
+      opacity: 1;
     }
     #partners .partner-card span {
       min-width: 0;
@@ -4234,6 +4244,10 @@
     @media (max-width: 1024px) {
       #partners .partners-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      #partners .partner-card--misereor {
+        grid-column: 2;
+        width: 100%;
       }
     }
     @media (max-width: 760px) {
@@ -4276,10 +4290,21 @@
       #partners .partner-card span {
         font-size: .78rem;
       }
+      #partners .partner-card--misereor {
+        grid-column: 1 / -1;
+        width: calc((100% - 9px) / 2);
+      }
+      #partners .partner-logo--misereor {
+        width: min(100%, 150px);
+        height: 58px;
+      }
     }
     @media (max-width: 340px) {
       #partners .partners-grid {
         grid-template-columns: 1fr;
+      }
+      #partners .partner-card--misereor {
+        width: 100%;
       }
     }
 
@@ -5612,6 +5637,7 @@
           <article class="partner-card" data-reveal><div class="partner-logo-wrap"><img class="partner-logo partner-logo--source-card" src="assets/images/partners/processed/ao-eliberare.png" alt="A.O. Eliberare logo" loading="lazy" decoding="async"></div><span data-i18n="partnerAoEliberare">A.O. Eliberare</span></article>
           <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo partner-logo--source-card" src="assets/images/partners/processed/rinnovamento-nello-spirito-santo.png" alt="Rinnovamento nello Spirito Santo logo" loading="lazy" decoding="async"></div><span data-i18n="partnerRinnovamentoNelloSpiritoSanto">Rinnovamento nello Spirito Santo</span></article>
           <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/state-narcology-chisinau.png" alt="State Narcology Service of Chișinău logo" loading="lazy" decoding="async"></div><span data-i18n="partnerStateNarcologyChisinau">Instituția Narcologică de Stat Chișinău</span></article>
+          <article class="partner-card partner-card--misereor" data-reveal><div class="partner-logo-wrap"><img class="partner-logo partner-logo--misereor" src="assets/images/partners/processed/misereor.webp" alt="Misereor logo" loading="lazy" decoding="async"></div><span data-i18n="partnerMisereor">Misereor</span></article>
         </div>
       </div>
     </section>
@@ -7120,7 +7146,8 @@
       partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
       partnerAoEliberare: "A.O. Eliberare",
       partnerRinnovamentoNelloSpiritoSanto: "Rinnovamento nello Spirito Santo",
-      partnerStateNarcologyChisinau: "Instituția Narcologică de Stat Chișinău"
+      partnerStateNarcologyChisinau: "Instituția Narcologică de Stat Chișinău",
+      partnerMisereor: "Misereor"
     });
 
     Object.assign(translations.ru, {
@@ -7143,7 +7170,8 @@
       partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
       partnerAoEliberare: "A.O. Eliberare",
       partnerRinnovamentoNelloSpiritoSanto: "Rinnovamento nello Spirito Santo",
-      partnerStateNarcologyChisinau: "Государственная наркология Кишинёва"
+      partnerStateNarcologyChisinau: "Государственная наркология Кишинёва",
+      partnerMisereor: "Misereor"
     });
 
     Object.assign(translations.en, {
@@ -7166,7 +7194,8 @@
       partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
       partnerAoEliberare: "A.O. Eliberare",
       partnerRinnovamentoNelloSpiritoSanto: "Rinnovamento nello Spirito Santo",
-      partnerStateNarcologyChisinau: "State Narcology Service of Chișinău"
+      partnerStateNarcologyChisinau: "State Narcology Service of Chișinău",
+      partnerMisereor: "Misereor"
     });
 
     const languageLinks = document.querySelectorAll("[data-lang]");

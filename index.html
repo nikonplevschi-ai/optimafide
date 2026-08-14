@@ -4186,6 +4186,8 @@
       height: 88px;
       display: grid;
       place-items: center;
+      overflow: hidden;
+      border-radius: 10px;
     }
     #partners .partner-logo {
       width: min(100%, 220px);
@@ -4198,6 +4200,12 @@
     #partners .partner-card:hover .partner-logo {
       opacity: 1;
       transform: translateY(-1px);
+    }
+    #partners .partner-logo--source-card {
+      transform: scale(1.72);
+    }
+    #partners .partner-card:hover .partner-logo--source-card {
+      transform: scale(1.72) translateY(-1px);
     }
     #partners .partner-card span {
       min-width: 0;
@@ -4222,11 +4230,6 @@
       line-height: 1.1;
       letter-spacing: .08em;
       text-transform: uppercase;
-    }
-    @media (min-width: 1025px) {
-      #partners .partner-card:nth-last-child(2) {
-        grid-column: 2;
-      }
     }
     @media (max-width: 1024px) {
       #partners .partners-grid {
@@ -5606,7 +5609,8 @@
           <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/caritas-moldova.png" alt="Caritas Moldova logo" loading="lazy" decoding="async"></div><span data-i18n="partnerCaritasMoldova">Caritas Moldova</span></article>
           <article class="partner-card" data-reveal style="--delay:80ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/regina-pacis-moldova.png" alt="Regina Pacis Moldova logo" loading="lazy" decoding="async"></div><span data-i18n="partnerReginaPacisMoldova">Regina Pacis Moldova</span></article>
           <article class="partner-card" data-reveal style="--delay:120ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/initiativa-pozitiva.png" alt="AO Inițiativa Pozitivă logo" loading="lazy" decoding="async"></div><span data-i18n="partnerInitiativaPozitiva">AO Inițiativa Pozitivă</span></article>
-          <article class="partner-card" data-reveal><div class="partner-logo-wrap"><span class="partner-logo-fallback" aria-hidden="true">A.O.</span></div><span data-i18n="partnerAoEliberare">A.O. Eliberare</span></article>
+          <article class="partner-card" data-reveal><div class="partner-logo-wrap"><img class="partner-logo partner-logo--source-card" src="assets/images/partners/processed/ao-eliberare.png" alt="A.O. Eliberare logo" loading="lazy" decoding="async"></div><span data-i18n="partnerAoEliberare">A.O. Eliberare</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo partner-logo--source-card" src="assets/images/partners/processed/rinnovamento-nello-spirito-santo.png" alt="Rinnovamento nello Spirito Santo logo" loading="lazy" decoding="async"></div><span data-i18n="partnerRinnovamentoNelloSpiritoSanto">Rinnovamento nello Spirito Santo</span></article>
           <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/state-narcology-chisinau.png" alt="State Narcology Service of Chișinău logo" loading="lazy" decoding="async"></div><span data-i18n="partnerStateNarcologyChisinau">Instituția Narcologică de Stat Chișinău</span></article>
         </div>
       </div>
@@ -7115,6 +7119,7 @@
       partnerReginaPacisMoldova: "Regina Pacis Moldova",
       partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
       partnerAoEliberare: "A.O. Eliberare",
+      partnerRinnovamentoNelloSpiritoSanto: "Rinnovamento nello Spirito Santo",
       partnerStateNarcologyChisinau: "Instituția Narcologică de Stat Chișinău"
     });
 
@@ -7137,6 +7142,7 @@
       partnerReginaPacisMoldova: "Regina Pacis Moldova",
       partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
       partnerAoEliberare: "A.O. Eliberare",
+      partnerRinnovamentoNelloSpiritoSanto: "Rinnovamento nello Spirito Santo",
       partnerStateNarcologyChisinau: "Государственная наркология Кишинёва"
     });
 
@@ -7159,6 +7165,7 @@
       partnerReginaPacisMoldova: "Regina Pacis Moldova",
       partnerInitiativaPozitiva: "AO Inițiativa Pozitivă",
       partnerAoEliberare: "A.O. Eliberare",
+      partnerRinnovamentoNelloSpiritoSanto: "Rinnovamento nello Spirito Santo",
       partnerStateNarcologyChisinau: "State Narcology Service of Chișinău"
     });
 

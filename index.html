@@ -4161,11 +4161,11 @@
     }
     #partners .partner-card {
       min-width: 0;
-      min-height: 118px;
+      min-height: 148px;
       height: 100%;
       display: grid;
       grid-template-rows: 1fr auto;
-      gap: 9px;
+      gap: 11px;
       align-items: center;
       padding: clamp(12px, 1.2vw, 16px);
       border: 1px solid rgba(30,58,49,.11);
@@ -4181,13 +4181,23 @@
       border-color: rgba(194,139,28,.24);
       box-shadow: 0 16px 36px rgba(18,44,36,.08), inset 0 1px 0 rgba(255,255,255,.78);
     }
-    #partners .partner-card img {
-      width: min(100%, 172px);
-      height: 54px;
+    #partners .partner-logo-wrap {
+      width: 100%;
+      height: 88px;
+      display: grid;
+      place-items: center;
+    }
+    #partners .partner-logo {
+      width: min(100%, 220px);
+      height: 84px;
       margin-inline: auto;
       object-fit: contain;
-      filter: grayscale(1) saturate(.15) contrast(1.04);
-      opacity: .82;
+      opacity: .94;
+      transition: filter .24s ease, opacity .24s ease, transform .24s ease;
+    }
+    #partners .partner-card:hover .partner-logo {
+      opacity: 1;
+      transform: translateY(-1px);
     }
     #partners .partner-card span {
       min-width: 0;
@@ -4196,6 +4206,22 @@
       font-weight: 760;
       line-height: 1.28;
       overflow-wrap: anywhere;
+    }
+    #partners .partner-logo-fallback {
+      min-width: 72px;
+      min-height: 46px;
+      display: inline-grid;
+      place-items: center;
+      padding: 8px 12px;
+      border: 1px solid rgba(30,58,49,.14);
+      border-radius: 14px;
+      background: rgba(255,253,247,.72);
+      color: rgba(16,37,31,.74);
+      font-size: .7rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
     @media (min-width: 1025px) {
       #partners .partner-card:nth-last-child(2) {
@@ -4227,13 +4253,22 @@
         gap: 9px;
       }
       #partners .partner-card {
-        min-height: 118px;
+        min-height: 136px;
         padding: 12px 8px;
         border-radius: 12px;
       }
-      #partners .partner-card img {
-        width: min(100%, 128px);
-        height: 46px;
+      #partners .partner-logo-wrap {
+        height: 68px;
+      }
+      #partners .partner-logo {
+        width: min(100%, 148px);
+        height: 64px;
+      }
+      #partners .partner-logo-fallback {
+        min-width: 62px;
+        min-height: 40px;
+        padding: 7px 9px;
+        font-size: .62rem;
       }
       #partners .partner-card span {
         font-size: .78rem;
@@ -5430,20 +5465,20 @@
           <p data-i18n="partnersLead">Fundația mulțumește organizațiilor și partenerilor bisericești care susțin activitatea centrului și dezvoltarea programului de reabilitare.</p>
         </div>
         <div class="partners-grid" aria-label="Optima Fide partners">
-          <article class="partner-card" data-reveal><img src="assets/images/partners/renovabis.svg" alt="Renovabis" loading="lazy" decoding="async"><span data-i18n="partnerRenovabis">Renovabis</span></article>
-          <article class="partner-card" data-reveal style="--delay:40ms"><img src="assets/images/partners/missio-austria.svg" alt="Missio Austria" loading="lazy" decoding="async"><span data-i18n="partnerMissioAustria">Missio Austria</span></article>
-          <article class="partner-card" data-reveal style="--delay:80ms"><img src="assets/images/partners/acn.svg" alt="Aid to the Church in Need" loading="lazy" decoding="async"><span data-i18n="partnerAidChurchNeed">Aid to the Church in Need</span></article>
-          <article class="partner-card" data-reveal style="--delay:120ms"><img src="assets/images/partners/usccb.svg" alt="USCCB" loading="lazy" decoding="async"><span data-i18n="partnerUsccb">USCCB</span></article>
-          <article class="partner-card" data-reveal><img src="assets/images/partners/archdiocese-vienna.svg" alt="Archdiocese of Vienna" loading="lazy" decoding="async"><span data-i18n="partnerArchdioceseVienna">Archdiocese of Vienna</span></article>
-          <article class="partner-card" data-reveal style="--delay:40ms"><img src="assets/images/partners/archdiocese-cologne.svg" alt="Archdiocese of Cologne" loading="lazy" decoding="async"><span data-i18n="partnerArchdioceseCologne">Archdiocese of Cologne</span></article>
-          <article class="partner-card" data-reveal style="--delay:80ms"><img src="assets/images/partners/archdiocese-munich-freising.svg" alt="Archdiocese of Munich and Freising" loading="lazy" decoding="async"><span data-i18n="partnerArchdioceseMunichFreising">Archdiocese of Munich and Freising</span></article>
-          <article class="partner-card" data-reveal style="--delay:120ms"><img src="assets/images/partners/local-partners-moldova.svg" alt="Local partners Moldova" loading="lazy" decoding="async"><span data-i18n="partnerLocalPartnersMoldova">Local partners Moldova</span></article>
-          <article class="partner-card" data-reveal><img src="assets/images/partners/diocese-chisinau.svg" alt="Roman Catholic Diocese of Chisinau" loading="lazy" decoding="async"><span data-i18n="partnerDioceseChisinau">Dieceza Romano-Catolică de Chișinău</span></article>
-          <article class="partner-card" data-reveal style="--delay:40ms"><img src="assets/images/partners/caritas-moldova.svg" alt="Caritas Moldova" loading="lazy" decoding="async"><span data-i18n="partnerCaritasMoldova">Caritas Moldova</span></article>
-          <article class="partner-card" data-reveal style="--delay:80ms"><img src="assets/images/partners/regina-pacis-moldova.svg" alt="Regina Pacis Moldova" loading="lazy" decoding="async"><span data-i18n="partnerReginaPacisMoldova">Regina Pacis Moldova</span></article>
-          <article class="partner-card" data-reveal style="--delay:120ms"><img src="assets/images/partners/initiativa-pozitiva.svg" alt="AO Initiativa Pozitiva" loading="lazy" decoding="async"><span data-i18n="partnerInitiativaPozitiva">AO Inițiativa Pozitivă</span></article>
-          <article class="partner-card" data-reveal><img src="assets/images/partners/ao-eliberare.svg" alt="A.O. Eliberare" loading="lazy" decoding="async"><span data-i18n="partnerAoEliberare">A.O. Eliberare</span></article>
-          <article class="partner-card" data-reveal style="--delay:40ms"><img src="assets/images/partners/state-narcology-chisinau.svg" alt="State Narcology Service of Chisinau" loading="lazy" decoding="async"><span data-i18n="partnerStateNarcologyChisinau">Instituția Narcologică de Stat Chișinău</span></article>
+          <article class="partner-card" data-reveal><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/renovabis.png" alt="Renovabis logo" loading="lazy" decoding="async"></div><span data-i18n="partnerRenovabis">Renovabis</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/missio-austria.png" alt="Missio Austria logo" loading="lazy" decoding="async"></div><span data-i18n="partnerMissioAustria">Missio Austria</span></article>
+          <article class="partner-card" data-reveal style="--delay:80ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/aid-to-the-church-in-need.png" alt="Aid to the Church in Need logo" loading="lazy" decoding="async"></div><span data-i18n="partnerAidChurchNeed">Aid to the Church in Need</span></article>
+          <article class="partner-card" data-reveal style="--delay:120ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/usccb.png" alt="USCCB logo" loading="lazy" decoding="async"></div><span data-i18n="partnerUsccb">USCCB</span></article>
+          <article class="partner-card" data-reveal><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/archdiocese-vienna.png" alt="Archdiocese of Vienna logo" loading="lazy" decoding="async"></div><span data-i18n="partnerArchdioceseVienna">Archdiocese of Vienna</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/archdiocese-cologne.png" alt="Archdiocese of Cologne logo" loading="lazy" decoding="async"></div><span data-i18n="partnerArchdioceseCologne">Archdiocese of Cologne</span></article>
+          <article class="partner-card" data-reveal style="--delay:80ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/archdiocese-munich-freising.png" alt="Archdiocese of Munich and Freising logo" loading="lazy" decoding="async"></div><span data-i18n="partnerArchdioceseMunichFreising">Archdiocese of Munich and Freising</span></article>
+          <article class="partner-card" data-reveal style="--delay:120ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/first-audit-international.png" alt="First Audit International logo" loading="lazy" decoding="async"></div><span data-i18n="partnerFirstAuditInternational">First Audit International</span></article>
+          <article class="partner-card" data-reveal><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/roman-catholic-diocese-chisinau.png" alt="Roman Catholic Diocese of Chișinău logo" loading="lazy" decoding="async"></div><span data-i18n="partnerDioceseChisinau">Dieceza Romano-Catolică de Chișinău</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/caritas-moldova.png" alt="Caritas Moldova logo" loading="lazy" decoding="async"></div><span data-i18n="partnerCaritasMoldova">Caritas Moldova</span></article>
+          <article class="partner-card" data-reveal style="--delay:80ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/regina-pacis-moldova.png" alt="Regina Pacis Moldova logo" loading="lazy" decoding="async"></div><span data-i18n="partnerReginaPacisMoldova">Regina Pacis Moldova</span></article>
+          <article class="partner-card" data-reveal style="--delay:120ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/initiativa-pozitiva.png" alt="AO Inițiativa Pozitivă logo" loading="lazy" decoding="async"></div><span data-i18n="partnerInitiativaPozitiva">AO Inițiativa Pozitivă</span></article>
+          <article class="partner-card" data-reveal><div class="partner-logo-wrap"><span class="partner-logo-fallback" aria-hidden="true">A.O.</span></div><span data-i18n="partnerAoEliberare">A.O. Eliberare</span></article>
+          <article class="partner-card" data-reveal style="--delay:40ms"><div class="partner-logo-wrap"><img class="partner-logo" src="assets/images/partners/processed/state-narcology-chisinau.png" alt="State Narcology Service of Chișinău logo" loading="lazy" decoding="async"></div><span data-i18n="partnerStateNarcologyChisinau">Instituția Narcologică de Stat Chișinău</span></article>
         </div>
       </div>
     </section>
@@ -6943,6 +6978,7 @@
       partnerArchdioceseVienna: "Arhidieceza de Viena",
       partnerArchdioceseCologne: "Arhidieceza de Köln",
       partnerArchdioceseMunichFreising: "Arhidieceza de München și Freising",
+      partnerFirstAuditInternational: "First Audit International",
       partnerLocalPartnersMoldova: "Parteneri locali Moldova",
       partnerDioceseChisinau: "Dieceza Romano-Catolică de Chișinău",
       partnerCaritasMoldova: "Caritas Moldova",
@@ -6963,6 +6999,7 @@
       partnerArchdioceseVienna: "Архиепархия Вены",
       partnerArchdioceseCologne: "Архиепархия Кёльна",
       partnerArchdioceseMunichFreising: "Архиепархия Мюнхена и Фрайзинга",
+      partnerFirstAuditInternational: "First Audit International",
       partnerLocalPartnersMoldova: "Местные партнёры Молдовы",
       partnerDioceseChisinau: "Кишинёвская римско-католическая епархия",
       partnerCaritasMoldova: "Caritas Moldova",
@@ -6983,6 +7020,7 @@
       partnerArchdioceseVienna: "Archdiocese of Vienna",
       partnerArchdioceseCologne: "Archdiocese of Cologne",
       partnerArchdioceseMunichFreising: "Archdiocese of Munich and Freising",
+      partnerFirstAuditInternational: "First Audit International",
       partnerLocalPartnersMoldova: "Local partners Moldova",
       partnerDioceseChisinau: "Roman Catholic Diocese of Chișinău",
       partnerCaritasMoldova: "Caritas Moldova",

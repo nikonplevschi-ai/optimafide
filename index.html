@@ -4279,6 +4279,134 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Mobile repair: donation cards must stay readable above the fixed contact bar. */
+    @media (max-width: 760px) {
+      section[id] {
+        scroll-margin-top: 150px;
+      }
+      body {
+        padding-bottom: calc(92px + env(safe-area-inset-bottom));
+      }
+      main {
+        overflow-x: clip;
+      }
+      #donatii {
+        padding-inline: 0;
+        padding-bottom: calc(122px + env(safe-area-inset-bottom));
+        scroll-margin-top: 150px;
+      }
+      #donatii .donation-layout {
+        width: calc(100% - 24px);
+        padding: 30px 18px calc(124px + env(safe-area-inset-bottom));
+        border-radius: 28px;
+        overflow: visible;
+      }
+      #donatii .donation-card {
+        min-width: 0;
+        padding: 0;
+      }
+      #donatii .donation-methods {
+        width: 100%;
+        gap: 16px;
+      }
+      #donatii .donation-method-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 16px;
+      }
+      #donatii .donation-method-card {
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+        display: grid;
+        gap: 14px;
+        padding: 22px;
+        border-radius: 24px;
+        text-align: left;
+      }
+      #donatii .donation-method-card *,
+      #donatii .hero-actions *,
+      #donatii .bank-details * {
+        writing-mode: horizontal-tb;
+      }
+      #donatii .donation-method-card h3 {
+        max-width: 100%;
+        margin: 0;
+        font-size: clamp(1.55rem, 7vw, 2rem);
+        line-height: 1.08;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+      }
+      #donatii .donation-method-card p {
+        max-width: 100%;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.55;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+      }
+      #donatii .donation-method-card .btn,
+      #donatii .hero-actions .btn {
+        width: 100%;
+        min-width: 0;
+        min-height: 54px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 18px;
+        border-radius: 999px;
+        white-space: normal;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-align: center;
+      }
+      #donatii .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      #donatii .iban,
+      #donatii .bank-row strong {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+      #bank-details {
+        scroll-margin-top: 150px;
+      }
+      .qiwi-guide-modal {
+        padding: 12px;
+      }
+      .qiwi-guide-modal__dialog {
+        width: min(100%, 420px);
+        max-height: calc(100vh - 24px);
+        overflow-y: auto;
+        padding: 22px;
+        border-radius: 26px;
+      }
+      .qiwi-guide-step {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .qiwi-guide-step__content {
+        order: -1;
+      }
+      .qiwi-guide-actions,
+      .qiwi-guide-extra {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .qiwi-guide-actions .btn,
+      .qiwi-guide-extra .btn {
+        width: 100%;
+        min-width: 0;
+        white-space: normal;
+      }
+    }
     #acreditare,
     #echipa,
     #turism,

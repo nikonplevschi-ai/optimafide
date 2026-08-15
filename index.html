@@ -648,76 +648,153 @@
     }
     .center-gallery-section {
       padding-block: clamp(72px, 9vw, 120px);
+      scroll-margin-top: 128px;
       background:
         radial-gradient(circle at 12% 0%, rgba(217,184,108,.14), transparent 32%),
         linear-gradient(180deg, rgba(255,250,241,.94), rgba(247,240,224,.88));
+    }
+    .gallery-carousel-shell {
+      width: min(100% - 32px, 1120px);
+      margin-inline: auto;
+      padding: clamp(28px, 5vw, 64px);
+      overflow: hidden;
+      border: 1px solid rgba(16, 37, 31, .10);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(212, 166, 65, .12), transparent 34%),
+        radial-gradient(circle at 10% 100%, rgba(143, 160, 134, .12), transparent 32%),
+        rgba(255, 250, 241, .82);
+      box-shadow: 0 28px 90px rgba(18, 44, 36, .10);
     }
     .center-gallery-section .section-head {
       max-width: 760px;
       margin-inline: auto;
       text-align: center;
-      margin-bottom: clamp(34px, 5vw, 58px);
+      margin-bottom: clamp(22px, 3.4vw, 38px);
     }
-    .center-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .center-gallery-card {
+    .gallery-carousel {
       position: relative;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      border: 1px solid rgba(16, 37, 31, .10);
-      border-radius: 24px;
-      background: var(--card);
-      box-shadow: 0 14px 42px rgba(18, 44, 36, .085);
-      cursor: zoom-in;
-      transition:
-        transform 420ms cubic-bezier(.2,.8,.2,1),
-        box-shadow 420ms cubic-bezier(.2,.8,.2,1),
-        border-color 420ms cubic-bezier(.2,.8,.2,1);
+      margin-top: 24px;
+      padding: 0 56px;
     }
-    .center-gallery-card img {
+    .gallery-carousel-stage {
+      position: relative;
+      width: 100%;
+      min-height: 440px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+    .gallery-carousel-stage:focus-visible {
+      outline: 2px solid rgba(201,154,61,.38);
+      outline-offset: 10px;
+      border-radius: 30px;
+    }
+    .gallery-slide {
+      position: absolute;
+      width: min(410px, 72vw);
+      min-height: 390px;
+      overflow: hidden;
+      border: 1px solid rgba(16, 37, 31, .12);
+      border-radius: 26px;
+      background: rgba(255, 250, 241, .96);
+      box-shadow: 0 18px 46px rgba(18, 44, 36, .10);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(0) scale(.74);
+      filter: grayscale(1);
+      transition:
+        transform 440ms cubic-bezier(.2,.8,.2,1),
+        opacity 320ms ease,
+        filter 320ms ease,
+        box-shadow 320ms ease;
+    }
+    .gallery-slide.is-active {
+      z-index: 2;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0) scale(1);
+      filter: none;
+      box-shadow: 0 28px 76px rgba(18, 44, 36, .16);
+    }
+    .gallery-slide.is-prev {
+      z-index: 1;
+      opacity: .34;
+      transform: translateX(-72%) scale(.82);
+      filter: grayscale(.45) saturate(.82);
+    }
+    .gallery-slide.is-next {
+      z-index: 1;
+      opacity: .34;
+      transform: translateX(72%) scale(.82);
+      filter: grayscale(.45) saturate(.82);
+    }
+    .gallery-slide.is-far-prev {
+      opacity: .14;
+      transform: translateX(-118%) scale(.72);
+      filter: grayscale(1);
+    }
+    .gallery-slide.is-far-next {
+      opacity: .14;
+      transform: translateX(118%) scale(.72);
+      filter: grayscale(1);
+    }
+    .gallery-slide-media {
       display: block;
       width: 100%;
-      height: 100%;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: zoom-in;
+    }
+    .gallery-slide-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
+      border-radius: 22px 22px 0 0;
       filter: brightness(1.02) contrast(1.02) saturate(.98);
-      transition:
-        transform 850ms cubic-bezier(.2,.8,.2,1),
-        filter 850ms cubic-bezier(.2,.8,.2,1);
     }
-    @media (hover: hover) and (pointer: fine) {
-      .center-gallery-card:hover img {
-        transform: scale(1.035);
-        filter: brightness(1.045) contrast(1.035) saturate(.96);
-      }
+    .gallery-slide-body {
+      padding: 20px 22px 24px;
     }
-    .center-gallery-card::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 46%;
-      background: linear-gradient(180deg, transparent, rgba(6, 38, 31, .58));
-      pointer-events: none;
-    }
-    .center-gallery-caption {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      z-index: 2;
-      display: inline-flex;
-      width: fit-content;
-      max-width: calc(100% - 28px);
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255, 250, 241, .88);
+    .gallery-slide-body h3 {
       color: var(--green);
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.2;
-      box-shadow: 0 8px 22px rgba(18, 44, 36, .10);
+      font-size: clamp(1.45rem, 2.1vw, 1.86rem);
+      line-height: 1.04;
+    }
+    .gallery-slide-body p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .96rem;
+      line-height: 1.55;
+    }
+    .gallery-carousel-arrow {
+      top: 50%;
+    }
+    .gallery-carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 24px;
+    }
+    .gallery-carousel-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(16,37,31,.18);
+      cursor: pointer;
+      transition: width .2s ease, background .2s ease;
+    }
+    .gallery-carousel-dot.is-active {
+      width: 22px;
+      background: var(--of-gold);
+    }
+    .gallery-carousel-dot:focus-visible {
+      outline: 2px solid rgba(201,154,61,.58);
+      outline-offset: 3px;
     }
     .center-gallery-note {
       max-width: 780px;
@@ -727,16 +804,66 @@
       text-align: center;
     }
     @media (max-width: 1100px) {
-      .center-gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .donation-method-grid,
       .terminal-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .terminal-step--final { grid-column: span 2; }
       .terminal-support-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
-      .center-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-      .center-gallery-card { border-radius: 18px; }
-      .center-gallery-caption { left: 10px; right: 10px; bottom: 10px; max-width: calc(100% - 20px); font-size: 12px; }
+      .center-gallery-section {
+        padding-bottom: calc(48px + env(safe-area-inset-bottom));
+        scroll-margin-top: 190px;
+      }
+      .gallery-carousel-shell {
+        width: calc(100% - 24px);
+        padding: 26px 12px 28px;
+        border-radius: 28px;
+      }
+      .gallery-carousel {
+        padding: 0 42px;
+      }
+      .gallery-carousel-stage {
+        min-height: 404px;
+      }
+      .gallery-slide {
+        width: min(100%, 310px);
+        min-height: 374px;
+        border-radius: 24px;
+      }
+      .gallery-slide.is-prev {
+        opacity: .06;
+        transform: translateX(-34%) scale(.88);
+      }
+      .gallery-slide.is-next {
+        opacity: .06;
+        transform: translateX(34%) scale(.88);
+      }
+      .gallery-slide.is-far-prev,
+      .gallery-slide.is-far-next {
+        opacity: 0;
+      }
+      .gallery-slide-image {
+        min-height: 220px;
+      }
+      .gallery-slide-body {
+        padding: 18px;
+      }
+      .gallery-slide-body h3 {
+        font-size: 1.45rem;
+      }
+      .gallery-slide-body p {
+        font-size: .92rem;
+      }
+      .gallery-carousel-arrow {
+        width: 38px;
+        height: 38px;
+      }
+      .gallery-carousel-dots {
+        margin-top: 18px;
+      }
+      .center-gallery-note {
+        margin-bottom: 86px;
+      }
       .donation-method-grid,
       .terminal-steps { grid-template-columns: 1fr; }
       .terminal-step--final { grid-column: auto; }
@@ -752,7 +879,12 @@
       .qiwi-guide-extra .btn { width: 100%; }
     }
     @media (max-width: 430px) {
-      .center-gallery-grid { grid-template-columns: 1fr; }
+      .gallery-carousel {
+        padding: 0 20px;
+      }
+      .gallery-slide {
+        width: min(100%, 310px);
+      }
       .qiwi-guide-modal { padding: 12px; }
       .qiwi-guide-modal__dialog { border-radius: 26px; padding: 22px; }
       .qiwi-guide-modal__header h2 { font-size: clamp(2rem, 12vw, 2.8rem); }
@@ -4932,25 +5064,66 @@
     </section>
 
     <section class="center-gallery-section" id="gallery" aria-labelledby="gallery-section-title">
-      <div class="container">
+      <div class="gallery-carousel-shell">
         <div class="section-head" data-reveal>
           <div class="eyebrow" data-i18n="gallerySectionEyebrow">Viața centrului</div>
           <h2 id="gallery-section-title" data-i18n="gallerySectionTitle">Galeria Optima Fide</h2>
           <p data-i18n="gallerySectionText">Momente reale din viața de zi cu zi a centrului: întâlniri, lucru în grup, spații comune, activitate și sprijin aproape.</p>
         </div>
-        <div class="center-gallery-grid" data-reveal>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-community-photo.webp"><img src="assets/images/gallery/gallery-community-photo.webp" alt="Întâlnire în centru Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionCommunityPhoto">Viața centrului</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-support-circle.webp"><img src="assets/images/gallery/gallery-support-circle.webp" alt="Cerc de sprijin la Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSupportCircle">Cerc de sprijin</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-group-session.webp"><img src="assets/images/gallery/gallery-group-session.webp" alt="Lucru în grup în centru" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionGroupSession">Lucru în grup</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-center-meeting.webp"><img src="assets/images/gallery/gallery-center-meeting.webp" alt="Întâlnire la Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionCenterMeeting">Întâlnire în centru</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-working-meeting.webp"><img src="assets/images/gallery/gallery-working-meeting.webp" alt="Întâlnire de lucru în spațiul comun" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionWorkingMeeting">Întâlnire de lucru</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-students-visit.webp"><img src="assets/images/gallery/gallery-students-visit.webp" alt="Vizită educațională la Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionStudentsVisit">Vizită educațională</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-group-work.webp"><img src="assets/images/gallery/gallery-group-work.webp" alt="Spațiu de comunicare în centru" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionGroupWork">Spațiu de comunicare</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-shared-meal.webp"><img src="assets/images/gallery/gallery-shared-meal.webp" alt="Masă comună în centru" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSharedMeal">Masă comună</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-sports-court.webp"><img src="assets/images/gallery/gallery-sports-court.webp" alt="Teren sportiv la Optima Fide" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSportsCourt">Teren sportiv</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-spiritual-space.webp"><img src="assets/images/gallery/gallery-spiritual-space.webp" alt="Spațiu de liniște și reflecție" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSpiritualSpace">Spațiu de reflecție</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-life-space-new.webp"><img src="assets/images/gallery/gallery-life-space-new.webp" alt="Întâlnire comună în centru" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionLifeSpaceNew">Spațiu pentru început</span></button>
-          <button class="center-gallery-card" type="button" data-lightbox="assets/images/gallery/gallery-summer-sea.webp"><img src="assets/images/gallery/gallery-summer-sea.webp" alt="Ieșire de vară la mare" loading="lazy" decoding="async"><span class="center-gallery-caption" data-i18n="galleryCaptionSummerSea">Ieșire de vară</span></button>
+        <div class="gallery-carousel" data-gallery-carousel data-reveal>
+          <button class="carousel-arrow carousel-arrow--prev gallery-carousel-arrow" type="button" data-i18n-aria-label="carouselPrev" aria-label="Anterior"></button>
+          <div class="gallery-carousel-stage" tabindex="0" aria-label="Optima Fide gallery">
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-community-photo.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-community-photo.webp" alt="Life at the center at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionCommunityPhoto">Viața centrului</h3><p data-i18n="galleryTextCommunityPhoto">Momente obișnuite din viața centrului, cu întâlniri și prezență calmă.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-support-circle.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-support-circle.webp" alt="Support circle at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionSupportCircle">Cerc de sprijin</h3><p data-i18n="galleryTextSupportCircle">Conversații în grup, ascultare și sprijin între participanți.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-group-session.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-group-session.webp" alt="Group work at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionGroupSession">Lucru în grup</h3><p data-i18n="galleryTextGroupSession">Exerciții și discuții care ajută la înțelegere și responsabilitate.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-center-meeting.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-center-meeting.webp" alt="Meeting at the center at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionCenterMeeting">Întâlnire în centru</h3><p data-i18n="galleryTextCenterMeeting">Întâlniri comune într-un spațiu sigur, ordonat și prietenos.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-working-meeting.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-working-meeting.webp" alt="Working meeting at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionWorkingMeeting">Întâlnire de lucru</h3><p data-i18n="galleryTextWorkingMeeting">Planificare, cooperare și muncă în comun în ritmul centrului.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-students-visit.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-students-visit.webp" alt="Educational visit at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionStudentsVisit">Vizită educațională</h3><p data-i18n="galleryTextStudentsVisit">Dialog cu vizitatori și parteneri despre recuperare și prevenție.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-group-work.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-group-work.webp" alt="Space for communication at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionGroupWork">Spațiu de comunicare</h3><p data-i18n="galleryTextGroupWork">Un loc luminos pentru conversații, învățare și sprijin apropiat.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-shared-meal.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-shared-meal.webp" alt="Shared meal at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionSharedMeal">Masă comună</h3><p data-i18n="galleryTextSharedMeal">Mese împreună, grijă practică și un ritm normal al zilei.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-sports-court.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-sports-court.webp" alt="Sports court at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionSportsCourt">Teren sportiv</h3><p data-i18n="galleryTextSportsCourt">Mișcare în aer liber și activități simple pentru energie și echilibru.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-spiritual-space.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-spiritual-space.webp" alt="Space for reflection at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionSpiritualSpace">Spațiu de reflecție</h3><p data-i18n="galleryTextSpiritualSpace">Timp pentru liniște, rugăciune opțională și reculegere personală.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-life-space-new.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-life-space-new.webp" alt="Space for beginning at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionLifeSpaceNew">Spațiu pentru început</h3><p data-i18n="galleryTextLifeSpaceNew">Un cadru calm în care pașii mici pot deveni un nou început.</p></div>
+            </article>
+            <article class="gallery-slide">
+              <button class="gallery-slide-media" type="button" data-lightbox="assets/images/gallery/gallery-summer-sea.webp"><img class="gallery-slide-image" src="assets/images/gallery/gallery-summer-sea.webp" alt="Summer outing at Optima Fide" loading="lazy" decoding="async"></button>
+              <div class="gallery-slide-body"><h3 data-i18n="galleryCaptionSummerSea">Ieșire de vară</h3><p data-i18n="galleryTextSummerSea">O ieșire liniștită în natură, cu odihnă și timp împreună.</p></div>
+            </article>
+          </div>
+          <button class="carousel-arrow carousel-arrow--next gallery-carousel-arrow" type="button" data-i18n-aria-label="carouselNext" aria-label="Următor"></button>
+          <div class="gallery-carousel-dots" aria-label="Gallery navigation"></div>
         </div>
         <p class="center-gallery-note" data-i18n="galleryPrivacyNote">Fotografiile sunt publicate cu respect pentru confidențialitatea și demnitatea persoanelor.</p>
       </div>
@@ -6826,7 +6999,19 @@
       galleryCaptionSpiritualSpace: "Spa\u021biu de reflec\u021bie",
       galleryCaptionLifeSpaceNew: "Spa\u021biu pentru \u00eenceput",
       galleryCaptionSummerSea: "Ie\u0219ire de var\u0103",
-      galleryPrivacyNote: "Fotografiile sunt publicate cu respect pentru confiden\u021bialitatea \u0219i demnitatea persoanelor."
+      galleryTextCommunityPhoto: "Momente obi\u0219nuite din via\u021ba centrului, cu \u00eent\u00e2lniri \u0219i prezen\u021b\u0103 calm\u0103.",
+      galleryTextSupportCircle: "Conversa\u021bii \u00een grup, ascultare \u0219i sprijin \u00eentre participan\u021bi.",
+      galleryTextGroupSession: "Exerci\u021bii \u0219i discu\u021bii care ajut\u0103 la \u00een\u021belegere \u0219i responsabilitate.",
+      galleryTextCenterMeeting: "\u00cent\u00e2lniri comune \u00eentr-un spa\u021biu sigur, ordonat \u0219i prietenos.",
+      galleryTextWorkingMeeting: "Planificare, cooperare \u0219i munc\u0103 \u00een comun \u00een ritmul centrului.",
+      galleryTextStudentsVisit: "Dialog cu vizitatori \u0219i parteneri despre recuperare \u0219i preven\u021bie.",
+      galleryTextGroupWork: "Un loc luminos pentru conversa\u021bii, \u00eenv\u0103\u021bare \u0219i sprijin apropiat.",
+      galleryTextSharedMeal: "Mese \u00eempreun\u0103, grij\u0103 practic\u0103 \u0219i un ritm normal al zilei.",
+      galleryTextSportsCourt: "Mi\u0219care \u00een aer liber \u0219i activit\u0103\u021bi simple pentru energie \u0219i echilibru.",
+      galleryTextSpiritualSpace: "Timp pentru lini\u0219te, rug\u0103ciune op\u021bional\u0103 \u0219i reculegere personal\u0103.",
+      galleryTextLifeSpaceNew: "Un cadru calm \u00een care pa\u0219ii mici pot deveni un nou \u00eenceput.",
+      galleryTextSummerSea: "O ie\u0219ire lini\u0219tit\u0103 \u00een natur\u0103, cu odihn\u0103 \u0219i timp \u00eempreun\u0103.",
+      galleryPrivacyNote: "Fotografiile sunt publicate cu respect pentru confiden\u021bialitatea \u0219i demnitatea oamenilor."
     });
     Object.assign(translations.ru, {
       navGallery: "\u0413\u0430\u043b\u0435\u0440\u0435\u044f",
@@ -6845,6 +7030,18 @@
       galleryCaptionSpiritualSpace: "\u041f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e \u0440\u0430\u0437\u043c\u044b\u0448\u043b\u0435\u043d\u0438\u044f",
       galleryCaptionLifeSpaceNew: "\u041f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e \u0434\u043b\u044f \u043d\u0430\u0447\u0430\u043b\u0430",
       galleryCaptionSummerSea: "\u041b\u0435\u0442\u043d\u0438\u0439 \u0432\u044b\u0435\u0437\u0434",
+      galleryTextCommunityPhoto: "\u041e\u0431\u044b\u0447\u043d\u044b\u0435 \u043c\u043e\u043c\u0435\u043d\u0442\u044b \u0436\u0438\u0437\u043d\u0438 \u0446\u0435\u043d\u0442\u0440\u0430: \u0432\u0441\u0442\u0440\u0435\u0447\u0438, \u0441\u043f\u043e\u043a\u043e\u0439\u043d\u043e\u0435 \u043f\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u0435 \u0438 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430.",
+      galleryTextSupportCircle: "\u0413\u0440\u0443\u043f\u043f\u043e\u0432\u044b\u0435 \u0431\u0435\u0441\u0435\u0434\u044b, \u0441\u043b\u0443\u0448\u0430\u043d\u0438\u0435 \u0438 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430 \u043c\u0435\u0436\u0434\u0443 \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u0430\u043c\u0438.",
+      galleryTextGroupSession: "\u0423\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u044f \u0438 \u043e\u0431\u0441\u0443\u0436\u0434\u0435\u043d\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043f\u043e\u043c\u043e\u0433\u0430\u044e\u0442 \u043f\u043e\u043d\u0438\u043c\u0430\u043d\u0438\u044e \u0438 \u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0441\u0442\u0438.",
+      galleryTextCenterMeeting: "\u041e\u0431\u0449\u0438\u0435 \u0432\u0441\u0442\u0440\u0435\u0447\u0438 \u0432 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u043c, \u0443\u043f\u043e\u0440\u044f\u0434\u043e\u0447\u0435\u043d\u043d\u043e\u043c \u0438 \u0434\u0440\u0443\u0436\u0435\u043b\u044e\u0431\u043d\u043e\u043c \u043f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u0435.",
+      galleryTextWorkingMeeting: "\u041f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435, \u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0438 \u0441\u043e\u0432\u043c\u0435\u0441\u0442\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430 \u0432 \u0440\u0438\u0442\u043c\u0435 \u0446\u0435\u043d\u0442\u0440\u0430.",
+      galleryTextStudentsVisit: "\u0414\u0438\u0430\u043b\u043e\u0433 \u0441 \u0433\u043e\u0441\u0442\u044f\u043c\u0438 \u0438 \u043f\u0430\u0440\u0442\u043d\u0451\u0440\u0430\u043c\u0438 \u043e \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0438 \u0438 \u043f\u0440\u043e\u0444\u0438\u043b\u0430\u043a\u0442\u0438\u043a\u0435.",
+      galleryTextGroupWork: "\u0421\u0432\u0435\u0442\u043b\u043e\u0435 \u043c\u0435\u0441\u0442\u043e \u0434\u043b\u044f \u043e\u0431\u0449\u0435\u043d\u0438\u044f, \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u044f \u0438 \u0431\u043b\u0438\u0437\u043a\u043e\u0439 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438.",
+      galleryTextSharedMeal: "\u041e\u0431\u0449\u0438\u0435 \u0442\u0440\u0430\u043f\u0435\u0437\u044b, \u043f\u0440\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0437\u0430\u0431\u043e\u0442\u0430 \u0438 \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u044b\u0439 \u0440\u0438\u0442\u043c \u0434\u043d\u044f.",
+      galleryTextSportsCourt: "\u0414\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u043d\u0430 \u0441\u0432\u0435\u0436\u0435\u043c \u0432\u043e\u0437\u0434\u0443\u0445\u0435 \u0438 \u043f\u0440\u043e\u0441\u0442\u044b\u0435 \u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0441\u0442\u0438 \u0434\u043b\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u0438 \u0438 \u0440\u0430\u0432\u043d\u043e\u0432\u0435\u0441\u0438\u044f.",
+      galleryTextSpiritualSpace: "\u0412\u0440\u0435\u043c\u044f \u0434\u043b\u044f \u0442\u0438\u0448\u0438\u043d\u044b, \u0434\u043e\u0431\u0440\u043e\u0432\u043e\u043b\u044c\u043d\u043e\u0439 \u043c\u043e\u043b\u0438\u0442\u0432\u044b \u0438 \u043b\u0438\u0447\u043d\u043e\u0433\u043e \u0440\u0430\u0437\u043c\u044b\u0448\u043b\u0435\u043d\u0438\u044f.",
+      galleryTextLifeSpaceNew: "\u0421\u043f\u043e\u043a\u043e\u0439\u043d\u0430\u044f \u0441\u0440\u0435\u0434\u0430, \u0433\u0434\u0435 \u043c\u0430\u043b\u0435\u043d\u044c\u043a\u0438\u0435 \u0448\u0430\u0433\u0438 \u043c\u043e\u0433\u0443\u0442 \u0441\u0442\u0430\u0442\u044c \u043d\u043e\u0432\u044b\u043c \u043d\u0430\u0447\u0430\u043b\u043e\u043c.",
+      galleryTextSummerSea: "\u0422\u0438\u0445\u0438\u0439 \u0432\u044b\u0435\u0437\u0434 \u043d\u0430 \u043f\u0440\u0438\u0440\u043e\u0434\u0443, \u043e\u0442\u0434\u044b\u0445 \u0438 \u0432\u0440\u0435\u043c\u044f \u0432\u043c\u0435\u0441\u0442\u0435.",
       galleryPrivacyNote: "\u0424\u043e\u0442\u043e\u0433\u0440\u0430\u0444\u0438\u0438 \u043f\u0443\u0431\u043b\u0438\u043a\u0443\u044e\u0442\u0441\u044f \u0441 \u0443\u0432\u0430\u0436\u0435\u043d\u0438\u0435\u043c \u043a \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u0438 \u0434\u043e\u0441\u0442\u043e\u0438\u043d\u0441\u0442\u0432\u0443 \u043b\u044e\u0434\u0435\u0439."
     });
     Object.assign(translations.en, {
@@ -6864,6 +7061,18 @@
       galleryCaptionSpiritualSpace: "Space for reflection",
       galleryCaptionLifeSpaceNew: "Space for beginning",
       galleryCaptionSummerSea: "Summer outing",
+      galleryTextCommunityPhoto: "Everyday moments at the center, with meetings and a calm presence.",
+      galleryTextSupportCircle: "Group conversations, listening and support between participants.",
+      galleryTextGroupSession: "Exercises and discussions that support understanding and responsibility.",
+      galleryTextCenterMeeting: "Shared meetings in a safe, ordered and welcoming space.",
+      galleryTextWorkingMeeting: "Planning, cooperation and practical work in the rhythm of the center.",
+      galleryTextStudentsVisit: "Dialogue with visitors and partners about recovery and prevention.",
+      galleryTextGroupWork: "A bright place for conversation, learning and nearby support.",
+      galleryTextSharedMeal: "Shared meals, practical care and a normal rhythm of the day.",
+      galleryTextSportsCourt: "Outdoor movement and simple activities for energy and balance.",
+      galleryTextSpiritualSpace: "Time for quiet, optional prayer and personal recollection.",
+      galleryTextLifeSpaceNew: "A calm setting where small steps can become a new beginning.",
+      galleryTextSummerSea: "A peaceful outing in nature, with rest and time together.",
       galleryPrivacyNote: "Photos are published with respect for people's confidentiality and dignity."
     });
     Object.assign(translations.ro, {
@@ -7342,6 +7551,11 @@
           dot.setAttribute("aria-label", `${translations[currentLang].carouselSlide} ${index + 1}`);
         });
       });
+      document.querySelectorAll("[data-gallery-carousel]").forEach((carousel) => {
+        carousel.querySelectorAll(".gallery-carousel-dot").forEach((dot, index) => {
+          dot.setAttribute("aria-label", `${translations[currentLang].carouselSlide} ${index + 1}`);
+        });
+      });
     }
 
     (function initActiveNavPill() {
@@ -7454,6 +7668,100 @@
 
         render();
       });
+    })();
+
+    (function initGalleryCarousel() {
+      const carousel = document.querySelector("[data-gallery-carousel]");
+      if (!carousel) return;
+
+      const slides = Array.from(carousel.querySelectorAll(".gallery-slide"));
+      const prev = carousel.querySelector(".carousel-arrow--prev");
+      const next = carousel.querySelector(".carousel-arrow--next");
+      const stage = carousel.querySelector(".gallery-carousel-stage");
+      const dotsWrap = carousel.querySelector(".gallery-carousel-dots");
+      if (!slides.length || !stage) return;
+
+      const normalize = (index) => (index + slides.length) % slides.length;
+      let activeIndex = 0;
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      const dots = slides.map((_, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "gallery-carousel-dot";
+        dot.setAttribute("aria-label", `${translations[currentLang].carouselSlide} ${index + 1}`);
+        dot.addEventListener("click", () => {
+          activeIndex = index;
+          render();
+        });
+        dotsWrap?.appendChild(dot);
+        return dot;
+      });
+
+      function render() {
+        slides.forEach((slide) => {
+          slide.classList.remove("is-active", "is-prev", "is-next", "is-far-prev", "is-far-next");
+          slide.setAttribute("aria-hidden", "true");
+        });
+
+        slides[activeIndex]?.classList.add("is-active");
+        slides[activeIndex]?.removeAttribute("aria-hidden");
+        slides[normalize(activeIndex - 1)]?.classList.add("is-prev");
+        slides[normalize(activeIndex + 1)]?.classList.add("is-next");
+
+        if (slides.length > 3) {
+          slides[normalize(activeIndex - 2)]?.classList.add("is-far-prev");
+          slides[normalize(activeIndex + 2)]?.classList.add("is-far-next");
+        }
+
+        dots.forEach((dot, index) => {
+          const active = index === activeIndex;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-current", active ? "true" : "false");
+        });
+      }
+
+      const goPrev = () => {
+        activeIndex = normalize(activeIndex - 1);
+        render();
+      };
+
+      const goNext = () => {
+        activeIndex = normalize(activeIndex + 1);
+        render();
+      };
+
+      prev?.addEventListener("click", goPrev);
+      next?.addEventListener("click", goNext);
+
+      stage.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          goPrev();
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          goNext();
+        }
+      });
+
+      stage.addEventListener("touchstart", (event) => {
+        const touch = event.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+      }, { passive: true });
+
+      stage.addEventListener("touchend", (event) => {
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+        if (Math.abs(deltaX) < 42 || Math.abs(deltaX) < Math.abs(deltaY) * 1.15) return;
+        if (deltaX < 0) goNext();
+        else goPrev();
+      }, { passive: true });
+
+      render();
     })();
 
     document.querySelectorAll("[data-lightbox]").forEach((button) => {

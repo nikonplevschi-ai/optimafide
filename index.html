@@ -4858,6 +4858,7 @@
     }
     /* End approved homepage V4 */
   </style>
+  <link rel="stylesheet" href="assets/css/recovery-tree.css">
 </head>
 <body>
   <header class="site-header">
@@ -5225,6 +5226,55 @@
           <div class="stat"><strong><span class="count-up" data-count-to="500" data-count-suffix="+">500+</span></strong><span data-i18n="statPeople">persoane au primit ajutor</span></div>
           <div class="stat"><strong>10+</strong><span data-i18n="statYears">ani de experiență</span></div>
           <div class="stat"><strong><span class="count-up" data-count-to="20">20</span></strong><span data-i18n="statPlaces">locuri rezidențiale</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recovery-tree-section" id="growth" aria-labelledby="growth-title">
+      <div class="recovery-tree-shell" data-reveal>
+        <div class="recovery-tree-copy">
+          <p class="recovery-tree-kicker" data-i18n="growthEyebrow">Creștere</p>
+          <h2 id="growth-title" data-i18n="growthTitle">Creșterea începe cu un pas mic</h2>
+          <p data-i18n="growthLead">Recuperarea nu se întâmplă deodată. Ea crește treptat: prin dialog, sprijin, sinceritate, ordine și timp.</p>
+        </div>
+        <div class="recovery-tree-visual" data-recovery-tree aria-hidden="true">
+          <svg class="recovery-tree-svg" viewBox="0 0 520 420" focusable="false">
+            <defs>
+              <radialGradient id="recoveryTreeGoldGlow" cx="50%" cy="44%" r="52%">
+                <stop offset="0%" stop-color="#d9b86c" stop-opacity=".24"/>
+                <stop offset="58%" stop-color="#d9b86c" stop-opacity=".08"/>
+                <stop offset="100%" stop-color="#d9b86c" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="recoveryTreeBranchGradient" x1="190" y1="350" x2="340" y2="70" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#2d4c3e"/>
+                <stop offset="52%" stop-color="#66816d"/>
+                <stop offset="100%" stop-color="#c99a3d"/>
+              </linearGradient>
+            </defs>
+            <ellipse class="recovery-tree-glow" cx="260" cy="224" rx="190" ry="160" fill="url(#recoveryTreeGoldGlow)"/>
+            <path class="tree-branch tree-trunk" d="M260 354 C256 315 258 278 262 244 C266 205 255 175 246 142"/>
+            <path class="tree-branch" d="M260 266 C230 236 203 210 174 178 C154 156 138 136 112 116"/>
+            <path class="tree-branch" d="M263 244 C292 216 319 188 348 150 C368 124 387 104 414 84"/>
+            <path class="tree-branch" d="M258 220 C231 205 205 190 176 170"/>
+            <path class="tree-branch" d="M263 218 C288 202 312 184 336 158"/>
+            <path class="tree-branch" d="M250 176 C246 151 237 130 222 108"/>
+            <path class="tree-branch" d="M270 186 C290 168 308 145 321 120"/>
+            <circle class="tree-leaf tree-leaf--sage" cx="112" cy="116" r="10"/>
+            <circle class="tree-leaf tree-leaf--gold" cx="145" cy="146" r="7"/>
+            <circle class="tree-leaf tree-leaf--sage" cx="176" cy="170" r="9"/>
+            <circle class="tree-leaf tree-leaf--gold" cx="222" cy="108" r="8"/>
+            <circle class="tree-leaf tree-leaf--sage" cx="321" cy="120" r="9"/>
+            <circle class="tree-leaf tree-leaf--gold" cx="348" cy="150" r="7"/>
+            <circle class="tree-leaf tree-leaf--sage" cx="414" cy="84" r="10"/>
+            <circle class="tree-leaf tree-leaf--gold" cx="382" cy="112" r="7"/>
+            <circle class="tree-leaf tree-leaf--sage" cx="204" cy="198" r="8"/>
+            <circle class="tree-leaf tree-leaf--gold" cx="304" cy="178" r="8"/>
+          </svg>
+          <span class="tree-word tree-word--one" data-i18n="growthWord1">dialog</span>
+          <span class="tree-word tree-word--two" data-i18n="growthWord2">sprijin</span>
+          <span class="tree-word tree-word--three" data-i18n="growthWord3">ordine</span>
+          <span class="tree-word tree-word--four" data-i18n="growthWord4">familie</span>
+          <span class="tree-word tree-word--five" data-i18n="growthWord5">timp</span>
         </div>
       </div>
     </section>
@@ -5880,6 +5930,7 @@
     </div>
   </div>
 
+  <script src="assets/js/recovery-tree.js" defer></script>
   <script>
     const translations = {
           "ro": {
@@ -6679,6 +6730,14 @@
       dayAfternoon: "După-amiaza",
       dayEvening: "Seara",
       dayNight: "Noaptea și odihna",
+      growthEyebrow: "Creștere",
+      growthTitle: "Creșterea începe cu un pas mic",
+      growthLead: "Recuperarea nu se întâmplă deodată. Ea crește treptat: prin dialog, sprijin, sinceritate, ordine și timp.",
+      growthWord1: "dialog",
+      growthWord2: "sprijin",
+      growthWord3: "ordine",
+      growthWord4: "familie",
+      growthWord5: "timp",
       illustrativeNote: "Imagine ilustrativă. Programul se desfășoară cu respectarea confidențialității participanților."
     });
     Object.assign(translations.ru, {
@@ -6688,6 +6747,14 @@
       dayAfternoon: "После обеда",
       dayEvening: "Вечер",
       dayNight: "Ночь и отдых",
+      growthEyebrow: "Рост",
+      growthTitle: "Рост начинается с малого шага",
+      growthLead: "Восстановление редко происходит сразу. Оно растёт постепенно: через разговор, поддержку, честность, порядок и время.",
+      growthWord1: "разговор",
+      growthWord2: "поддержка",
+      growthWord3: "порядок",
+      growthWord4: "семья",
+      growthWord5: "время",
       illustrativeNote: "Иллюстративное фото. Программа проходит с уважением к конфиденциальности участников."
     });
     Object.assign(translations.en, {
@@ -6697,6 +6764,14 @@
       dayAfternoon: "Afternoon",
       dayEvening: "Evening",
       dayNight: "Night and rest",
+      growthEyebrow: "Growth",
+      growthTitle: "Growth begins with a small step",
+      growthLead: "Recovery rarely happens all at once. It grows gradually: through conversation, support, honesty, order and time.",
+      growthWord1: "conversation",
+      growthWord2: "support",
+      growthWord3: "order",
+      growthWord4: "family",
+      growthWord5: "time",
       illustrativeNote: "Illustrative image. The program respects participants’ confidentiality."
     });
     Object.assign(translations.ro, {

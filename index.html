@@ -4861,11 +4861,13 @@
     #directions { padding-block: clamp(70px, 9vw, 118px); overflow: hidden; background: linear-gradient(180deg, rgba(243,239,229,.82), rgba(255,253,247,.96)); }
     #directions .section-head { max-width: 780px; margin-inline: auto; text-align: center; }
     .directions-carousel { margin-top: 34px; }
-    .directions-carousel .carousel-stage { min-height: 430px; }
-    .directions-carousel .directions-card { overflow: hidden; min-height: 400px; cursor: pointer; background: var(--of-green-950); }
-    .directions-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(1.02) brightness(.76); transition: transform .75s cubic-bezier(.2,.75,.2,1), filter .4s ease; }
-    .directions-card.is-active img, .directions-card:hover img { transform: scale(1.055); filter: saturate(.9) contrast(1.02) brightness(.9); }
-    .directions-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,35,30,.02), rgba(11,37,31,.9)); pointer-events: none; }
+    .directions-carousel .carousel-stage { min-height: 360px; }
+    .directions-carousel .directions-card { width: min(390px, 72vw); min-height: 0; aspect-ratio: 4 / 3; overflow: hidden; cursor: pointer; background: var(--of-green-950); }
+    .directions-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.82) contrast(1.02) brightness(.76); transition: transform .75s cubic-bezier(.2,.75,.2,1), filter .4s ease; }
+    .directions-card.is-active img, .directions-card:hover img, .directions-card:focus-visible img { transform: scale(1.055); filter: saturate(.9) contrast(1.02) brightness(.9); }
+    .directions-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,35,30,.01) 22%, rgba(11,37,31,.86) 100%); pointer-events: none; }
+    .directions-card.is-selected { outline: 2px solid rgba(201,154,61,.92); outline-offset: 4px; }
+    .directions-card:focus-visible { outline: 3px solid var(--of-gold); outline-offset: 5px; }
     .directions-card-copy { position: absolute; z-index: 1; inset: auto 0 0; padding: 26px; color: #fffdf7; }
     .directions-card-copy span { display: inline-grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: rgba(255,255,255,.12); font-size: .72rem; font-weight: 800; letter-spacing: .08em; }
     .directions-card-copy h3 { margin-top: 16px; color: #fffdf7; font-size: clamp(1.35rem, 2vw, 1.9rem); }
@@ -4873,7 +4875,7 @@
     .direction-detail { display: grid; grid-template-columns: minmax(280px,.9fr) 1.1fr; margin: 36px auto 0; max-width: 1040px; overflow: hidden; border: 1px solid rgba(28,58,48,.14); border-radius: 28px; background: rgba(255,253,247,.94); box-shadow: 0 26px 80px rgba(18,44,36,.11); }
     .direction-detail-media { min-height: 350px; background: var(--of-green-950); }
     .direction-detail-media img { width: 100%; height: 100%; object-fit: cover; }
-    .direction-detail-copy { align-self: center; padding: clamp(28px,5vw,56px); }
+    .direction-detail-copy { align-self: center; min-height: 350px; display: flex; flex-direction: column; justify-content: center; padding: clamp(28px,5vw,56px); }
     .direction-detail-copy .eyebrow { margin-bottom: 10px; }
     .direction-detail-copy h3 { font-size: clamp(1.8rem,4vw,3.1rem); }
     .direction-detail-copy p { margin-top: 16px; color: rgba(16,37,31,.72); }
@@ -4882,7 +4884,7 @@
     .direction-detail.is-changing .direction-detail-copy p { animation-delay: .08s; }
     @keyframes directionPhoto { from { opacity:.25; transform:scale(1.07) } to { opacity:1; transform:scale(1) } }
     @keyframes directionCopy { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) } }
-    @media (max-width: 720px) { .directions-carousel .carousel-stage { min-height: 400px; } .directions-carousel .directions-card { min-height: 375px; } .direction-detail { grid-template-columns: 1fr; margin-top: 24px; } .direction-detail-media { min-height: 245px; } }
+    @media (max-width: 720px) { .directions-carousel .carousel-stage { min-height: 340px; } .directions-carousel .directions-card { width: min(100%, 340px); min-height: 0; aspect-ratio: 4 / 3; } .directions-card-copy { padding: 20px; } .directions-card-copy h3 { font-size: 1.25rem; } .direction-detail { grid-template-columns: 1fr; margin-top: 24px; } .direction-detail-media { min-height: 245px; } .direction-detail-copy { min-height: 0; } }
   </style>
   <link rel="stylesheet" href="assets/css/recovery-tree.css">
 </head>
@@ -4956,21 +4958,21 @@
         <div class="premium-carousel directions-carousel" data-carousel="directions" data-initial-slide="0">
           <button class="carousel-arrow carousel-arrow--prev" type="button" data-i18n-aria-label="carouselPrev" aria-label="Anterior"></button>
           <div class="carousel-stage">
-            <article class="directions-card carousel-card" data-direction="1"><img src="assets/images/gallery/gallery-community-photo.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>01</span><h3 data-i18n="direction1Title">Asistență socială pentru persoane și familii</h3><p data-i18n="direction1Text">Ajutor material și însoțire socială pentru persoane și familii vulnerabile.</p></div></article>
-            <article class="directions-card carousel-card" data-direction="2"><img src="assets/images/community-walk-premium.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>02</span><h3 data-i18n="direction2Title">Echipe mobile și intervenție în comunitate</h3><p data-i18n="direction2Text">Ajutor care ajunge la oameni acolo unde se află.</p></div></article>
-            <article class="directions-card carousel-card" data-direction="3"><img src="assets/images/tourism/excursion-horse-riding.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>03</span><h3 data-i18n="direction3Title">Copii, adolescenți și educație</h3><p data-i18n="direction3Text">Educație, tabere, timp liber și abilități de viață.</p></div></article>
-            <article class="directions-card carousel-card" data-direction="4"><img src="assets/images/visual/family-help-owner.jpg" alt="" loading="lazy"><div class="directions-card-copy"><span>04</span><h3 data-i18n="direction4Title">Sprijin pentru familie și relații</h3><p data-i18n="direction4Text">Sprijin pentru părinți, copii și familii aflate în criză.</p></div></article>
-            <article class="directions-card carousel-card" data-direction="5"><img src="assets/images/gallery/gallery-summer-sea.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>05</span><h3 data-i18n="direction5Title">Ajutor umanitar și refugiați</h3><p data-i18n="direction5Text">De la ajutorul de urgență spre stabilitate și integrare.</p></div></article>
-            <article class="directions-card carousel-card" data-direction="6"><img src="assets/images/gallery/gallery-group-work.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>06</span><h3 data-i18n="direction6Title">Educație, abilități și angajare</h3><p data-i18n="direction6Text">Învățare, competențe și sprijin pentru independență.</p></div></article>
-            <article class="directions-card carousel-card" data-direction="7"><img src="assets/images/gallery/gallery-students-visit.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>07</span><h3 data-i18n="direction7Title">Prevenire și informare</h3><p data-i18n="direction7Text">Întâlniri în instituții, școli și comunități.</p></div></article>
-            <article class="directions-card carousel-card" data-direction="8"><img src="assets/images/visual/spaces-main.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>08</span><h3 data-i18n="direction8Title">Ecologie și amenajare</h3><p data-i18n="direction8Text">Copaci, spații îngrijite și implicare în comunitate.</p></div></article>
-            <article class="directions-card carousel-card" data-direction="9"><img src="assets/images/gallery/gallery-group-session.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>09</span><h3 data-i18n="direction9Title">Reabilitare și reintegrare</h3><p data-i18n="direction9Text">Grupuri, sprijin și pregătire pentru viață independentă.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="1" role="button" tabindex="0" aria-pressed="true"><img src="assets/images/directions/social-support.webp" alt="Asistență socială pentru persoane și familii în cadrul Optima Fide" data-i18n-alt="direction1ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>01</span><h3 data-i18n="direction1Title">Asistență socială pentru persoane și familii</h3><p data-i18n="direction1Text">Ajutor material și însoțire socială pentru persoane și familii vulnerabile.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="2" role="button" tabindex="-1" aria-pressed="false"><img src="assets/images/community-walk-premium.webp" alt="Echipă Optima Fide în activitate în comunitate" data-i18n-alt="direction2ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>02</span><h3 data-i18n="direction2Title">Echipe mobile și intervenție în comunitate</h3><p data-i18n="direction2Text">Ajutor care ajunge la oameni acolo unde se află.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="3" role="button" tabindex="-1" aria-pressed="false"><img src="assets/images/directions/children-education.webp" alt="Atelier creativ pentru copii și adulți la Optima Fide" data-i18n-alt="direction3ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>03</span><h3 data-i18n="direction3Title">Copii, adolescenți și educație</h3><p data-i18n="direction3Text">Educație, tabere, timp liber și abilități de viață.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="4" role="button" tabindex="-1" aria-pressed="false"><img src="assets/images/directions/family-support.webp" alt="Copil și adulți într-o activitate de familie la Optima Fide" data-i18n-alt="direction4ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>04</span><h3 data-i18n="direction4Title">Sprijin pentru familie și relații</h3><p data-i18n="direction4Text">Sprijin pentru părinți, copii și familii aflate în criză.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="5" role="button" tabindex="-1" aria-pressed="false"><img src="assets/images/directions/refugee-humanitarian.webp" alt="Ajutor umanitar oferit unei familii la Optima Fide" data-i18n-alt="direction5ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>05</span><h3 data-i18n="direction5Title">Ajutor umanitar și refugiați</h3><p data-i18n="direction5Text">De la ajutorul de urgență spre stabilitate și integrare.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="6" role="button" tabindex="-1" aria-pressed="false"><img src="assets/images/directions/education-skills.webp" alt="Curs de limba română pentru participanții Optima Fide" data-i18n-alt="direction6ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>06</span><h3 data-i18n="direction6Title">Educație, abilități și angajare</h3><p data-i18n="direction6Text">Învățare, competențe și sprijin pentru independență.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="7" role="button" tabindex="-1" aria-pressed="false"><img src="assets/images/gallery/gallery-students-visit.webp" alt="Întâlnire informațională cu elevii la Optima Fide" data-i18n-alt="direction7ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>07</span><h3 data-i18n="direction7Title">Prevenire și informare</h3><p data-i18n="direction7Text">Întâlniri în instituții, școli și comunități.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="8" role="button" tabindex="-1" aria-pressed="false"><img src="assets/images/visual/spaces-main.webp" alt="Spațiu comunitar îngrijit la Optima Fide" data-i18n-alt="direction8ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>08</span><h3 data-i18n="direction8Title">Ecologie și amenajare</h3><p data-i18n="direction8Text">Copaci, spații îngrijite și implicare în comunitate.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="9" role="button" tabindex="-1" aria-pressed="false"><img src="assets/images/gallery/gallery-group-session.webp" alt="Întâlnire de grup pentru reabilitare la Optima Fide" data-i18n-alt="direction9ImageAlt" loading="lazy" decoding="async"><div class="directions-card-copy"><span>09</span><h3 data-i18n="direction9Title">Reabilitare și reintegrare</h3><p data-i18n="direction9Text">Grupuri, sprijin și pregătire pentru viață independentă.</p></div></article>
           </div>
           <button class="carousel-arrow carousel-arrow--next" type="button" data-i18n-aria-label="carouselNext" aria-label="Următor"></button>
           <div class="carousel-dots" aria-label="Direction carousel"></div>
         </div>
         <section class="direction-detail" id="directionDetail" aria-live="polite">
-          <div class="direction-detail-media"><img id="directionDetailImage" src="assets/images/gallery/gallery-community-photo.webp" alt="" loading="lazy"></div>
+          <div class="direction-detail-media"><img id="directionDetailImage" src="assets/images/directions/social-support.webp" alt="Asistență socială pentru persoane și familii în cadrul Optima Fide" data-i18n-alt="direction1ImageAlt" loading="lazy" decoding="async"></div>
           <div class="direction-detail-copy"><div class="eyebrow" id="directionDetailKicker">DIRECȚIA 01</div><h3 id="directionDetailTitle">Asistență socială pentru persoane și familii</h3><p id="directionDetailText">Sprijinim persoanele și familiile afectate de sărăcie, izolare socială sau alte situații dificile de viață. Evaluăm nevoile reale, oferim ajutor material necesar și organizăm suport social ulterior.</p></div>
         </section>
       </div>
@@ -7667,6 +7669,16 @@
       direction9Title: "Rehabilitation and Social Reintegration", direction9Text: "A comprehensive programme with psychological support, peer-to-peer counselling, groups including Pod'yom, family work and preparation for independent living."
     });
 
+    Object.assign(translations.ro, {
+      direction1ImageAlt: "Asistență socială pentru persoane și familii în cadrul Optima Fide", direction2ImageAlt: "Echipă Optima Fide în activitate în comunitate", direction3ImageAlt: "Atelier creativ pentru copii și adulți la Optima Fide", direction4ImageAlt: "Copil și adulți într-o activitate de familie la Optima Fide", direction5ImageAlt: "Ajutor umanitar oferit unei familii la Optima Fide", direction6ImageAlt: "Curs de limba română pentru participanții Optima Fide", direction7ImageAlt: "Întâlnire informațională cu elevii la Optima Fide", direction8ImageAlt: "Spațiu comunitar îngrijit la Optima Fide", direction9ImageAlt: "Întâlnire de grup pentru reabilitare la Optima Fide"
+    });
+    Object.assign(translations.ru, {
+      direction1ImageAlt: "Социальная помощь людям и семьям в Optima Fide", direction2ImageAlt: "Команда Optima Fide в работе с сообществом", direction3ImageAlt: "Творческое занятие детей и взрослых в Optima Fide", direction4ImageAlt: "Ребёнок и взрослые за семейным занятием в Optima Fide", direction5ImageAlt: "Гуманитарная помощь семье в Optima Fide", direction6ImageAlt: "Занятие румынским языком для участников Optima Fide", direction7ImageAlt: "Информационная встреча со школьниками в Optima Fide", direction8ImageAlt: "Ухоженное общественное пространство Optima Fide", direction9ImageAlt: "Групповая встреча по реабилитации в Optima Fide"
+    });
+    Object.assign(translations.en, {
+      direction1ImageAlt: "Social support for individuals and families at Optima Fide", direction2ImageAlt: "Optima Fide team working in the community", direction3ImageAlt: "Creative workshop for children and adults at Optima Fide", direction4ImageAlt: "A child and adults taking part in a family activity at Optima Fide", direction5ImageAlt: "Humanitarian assistance for a family at Optima Fide", direction6ImageAlt: "Romanian language lesson for Optima Fide participants", direction7ImageAlt: "Information meeting with students at Optima Fide", direction8ImageAlt: "Maintained community space at Optima Fide", direction9ImageAlt: "Rehabilitation group meeting at Optima Fide"
+    });
+
     const directionCards = Array.from(document.querySelectorAll("[data-direction]"));
     const directionDetail = document.getElementById("directionDetail");
     const directionDetailImage = document.getElementById("directionDetailImage");
@@ -7674,20 +7686,36 @@
     const directionDetailTitle = document.getElementById("directionDetailTitle");
     const directionDetailText = document.getElementById("directionDetailText");
     let activeDirection = 1;
+    let setDirectionCarousel = null;
     function showDirection(direction, animate = true) {
       activeDirection = Number(direction);
       const dictionary = translations[currentLang] || translations.ro;
       const card = directionCards.find((item) => Number(item.dataset.direction) === activeDirection);
       const image = card?.querySelector("img");
-      directionCards.forEach((item) => item.classList.toggle("is-selected", item === card));
+      directionCards.forEach((item) => {
+        const selected = item === card;
+        item.classList.toggle("is-selected", selected);
+        item.setAttribute("aria-pressed", String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
       directionDetailKicker.textContent = `${dictionary.directionsEyebrow} · ${String(activeDirection).padStart(2, "0")}`;
       directionDetailTitle.textContent = dictionary[`direction${activeDirection}Title`];
       directionDetailText.textContent = dictionary[`direction${activeDirection}Text`];
-      if (image) { directionDetailImage.src = image.currentSrc || image.src; directionDetailImage.alt = dictionary[`direction${activeDirection}Title`]; }
+      if (image) { directionDetailImage.src = image.currentSrc || image.src; directionDetailImage.alt = dictionary[`direction${activeDirection}ImageAlt`] || dictionary[`direction${activeDirection}Title`]; }
       directionDetail.classList.remove("is-changing");
       if (animate && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) { void directionDetail.offsetWidth; directionDetail.classList.add("is-changing"); }
     }
-    directionCards.forEach((card) => card.addEventListener("click", () => showDirection(card.dataset.direction)));
+    directionCards.forEach((card) => {
+      const activate = () => {
+        const index = Number(card.dataset.direction) - 1;
+        if (setDirectionCarousel) setDirectionCarousel(index);
+        else showDirection(card.dataset.direction);
+      };
+      card.addEventListener("click", activate);
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); activate(); }
+      });
+    });
 
     function setLanguage(lang) {
       const dictionary = translations[lang] || translations.ro;
@@ -7845,6 +7873,15 @@
             dot.classList.toggle("is-active", active);
             dot.setAttribute("aria-current", active ? "true" : "false");
           });
+
+          if (carousel.dataset.carousel === "directions") showDirection(activeIndex + 1, false);
+        }
+
+        if (carousel.dataset.carousel === "directions") {
+          setDirectionCarousel = (index) => {
+            activeIndex = normalize(index);
+            render();
+          };
         }
 
         prev?.addEventListener("click", () => {

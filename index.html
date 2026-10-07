@@ -4883,11 +4883,16 @@
     }
     /* End approved homepage V4 */
     /* Directions carousel: inserted directly after the hero. */
-    #directions { padding-block: clamp(70px, 9vw, 118px); overflow: hidden; background: linear-gradient(180deg, rgba(243,239,229,.82), rgba(255,253,247,.96)); }
+    #directions { padding-block: clamp(72px, 7vw, 98px); overflow: hidden; background: linear-gradient(180deg, rgba(243,239,229,.82), rgba(255,253,247,.96)); }
     #directions .section-head { max-width: 780px; margin-inline: auto; text-align: center; }
-    .directions-carousel { margin-top: 34px; }
-    .directions-carousel .carousel-stage { min-height: 360px; }
-    .directions-carousel .directions-card { width: min(390px, 72vw); min-height: 0; aspect-ratio: 4 / 3; overflow: hidden; cursor: pointer; background: var(--of-green-950); }
+    .directions-carousel { width: 100%; max-width: none; margin-top: clamp(30px, 3vw, 42px); padding: clamp(20px, 2.8vw, 36px) 0 26px; border-radius: 32px; }
+    .directions-carousel .carousel-stage { min-height: clamp(360px, 31vw, 420px); touch-action: pan-y; cursor: grab; }
+    .directions-carousel .carousel-stage:active { cursor: grabbing; }
+    .directions-carousel .directions-card { width: min(86%, 1020px); height: clamp(350px, 31vw, 400px); min-height: 0; aspect-ratio: auto; overflow: hidden; cursor: pointer; background: var(--of-green-950); }
+    .directions-carousel .carousel-card.is-prev, .directions-carousel .carousel-card.is-next { opacity: .62; transform: translateX(-89%) scale(.96); filter: saturate(.76) contrast(.98); }
+    .directions-carousel .carousel-card.is-next { transform: translateX(89%) scale(.96); }
+    .directions-carousel .carousel-card.is-far-prev, .directions-carousel .carousel-card.is-far-next { opacity: 0; transform: translateX(-154%) scale(.9); }
+    .directions-carousel .carousel-card.is-far-next { transform: translateX(154%) scale(.9); }
     .directions-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.82) contrast(1.02) brightness(.76); transition: transform .75s cubic-bezier(.2,.75,.2,1), filter .4s ease; }
     .directions-card.is-active img, .directions-card:hover img, .directions-card:focus-visible img { transform: scale(1.055); filter: saturate(.9) contrast(1.02) brightness(.9); }
     .directions-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,35,30,.01) 22%, rgba(11,37,31,.86) 100%); pointer-events: none; }
@@ -4897,7 +4902,7 @@
     .directions-card-copy span { display: inline-grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: rgba(255,255,255,.12); font-size: .72rem; font-weight: 800; letter-spacing: .08em; }
     .directions-card-copy h3 { margin-top: 16px; color: #fffdf7; font-size: clamp(1.35rem, 2vw, 1.9rem); }
     .directions-card-copy p { margin-top: 8px; color: rgba(255,255,255,.86); font-size: .9rem; }
-    .direction-detail { display: grid; grid-template-columns: minmax(280px,.9fr) 1.1fr; margin: 36px auto 0; max-width: 1040px; overflow: hidden; border: 1px solid rgba(28,58,48,.14); border-radius: 28px; background: rgba(255,253,247,.94); box-shadow: 0 26px 80px rgba(18,44,36,.11); }
+    .direction-detail { display: grid; grid-template-columns: minmax(280px,.9fr) 1.1fr; width: 100%; margin: clamp(32px, 3vw, 46px) auto 0; max-width: none; overflow: hidden; border: 1px solid rgba(28,58,48,.14); border-radius: 28px; background: rgba(255,253,247,.94); box-shadow: 0 26px 80px rgba(18,44,36,.11); }
     .direction-detail-media { min-height: 350px; background: var(--of-green-950); }
     .direction-detail-media img { width: 100%; height: 100%; object-fit: cover; }
     .direction-detail-copy { align-self: center; min-height: 350px; display: flex; flex-direction: column; justify-content: center; padding: clamp(28px,5vw,56px); }
@@ -4914,7 +4919,7 @@
     .direction-detail.is-changing .direction-detail-copy p { animation-delay: .08s; }
     @keyframes directionPhoto { from { opacity:.25; transform:scale(1.07) } to { opacity:1; transform:scale(1) } }
     @keyframes directionCopy { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) } }
-    @media (max-width: 720px) { .directions-carousel .carousel-stage { min-height: 340px; } .directions-carousel .directions-card { width: min(100%, 340px); min-height: 0; aspect-ratio: 4 / 3; } .directions-card-copy { padding: 20px; } .directions-card-copy h3 { font-size: 1.25rem; } .direction-detail { grid-template-columns: 1fr; margin-top: 24px; } .direction-detail-media { min-height: 245px; } .direction-detail-copy { min-height: 0; } }
+    @media (max-width: 720px) { .directions-carousel { margin-top: 26px; padding: 16px 0 22px; border-radius: 26px; } .directions-carousel .carousel-stage { min-height: clamp(360px, 112vw, 440px); } .directions-carousel .directions-card { width: calc(100% - 20px); height: clamp(360px, 112vw, 430px); min-height: 0; } .directions-carousel .carousel-card.is-prev, .directions-carousel .carousel-card.is-next { opacity: .62; transform: translateX(-92%) scale(.965); } .directions-carousel .carousel-card.is-next { transform: translateX(92%) scale(.965); } .directions-card-copy { padding: 22px; } .directions-card-copy h3 { font-size: clamp(1.35rem, 6.4vw, 1.8rem); } .directions-card-copy p { font-size: .94rem; } .directions-carousel .carousel-arrow--prev { left: 10px; } .directions-carousel .carousel-arrow--next { right: 10px; } .direction-detail { grid-template-columns: 1fr; margin-top: 26px; } .direction-detail-media { min-height: 245px; } .direction-detail-copy { min-height: 0; } }
   </style>
   <link rel="stylesheet" href="assets/css/recovery-tree.css">
 </head>
@@ -7867,6 +7872,7 @@
         const prev = carousel.querySelector(".carousel-arrow--prev");
         const next = carousel.querySelector(".carousel-arrow--next");
         const dotsWrap = carousel.querySelector(".carousel-dots");
+        const stage = carousel.querySelector(".carousel-stage");
         if (!cards.length) return;
 
         const normalize = (index) => (index + cards.length) % cards.length;
@@ -7884,6 +7890,11 @@
           dotsWrap?.appendChild(dot);
           return dot;
         });
+
+        const moveBy = (delta) => {
+          activeIndex = normalize(activeIndex + delta);
+          render();
+        };
 
         function render() {
           cards.forEach((card) => {
@@ -7915,16 +7926,40 @@
             activeIndex = normalize(index);
             render();
           };
+
+          let pointerStartX = null;
+          stage?.setAttribute("tabindex", "0");
+          stage?.setAttribute("aria-label", "Direction carousel");
+          stage?.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+              event.preventDefault();
+              moveBy(-1);
+            }
+            if (event.key === "ArrowRight") {
+              event.preventDefault();
+              moveBy(1);
+            }
+          });
+          stage?.addEventListener("pointerdown", (event) => {
+            if (!event.isPrimary) return;
+            pointerStartX = event.clientX;
+          });
+          stage?.addEventListener("pointerup", (event) => {
+            if (!event.isPrimary || pointerStartX === null) return;
+            const distance = event.clientX - pointerStartX;
+            pointerStartX = null;
+            if (Math.abs(distance) < 42) return;
+            moveBy(distance < 0 ? 1 : -1);
+          });
+          stage?.addEventListener("pointercancel", () => { pointerStartX = null; });
         }
 
         prev?.addEventListener("click", () => {
-          activeIndex = normalize(activeIndex - 1);
-          render();
+          moveBy(-1);
         });
 
         next?.addEventListener("click", () => {
-          activeIndex = normalize(activeIndex + 1);
-          render();
+          moveBy(1);
         });
 
         render();

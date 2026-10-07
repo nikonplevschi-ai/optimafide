@@ -4857,6 +4857,32 @@
       }
     }
     /* End approved homepage V4 */
+    /* Directions carousel: inserted directly after the hero. */
+    #directions { padding-block: clamp(70px, 9vw, 118px); overflow: hidden; background: linear-gradient(180deg, rgba(243,239,229,.82), rgba(255,253,247,.96)); }
+    #directions .section-head { max-width: 780px; margin-inline: auto; text-align: center; }
+    .directions-carousel { margin-top: 34px; }
+    .directions-carousel .carousel-stage { min-height: 430px; }
+    .directions-carousel .directions-card { overflow: hidden; min-height: 400px; cursor: pointer; background: var(--of-green-950); }
+    .directions-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(1.02) brightness(.76); transition: transform .75s cubic-bezier(.2,.75,.2,1), filter .4s ease; }
+    .directions-card.is-active img, .directions-card:hover img { transform: scale(1.055); filter: saturate(.9) contrast(1.02) brightness(.9); }
+    .directions-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,35,30,.02), rgba(11,37,31,.9)); pointer-events: none; }
+    .directions-card-copy { position: absolute; z-index: 1; inset: auto 0 0; padding: 26px; color: #fffdf7; }
+    .directions-card-copy span { display: inline-grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: rgba(255,255,255,.12); font-size: .72rem; font-weight: 800; letter-spacing: .08em; }
+    .directions-card-copy h3 { margin-top: 16px; color: #fffdf7; font-size: clamp(1.35rem, 2vw, 1.9rem); }
+    .directions-card-copy p { margin-top: 8px; color: rgba(255,255,255,.86); font-size: .9rem; }
+    .direction-detail { display: grid; grid-template-columns: minmax(280px,.9fr) 1.1fr; margin: 36px auto 0; max-width: 1040px; overflow: hidden; border: 1px solid rgba(28,58,48,.14); border-radius: 28px; background: rgba(255,253,247,.94); box-shadow: 0 26px 80px rgba(18,44,36,.11); }
+    .direction-detail-media { min-height: 350px; background: var(--of-green-950); }
+    .direction-detail-media img { width: 100%; height: 100%; object-fit: cover; }
+    .direction-detail-copy { align-self: center; padding: clamp(28px,5vw,56px); }
+    .direction-detail-copy .eyebrow { margin-bottom: 10px; }
+    .direction-detail-copy h3 { font-size: clamp(1.8rem,4vw,3.1rem); }
+    .direction-detail-copy p { margin-top: 16px; color: rgba(16,37,31,.72); }
+    .direction-detail.is-changing .direction-detail-media img { animation: directionPhoto .55s ease both; }
+    .direction-detail.is-changing .direction-detail-copy > * { animation: directionCopy .5s cubic-bezier(.2,.75,.2,1) both; }
+    .direction-detail.is-changing .direction-detail-copy p { animation-delay: .08s; }
+    @keyframes directionPhoto { from { opacity:.25; transform:scale(1.07) } to { opacity:1; transform:scale(1) } }
+    @keyframes directionCopy { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) } }
+    @media (max-width: 720px) { .directions-carousel .carousel-stage { min-height: 400px; } .directions-carousel .directions-card { min-height: 375px; } .direction-detail { grid-template-columns: 1fr; margin-top: 24px; } .direction-detail-media { min-height: 245px; } }
   </style>
   <link rel="stylesheet" href="assets/css/recovery-tree.css">
 </head>
@@ -4917,6 +4943,36 @@
           </div>
           <div class="hero-trust-line" data-i18n="heroTrustLine">Acreditare · 20 locuri · 500+ persoane sprijinite · confidențial</div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="directions" aria-labelledby="directions-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="directionsEyebrow">Direcțiile noastre</div>
+          <h2 id="directions-title" data-i18n="directionsTitle">Direcțiile noastre de activitate</h2>
+          <p data-i18n="directionsLead">Sprijinim persoanele, familiile și comunitățile să depășească situațiile de criză și să își construiască o viață stabilă și independentă.</p>
+        </div>
+        <div class="premium-carousel directions-carousel" data-carousel="directions" data-initial-slide="0">
+          <button class="carousel-arrow carousel-arrow--prev" type="button" data-i18n-aria-label="carouselPrev" aria-label="Anterior"></button>
+          <div class="carousel-stage">
+            <article class="directions-card carousel-card" data-direction="1"><img src="assets/images/gallery/gallery-community-photo.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>01</span><h3 data-i18n="direction1Title">Asistență socială pentru persoane și familii</h3><p data-i18n="direction1Text">Ajutor material și însoțire socială pentru persoane și familii vulnerabile.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="2"><img src="assets/images/community-walk-premium.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>02</span><h3 data-i18n="direction2Title">Echipe mobile și intervenție în comunitate</h3><p data-i18n="direction2Text">Ajutor care ajunge la oameni acolo unde se află.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="3"><img src="assets/images/tourism/excursion-horse-riding.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>03</span><h3 data-i18n="direction3Title">Copii, adolescenți și educație</h3><p data-i18n="direction3Text">Educație, tabere, timp liber și abilități de viață.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="4"><img src="assets/images/visual/family-help-owner.jpg" alt="" loading="lazy"><div class="directions-card-copy"><span>04</span><h3 data-i18n="direction4Title">Sprijin pentru familie și relații</h3><p data-i18n="direction4Text">Sprijin pentru părinți, copii și familii aflate în criză.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="5"><img src="assets/images/gallery/gallery-summer-sea.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>05</span><h3 data-i18n="direction5Title">Ajutor umanitar și refugiați</h3><p data-i18n="direction5Text">De la ajutorul de urgență spre stabilitate și integrare.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="6"><img src="assets/images/gallery/gallery-group-work.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>06</span><h3 data-i18n="direction6Title">Educație, abilități și angajare</h3><p data-i18n="direction6Text">Învățare, competențe și sprijin pentru independență.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="7"><img src="assets/images/gallery/gallery-students-visit.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>07</span><h3 data-i18n="direction7Title">Prevenire și informare</h3><p data-i18n="direction7Text">Întâlniri în instituții, școli și comunități.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="8"><img src="assets/images/visual/spaces-main.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>08</span><h3 data-i18n="direction8Title">Ecologie și amenajare</h3><p data-i18n="direction8Text">Copaci, spații îngrijite și implicare în comunitate.</p></div></article>
+            <article class="directions-card carousel-card" data-direction="9"><img src="assets/images/gallery/gallery-group-session.webp" alt="" loading="lazy"><div class="directions-card-copy"><span>09</span><h3 data-i18n="direction9Title">Reabilitare și reintegrare</h3><p data-i18n="direction9Text">Grupuri, sprijin și pregătire pentru viață independentă.</p></div></article>
+          </div>
+          <button class="carousel-arrow carousel-arrow--next" type="button" data-i18n-aria-label="carouselNext" aria-label="Următor"></button>
+          <div class="carousel-dots" aria-label="Direction carousel"></div>
+        </div>
+        <section class="direction-detail" id="directionDetail" aria-live="polite">
+          <div class="direction-detail-media"><img id="directionDetailImage" src="assets/images/gallery/gallery-community-photo.webp" alt="" loading="lazy"></div>
+          <div class="direction-detail-copy"><div class="eyebrow" id="directionDetailKicker">DIRECȚIA 01</div><h3 id="directionDetailTitle">Asistență socială pentru persoane și familii</h3><p id="directionDetailText">Sprijinim persoanele și familiile afectate de sărăcie, izolare socială sau alte situații dificile de viață. Evaluăm nevoile reale, oferim ajutor material necesar și organizăm suport social ulterior.</p></div>
+        </section>
       </div>
     </section>
 
@@ -7574,6 +7630,65 @@
       }
     ];
 
+    Object.assign(translations.ro, {
+      directionsEyebrow: "Direcțiile noastre", directionsTitle: "Direcțiile noastre de activitate", directionsLead: "Sprijinim persoanele, familiile și comunitățile să depășească situațiile de criză și să își construiască o viață stabilă și independentă.",
+      direction1Title: "Asistență socială pentru persoane și familii", direction1Text: "Ajutor material, consiliere socială și îndrumare pentru persoanele și familiile care trec prin sărăcie, izolare sau alte situații dificile.",
+      direction2Title: "Echipe mobile și intervenție în comunitate", direction2Text: "Specialiștii noștri vizitează familiile și localitățile, evaluează nevoile, oferă consiliere și construiesc un plan de sprijin.",
+      direction3Title: "Copii, adolescenți și educație", direction3Text: "Programe educaționale, tabere de zi și de vară, creativitate, timp liber și abilități de viață pentru copii din familii vulnerabile.",
+      direction4Title: "Sprijin pentru familie și relații", direction4Text: "Lucrăm cu întreaga familie pentru a depăși conflictele, izolarea socială, consecințele dependenței și alte situații de criză.",
+      direction5Title: "Ajutor umanitar și refugiați", direction5Text: "Ajutăm oamenii forțați să își părăsească locuințele cu cazare, hrană, bunuri esențiale, integrare și sprijin pentru angajare.",
+      direction6Title: "Educație, abilități și angajare", direction6Text: "Educație, limba română, competențe digitale, cursuri profesionale, pregătirea CV-ului și orientare spre muncă.",
+      direction7Title: "Prevenire și informare", direction7Text: "Întâlniri informative și motivaționale în instituții narcologice, școli, colegii și comunități, fără a substitui tratamentul medical.",
+      direction8Title: "Ecologie și amenajare", direction8Text: "Plantăm copaci, susținem acțiuni ecologice, lucrări de amenajare și îngrijirea spațiilor comune pentru comunități mai sigure.",
+      direction9Title: "Reabilitare și reintegrare", direction9Text: "Program complex cu sprijin psihologic, consiliere de la egal la egal, grupuri inclusiv „Подъём”, familie și pregătire pentru viață independentă."
+    });
+    Object.assign(translations.ru, {
+      directionsEyebrow: "НАШИ НАПРАВЛЕНИЯ", directionsTitle: "Наши направления деятельности", directionsLead: "Помогаем человеку, семье и сообществу пройти путь от кризиса к устойчивой и самостоятельной жизни.",
+      direction1Title: "Социальная помощь людям и семьям", direction1Text: "Материальная помощь, социальное консультирование и направление к службам для людей и семей в бедности, изоляции и других сложных ситуациях.",
+      direction2Title: "Мобильная помощь и работа в сообществах", direction2Text: "Наши специалисты посещают семьи и населённые пункты, оценивают потребности, консультируют и составляют план поддержки.",
+      direction3Title: "Дети, подростки и образование", direction3Text: "Образовательные программы, дневные и летние лагеря, творчество, досуг и жизненные навыки для детей из уязвимых семей.",
+      direction4Title: "Поддержка семьи и восстановление отношений", direction4Text: "Работаем со всей семьёй, помогая преодолевать конфликты, социальную изоляцию, последствия зависимости и другие кризисы.",
+      direction5Title: "Гуманитарная помощь и поддержка беженцев", direction5Text: "Помогаем людям, вынужденно покинувшим дом: жильё, питание, необходимые вещи, интеграция и помощь в трудоустройстве.",
+      direction6Title: "Обучение, навыки и трудоустройство", direction6Text: "Образование, румынский язык, компьютерные навыки, профессиональные курсы, подготовка CV и ориентация на рынке труда.",
+      direction7Title: "Профилактика и информационная работа", direction7Text: "Информационные и мотивационные встречи в наркологических учреждениях, школах, колледжах и сообществах — без подмены медицинского лечения.",
+      direction8Title: "Экология и благоустройство территории", direction8Text: "Сажаем деревья, проводим экологические акции, участвуем в благоустройстве и уходе за общими пространствами для более безопасных сообществ.",
+      direction9Title: "Реабилитация и социальная реинтеграция", direction9Text: "Комплексная программа: психологическая помощь, консультирование «равный — равному», группы, включая «Подъём», семья и подготовка к самостоятельной жизни."
+    });
+    Object.assign(translations.en, {
+      directionsEyebrow: "OUR AREAS OF WORK", directionsTitle: "Our Areas of Work", directionsLead: "We support individuals, families and communities in moving from crisis toward a stable and independent life.",
+      direction1Title: "Social Support for Individuals and Families", direction1Text: "Material assistance, social counselling and referral to services for people and families facing poverty, isolation and other difficult circumstances.",
+      direction2Title: "Mobile Teams and Community Outreach", direction2Text: "Our specialists visit families and communities, assess needs, provide counselling and develop a practical support plan.",
+      direction3Title: "Children, Youth and Education", direction3Text: "Educational programmes, day and summer camps, creativity, leisure and life skills for children from vulnerable families.",
+      direction4Title: "Family Support and Restoring Relationships", direction4Text: "We work with the whole family to address conflict, social isolation, the consequences of addiction and other crises.",
+      direction5Title: "Humanitarian Aid and Refugee Support", direction5Text: "We support people forced to leave home with accommodation, food, essential goods, integration and employment assistance.",
+      direction6Title: "Education, Skills and Employment", direction6Text: "Education, Romanian language learning, digital skills, vocational courses, CV preparation and employment orientation.",
+      direction7Title: "Prevention and Awareness", direction7Text: "Informational and motivational meetings in addiction treatment facilities, schools, colleges and communities, without replacing medical treatment.",
+      direction8Title: "Ecology and Community Improvement", direction8Text: "We plant trees, organise environmental actions, improve shared spaces and help communities create safer surroundings.",
+      direction9Title: "Rehabilitation and Social Reintegration", direction9Text: "A comprehensive programme with psychological support, peer-to-peer counselling, groups including Pod'yom, family work and preparation for independent living."
+    });
+
+    const directionCards = Array.from(document.querySelectorAll("[data-direction]"));
+    const directionDetail = document.getElementById("directionDetail");
+    const directionDetailImage = document.getElementById("directionDetailImage");
+    const directionDetailKicker = document.getElementById("directionDetailKicker");
+    const directionDetailTitle = document.getElementById("directionDetailTitle");
+    const directionDetailText = document.getElementById("directionDetailText");
+    let activeDirection = 1;
+    function showDirection(direction, animate = true) {
+      activeDirection = Number(direction);
+      const dictionary = translations[currentLang] || translations.ro;
+      const card = directionCards.find((item) => Number(item.dataset.direction) === activeDirection);
+      const image = card?.querySelector("img");
+      directionCards.forEach((item) => item.classList.toggle("is-selected", item === card));
+      directionDetailKicker.textContent = `${dictionary.directionsEyebrow} · ${String(activeDirection).padStart(2, "0")}`;
+      directionDetailTitle.textContent = dictionary[`direction${activeDirection}Title`];
+      directionDetailText.textContent = dictionary[`direction${activeDirection}Text`];
+      if (image) { directionDetailImage.src = image.currentSrc || image.src; directionDetailImage.alt = dictionary[`direction${activeDirection}Title`]; }
+      directionDetail.classList.remove("is-changing");
+      if (animate && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) { void directionDetail.offsetWidth; directionDetail.classList.add("is-changing"); }
+    }
+    directionCards.forEach((card) => card.addEventListener("click", () => showDirection(card.dataset.direction)));
+
     function setLanguage(lang) {
       const dictionary = translations[lang] || translations.ro;
       currentLang = lang;
@@ -7592,6 +7707,7 @@
       });
       languageLinks.forEach((link) => link.classList.toggle("active", link.dataset.lang === lang));
       localStorage.setItem("optimaLang", lang);
+      showDirection(activeDirection, false);
       if (typeof refreshCarouselLabels === "function") refreshCarouselLabels();
       if (renderQiwiGuideStep) renderQiwiGuideStep();
     }

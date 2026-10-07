@@ -2844,17 +2844,18 @@
     main { display: flex; flex-direction: column; }
     main > * { order: 20; }
     main > .hero { order: 1; }
-    #consultatie { order: 2; }
-    #weekend-together { order: 3; }
-    #admission { order: 4; }
-    #trust, #acreditare { order: 5; }
+    #directions { order: 2; }
+    #consultatie { order: 3; }
+    #weekend-together { order: 4; }
+    #admission { order: 5; }
+    #trust, #acreditare { order: 6; }
     .section-anchor { display: block; height: 0; scroll-margin-top: 96px; }
-    #life-center, #recovery-spaces { order: 6; }
-    #visual-program, #program { order: 7; }
-    #familie { order: 8; }
-    #oferte-pdf { order: 9; }
-    #donatii { order: 10; }
-    #faq { order: 11; }
+    #life-center, #recovery-spaces { order: 7; }
+    #visual-program, #program { order: 8; }
+    #familie { order: 9; }
+    #oferte-pdf { order: 10; }
+    #donatii { order: 11; }
+    #faq { order: 12; }
     #contacte { order: 30; }
     #partners { order: 31; }
     .nav-actions > .btn.gold { white-space: nowrap; min-width: 132px; padding-inline: 18px; }
@@ -4879,6 +4880,11 @@
     .direction-detail-copy .eyebrow { margin-bottom: 10px; }
     .direction-detail-copy h3 { font-size: clamp(1.8rem,4vw,3.1rem); }
     .direction-detail-copy p { margin-top: 16px; color: rgba(16,37,31,.72); }
+    @media (min-width: 721px) {
+      .direction-detail,
+      .direction-detail-media,
+      .direction-detail-copy { min-height: 450px; }
+    }
     .direction-detail.is-changing .direction-detail-media img { animation: directionPhoto .55s ease both; }
     .direction-detail.is-changing .direction-detail-copy > * { animation: directionCopy .5s cubic-bezier(.2,.75,.2,1) both; }
     .direction-detail.is-changing .direction-detail-copy p { animation-delay: .08s; }

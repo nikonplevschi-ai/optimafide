@@ -52,15 +52,40 @@ def main() -> int:
             "https://www.facebook.com/profile.php?id=100064660152285",
             "https://www.paypal.com/ncp/payment/LP4324XXE6824",
             'class="section impact-section"',
+            'data-impact-animation',
+            'data-impact-card',
             'data-i18n="impactTitle"',
             'data-i18n="impact1Number"',
             'data-i18n="impact2Number"',
+            'data-i18n="impact3Number"',
+            'data-i18n="impact4Number"',
             'data-i18n="impactNote"',
-            "600+",
-            "19 000+",
+            'data-count-to="1107"',
+            'data-count-to="4988"',
+            'data-count-to="4012"',
+            'data-count-to="2786"',
+            'threshold: .25',
+            'prefers-reduced-motion: reduce',
         ):
             if required not in html:
                 errors.append(f"missing required site marker: {required}")
+
+        for forbidden_statistic in (
+            "19 000+",
+            "19,000+",
+            "600+",
+            "500+ persoane sprijinite",
+            "500+ человек получили помощь",
+            "500+ people supported",
+            "2 786 групповых терапий",
+            "19 142",
+            "15 300",
+            "18 495",
+            "10 031",
+            "8 968",
+        ):
+            if forbidden_statistic in html:
+                errors.append(f"conflicting statistic remains: {forbidden_statistic}")
 
         for removed_marker in (
             "PDF materials",

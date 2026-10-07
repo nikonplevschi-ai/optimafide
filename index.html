@@ -984,7 +984,7 @@
     }
     .impact-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
       margin-top: clamp(30px, 4vw, 44px);
     }
@@ -998,6 +998,25 @@
       border: 1px solid rgba(36, 58, 48, .11);
       border-radius: 20px;
       background: rgba(255, 253, 247, .88);
+      box-shadow: 0 18px 54px rgba(18, 44, 36, .08);
+    }
+    [data-impact-card] {
+      opacity: 0;
+      transform: translateX(var(--impact-enter-x, -100px)) scale(.96);
+      box-shadow: 0 10px 30px rgba(18, 44, 36, .05);
+      transition:
+        opacity 720ms cubic-bezier(.2,.8,.2,1),
+        transform 720ms cubic-bezier(.2,.8,.2,1),
+        box-shadow 720ms cubic-bezier(.2,.8,.2,1);
+      transition-delay: var(--impact-delay, 0ms);
+      will-change: opacity, transform, box-shadow;
+    }
+    [data-impact-card]:nth-child(even) {
+      --impact-enter-x: 100px;
+    }
+    [data-impact-animation].is-impact-visible [data-impact-card] {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
       box-shadow: 0 18px 54px rgba(18, 44, 36, .08);
     }
     .impact-number {
@@ -1034,6 +1053,10 @@
       }
       .impact-card {
         min-height: 0;
+      }
+      [data-impact-card],
+      [data-impact-card]:nth-child(even) {
+        transform: translateY(44px) scale(.96);
       }
     }
     .team-grid {
@@ -2028,6 +2051,7 @@
       }
       [data-reveal],
       .reveal-on-scroll,
+      [data-impact-card],
       .qiwi-guide-modal__dialog {
         opacity: 1 !important;
         transform: none !important;
@@ -4221,7 +4245,7 @@
       background: rgba(255,250,241,.9);
     }
     #oferte-pdf .impact-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
     #oferte-pdf .impact-card {
       border-radius: 20px;
@@ -4949,7 +4973,7 @@
               <a class="btn hero-secondary" href="#" data-contact-modal data-i18n="telegramCta">Scrie în Telegram</a>
             </div>
           </div>
-          <div class="hero-trust-line" data-i18n="heroTrustLine">Acreditare · 20 locuri · 500+ persoane sprijinite · confidențial</div>
+          <div class="hero-trust-line" data-i18n="heroTrustLine">Acreditare de stat · sprijin pentru familie · confidențial</div>
         </div>
       </div>
     </section>
@@ -5283,17 +5307,6 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="stats-row" data-reveal>
-          <div class="stat"><strong><span class="count-up" data-count-to="19000" data-count-format="space" data-count-suffix="+">19 000+</span></strong><span data-i18n="statConsult">consultații acordate</span></div>
-          <div class="stat"><strong><span class="count-up" data-count-to="500" data-count-suffix="+">500+</span></strong><span data-i18n="statPeople">persoane au primit ajutor</span></div>
-          <div class="stat"><strong>10+</strong><span data-i18n="statYears">ani de experiență</span></div>
-          <div class="stat"><strong><span class="count-up" data-count-to="20">20</span></strong><span data-i18n="statPlaces">locuri rezidențiale</span></div>
-        </div>
-      </div>
-    </section>
-
     <section class="recovery-tree-section" id="growth" aria-labelledby="growth-title">
       <div class="recovery-tree-shell" data-reveal>
         <div class="recovery-tree-copy">
@@ -5481,31 +5494,36 @@
       </div>
     </section>
 
-    <section class="section impact-section" id="oferte-pdf" aria-labelledby="impact-title">
+    <section class="section impact-section" id="oferte-pdf" aria-labelledby="impact-title" data-impact-animation>
       <div class="container impact-shell">
         <div class="section-head impact-head" data-reveal>
-          <div class="eyebrow" data-i18n="impactEyebrow">Din 2014</div>
-          <h2 id="impact-title" data-i18n="impactTitle">Experiență care ajută oamenii să înceapă din nou</h2>
-          <p data-i18n="impactLead">De-a lungul anilor, centrul Optima Fide a însoțit oameni și familii în situații dificile, ajutându-i să parcurgă un drum de recuperare, responsabilitate și revenire la viață.</p>
+          <div class="eyebrow" data-i18n="impactEyebrow">OPTIMA FIDE ÎN CIFRE</div>
+          <h2 id="impact-title" data-i18n="impactTitle">Optima Fide în cifre</h2>
+          <p data-i18n="impactLead">Date confirmate din jurnalul unificat de activitate.</p>
         </div>
         <div class="impact-grid">
-          <article class="impact-card" data-reveal>
-            <div class="impact-number" data-i18n="impact1Number">600+</div>
-            <h3 data-i18n="impact1Title">cazuri de sprijin în reabilitare</h3>
-            <p data-i18n="impact1Text">Oameni care au parcurs un drum de recuperare, cazare, acompaniere și revenire treptată la responsabilitate.</p>
+          <article class="impact-card" data-impact-card style="--impact-delay:0ms">
+            <div class="impact-number count-up" data-i18n="impact1Number" data-count-to="1107" data-count-format="impact">1 107</div>
+            <h3 data-i18n="impact1Title">Beneficiari unici</h3>
+            <p data-i18n="impact1Text">1 107 persoane au primit ajutor, însoțire și sprijin în programele Optima Fide.</p>
           </article>
-          <article class="impact-card" data-reveal>
-            <div class="impact-number" data-i18n="impact2Number">19 000+</div>
-            <h3 data-i18n="impact2Title">consultații</h3>
-            <p data-i18n="impact2Text">Consultații individuale, familiale și inițiale pe întreaga perioadă de activitate a centrului.</p>
+          <article class="impact-card" data-impact-card style="--impact-delay:160ms">
+            <div class="impact-number count-up" data-i18n="impact2Number" data-count-to="4988" data-count-format="impact">4 988</div>
+            <h3 data-i18n="impact2Title">Servicii și cazuri de asistență documentate</h3>
+            <p data-i18n="impact2Text">4 988 servicii, consultații, activități și cazuri de asistență documentate.</p>
           </article>
-          <article class="impact-card" data-reveal>
-            <div class="impact-number" data-i18n="impact3Number">din 2014</div>
-            <h3 data-i18n="impact3Title">activitate continuă</h3>
-            <p data-i18n="impact3Text">Experiența echipei, ritmul zilnic al centrului, sprijinul pentru familie și acompanierea participanților la program.</p>
+          <article class="impact-card" data-impact-card style="--impact-delay:320ms">
+            <div class="impact-number count-up" data-i18n="impact3Number" data-count-to="4012" data-count-format="impact">4 012</div>
+            <h3 data-i18n="impact3Title">Servicii de reabilitare</h3>
+            <p data-i18n="impact3Text">4 012 servicii documentate în programele de reabilitare și resocializare.</p>
+          </article>
+          <article class="impact-card" data-impact-card style="--impact-delay:480ms">
+            <div class="impact-number count-up" data-i18n="impact4Number" data-count-to="2786" data-count-format="impact">2 786</div>
+            <h3 data-i18n="impact4Title">Participări în activități de grup</h3>
+            <p data-i18n="impact4Text">2 786 participări înregistrate la activități de grup, consultații și alte forme de lucru în grup.</p>
           </article>
         </div>
-        <p class="impact-note" data-i18n="impactNote">Aceste cifre reflectă experiența generală a centrului și nu reprezintă o promisiune a unui rezultat individual.</p>
+        <p class="impact-note" data-i18n="impactNote">Datele se bazează pe jurnalul unificat de activitate Optima Fide și sunt confirmate de registrele primare și documentația de proiect. Data de referință: 07.10.2026.</p>
       </div>
     </section>
 
@@ -6600,19 +6618,22 @@
       tourism5Title: "Parc și bănci", tourism5Text: "Plimbări, calm și odihnă simplă într-un spațiu verde.",
       tourism6Title: "Ieșiri individuale", tourism6Text: "Prin acord prealabil, ținând cont de starea participantului și regulile programului.",
       optionalNoticeTitle: "Important", optionalNoticeText: "Unele aspecte suplimentare se discută individual în timpul consultației.",
-      impactEyebrow: "Din 2014",
-      impactTitle: "Experiență care ajută oamenii să înceapă din nou",
-      impactLead: "De-a lungul anilor, centrul Optima Fide a însoțit oameni și familii în situații dificile, ajutându-i să parcurgă un drum de recuperare, responsabilitate și revenire la viață.",
-      impact1Number: "600+",
-      impact1Title: "cazuri de sprijin în reabilitare",
-      impact1Text: "Oameni care au parcurs un drum de recuperare, cazare, acompaniere și revenire treptată la responsabilitate.",
-      impact2Number: "19 000+",
-      impact2Title: "consultații",
-      impact2Text: "Consultații individuale, familiale și inițiale pe întreaga perioadă de activitate a centrului.",
-      impact3Number: "din 2014",
-      impact3Title: "activitate continuă",
-      impact3Text: "Experiența echipei, ritmul zilnic al centrului, sprijinul pentru familie și acompanierea participanților la program.",
-      impactNote: "Aceste cifre reflectă experiența generală a centrului și nu reprezintă o promisiune a unui rezultat individual.",
+      impactEyebrow: "OPTIMA FIDE ÎN CIFRE",
+      impactTitle: "Optima Fide în cifre",
+      impactLead: "Date confirmate din jurnalul unificat de activitate.",
+      impact1Number: "1 107",
+      impact1Title: "Beneficiari unici",
+      impact1Text: "1 107 persoane au primit ajutor, însoțire și sprijin în programele Optima Fide.",
+      impact2Number: "4 988",
+      impact2Title: "Servicii și cazuri de asistență documentate",
+      impact2Text: "4 988 servicii, consultații, activități și cazuri de asistență documentate.",
+      impact3Number: "4 012",
+      impact3Title: "Servicii de reabilitare",
+      impact3Text: "4 012 servicii documentate în programele de reabilitare și resocializare.",
+      impact4Number: "2 786",
+      impact4Title: "Participări în activități de grup",
+      impact4Text: "2 786 participări înregistrate la activități de grup, consultații și alte forme de lucru în grup.",
+      impactNote: "Datele se bazează pe jurnalul unificat de activitate Optima Fide și sunt confirmate de registrele primare și documentația de proiect. Data de referință: 07.10.2026.",
       teamFunctionTudor: "Oferă sprijin de la egal la egal bazat pe experiență și înțelegere.",
       voicesEyebrow: "Voci anonime",
       voicesTitle: "Oamenii vorbesc despre liniște, ordine și sprijin",
@@ -6672,19 +6693,22 @@
       tourism5Title: "Парк и лавочки", tourism5Text: "Прогулки, спокойствие и простой отдых в зелёном пространстве.",
       tourism6Title: "Индивидуальные выезды", tourism6Text: "Маршруты обсуждаются индивидуально с учётом состояния участника и правил программы.",
       optionalNoticeTitle: "Важно", optionalNoticeText: "Некоторые дополнительные вопросы обсуждаются индивидуально во время консультации.",
-      impactEyebrow: "С 2014 года",
-      impactTitle: "Опыт, который помогает людям начинать заново",
-      impactLead: "За годы работы центр Optima Fide сопровождал людей и семьи в сложных жизненных ситуациях, помогая пройти путь восстановления, ответственности и возвращения к жизни.",
-      impact1Number: "600+",
-      impact1Title: "случаев реабилитационной помощи",
-      impact1Text: "Люди проходили путь восстановления, проживания, сопровождения и постепенного возвращения к ответственности.",
-      impact2Number: "19 000+",
-      impact2Title: "консультаций",
-      impact2Text: "Индивидуальные, семейные и первичные консультации за весь период работы центра.",
-      impact3Number: "с 2014 года",
-      impact3Title: "постоянной работы",
-      impact3Text: "Опыт команды, ежедневный ритм центра, поддержка семьи и сопровождение участников программы.",
-      impactNote: "Эти цифры отражают общий опыт работы центра и не являются обещанием индивидуального результата.",
+      impactEyebrow: "OPTIMA FIDE В ЦИФРАХ",
+      impactTitle: "Optima Fide в цифрах",
+      impactLead: "Подтверждённые данные из унифицированного журнала деятельности.",
+      impact1Number: "1 107",
+      impact1Title: "Уникальных бенефициаров",
+      impact1Text: "1 107 человек получили помощь, сопровождение и поддержку в программах Optima Fide.",
+      impact2Number: "4 988",
+      impact2Title: "Подтвержденных услуг и событий помощи",
+      impact2Text: "4 988 документированных услуг, консультаций, мероприятий и случаев оказания помощи.",
+      impact3Number: "4 012",
+      impact3Title: "Услуг реабилитации",
+      impact3Text: "4 012 документированных услуг в программах реабилитации и ресоциализации.",
+      impact4Number: "2 786",
+      impact4Title: "Участий в групповом формате работы",
+      impact4Text: "2 786 зарегистрированных участий в групповом формате работы, консультациях и других формах групповой работы.",
+      impactNote: "Данные основаны на унифицированном журнале деятельности Optima Fide и подтверждены первичными регистрами и проектной документацией. Срез данных: 07.10.2026.",
       teamFunctionTudor: "Оказывает поддержку «равный равному», основанную на опыте и понимании.",
       voicesEyebrow: "Анонимные истории",
       voicesTitle: "Люди говорят о спокойствии, порядке и поддержке",
@@ -6739,19 +6763,22 @@
       tourism5Title: "Park and benches", tourism5Text: "Walks, calm and simple rest in a green space.",
       tourism6Title: "Individual outings", tourism6Text: "By prior agreement, considering participant condition and program rules.",
       optionalNoticeTitle: "Important", optionalNoticeText: "Some additional matters are discussed individually during consultation.",
-      impactEyebrow: "Since 2014",
-      impactTitle: "Experience that helps people begin again",
-      impactLead: "Over the years, Optima Fide has accompanied people and families through difficult life situations, helping them move toward recovery, responsibility and a return to life.",
-      impact1Number: "600+",
-      impact1Title: "rehabilitation support cases",
-      impact1Text: "People have gone through recovery, residential support, accompaniment and a gradual return to responsibility.",
-      impact2Number: "19,000+",
-      impact2Title: "consultations",
-      impact2Text: "Individual, family and first-step consultations throughout the center’s years of work.",
-      impact3Number: "since 2014",
-      impact3Title: "continuous work",
-      impact3Text: "The experience of the team, the daily rhythm of the center, family support and accompaniment of program participants.",
-      impactNote: "These figures reflect the center’s overall experience and are not a promise of an individual result.",
+      impactEyebrow: "OPTIMA FIDE IN NUMBERS",
+      impactTitle: "Optima Fide in numbers",
+      impactLead: "Confirmed data from the unified activity log.",
+      impact1Number: "1,107",
+      impact1Title: "Unique beneficiaries",
+      impact1Text: "1,107 people received help, accompaniment and support through Optima Fide programmes.",
+      impact2Number: "4,988",
+      impact2Title: "Documented services and assistance events",
+      impact2Text: "4,988 documented services, consultations, activities and assistance events.",
+      impact3Number: "4,012",
+      impact3Title: "Rehabilitation services",
+      impact3Text: "4,012 documented services in rehabilitation and resocialization programmes.",
+      impact4Number: "2,786",
+      impact4Title: "Participations in group work",
+      impact4Text: "2,786 recorded participations in group activities, consultations and other forms of group work.",
+      impactNote: "The data are based on the Optima Fide unified activity log and confirmed by primary registers and project documentation. Data cut-off: 07.10.2026.",
       teamFunctionTudor: "Provides peer-to-peer support grounded in experience and understanding.",
       voicesEyebrow: "Anonymous stories",
       voicesTitle: "People speak about calm, order and support",
@@ -6908,7 +6935,7 @@
       heroLead: "Program rezidențial de recuperare: cazare, masă, ritm zilnic, comunitate terapeutică și sprijin pentru familie.",
       heroConsult: "Solicită o consultație",
       telegramCta: "Scrie în Telegram",
-      heroTrustLine: "Acreditare · 20 locuri · 500+ persoane sprijinite · confidențial",
+      heroTrustLine: "Acreditare de stat · sprijin pentru familie · confidențial",
       heroImageAlt: "Centrul rezidențial Optima Fide din Goianul Nou"
     });
     Object.assign(translations.ru, {
@@ -6921,7 +6948,7 @@
       heroLead: "Резиденциальная программа восстановления: проживание, питание, ежедневный ритм, сообщество и поддержка семьи.",
       heroConsult: "Запросить консультацию",
       telegramCta: "Написать в Telegram",
-      heroTrustLine: "Аккредитация · 20 мест · 500+ человек получили помощь · конфиденциально",
+      heroTrustLine: "Государственная аккредитация · поддержка семьи · конфиденциально",
       heroImageAlt: "Резиденциальный центр Optima Fide в Goianul Nou"
     });
     Object.assign(translations.en, {
@@ -6934,7 +6961,7 @@
       heroLead: "A residential recovery program with accommodation, meals, daily rhythm, community support and family guidance.",
       heroConsult: "Request a consultation",
       telegramCta: "Write on Telegram",
-      heroTrustLine: "Accredited · 20 residential places · 500+ people supported · confidential",
+      heroTrustLine: "State accredited · family support · confidential",
       heroImageAlt: "Optima Fide residential center in Goianul Nou"
     });
 
@@ -8383,7 +8410,10 @@
 
       const formatNumber = (value, format) => {
         const rounded = Math.round(value).toString();
-        return format === "space" ? rounded.replace(/\B(?=(\d{3})+(?!\d))/g, " ") : rounded;
+        const separator = format === "impact" && document.documentElement.lang === "en" ? "," : " ";
+        return format === "space" || format === "impact"
+          ? rounded.replace(/\B(?=(\d{3})+(?!\d))/g, separator)
+          : rounded;
       };
 
       const animateCounter = (counter) => {
@@ -8414,8 +8444,38 @@
         window.requestAnimationFrame(tick);
       };
 
+      const impactSection = document.querySelector("[data-impact-animation]");
+      const impactCounters = impactSection
+        ? Array.from(impactSection.querySelectorAll(".count-up"))
+        : [];
+      const standardCounters = Array.from(counters).filter((counter) => !impactCounters.includes(counter));
+      const revealImpact = () => {
+        if (!impactSection) return;
+        impactSection.classList.add("is-impact-visible");
+        impactCounters.forEach(animateCounter);
+      };
+
+      if (prefersReducedMotion) {
+        revealImpact();
+        standardCounters.forEach(animateCounter);
+        return;
+      }
+
+      if (impactSection && "IntersectionObserver" in window) {
+        const impactObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            revealImpact();
+            impactObserver.unobserve(entry.target);
+          });
+        }, { threshold: .25 });
+        impactObserver.observe(impactSection);
+      } else {
+        revealImpact();
+      }
+
       if (!("IntersectionObserver" in window)) {
-        counters.forEach(animateCounter);
+        standardCounters.forEach(animateCounter);
         return;
       }
 
@@ -8427,7 +8487,7 @@
         });
       }, { threshold: .5 });
 
-      counters.forEach((counter) => counterObserver.observe(counter));
+      standardCounters.forEach((counter) => counterObserver.observe(counter));
     })();
 
     const heroSection = document.querySelector(".hero");

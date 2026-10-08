@@ -45,6 +45,25 @@ def main() -> int:
             if lang not in html:
                 errors.append(f"missing translation block: {lang}")
 
+        direction_numbers = re.findall(
+            r'<article class="directions-card carousel-card" data-direction="(\d+)"',
+            html,
+        )
+        if direction_numbers != [str(number) for number in range(1, 11)]:
+            errors.append("directions carousel must contain exactly directions 1 through 10")
+
+        for required_direction_marker in (
+            'assets/images/directions/mobile-community-support.webp',
+            'assets/images/directions/social-services-information.webp',
+            'data-direction="10"',
+            'data-i18n="direction8Title"',
+            'data-i18n="direction10Title"',
+            'direction8Detail:',
+            'direction10ImageAlt:',
+        ):
+            if required_direction_marker not in html:
+                errors.append(f"missing directions update marker: {required_direction_marker}")
+
         for required in (
             "https://t.me/optimafide_bot",
             "https://wa.me/37379002064",
